@@ -2,7 +2,7 @@ const initialState = {
     services: []
 }
 
-function roortReducer(state = initialState, action) {
+function rootReducer(state = initialState, action) {
     switch (action.type) {
         case algo:
             return {
@@ -13,4 +13,4 @@ function roortReducer(state = initialState, action) {
     }
 }
 
-export default roortReducer;
+export default rootReducer;
