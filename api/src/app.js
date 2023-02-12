@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const dotenv = require("dotenv");
