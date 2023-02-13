@@ -1,4 +1,4 @@
-const {getAllCategories} = require("../controllers/categoriesController");
+const {getAllCategories, createCategory} = require("../controllers/categoriesController");
 
 const getCategoriesHandler = async (req, res) => {
   try {
@@ -14,4 +14,18 @@ const getCategoriesHandler = async (req, res) => {
   }
 };
 
-module.exports = {getCategoriesHandler};
+const postCategoryHandler = async (req, res) => {
+  try {
+    const categoriesResults = await createCategory(req.body);
+    res
+      .status(201)
+      .json({
+        message: "Category created succesfully",
+        created: categoriesResults,
+      });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = {getCategoriesHandler, postCategoryHandler};
