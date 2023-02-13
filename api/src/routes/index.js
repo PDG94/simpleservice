@@ -1,9 +1,9 @@
 const {Router} = require('express');
-//require routes here
+const servicesRouter =require('./servicesRouter')
 
 const router = Router();
 
-// router.use('/services', put imported route function here );
+router.use('/services', servicesRouter);
 
 // router.use('/users', put imported route function here);
 
