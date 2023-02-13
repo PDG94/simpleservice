@@ -1,7 +1,9 @@
 const {Router} = require('express');
-const servicesRouter =require('./servicesRouter')
-const usersRouter = require("./usersRouter")
-const categoriesRouter = require("./categoriesRouter")
+// const servicesRouter =require('./routers/servicesRouter')
+// const usersRouter = require("./routers/usersRouter")
+// const categoriesRouter = require("./routers/categoriesRouter")
+
+const {categoriesRouter, usersRouter,servicesRouter} = require("./routers/index")
 
 const router = Router();
 

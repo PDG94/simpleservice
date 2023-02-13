@@ -1,4 +1,4 @@
-const {getAllUsers} = require("../controllers/usersController")
+const {getAllUsers, createUser} = require("../controllers/usersController")
 
 
 const getUsersHandler = async(req,res) =>{
@@ -12,10 +12,19 @@ const getUsersHandler = async(req,res) =>{
         }
     } catch (error) {
         res.status(404).send({error: error.message})
+    } 
+}
+
+const postUserHandler = async(req,res) =>{
+    try {
+        const postUser = await createUser(req.body);
+        res.status(200).json({message : " User created successfully", created: postUser})
+    } catch (error) {
+        res.status(400).json({error: message.error})
     }
-    
 }
 
 module.exports = {
-    getUsersHandler
+    getUsersHandler,
+    postUserHandler
 }
