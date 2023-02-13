@@ -14,4 +14,8 @@ const getServicesHandler = async (req, res) => {
   }
 };
 
-module.exports = {getServicesHandler};
+const postServiceHandler = async (req, res) =>{
+
+}
+
+module.exports = {getServicesHandler, postServiceHandler};
