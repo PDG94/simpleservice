@@ -1,19 +1,20 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define('Service', {
         id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
+            defaultValue: UUIDV4,
             primaryKey: true,
         },
         name:{
             type: DataTypes.STRING,
         },
         image:{
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         description:{
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         price:{
             type: DataTypes.FLOAT,
@@ -22,5 +23,7 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         }
+    }, {
+        timestamps: false,
     })
 }
