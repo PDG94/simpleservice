@@ -1,16 +1,14 @@
 const initialState = {
-    services: []
-}
+  services: [],
+};
 
 function rootReducer(state = initialState, action) {
-    switch (action.type) {
-        case algo:
-            return {
-
-            }
-        default: 
-        return { ...state};
-    }
+  /*   switch (action.type) {
+    case algo:
+      return {};
+    default:
+      return { ...state };
+  } */
 }
 
 export default rootReducer;
