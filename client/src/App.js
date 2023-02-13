@@ -1,5 +1,6 @@
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./view/Home/Home";
 
 function App() {
   return (
@@ -7,12 +8,12 @@ function App() {
       {" "}
       {/* inyecta propiedades a nuesto componente para acceder al historial de navegacion */}
       <div className="App">
-        <Switch>
+        <Routes>
           {" "}
           {/* permite navegar de ruta a ruta es buena practica aplicarlo*/}
-          <Route exact path="/" component={Home} />{" "}
+          <Route exact path="/" element={<Home />} />{" "}
           {/* componente que utilizamos para crear nuestras rutas a otras paginas*/}
-        </Switch>
+        </Routes>
       </div>
     </BrowserRouter>
   );
