@@ -2,11 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const dotenv = require("dotenv");
-const passport = require("passport");
-//const session = require("express-session");
+//const passport = require("passport");
 require("./db.js");
-//commented for path problem
-// require("./middlewares/passport");
 const server = express();
 const cors = require("cors");
 dotenv.config();
