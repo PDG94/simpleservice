@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
         },
         name:{
             type: DataTypes.STRING,
+            allowNull: false,
         },
         image:{
             type: DataTypes.TEXT,
@@ -18,6 +19,7 @@ module.exports = (sequelize) => {
         },
         price:{
             type: DataTypes.FLOAT,
+            allowNull: false,
         },
         active:{
             type: DataTypes.BOOLEAN,
