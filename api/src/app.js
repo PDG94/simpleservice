@@ -5,7 +5,8 @@ const dotenv = require("dotenv");
 const passport = require("passport");
 //const session = require("express-session");
 require("./db.js");
-require("./middlewares/passport");
+//commented for path problem
+// require("./middlewares/passport");
 const server = express();
 const cors = require("cors");
 dotenv.config();
@@ -16,7 +17,8 @@ server.name = "API";
 server.use(cors());
 //server.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 server.use(express.json());
-server.use(cookieParser());
+//commented because no cookieParser
+// server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(passport.initialize());
 server.use((req, res, next) => {
