@@ -1,4 +1,7 @@
-const { getAllServices } = require("../controllers/servicesController");
+const {
+  getAllServices,
+  createService,
+} = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
   try {
@@ -14,8 +17,18 @@ const getServicesHandler = async (req, res) => {
   }
 };
 
-const postServiceHandler = async (req, res) =>{
+const postServiceHandler = async (req, res) => {
+  try {
+    const servicesResults = await createService(req.body);
+    res
+      .status(201)
+      .json({
+        mesage: "Service created succesfully",
+        created: servicesResults,
+      });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
-}
-
-module.exports = {getServicesHandler, postServiceHandler};
+module.exports = { getServicesHandler, postServiceHandler };

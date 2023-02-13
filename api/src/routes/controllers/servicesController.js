@@ -5,7 +5,7 @@ const getAllServices = async() =>{
     return await Service.findAll();
 }
 
-const postService = async({name, image=null, description=null, price}) =>{
+const createService = async({name, image=null, description=null, price}) =>{
 
     const newService = await Service.create({
         name, image, description, price
@@ -16,4 +16,4 @@ const postService = async({name, image=null, description=null, price}) =>{
 }
 
 
-module.exports = {getAllServices}
+module.exports = {getAllServices, createService}
