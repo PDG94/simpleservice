@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {getCategoriesHandler} = require("./middlewares/categoriesHandler")
+const {getCategoriesHandler} = require("../middlewares/categoriesHandler")
 
 const categoriesRouter = Router();
 

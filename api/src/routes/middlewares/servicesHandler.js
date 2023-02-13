@@ -23,7 +23,7 @@ const postServiceHandler = async (req, res) => {
     res
       .status(201)
       .json({
-        mesage: "Service created succesfully",
+        message: "Service created succesfully",
         created: servicesResults,
       });
   } catch (error) {

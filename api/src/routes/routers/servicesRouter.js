@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {getServicesHandler, postServiceHandler} = require("./middlewares/servicesHandler")
+const {getServicesHandler, postServiceHandler} = require("../middlewares/servicesHandler")
 
 const servicesRouter = Router();
 
