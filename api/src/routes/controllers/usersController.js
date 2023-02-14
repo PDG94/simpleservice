@@ -5,10 +5,11 @@ const getAllUsers = async() =>{
     return await User.findAll()
 }
 
-const createUser = async({name, surname,profilepic=null, email, password}) =>{
-    const newUser = await createUser.create({
+const createUser = async({name, surname,profilepic, email, password}) =>{
+    const newUser = await User.create({
         name,
         surname,
+        profilepic,
         email,
         password
 
