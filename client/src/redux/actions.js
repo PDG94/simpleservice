@@ -36,7 +36,6 @@ export function getServicesByName(){
 }
 }
 
-
 export function getDetail (id){
     return async function (dispatch) {
         try {
