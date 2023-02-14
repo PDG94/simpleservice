@@ -1,8 +1,4 @@
 
-import {GET_SERVICES,CLEANER_NAME,GET_BY_NAME} from "./actionTypes"
-
-
-
 import { GET_SERVICES, GET_DETAIL, CLEAN_DETAIL,CLEANER_NAME,GET_BY_NAME } from "./actionTypes";
 
 
