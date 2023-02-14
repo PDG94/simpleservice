@@ -2,6 +2,7 @@ import React from 'react'
 import '../Paged/paged.css'
 
 
+
 export default function Paged({servicesPerPage,allServices,paged,currentPage,setCurrentPage}) {
     const pageNumber= [];
     for(let i = 1 ; i < Math.ceil(allServices/servicesPerPage); i ++ ){
@@ -25,23 +26,27 @@ export default function Paged({servicesPerPage,allServices,paged,currentPage,set
     }
 
     return(
-    <nav className=''>
-        <div className=''>
-        <button className='' onClick={()=>handlePrev()} disabled={allServices<6}>Prev</button>
+    <nav className="paginate-container">
+         <ul class="pagination">
+         <div className="prev-next">
+        <button className="next-prev-btn" onClick={()=>handlePrev()} disabled={allServices<6}>Prev</button>
         </div>
-        <div className=''>
+        <div className="pages">
             {allServices < 6 ?
-            <div key='paged'>{ paged (1) }</div> :
+            <div key="pagination">{ paged (1) }</div> :
             pageNumber && pageNumber.map(n=>(
-                <div className=''>
-                    <button className={'page-number' + (n===currentPage ? 'active' : '')} key={n} onClick={()=>paged(n)}>{n}</button>
+                <div className="page">
+                    <button className={"page-number" + (n===currentPage ? "active" : '')} key={n} onClick={()=>paged(n)}>{n}</button>
                 </div>
             ))
             }
             </div>
-            <div className=''>
-                <button className='' onClick={()=>handleNext()} disabled={allServices<6}>Next</button>
+            <div className="prev-next">
+                <button className="next-prev-btn" onClick={()=>handleNext()} disabled={allServices<6}>Next</button>
             </div>
+                </ul>
             </nav>
+        
+            
     )   
 }
