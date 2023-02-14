@@ -1,4 +1,4 @@
-import { CardsContainer } from "../../components/index";
+import { CardsContainer } from "../index";
 
 const Home = () => {
   return (
