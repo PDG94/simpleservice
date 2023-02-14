@@ -1,5 +1,7 @@
 import axios from "axios";
+import { GET_SERVICES, CLEANER_NAME, GET_BY_NAME} from "./actionTypes";
 import { GET_SERVICES, GET_DETAIL, CLEAN_DETAIL, CLEANER_NAME, GET_BY_NAME} from "./actionTypes";
+
 
 
 export function getServices () {
@@ -11,6 +13,8 @@ export function getServices () {
         })
     }
 }
+
+
 
 export function clearName(){
     return{
@@ -30,6 +34,7 @@ export function getServicesByName(){
     } catch(error){
         console.log("Error on action GET_BY_NAME", error)
     }
+}
 }
 
 
@@ -55,3 +60,4 @@ export function cleanDetail (){
         })
     }
 }
+
