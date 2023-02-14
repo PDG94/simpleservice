@@ -37,7 +37,7 @@ const updateServiceHandler = async (req, res) => {
       .status(200)
       .json({
         message: "Service updated succesfully",
-        created: serviceUpdated,
+        updated: serviceUpdated,
       });
   } catch (error) {
     res.status(400).json({ error: error.message });
