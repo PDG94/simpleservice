@@ -251,8 +251,8 @@ export default function CardsContainer() {
             <h1>Cargando</h1>
           </div>
         ) : (
-          <section className="py-4 container">
-            <div className="row justify-content-center">
+          <section className="container">
+            <div>
           {currentServices.length && currentServices.map((user) => {
             return (
              
