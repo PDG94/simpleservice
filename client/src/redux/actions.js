@@ -31,7 +31,7 @@ export function getServicesByName(){
         console.log("Error on action GET_BY_NAME", error)
     }
 }
-
+}
 
 export function getDetail (id){
     return async function (dispatch) {

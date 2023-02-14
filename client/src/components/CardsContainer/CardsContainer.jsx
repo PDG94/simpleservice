@@ -2,7 +2,7 @@
 /* import "../CardsContainer/cardsContainer.css"; */
 import { Card, Paged, SearchBar } from "../index";
 import { useSelector} from "react-redux"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
