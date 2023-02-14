@@ -1,9 +1,9 @@
 
-
 import { GET_SERVICES, GET_DETAIL, CLEAN_DETAIL,CLEANER_NAME,GET_BY_NAME } from "./actionTypes";
 
 
 const initialState = {
+
     services: [
         {
           id: 1,
@@ -36,6 +36,10 @@ const initialState = {
       ],
     detail: [],
     isLoading: true
+
+    services: [],
+
+
 }
 
 function rootReducer(state = initialState, action) {
@@ -54,7 +58,7 @@ function rootReducer(state = initialState, action) {
                 case GET_BY_NAME:
                     return{
                         ...state,
-                        services: action.payload,
+                        services:action.payload,
                     };
         case GET_DETAIL:
             return {

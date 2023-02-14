@@ -2,6 +2,7 @@ import axios from "axios";
 import { GET_SERVICES, GET_DETAIL, CLEAN_DETAIL, CLEANER_NAME, GET_BY_NAME} from "./actionTypes";
 
 
+
 export function getServices () {
     return async function (dispatch) {
         var json = await axios.get(`la url de host va acá`)
@@ -11,6 +12,8 @@ export function getServices () {
         })
     }
 }
+
+
 
 export function clearName(){
     return{
@@ -55,3 +58,4 @@ export function cleanDetail (){
         })
     }
 }
+

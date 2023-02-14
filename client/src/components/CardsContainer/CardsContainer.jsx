@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 
 
+
 export default function CardsContainer() {
 
        const [allServices , setAllServices] = useState( [
@@ -252,11 +253,11 @@ export default function CardsContainer() {
         ) : (
           <section className="py-4 container">
             <div className="row justify-content-center">
-          {currentServices.length && currentServices.map((user,index) => {
+          {currentServices.length && currentServices.map((user) => {
             return (
              
                 <Card
-                 key={user?.index}
+                 key={user?.id}
                   id={user?.id}
                   name={user?.name}
                   image={user?.image}
