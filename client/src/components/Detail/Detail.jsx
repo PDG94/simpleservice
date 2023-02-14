@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-route-dom";
 import { cleanDetail, getDetail } from "../../redux/actions";
 import "../Detail/detail.css";
+import {Loading} from '../Loading'
 
 export default function Detail (){
 
@@ -15,6 +16,11 @@ export default function Detail (){
             dispatch(cleanDetail())
         }
     }, [dispatch, id]);
+
+    //PARA QUE HAGA SCROLL HACIA ARRIBA
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      });
 
     const serviceDetail = useSelector((state) => state.detail);
 
@@ -43,7 +49,7 @@ export default function Detail (){
                         </div>
                     </div>
                 </div>
-            ): (<span className="loader"></span>)}
+            ): (<Loading/>)}
         </div>
     )
 }
