@@ -1,3 +1,11 @@
+.paginateContainer{
+    display: flex;
+    float: inline-end;
+    list-style: none;
+    margin: 150px;
+    padding: 200px;
+}
+
 .pages {
     display: flex;
     align-items: center;
