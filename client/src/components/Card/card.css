@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  float:inline-start;
+  padding: 100px;
+   margin-left: 5px; 
+  flex-direction: column;
+  columns: 3;
+}
+.row li{
+     list-style: none;
+}
+.cardBody{
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.313);
+}
+.cardBody h2 {
+  text-transform: uppercase;
+  color: black;
+  letter-spacing: 2px;
+}
+.cardBody p {
+    margin-bottom: 15px;
+  margin-left: 5px;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.row img {
+  height: 250px;
+  margin-bottom: -12%;
+}
