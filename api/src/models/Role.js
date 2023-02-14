@@ -10,14 +10,8 @@ module.exports = (sequelize) => {
         primaryKey: true,
       },
       role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          isNotEmpty: {
-            args: true,
-            msg: "Please don't use an empty string"
-          },
-        },
+        type: DataTypes.ENUM("Guest", "User", "Admin", "Mod"),
+        defaultValue: "Guest",
       },
     },
     {
