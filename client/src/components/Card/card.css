@@ -1,32 +1,36 @@
-.row {
-  display: flex;
-  float:inline-start;
-  padding: 100px;
-   margin-left: 5px; 
-  flex-direction: column;
-  columns: 3;
-}
-.row li{
-     list-style: none;
-}
-.cardBody{
-    background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.313);
-}
-.cardBody h2 {
-  text-transform: uppercase;
-  color: black;
-  letter-spacing: 2px;
-}
-.cardBody p {
-    margin-bottom: 15px;
-  margin-left: 5px;
-  color: black;
-  letter-spacing: 1px;
+.container {
+  border: 1px solid rgb(66, 60, 60); /* linea de borde */
+  background-color: rgb(158, 154, 150); /* Color de fondo */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 164px; /* Ancho */
+  height: fit-content;
+  padding: 10px;
+  box-shadow: 0, 0, 50px black; /* Sombra */
 }
 
-.row img {
-  height: 250px;
-  margin-bottom: -12%;
+.name {
+  font-weight: 600;
+}
+
+.info {
+  display: block;
+}
+
+.img {
+  width: 95%;
+  border: 1px solid rgb(66, 60, 60); /* linea de borde */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.buttonContainer {
+  display: flex; /* Ponerlo a un costado y asi poder usar flex-end */
+  justify-content: flex-end; /* flex-end; Ponerlo al final en este caso a la derecha */
+}
+
+.buttonContainer button {
+  margin: 3px, 3px, 0, 0; /* Se le da un margen al boton y se empieza desde arriba */
+  border: 1px solid rgb(66, 60, 60); /* linea de borde */
+  background-color: rgb(216, 69, 69);
+  color: antiquewhite;
+  border-radius: 4px; /* Bordes redondeados */
 }
