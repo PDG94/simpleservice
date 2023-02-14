@@ -1,19 +1,34 @@
-const {Service} = require("../../db");
+const { Service } = require("../../db");
 
+const getAllServices = async () => {
+  return await Service.findAll();
+};
 
-const getAllServices = async() =>{
-    return await Service.findAll();
-}
+const createService = async ({ name, image, description, price }) => {
+  const newService = await Service.create({
+    name,
+    image,
+    description,
+    price,
+  });
 
-const createService = async({name, image, description, price}) =>{
+  return newService;
+};
 
-    const newService = await Service.create({
-        name, image, description, price
-    })
+//updateService updates just one instance
+const updateService = async ({ id, name, image, description, price }) => {
+  await Service.update(
+    { name, image, description, price },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
 
-    return newService;
+  const serviceUpdated = await Service.findByPk(id);
 
-}
+  return serviceUpdated;
+};
 
-
-module.exports = {getAllServices, createService}
+module.exports = { getAllServices, createService, updateService };

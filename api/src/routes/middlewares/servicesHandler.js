@@ -1,6 +1,7 @@
 const {
   getAllServices,
   createService,
+  updateService,
 } = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
@@ -20,15 +21,31 @@ const getServicesHandler = async (req, res) => {
 const postServiceHandler = async (req, res) => {
   try {
     const servicesResults = await createService(req.body);
+    res.status(201).json({
+      message: "Service created succesfully",
+      created: servicesResults,
+    });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const updateServiceHandler = async (req, res) => {
+  try {
+    const serviceUpdated = await updateService(req.body);
     res
-      .status(201)
+      .status(200)
       .json({
-        message: "Service created succesfully",
-        created: servicesResults,
+        message: "Service updated succesfully",
+        created: serviceUpdated,
       });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-module.exports = { getServicesHandler, postServiceHandler };
+module.exports = {
+  getServicesHandler,
+  postServiceHandler,
+  updateServiceHandler,
+};
