@@ -13,7 +13,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isNotEmpty: true,
+          isNotEmpty: {
+            args: true,
+            msg: "Please don't use an empty string"
+          },
         },
       },
     },
