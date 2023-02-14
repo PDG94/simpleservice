@@ -11,7 +11,7 @@ function App() {
         <Routes>
           {" "}
           {/* permite navegar de ruta a ruta es buena practica aplicarlo*/}
-          <Route exact path="/" element={<Home />} />{" "}
+          <Route exact path="/" element={ <Home/> } />{" "}
           {/* componente que utilizamos para crear nuestras rutas a otras paginas*/}
         </Routes>
       </div>
