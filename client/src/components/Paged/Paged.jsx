@@ -26,7 +26,7 @@ export default function Paged({servicesPerPage,allServices,paged,currentPage,set
     }
 
     return(
-    <nav className="paginate-container">
+    <nav className="paginateContainer">
          <ul class="pagination">
          <div className="prev-next">
         <button className="next-prev-btn" onClick={()=>handlePrev()} disabled={allServices<6}>Prev</button>

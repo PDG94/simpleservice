@@ -3,7 +3,7 @@
 import { Card, Paged, SearchBar } from "../index";
 import { useSelector} from "react-redux"
 import { useState, useEffect } from "react";
-
+import '../CardsContainer/cardsContainer.css'
 
 
 
