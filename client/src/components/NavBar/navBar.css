@@ -1,13 +1,33 @@
 ul {
+  
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(58, 138, 135);
+  margin-bottom: 30px;
 }
 
+.hr {
+border: 1px rgb(255, 255, 255) solid;
+margin-top: 0px;
+height: 47px;
+width: 50px;
+position: absolute;
+}
+.home{
+  margin-left: 15px;
+}
+ 
+.search{
+  margin-top: 15px;
+  margin-left: 52% ;
+}
 span{
   float:right
+}
+.signUp{
+  margin-right: 30px;
 }
 
 li {
@@ -15,13 +35,14 @@ li {
 }
 
 li a {
+  font-family: system-ui;
   display: block;
-  color: white;
+  color: rgb(229, 247, 237);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: rgba(103, 185, 184, 0.39);
 }

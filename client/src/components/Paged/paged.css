@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+  
 }
 
 .page {
@@ -18,22 +19,27 @@
   padding-right: 0.5rem;
   margin-bottom: 3rem;
 }
+
 .prev-next {
-  background-color: white;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 30px;
 }
 
+
 .page-numberactive {
-  background: #2042da;
-  color: rgb(240, 240, 240);
+  background: rgb(52, 105, 104);
+  color: #fffdfc;
   text-decoration: none;
   border: 2px solid transparent;
   font-weight: bold;
   padding: 1px 10px;
   border-radius: 3px;
-  transition: 0.4s;
+  transition: 0.2s;
+  width: 30px;
+}
+.page-numberactive:hover{
+  background-color: rgba(91, 172, 170, 0.822);
 }
 
 .paginate-container {

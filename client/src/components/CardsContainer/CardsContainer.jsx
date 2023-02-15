@@ -2,6 +2,7 @@
 import { Card, Paged, SearchBar } from "../index";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import Loading from '../Loading/Loading'
 import "../CardsContainer/cardsContainer.css";
 
 export default function CardsContainer() {
@@ -166,12 +167,8 @@ export default function CardsContainer() {
   return (
     <div className="containerWrapperList">
       <div className="cardContainer">
-        {!currentServices.length ? (
-          <div>
-            <h1>Cargando</h1>
-          </div>
-        ) : (
-          currentServices.map((user) => {
+        {currentServices.length ? 
+          (currentServices.map((user) => {
             return (
               <div className="wrapperList">
                 <Card
@@ -185,7 +182,7 @@ export default function CardsContainer() {
               </div>
             );
           })
-        )}
+        ): <Loading/>}
       </div>
       <Paged
         servicesPerPage={servicesPerPage}
