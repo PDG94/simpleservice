@@ -9,6 +9,18 @@ const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
+    const {name} = req.query
+    if(name){
+      let serviceName = await servicesResponse.filter((service)=> 
+      service.name.toLowerCase().includes(name.toLowerCase()))
+      if(serviceName.length > 0){
+        res.status(200).send(serviceName)
+        return
+      } else{
+        throw new Error("Service not found")
+      }
+    }
+
     if (servicesResponse.length > 0) {
       res.status(200).json(servicesResponse);
     } else {
