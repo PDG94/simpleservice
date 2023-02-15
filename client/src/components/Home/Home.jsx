@@ -1,9 +1,10 @@
-import { CardsContainer } from "../../components/index";
+
+import { CardsContainer, NavBar } from "../index";
 
 const Home = () => {
   return (
     <div>
-      <CardsContainer />
+      <NavBar />
     </div>
   );
 };

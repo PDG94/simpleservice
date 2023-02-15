@@ -6,4 +6,7 @@ import Paged from "./Paged/Paged";
 import SearchBar from "./SearchBar/SearchBar";
 import Order from "./Order/Order";
 
-export { Card, CardsContainer, Filter, NavBar, Order, Paged, SearchBar };
+
+
+
+export { Card, CardsContainer, Filter, NavBar, Order, Paged, SearchBar};

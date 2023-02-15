@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './redux/store'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 // hay que envolver siempre con provider sino no funcionara el store
 const root = ReactDOM.createRoot(document.getElementById('root')); // 'ReactDOM: se encarga de actualizar el dom'

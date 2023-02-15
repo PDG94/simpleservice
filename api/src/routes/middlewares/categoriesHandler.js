@@ -7,7 +7,7 @@ const getCategoriesHandler = async (req, res) => {
     if (categoriesResponse.length > 0) {
       res.status(200).json(categoriesResponse);
     } else {
-      throw Error("Not categories found");
+      throw new Error("Not categories found");
     }
   } catch (error) {
     res.status(404).json({ error: error.message });
