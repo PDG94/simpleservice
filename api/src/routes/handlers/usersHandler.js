@@ -16,11 +16,11 @@ const getUsersHandler = async(req,res) =>{
 }
 
 const postUserHandler = async(req,res) =>{
-    try {
-        const postUser = await createUser(req.body);
-        res.status(200).json({message : " User created successfully", created: postUser})
-    } catch (error) {
-        res.status(400).json({error: message.error})
+     try {
+         const postUser = await createUser(req.body);
+         res.status(200).json({message : " User created successfully", created: postUser})
+     } catch (error) {
+         res.status(400).json({error: error.message})
     }
 }
 

@@ -6,7 +6,7 @@ const getAllUsers = async() =>{
 }
 
 const createUser = async({name, surname,profilepic=null, email, password}) =>{
-    const newUser = await createUser.create({
+    const newUser = await User.create({
         name,
         surname,
         email,
