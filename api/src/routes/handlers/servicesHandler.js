@@ -42,6 +42,9 @@ const getServicesByIdHandler = async (req, res) => {
 
 const postServiceHandler = async (req, res) => {
   try {
+    // const {idUser} = req.query;
+    // const params = {...req.body, idUser}
+    // const servicesResults = await createService(params);
     const servicesResults = await createService(req.body);
     res.status(201).json({
       message: "Service created succesfully",
