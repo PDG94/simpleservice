@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import { CardsContainer, NavBar } from "../index";
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <div>
       <NavBar />
       <CardsContainer />
+      <Footer/>
     </div>
   );
 };
