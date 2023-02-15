@@ -1,11 +1,12 @@
 
-import { CardsContainer, NavBar } from "../index";
+import { CardsContainer, NavBar, Filter } from "../index";
 
 const Catalog = () => {
   return (
     <div>
-      <NavBar />
-      <CardsContainer />
+      <div><NavBar /></div>
+      <div><Filter/></div>
+      <div> <CardsContainer /></div>
     </div>
   );
 };

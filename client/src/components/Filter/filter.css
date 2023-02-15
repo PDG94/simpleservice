@@ -1,0 +1,29 @@
+.filter {
+  margin-top: -30px;
+  margin-left: 0px;
+  padding: 37px;
+  padding-bottom: 100px;
+  background-color: rgb(58, 138, 135);
+position: fixed;
+}
+.filter li {
+  list-style: none;
+  display: grid;
+  margin-top: 25px;
+}
+
+.filter select {
+    margin: 35px 3px;
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    color: rgb(229, 247, 237);
+    display: grid;
+    width: 100%;
+    font-family: system-ui;
+    font-size: medium;
+    background-color:rgb(58, 138, 135);
+    padding: 8px 21px;
+  }
+  .filter select:hover {
+    background-color:rgb(58, 138, 135);
+  }
