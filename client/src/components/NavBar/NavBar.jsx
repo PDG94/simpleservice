@@ -12,13 +12,12 @@ const NavBar = () => {
   <hr class='hr'/>
   <li><a class="home">Home</a></li>
   </Link>
-  <Link to="/">
+  <Link to="/Catalog">
   <li><a href="#catalog">Catalog</a></li>
   </Link>
   <li class='search'>
     <SearchBar/>
   </li>
-  
   <span> 
   <Link to="/">
   <span> 
