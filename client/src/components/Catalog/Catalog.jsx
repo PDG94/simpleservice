@@ -1,3 +1,4 @@
+
 import { CardsContainer, NavBar } from "../index";
 
 const Catalog = () => {
@@ -5,7 +6,6 @@ const Catalog = () => {
     <div>
       <NavBar />
       <CardsContainer />
-      {/* <Footer/> */}
     </div>
   );
 };
