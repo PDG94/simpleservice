@@ -1,6 +1,5 @@
 .loading {
-    /* margin-top: ;   A ESTABLECER SEGUN PAGINA
-    margin-left: ; */
+    padding: 50%;
     border: 16px solid #f3f3f3; /* Establece el borde */
     border-top: 16px solid #038c73; /* Cambia el color de la parte superior */
     border-radius: 50%; /*que sea un círculo */

@@ -8,19 +8,22 @@ const NavBar = () => {
   return (
 <ul>
   <Link to="/">
-  <li><a href="#home">Home</a></li>
+  <li><a href="#icon"><BsFillCartCheckFill/></a></li>
+  <hr class='hr'/>
+  <li><a class="home">Home</a></li>
   </Link>
   <Link to="/">
   <li><a href="#catalog">Catalog</a></li>
   </Link>
+  <li class='search'>
+    <SearchBar/>
+  </li>
+  
   <span> 
   <Link to="/">
-  <span>
-  <li><a href="#icon"><BsFillCartCheckFill/></a></li>
-  </span>
   <span> 
   <Link to="/">
-  <li><a href="#signUp">Login</a></li>
+  <li><a class="signUp">Login</a></li>
   </Link>
    </span> 
    <li><a href="#signIn">Register</a></li>
