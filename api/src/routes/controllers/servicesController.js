@@ -1,9 +1,15 @@
-const { Service } = require("../../db");
+const { Service, User } = require("../../db");
 
 const getAllServices = async () => {
-  return await Service.findAll({where:{
-    active: true
-  }});
+  return await Service.findAll({
+    where: {
+      active: true,
+    },
+    // include: {
+    //   model: User,
+    //   attributes: ['id', 'name']
+    // }
+  });
 };
 
 const createService = async ({ name, image, description, price }) => {
@@ -33,4 +39,17 @@ const updateService = async ({ id, name, image, description, price }) => {
   return serviceUpdated;
 };
 
-module.exports = { getAllServices, createService, updateService };
+const getServiceById = async ({ id }) => {
+  const serviceById = await Service.findAll({
+    where: {
+      id: id,
+    },
+    // include: {
+    //   model: User,
+    // },
+  });
+
+  return serviceById;
+};
+
+module.exports = { getAllServices, createService, updateService, getServiceById };
