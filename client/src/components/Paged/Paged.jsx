@@ -9,8 +9,8 @@ export default function Paged({
   setCurrentPage,
 }) {
   const pageNumber = [];
-  for (let i = 1; i < Math.ceil(allServices / servicesPerPage); i++) {
-    pageNumber.push(i);
+  for (let i = 0; i < Math.ceil(allServices / servicesPerPage); i++) {
+    pageNumber.push(i+1);
   }
 
   function handlePrev() {
