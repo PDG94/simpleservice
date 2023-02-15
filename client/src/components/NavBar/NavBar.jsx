@@ -15,6 +15,9 @@ const NavBar = () => {
   <Link to="/Catalog">
   <li><a href="#catalog">Catalog</a></li>
   </Link>
+  <li class='create'>
+  <Link to="/Create">Create</Link>
+  </li>
   <li class='search'>
     <SearchBar/>
   </li>
