@@ -1,282 +1,196 @@
-
 /* import "../CardsContainer/cardsContainer.css"; */
 import { Card, Paged, SearchBar } from "../index";
-import { useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
-
-
+import Loading from '../Loading/Loading'
+import "../CardsContainer/cardsContainer.css";
 
 export default function CardsContainer() {
-
-       const [allServices , setAllServices] = useState( [
-        {
-          id: 1,
-          name: "Edwards",
-          image: "https://images.pexels.com/photos/2677280/pexels-photo-2677280.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "2000",
-          active: "Developer",
-        },
-        {
-          id: 2,
-          name: "Magali",
-          image: "https://images.pexels.com/photos/4011934/pexels-photo-4011934.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "4000",
-          active: "Developer",
-        },
-        {
-          id: 3,
-          name: "Ash",
-          image: "https://images.pexels.com/photos/3651752/pexels-photo-3651752.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "8000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "https://images.pexels.com/photos/12359168/pexels-photo-12359168.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "https://images.pexels.com/photos/1142941/pexels-photo-1142941.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "https://images.pexels.com/photos/165505/pexels-photo-165505.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "https://images.pexels.com/photos/4321085/pexels-photo-4321085.jpeg?auto=compress&cs=tinysrgb&w=800",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-        {
-          id: 4,
-          name: "Lu",
-          image: "image",
-          price: "5000",
-          active: "Developer",
-        },
-      ])
-   
-       const [ currentPage, setCurrentPage ] = useState(1) // seteo la pagina para que empiece en 1
-       const [ servicesPerPage, setServicesPerPage ] = useState(6) // servicios por pagina
-       const indexOfLastService = currentPage*servicesPerPage // 6
-       const indexOfFirstService = indexOfLastService - servicesPerPage // 6-6 = 0
-       const currentServices = allServices.slice(indexOfFirstService,indexOfLastService)
-
-
-       const paged=(pageNumber)=>{
-        return setCurrentPage(pageNumber);
-       };
-       
-       
-  const info = [
+  const [allServices, setAllServices] = useState([
     {
       id: 1,
       name: "Edwards",
-      image: "image",
-      price: "2000",
+      image: "https://images.pexels.com/photos/716411/pexels-photo-716411.jpeg",
+      price: "6000",
       active: "Developer",
     },
     {
       id: 2,
       name: "Magali",
-      image: "image",
+      image:
+        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "4000",
       active: "Developer",
     },
     {
       id: 3,
       name: "Ash",
-      image: "image",
+      image:
+        "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "8000",
       active: "Developer",
     },
     {
       id: 4,
       name: "Lu",
+      image:
+        "https://images.pexels.com/photos/948873/pexels-photo-948873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "5000",
+      active: "Developer",
+    },
+    {
+      id: 5,
+      name: "Jasson",
+      image:
+        "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "9000",
+      active: "Developer",
+    },
+    {
+      id: 6,
+      name: "Cristian",
+      image:
+        "https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "5000",
+      active: "Developer",
+    },
+    {
+      id: 7,
+      name: "Pedro",
+      image:
+        "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "3000",
+      active: "Developer",
+    },
+    {
+      id: 8,
+      name: "Paquito",
+      image:
+        "https://images.pexels.com/photos/832998/pexels-photo-832998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "4000",
+      active: "Developer",
+    },
+    {
+      id: 9,
+      name: "Luis",
+      image:
+        "https://images.pexels.com/photos/715546/pexels-photo-715546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "11000",
+      active: "Developer",
+    },
+    {
+      id: 10,
+      name: "Selene",
+      image:
+        "https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "43000",
+      active: "Developer",
+    },
+    {
+      id: 11,
+      name: "Jorge",
+      image:
+        "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "3000",
+      active: "Developer",
+    },
+    {
+      id: 12,
+      name: "Maria",
+      image:
+        "https://images.pexels.com/photos/871495/pexels-photo-871495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      price: "2000",
+      active: "Developer",
+    },
+    {
+      id: 13,
+      name: "Carmen",
       image: "image",
       price: "5000",
       active: "Developer",
     },
     {
-      id: 4,
-      name: "Lu",
+      id: 14,
+      name: "Juan",
       image: "image",
       price: "5000",
       active: "Developer",
     },
     {
-      id: 4,
-      name: "Lu",
+      id: 15,
+      name: "Carlos",
       image: "image",
       price: "5000",
       active: "Developer",
     },
     {
-      id: 4,
-      name: "Lu",
+      id: 16,
+      name: "Ronald",
       image: "image",
       price: "5000",
       active: "Developer",
     },
     {
-      id: 4,
-      name: "Lu",
+      id: 17,
+      name: "Leidy",
       image: "image",
       price: "5000",
       active: "Developer",
     },
     {
-      id: 4,
-      name: "Lu",
+      id: 18,
+      name: "Mim",
       image: "image",
       price: "5000",
       active: "Developer",
     },
-    {
-      id: 4,
-      name: "Lu",
-      image: "image",
-      price: "5000",
-      active: "Developer",
-    },
-    {
-      id: 4,
-      name: "Lu",
-      image: "image",
-      price: "5000",
-      active: "Developer",
-    },
-    {
-      id: 4,
-      name: "Lu",
-      image: "image",
-      price: "5000",
-      active: "Developer",
-    },
-  ];
+  ]);
 
- //PARA QUE HAGA SCROLL HACIA ARRIBA
- useEffect(() => {
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-});
+  const [currentPage, setCurrentPage] = useState(1); // seteo la pagina para que empiece en 1
+  const [servicesPerPage, setServicesPerPage] = useState(6); // servicios por pagina
+  const indexOfLastService = currentPage * servicesPerPage; // 6
+  const indexOfFirstService = indexOfLastService - servicesPerPage; // 6-6 = 0
+  const currentServices = allServices.slice(
+    indexOfFirstService,
+    indexOfLastService
+  );
+
+  const paged = (pageNumber) => {
+    return setCurrentPage(pageNumber);
+  };
+
+  //PARA QUE HAGA SCROLL HACIA ARRIBA
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  });
 
   return (
-    <div>
-      <SearchBar setCurrentPage={setCurrentPage}/>
-      <div>
-        {!info.length ? (
-          <div>
-            <h1>Cargando</h1>
-          </div>
-        ) : (
-          <section className="py-4 container">
-            <div className="row justify-content-center">
-          {currentServices.length && currentServices.map((user) => {
+    <div className="containerWrapperList">
+      <div className="cardContainer">
+        {currentServices.length ? 
+          (currentServices.map((user) => {
             return (
-             
+              <div className="wrapperList">
                 <Card
-                 key={user?.id}
+                  key={user?.id}
                   id={user?.id}
                   name={user?.name}
                   image={user?.image}
                   price={user?.price}
                   active={user?.active}
                 />
-            )
-          })}
-          </div>
-          </section>
-        )}
-        <Paged
+              </div>
+            );
+          })
+        ): <Loading/>}
+      </div>
+      <Paged
         servicesPerPage={servicesPerPage}
         allServices={allServices.length}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
         paged={paged}
-        />
-      </div>
+      />
     </div>
   );
-};
+}

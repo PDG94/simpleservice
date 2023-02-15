@@ -1,6 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./view/Home/Home";
+import Home from "./components/Home/Home";
+import Catalog from "./components/Catalog/Catalog"
+import Detail from "./components/Detail/Detail"
+import { NotFound } from "./components/NotFound/NotFound";
+
 
 function App() {
   return (
@@ -11,7 +15,10 @@ function App() {
         <Routes>
           {" "}
           {/* permite navegar de ruta a ruta es buena practica aplicarlo*/}
-          <Route exact path="/" element={ <Home/> } />{" "}
+          <Route exact path="/" element={<Home />} />{" "}
+          <Route  path="/Catalog" element={<Catalog />} />{" "}
+           <Route path='/Detail/:id' element ={<Detail/>}/>
+          <Route path='*' element={<NotFound/>}/> 
           {/* componente que utilizamos para crear nuestras rutas a otras paginas*/}
         </Routes>
       </div>
