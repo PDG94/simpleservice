@@ -1,7 +1,9 @@
 const { Service } = require("../../db");
 
 const getAllServices = async () => {
-  return await Service.findAll();
+  return await Service.findAll({where:{
+    active: true
+  }});
 };
 
 const createService = async ({ name, image, description, price }) => {
