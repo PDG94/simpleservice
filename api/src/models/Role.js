@@ -9,9 +9,16 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         primaryKey: true,
       },
+      //"Guest", "User", "Admin", "Mod"
       role: {
-        type: DataTypes.ENUM("Guest", "User", "Admin", "Mod"),
-        defaultValue: "Guest",
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isNotEmpty: {
+            args: true,
+            msg: "Please don't use an empty string"
+          },
+        },
       },
     },
     {
