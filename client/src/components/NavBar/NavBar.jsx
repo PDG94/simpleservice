@@ -12,8 +12,8 @@ const NavBar = () => {
   <hr class='hr'/>
   <li><a class="home">Home</a></li>
   </Link>
-  <Link to="/Catalog">
-  <li><a href="#catalog">Catalog</a></li>
+  <Link to="/Services">
+  <li><a href="#Services">Services</a></li>
   </Link>
   <li class='create'>
   <Link to="/Create">Create</Link>
