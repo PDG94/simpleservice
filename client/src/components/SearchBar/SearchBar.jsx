@@ -37,11 +37,11 @@ export default function SearchBar({setCurrentPage}) {
                 <input
                 onChange={(e)=>{handleInputChange(e)}}
                 type = "text"
-                placeholder = 'Search...'
+                placeholder="🔍   Search..."
                 value={name}
                 onKeyPress = {e => handleOnKeyPress(e)}
                 />
-                <button onClick={handleSubmit}>Search</button>
+                <button className='submit' onClick={handleSubmit}>Submit</button>
             </form>
         </div>
         </>

@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 
 export default function Card({ id, name, image, price, active }) {
   return (
-      <Link to={`/Detail/${id}`}>
-        <div class="row">
-          <li>
-        <img class="image "src={image} alt=""/>
-        <div class="cardBody">
+    <div class="container">
+      <div className="info">
+        <img class="img " src={image} alt="" />
+      </div>
+
+      <div class="name">
         <h2>{name}</h2>
-        <p>Price: ${price}</p>
-        <p>Active: {active}</p>
+      </div>
+      <p>Price: ${price}</p>
+      <p>Active: {active}</p>
+      <Link to={`/Detail/${id}`}>
         <button class="button">Get it</button>
-        </div>
-        </li>
-        </div>
-        </Link>
-        );
+      </Link>
+    </div>
+  );
 }

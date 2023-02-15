@@ -1,9 +1,10 @@
 import React, {useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-route-dom";
+import { Link, useParams } from "react-router-dom";
 import { cleanDetail, getDetail } from "../../redux/actions";
 import "../Detail/detail.css";
-import {Loading} from '../Loading'
+import Loading from "../Loading/Loading";
+
 
 export default function Detail (){
 
@@ -28,7 +29,7 @@ export default function Detail (){
         <div className="detailContainer">
             <div>
                 <Link to="/" className="btnHome">
-                    <p>Go Back</p>
+                    <button>Go Back</button>
                 </Link>
             </div>
             { serviceDetail.length > 0 ? (
@@ -49,7 +50,7 @@ export default function Detail (){
                         </div>
                     </div>
                 </div>
-            ): (<Loading/>)}
+            ):<Loading/>}
         </div>
     )
 }

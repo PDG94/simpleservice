@@ -1,4 +1,27 @@
-.container {
-background-color: rgb(236, 232, 232);
+.containerWrapperList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: 20%;
+}
 
+.wrapperList {
+  border-radius: 8px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.637);
+  margin: 20px;
+  text-align: left;
+  margin-bottom: 80px;
+  margin-left: 8%;
+}
+
+.containerWrapperList {
+  display: flex; /* vamos a ordenar las cosas que estan dentro en forma de caja */
+  flex-direction: column; /* Esta me las ordena en columna */
+  margin-left: 200px; /*CON ESTO LOGRE PONER 3 EN CADA FILA*/
+}
+.cardContainer {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

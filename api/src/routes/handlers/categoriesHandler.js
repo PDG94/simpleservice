@@ -28,4 +28,18 @@ const postCategoryHandler = async (req, res) => {
   }
 };
 
-module.exports = {getCategoriesHandler, postCategoryHandler};
+const updateCategoryHandler = async (req, res) => {
+  try {
+    const categoryUpdated = await updateCategory(req.body);
+    res
+      .status(200)
+      .json({
+        message: "Category updated succesfully",
+        updated: categoryUpdated,
+      });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = {getCategoriesHandler, postCategoryHandler, updateCategoryHandler};

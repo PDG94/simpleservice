@@ -15,5 +15,20 @@ const createCategory = async({name, description=null}) =>{
 
 }
 
+const updateCategory = async ({ id, name, description}) => {
+    await Category.update(
+      { name, description },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+  
+    const categoryUpdated = await Category.findByPk(id);
+  
+    return categoryUpdated;
+  }
 
-module.exports = {getAllCategories, createCategory}
+
+module.exports = {getAllCategories, createCategory, updateCategory}
