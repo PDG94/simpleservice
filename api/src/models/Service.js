@@ -51,6 +51,9 @@ module.exports = (sequelize) => {
             }
         }
       },
+      rating:{
+        type: DataTypes.FLOAT
+      },
       active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
