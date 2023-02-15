@@ -4,6 +4,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-right: 20%;
+  border: 5px solid red;
 }
 
 .wrapperList {

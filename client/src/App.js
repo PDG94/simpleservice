@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Catalog from "./components/Catalog/Catalog"
+import Services from "./components/Services/Services";
 import Detail from "./components/Detail/Detail"
 import Create from "./components/Create/Create";
 import { NotFound } from "./components/NotFound/NotFound";
@@ -17,7 +17,7 @@ function App() {
           {" "}
           {/* permite navegar de ruta a ruta es buena practica aplicarlo*/}
           <Route exact path="/" element={<Home />} />{" "}
-          <Route  path="/Catalog" element={<Catalog />} />{" "}
+          <Route  path="/Services" element={<Services />} />{" "}
            <Route path='/Detail/:id' element ={<Detail/>}/>
            <Route path='/Create' element ={<Create/>}/>
           <Route path='*' element={<NotFound/>}/> 
