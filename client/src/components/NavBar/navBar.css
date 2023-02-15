@@ -1,0 +1,6 @@
+.mainContainer {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 96%;
+  padding: 20px;
+}
