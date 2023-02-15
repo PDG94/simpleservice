@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         primaryKey: true,
       },
+      //"Guest", "User", "Admin", "Mod"
       role: {
         type: DataTypes.STRING,
         allowNull: false,

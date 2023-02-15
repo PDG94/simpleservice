@@ -18,11 +18,14 @@ position: absolute;
 .home{
   margin-left: 15px;
 }
- 
+ .create{
+margin-left: 610px;
+ }
 .search{
   margin-top: 15px;
-  margin-left: 52% ;
+  margin-left: 2% ;
 }
+
 span{
   float:right
 }
