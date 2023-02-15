@@ -11,7 +11,6 @@ export default function Card({ id, name, image, price, active }) {
       <div class="name">
         <h2>{name}</h2>
       </div>
-
       <p>Price: ${price}</p>
       <p>Active: {active}</p>
       <Link to={`/Detail/${id}`}>

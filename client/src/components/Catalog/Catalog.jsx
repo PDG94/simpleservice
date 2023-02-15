@@ -1,12 +1,13 @@
-
 import { CardsContainer, NavBar } from "../index";
 
-const Home = () => {
+const Catalog = () => {
   return (
     <div>
       <NavBar />
+      <CardsContainer />
+      {/* <Footer/> */}
     </div>
   );
 };
 
-export default Home;
+export default Catalog;
