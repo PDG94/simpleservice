@@ -1,0 +1,11 @@
+.submit{
+    margin-left: 2px;
+    height: 24px;
+    width: 60px;
+}
+.submit:hover{
+    color: #fffdfd;
+    border: 1px solid #fffdfd;
+    border-radius: 5px;
+    background-color: rgba(103, 185, 184, 0.219);
+  }
