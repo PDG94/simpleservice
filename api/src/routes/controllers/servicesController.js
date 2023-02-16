@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 const { Service, User, Card } = require("../../db");
 
 const getAllServices = async () => {
@@ -109,9 +112,33 @@ const getServiceById = async ({ id }) => {
   return serviceById;
 };
 
+const getServiceByDescription = async( valdescription ) =>{
+  // const serviceByDesc = await Service.findAll({
+  //   where: {
+  //     description: {
+  //       [Op.substring]: valdescription,
+  //     },
+  //   },
+  //   attributes: ['id','name','image','description','price','rating','active','CategoryId'],
+  // });
+  const serviceByDesc = await Card.findAll({
+    where: {
+      description: {
+        [Op.substring]: valdescription,
+      },
+    },
+    attributes: ['id','username','userimage','description','servicename','price','rating'],
+  });
+
+
+  return serviceByDesc;
+};
+
+
 module.exports = {
   getAllServices,
   createService,
   updateService,
   getServiceById,
+  getServiceByDescription
 };
