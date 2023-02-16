@@ -1,4 +1,5 @@
 const {Router} = require('express');
+
 const {getCategoriesHandler, postCategoryHandler, updateCategoryHandler} = require("../handlers/categoriesHandler")
 
 const categoriesRouter = Router();
