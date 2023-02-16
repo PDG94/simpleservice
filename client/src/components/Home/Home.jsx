@@ -1,12 +1,11 @@
 import Footer from "../Footer/Footer"
-import { CardsContainer, NavBar } from "../index";
+import { CardsContainer } from "../index";
 
 const Home = () => {
   return (
     <div>
-      <NavBar />
-      <Footer/>
       <CardsContainer />
+      <Footer/>
     </div>
   );
 };

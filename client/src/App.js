@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
 import Services from "./components/Services/Services";
-import Detail from "./components/Detail/Detail"
 import Create from "./components/Create/Create";
 import { NotFound } from "./components/NotFound/NotFound";
 
