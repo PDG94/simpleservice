@@ -22,7 +22,8 @@ const getServicesHandler = async (req, res) => {
     }
 
     if (servicesResponse.length > 0) {
-      res.status(200).json(servicesResponse);
+      res.status(200).json(servicesResponse); 
+      
     } else {
       throw new Error("Not services found");
     }
