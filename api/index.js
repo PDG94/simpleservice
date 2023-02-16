@@ -7,5 +7,3 @@ conn.sync({alter:true}).then(()=>{
         console.log("server listening at 3001")
     })
 })
-
-
