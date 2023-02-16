@@ -1,5 +1,4 @@
 const { Service, User, Card, Category } = require("../../db");
-=======
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -122,6 +121,15 @@ const getServiceById = async ({ id }) => {
   return serviceById;
 };
 
+// const orderService = async (params, direction)=>{
+//   const order = await Service.findAll({order: [[params, direction]]})
+//   return order
+// }
+
+const orderService = async (attributes, direction)=>{
+  const order = await Card.findAll({order: [[attributes, direction]]})
+  return order
+}
 const getServiceByDescription = async( valdescription ) =>{
   // const serviceByDesc = await Service.findAll({
   //   where: {
@@ -150,5 +158,6 @@ module.exports = {
   createService,
   updateService,
   getServiceById,
+  orderService,
   getServiceByDescription
 };
