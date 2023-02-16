@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <div className="main">
       <div className="navBar"><NavBar /></div>
-      <Filter/>
+      <div className="filterService"><Filter/></div>
       <CardsContainer/>    
     </div>
   );

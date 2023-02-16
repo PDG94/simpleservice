@@ -1,12 +1,17 @@
 .main{
- display: -ms-grid;
+ background-color: rgba(58, 138, 135, 0.387);
 }
 
 
-.navBar{
-    border: 5px solid blue;
-}
+/* .navBar{
+    position:fixed;
+} */
 
+.filterService{
+    float: left;
+    position: fixed;
+    padding-left: 10px;
+}
 
 
 

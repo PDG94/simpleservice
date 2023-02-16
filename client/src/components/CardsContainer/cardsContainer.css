@@ -3,8 +3,8 @@
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: 20%;
-  border: 5px solid red;
+  margin-right: 0;
+  background-color: #f9dbe0f6;
 }
 
 .wrapperList {
@@ -20,7 +20,7 @@
   display: flex; /* vamos a ordenar las cosas que estan dentro en forma de caja */
   flex-direction: column; /* Esta me las ordena en columna */
   margin-left: 200px; /*CON ESTO LOGRE PONER 3 EN CADA FILA*/
-  margin-right: 30px;
+  margin-right: 0;
 }
 .cardContainer {
   display: inline-flex;

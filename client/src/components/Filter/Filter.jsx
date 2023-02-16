@@ -4,7 +4,7 @@ import '../Filter/filter.css'
 
 export default function Filter() {
     return(
-        <div class="filter">
+        <div className="filter">
           <li>
              <select >
                  {/*SERVICIOS*/ }
