@@ -24,21 +24,21 @@ module.exports = (sequelize) => {
       },
       userimage: {
         type: DataTypes.TEXT,
-        validate:{
-            notEmpty: {
-                args: true,
-                msg: "Please don't input an empty string",
-              },
-            isUrl:{
-                args: true,
-                msg:"Please input a valid url format"
-            }
-        }
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Please don't input an empty string",
+          },
+          isUrl: {
+            args: true,
+            msg: "Please input a valid url format",
+          },
+        },
       },
       description: {
         type: DataTypes.TEXT,
       },
-      servicename:{
+      servicename: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -54,14 +54,17 @@ module.exports = (sequelize) => {
       price: {
         type: DataTypes.FLOAT,
         allowNull: false,
-        validate:{
-            notNull:{
-                msg:"Please input the service price"
-            }
-        }
+        validate: {
+          notNull: {
+            msg: "Please input the service price",
+          },
+        },
       },
-      rating:{
-        type: DataTypes.FLOAT
+      rating: {
+        type: DataTypes.FLOAT,
+      },
+      userbio: {
+        type: DataTypes.TEXT,
       },
       active: {
         type: DataTypes.BOOLEAN,
