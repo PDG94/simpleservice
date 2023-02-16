@@ -1,7 +1,7 @@
+const { Service, User, Card, Category } = require("../../db");
+=======
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-
-const { Service, User, Card } = require("../../db");
 
 const getAllServices = async () => {
   // return await Service.findAll({
@@ -21,7 +21,7 @@ const getAllServices = async () => {
   });
 };
 
-// const createService = async ({ idUser, name, image, description, price }) => {
+// const createService = async ({ idUser, name, image, description, price, category }) => {
 // const serviceUser = await User.findByPk(idUser);
 
 // const newService = await serviceUser.createService({
@@ -29,13 +29,18 @@ const getAllServices = async () => {
 //   image,
 //   description,
 //   price,
+//   category
 // })
+//   const categories = await Category.findAll({
+//     where: {name: category}//
+//   })
+//   await newService.addCategory(categories)
 
 //   return newService;
 // };
 
-createService = async ({
-  idUser,
+const createService = async ({
+  category,
   username,
   userimage,
   description,
@@ -49,8 +54,13 @@ createService = async ({
     description,
     servicename,
     price,
-    rating,
+    rating
   });
+
+  const categories = await Category.findAll({
+    where: {name: category}//in here we use name but if needed we can use id for the category we want
+  })
+  await newService.addCategory(categories[0])
 
   return newService; 
 };
