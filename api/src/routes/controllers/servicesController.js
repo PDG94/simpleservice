@@ -39,7 +39,7 @@ const getAllServices = async () => {
 // };
 
 const createService = async ({
-  category,
+  CategoryId,
   username,
   userimage,
   description,
@@ -57,11 +57,11 @@ const createService = async ({
     rating,
     userbio
   });
+  
 
-  const categories = await Category.findAll({
-    where: {name: category}//in here we use name but if needed we can use id for the category we want
-  })
-  await newService.addCategory(categories[0])
+  const categories = await Category.findByPk(CategoryId)
+  
+  await categories.addCard(newService)
 
   return newService; 
 };
