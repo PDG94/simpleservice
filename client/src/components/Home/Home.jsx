@@ -6,6 +6,7 @@ const Home = () => {
     <div>
       <NavBar />
       <Footer/>
+      <CardsContainer />
     </div>
   );
 };
