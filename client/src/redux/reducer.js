@@ -39,7 +39,6 @@ const initialState = {
   ],
   detail: [],
   isLoading: true,
-  services: [],
 };
 
 function rootReducer(state = initialState, action) {
