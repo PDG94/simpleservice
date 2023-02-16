@@ -39,13 +39,14 @@ const getAllServices = async () => {
 // };
 
 const createService = async ({
-  category,
+  CategoryId,
   username,
   userimage,
   description,
   servicename,
   price,
   rating,
+  userbio
 }) => {
   const newService = await Card.create({
     username,
@@ -53,13 +54,14 @@ const createService = async ({
     description,
     servicename,
     price,
-    rating
+    rating,
+    userbio
   });
+  
 
-  const categories = await Category.findAll({
-    where: {name: category}//in here we use name but if needed we can use id for the category we want
-  })
-  await newService.addCategory(categories[0])
+  const categories = await Category.findByPk(CategoryId)
+  
+  await categories.addCard(newService)
 
   return newService; 
 };
@@ -73,6 +75,7 @@ const updateService = async ({
   servicename,
   price,
   rating,
+  userbio
 }) => {
   // await Service.update(
   //   { name, image, description, price },
@@ -86,7 +89,7 @@ const updateService = async ({
   // const serviceUpdated = await Service.findByPk(id);
 
   await Card.update(
-    { username, userimage, description, servicename, price, rating },
+    { username, userimage, description, servicename, price, rating,userbio },
     {
       where: {
         id: id,
@@ -145,7 +148,7 @@ const getServiceByDescription = async( valdescription ) =>{
         [Op.substring]: valdescription,
       },
     },
-    attributes: ['id','username','userimage','description','servicename','price','rating'],
+    attributes: ['id','username','userimage','description','servicename','price','rating', 'userbio'],
   });
 
 
