@@ -3,13 +3,15 @@ const {
   createService,
   updateService,
   getServiceById,
+  getServiceByDescription
 } = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
-    const {name} = req.query
+    const {name, description} = req.query
+    
     if(name){
       let serviceName = await servicesResponse.filter((service)=> 
       service.name.toLowerCase().includes(name.toLowerCase()))
@@ -20,6 +22,16 @@ const getServicesHandler = async (req, res) => {
         throw new Error("Service not found")
       }
     }
+    if(description){
+      console.log("LLEGUE A LA DESCRIPCION");
+    let  servicesDescription = await getServiceByDescription(description);
+      if(servicesDescription.length){
+        res.status(200).json(servicesDescription);  
+        return
+      }else{
+        throw new Error("Not services found");  
+      }
+    }    
 
     if (servicesResponse.length > 0) {
       res.status(200).json(servicesResponse); 
@@ -30,6 +42,7 @@ const getServicesHandler = async (req, res) => {
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
+
 };
 
 const getServicesByIdHandler = async (req, res) => {
