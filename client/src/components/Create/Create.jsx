@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import {NavBar, Footer} from "../index";
 export default function Create() {
   const navigate = useNavigate();
 
@@ -68,6 +68,7 @@ export default function Create() {
 
   return (
     <form onSubmit={submitHandler}>
+    <NavBar/>
       <Link to={"/Catalog"}>
         <button>Back</button>
       </Link>
@@ -104,6 +105,8 @@ export default function Create() {
       </div>
 
       <button type="submit">SUBMIT</button>
+      <Footer/>
     </form>
+   
   );
 }

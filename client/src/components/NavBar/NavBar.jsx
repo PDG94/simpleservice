@@ -28,20 +28,17 @@ const NavBar = () => {
   function logoutUser(){
     signOut(auth).then(() => {
       toast.success("Logout successfully.")
-      navigate("/")
+      navigate("/home")
     }).catch((error) => {
       toast.error(error.message)
     });
   }
-
-
-
   return (
 <ul>
   <Link to="/carrito">
   <li className="icon"><a className="icono" href="#icon"><BsFillCartCheckFill/></a></li>
   </Link>
-  <Link to="/">
+  <Link to="/home">
   <li><a className="home">Home</a></li>
   </Link>
   <Link to="/Services">
@@ -56,10 +53,10 @@ const NavBar = () => {
   {/* <a href="#"><FaUserCircle size={16}/>
    Hi, {displayName}
    </a> */}
-   <Link to="register">
+   <Link to="/register">
    <li><a href="#signIn">Register</a></li>
   </Link>
-  <Link to="/" onClick={logoutUser}>
+  <Link to="/home" onClick={logoutUser}>
    <li><a href="#logout">Logout</a></li>
   </Link>
   <li className='search'>
