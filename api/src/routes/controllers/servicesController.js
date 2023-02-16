@@ -14,7 +14,7 @@ const createService = async ({ name, image, description, price }) => {
     price,
   });
 
-  return newService;
+  return newService; 
 };
 
 //updateService updates just one instance
