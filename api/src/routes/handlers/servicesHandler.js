@@ -3,13 +3,21 @@ const {
   createService,
   updateService,
   getServiceById,
+  orderService
 } = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
-    const {name} = req.query
+    const {order,name, direction} = req.query
+
+    if(order){
+      const orderServ = await orderService(order,direction)
+      res.status(200).send(orderServ)
+      return
+    }
+
     if(name){
       let serviceName = await servicesResponse.filter((service)=> 
       service.name.toLowerCase().includes(name.toLowerCase()))
