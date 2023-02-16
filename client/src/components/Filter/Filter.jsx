@@ -7,8 +7,8 @@ export default function Filter() {
         <div className="filter">
           <li>
              <select >
-                 {/*SERVICIOS*/ }
-              <option value="all">Services</option>
+                 {/*CATEGORIAS*/ }
+              <option value="all">Categories</option>
               {/* {categories?.map((elem) => (
                 <Link to={`?filter=${elem.name}`}>
                 <option key={elem} value={elem.name}>

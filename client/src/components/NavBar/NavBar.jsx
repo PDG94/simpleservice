@@ -8,35 +8,31 @@ const NavBar = () => {
   return (
 <ul>
   <Link to="/">
-  <li><a href="#icon"><BsFillCartCheckFill/></a></li>
-  <hr class='hr'/>
-  <li><a class="home">Home</a></li>
+  <li className="icon"><a className="icono" href="#icon"><BsFillCartCheckFill/></a></li>
+  {/* <hr className='hr'/> */}
+  <li><a className="home">Home</a></li>
   </Link>
   <Link to="/Services">
   <li><a href="#Services">Services</a></li>
   </Link>
-  <li class='create'>
-  <Link to="/Create">Create</Link>
-  </li>
-  <li class='search'>
-    <SearchBar/>
+  <li className='create'>
+  <Link to="/Create">Create Service</Link>
   </li>
   <span> 
   <Link to="/">
   <span> 
   <Link to="/">
-  <li><a class="signUp">Login</a></li>
+  <li><a className="signUp">Login</a></li>
   </Link>
    </span> 
    <li><a href="#signIn">Register</a></li>
   </Link>
   </span>
-  
   <Link to="/">
-
- 
-  
   </Link>
+  <li className='search'>
+    <SearchBar/>
+  </li>
 </ul>
   )
 }
@@ -51,7 +47,7 @@ const NavBar = () => {
 
     
 //     <ul>
-//     <div className="mainContainer">
+//     <div classNameName="mainContainer">
 //       <Link to="/">
 //         <button onClick={handleChange}>Home</button>
 //       </Link>
