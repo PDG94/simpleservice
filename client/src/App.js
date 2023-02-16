@@ -9,6 +9,11 @@ import { NavBar } from "./components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
+import Services from "./components/Services/Services";
+import Detail from "./components/Detail/Detail"
+import Create from "./components/Create/Create";
+import { NotFound } from "./components/NotFound/NotFound";
+
 
 
 function App() {
@@ -23,6 +28,10 @@ function App() {
           {" "}
           {/* permite navegar de ruta a ruta es buena practica aplicarlo*/}
           <Route exact path="/" element={<Home />} />{" "}
+          <Route  path="/Services" element={<Services />} />{" "}
+           <Route path='/Detail/:id' element ={<Detail/>}/>
+           <Route path='/Create' element ={<Create/>}/>
+          <Route path='*' element={<NotFound/>}/> 
           {/* componente que utilizamos para crear nuestras rutas a otras paginas*/}
           <Route path = "/login" element={<Login/>} />
           <Route path = "/detail:id" element={<Detail/>} />

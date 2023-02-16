@@ -1,11 +1,11 @@
 require("dotenv").config();
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
 //DB_NAME is the database name
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   logging: false, 
   native: false,
 });
@@ -36,7 +36,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 const {
-  Category, Service, User, Role
+  Category, Service, User, Role, Card
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -46,6 +46,12 @@ Service.belongsTo(Category);
 
 Role.hasMany(User);
 User.belongsTo(Role);
+
+User.hasMany(Service);
+Service.belongsTo(User);
+
+Category.hasMany(Card);
+Card.belongsTo(Category);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

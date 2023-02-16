@@ -1,37 +1,39 @@
 import React, {useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-route-dom";
-import { cleanDetail, getDetail } from "../../redux/actions";
+import { useSelector /*, useDispatch*/ } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+// import { cleanDetail, getDetail } from "../../redux/actions";
 import "../Detail/detail.css";
-import {Loading} from '../Loading'
+import Loading from "../Loading/Loading";
+
 
 export default function Detail (){
 
     const { id } = useParams();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     
-    useEffect(() => {
-        dispatch(getDetail(id));
-        return () => {
-            dispatch(cleanDetail())
-        }
-    }, [dispatch, id]);
+    // useEffect(() => {
+    //     dispatch(getDetail(id));
+    //     return () => {
+    //         dispatch(cleanDetail())
+    //     }
+    // }, [dispatch, id]);
 
     //PARA QUE HAGA SCROLL HACIA ARRIBA
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       });
 
-    const serviceDetail = useSelector((state) => state.detail);
+    const serviceDetail = useSelector((state) => state.services);
 
     return (
         <div className="detailContainer">
             <div>
                 <Link to="/" className="btnHome">
-                    <p>Go Back</p>
+                    <button>Go Back</button>
                 </Link>
             </div>
-            { serviceDetail.length > 0 ? (
+            <p>Estoy en Detail</p>
+            {/* { serviceDetail.length > 0 ? (
                 <div className="main">
                     <div className="left">
                         <div className="details">
@@ -49,7 +51,7 @@ export default function Detail (){
                         </div>
                     </div>
                 </div>
-            ): (<Loading/>)}
+            ):<Loading/>} */}
         </div>
     )
 }

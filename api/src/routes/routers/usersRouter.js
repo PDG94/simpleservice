@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const {getUsersHandler, postUserHandler} = require("../middlewares/usersHandler")
+const {getUsersHandler, postUserHandler} = require("../handlers/usersHandler")
 
 
 const usersRouter = Router();

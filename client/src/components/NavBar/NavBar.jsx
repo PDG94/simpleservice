@@ -39,7 +39,9 @@ const NavBar = () => {
   return (
 <ul>
   <Link to="/">
-  <li><a href="#home">Home</a></li>
+  <li className="icon"><a className="icono" href="#icon"><BsFillCartCheckFill/></a></li>
+  {/* <hr className='hr'/> */}
+  <li><a className="home">Home</a></li>
   </Link>
   <Link to="/catalog">
   <li><a href="#catalog">Catalog</a></li>
@@ -52,6 +54,18 @@ const NavBar = () => {
   <Link to="/login">
   <span> 
   <li><a href="#signUp">Login</a></li>
+  <Link to="/Services">
+  <li><a href="#Services">Services</a></li>
+  </Link>
+  <li className='create'>
+  <Link to="/Create">Create Service</Link>
+  </li>
+  <span> 
+  <Link to="/">
+  <span> 
+  <Link to="/">
+  <li><a className="signUp">Login</a></li>
+  </Link>
    </span> 
    </Link>
    <a href="#"><FaUserCircle size={16}/>
@@ -62,7 +76,12 @@ const NavBar = () => {
   </Link>
   <Link to="/" onClick={logoutUser}>
    <li><a href="#logout">Logout</a></li>
+  </span>
+  <Link to="/">
   </Link>
+  <li className='search'>
+    <SearchBar/>
+  </li>
 </ul>
   )
 }

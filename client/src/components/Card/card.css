@@ -1,18 +1,25 @@
 .container {
+  font-family: system-ui;
+  letter-spacing: 1px;
   border: 1px solid rgb(66, 60, 60); /* linea de borde */
-  background-color: rgb(158, 154, 150); /* Color de fondo */
-  border-radius: 10px; /* Bordes redondeados */
+  border-radius: 10px ;
+  background: #fd9fb396;
+  background: linear-gradient( 180deg, rgb(253, 159, 180) 0%, rgb(58, 138, 135) 100% );
   width: 164px; /* Ancho */
   height: fit-content;
   padding: 10px;
   box-shadow: 0, 0, 50px black; /* Sombra */
+  
 }
+
 
 .name {
   font-weight: 600;
+  color: #101010;;
 }
 
 .info {
+  color: #101010;;
   display: block;
 }
 
@@ -22,15 +29,21 @@
   border-radius: 10px; /* Bordes redondeados */
 }
 
-.buttonContainer {
-  display: flex; /* Ponerlo a un costado y asi poder usar flex-end */
-  justify-content: flex-end; /* flex-end; Ponerlo al final en este caso a la derecha */
+.button {
+  text-decoration: none;
+  color:#101010;;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 1);
+  background: transparent;
 }
-
-.buttonContainer button {
-  margin: 3px, 3px, 0, 0; /* Se le da un margen al boton y se empieza desde arriba */
-  border: 1px solid rgb(66, 60, 60); /* linea de borde */
-  background-color: rgb(216, 69, 69);
-  color: antiquewhite;
-  border-radius: 4px; /* Bordes redondeados */
+.button:hover {
+  color: #101010;;
+  background-color: rgba(103, 185, 184, 0.39);
 }

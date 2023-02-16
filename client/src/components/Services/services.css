@@ -1,0 +1,19 @@
+.main{
+ background-color: rgba(58, 138, 135, 0.387);
+}
+
+
+/* .navBar{
+    position:fixed;
+} */
+
+.filterService{
+    float: left;
+    position: fixed;
+    padding-left: 10px;
+}
+
+
+
+
+

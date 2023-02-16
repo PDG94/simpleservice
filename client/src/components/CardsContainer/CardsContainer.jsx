@@ -2,6 +2,7 @@
 import { Card, Paged, SearchBar } from "../index";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import Loading from '../Loading/Loading'
 import "../CardsContainer/cardsContainer.css";
 
 export default function CardsContainer() {
@@ -11,7 +12,7 @@ export default function CardsContainer() {
       name: "Edwards",
       image: "https://images.pexels.com/photos/716411/pexels-photo-716411.jpeg",
       price: "6000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 2,
@@ -19,7 +20,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "4000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 3,
@@ -27,7 +28,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "8000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 4,
@@ -35,7 +36,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/948873/pexels-photo-948873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 5,
@@ -43,7 +44,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "9000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 6,
@@ -51,7 +52,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 7,
@@ -59,7 +60,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "3000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 8,
@@ -67,7 +68,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/832998/pexels-photo-832998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "4000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 9,
@@ -75,7 +76,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/715546/pexels-photo-715546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "11000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 10,
@@ -83,7 +84,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "43000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 11,
@@ -91,7 +92,7 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "3000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 12,
@@ -99,49 +100,49 @@ export default function CardsContainer() {
       image:
         "https://images.pexels.com/photos/871495/pexels-photo-871495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       price: "2000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 13,
       name: "Carmen",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 14,
       name: "Juan",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 15,
       name: "Carlos",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 16,
       name: "Ronald",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 17,
       name: "Leidy",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
     {
       id: 18,
       name: "Mim",
       image: "image",
       price: "5000",
-      active: "Developer",
+      service: "Developer",
     },
   ]);
 
@@ -166,12 +167,8 @@ export default function CardsContainer() {
   return (
     <div className="containerWrapperList">
       <div className="cardContainer">
-        {!currentServices.length ? (
-          <div>
-            <h1>Cargando</h1>
-          </div>
-        ) : (
-          currentServices.map((user) => {
+        {currentServices.length ? 
+          (currentServices.map((user) => {
             return (
               <div className="wrapperList">
                 <Card
@@ -180,12 +177,12 @@ export default function CardsContainer() {
                   name={user?.name}
                   image={user?.image}
                   price={user?.price}
-                  active={user?.active}
+                  service={user?.service}
                 />
               </div>
             );
           })
-        )}
+        ): <Loading/>}
       </div>
       <Paged
         servicesPerPage={servicesPerPage}

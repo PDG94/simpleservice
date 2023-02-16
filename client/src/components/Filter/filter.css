@@ -1,0 +1,34 @@
+/* .filter {
+  margin-top: -30px;
+  margin-left: 0px;
+  padding: 37px;
+  padding-bottom: 100px;
+  background-color: rgb(58, 138, 135);
+
+} */
+.filter li {
+  list-style: none;
+  display: grid;
+  margin-top: 25px;
+}
+
+select {
+    margin: 35px 3px;
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    color: rgb(229, 247, 237);
+    display: grid;
+    width: 100%;
+    font-family: system-ui;
+    font-size: medium;
+    background-color:rgb(58, 138, 135);
+    padding: 8px 21px;
+    text-decoration: none;
+    appearance: button;
+    outline: none;
+    letter-spacing: 1px;
+  }
+select:hover {
+    background-color:rgba(93, 187, 185, 0.978);
+    letter-spacing: 1px;
+  }

@@ -1,7 +1,7 @@
 import "../Card/card.css";
 import { Link } from "react-router-dom";
 
-export default function Card({ id, name, image, price, active }) {
+export default function Card({ id, name, image, price, service,rating }) {
   return (
     <div class="container">
       <div className="info">
@@ -11,9 +11,9 @@ export default function Card({ id, name, image, price, active }) {
       <div class="name">
         <h2>{name}</h2>
       </div>
-
       <p>Price: ${price}</p>
-      <p>Active: {active}</p>
+      <p>Service: {service}</p>
+      <p>Rating:⭐{rating}</p>
       <Link to={`/Detail/${id}`}>
         <button class="button">Get it</button>
       </Link>

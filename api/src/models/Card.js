@@ -2,31 +2,27 @@ const { DataTypes, UUIDV4 } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Service",
+    "Card",
     {
       id: {
         type: DataTypes.UUID,
         defaultValue: UUIDV4,
         primaryKey: true,
       },
-      name: {
+      username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Please input the service name",
+            msg: "Please input the user's name",
           },
           notEmpty: {
             args: true,
             msg: "Please don't input an empty string",
           },
-          len: {
-            args: [3, 255],
-            msg: "Please use more than two characters",
-          },
         },
       },
-      image: {
+      userimage: {
         type: DataTypes.TEXT,
         validate:{
             notEmpty: {
@@ -41,6 +37,19 @@ module.exports = (sequelize) => {
       },
       description: {
         type: DataTypes.TEXT,
+      },
+      servicename:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Please input the services name",
+          },
+          notEmpty: {
+            args: true,
+            msg: "Please don't input an empty string",
+          },
+        },
       },
       price: {
         type: DataTypes.FLOAT,
