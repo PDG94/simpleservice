@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 // import { cleanDetail, getDetail } from "../../redux/actions";
 import "../Detail/detail.css";
 import Loading from "../Loading/Loading";
-
+import {NavBar, Footer} from "../index";
 
 export default function Detail (){
 
@@ -27,6 +27,7 @@ export default function Detail (){
 
     return (
         <div className="detailContainer">
+            <NavBar/>
             <div>
                 <Link to="/" className="btnHome">
                     <button>Go Back</button>
@@ -52,6 +53,7 @@ export default function Detail (){
                     </div>
                 </div>
             ):<Loading/>} */}
+            <Footer/>
         </div>
     )
 }
