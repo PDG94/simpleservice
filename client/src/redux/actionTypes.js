@@ -3,3 +3,5 @@ export const GET_SERVICES_DETAIL = "GET_SERVICES_DETAIL";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const CLEANER_NAME = "CLEANER_NAME";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const FILTER_SERVICES = "FILTER_SERVICES";
