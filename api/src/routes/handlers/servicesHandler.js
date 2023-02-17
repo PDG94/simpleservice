@@ -4,14 +4,15 @@ const {
   updateService,
   getServiceById,
   orderService,
-  getServiceByDescription
+  getServiceByDescription,
+  getServiceByCategory
 } = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
-    const {order,name, direction, description} = req.query
+    const {order,name, direction, description, categoryId} = req.query
 
     if(order){
       const orderServ = await orderService(order,direction)
@@ -30,7 +31,6 @@ const getServicesHandler = async (req, res) => {
       }
     }
     if(description){
-      console.log("LLEGUE A LA DESCRIPCION");
     let  servicesDescription = await getServiceByDescription(description);
       if(servicesDescription.length){
         res.status(200).json(servicesDescription);  
@@ -38,7 +38,18 @@ const getServicesHandler = async (req, res) => {
       }else{
         throw new Error("Not services found");  
       }
-    }    
+    }   
+
+    if(categoryId){
+      let  servicesByCategory = await getServiceByCategory(categoryId);
+        if(servicesByCategory.length){
+          res.status(200).json(servicesByCategory);  
+          return
+        }else{
+          throw new Error("Not services found");  
+        }
+      }    
+        
 
     if (servicesResponse.length > 0) {
       res.status(200).json(servicesResponse); 
@@ -60,6 +71,7 @@ const getServicesByIdHandler = async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 };
+
 
 const postServiceHandler = async (req, res) => {
   try {

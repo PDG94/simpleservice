@@ -151,8 +151,24 @@ const getServiceByDescription = async( valdescription ) =>{
     attributes: ['id','username','userimage','description','servicename','price','rating', 'userbio'],
   });
 
-
+  
   return serviceByDesc;
+};
+
+const getServiceByCategory = async(idCategory) =>{
+  // const serviceByCategory = await Service.findAll({
+  //   where: {
+  //     CategoryId: idCategory
+  //   }
+  // });
+
+  const serviceByCategory = await Card.findAll({
+    where: {
+      CategoryId: idCategory
+    }
+  });
+
+
 };
 
 
@@ -162,5 +178,6 @@ module.exports = {
   updateService,
   getServiceById,
   orderService,
-  getServiceByDescription
+  getServiceByDescription,
+  getServiceByCategory
 };
