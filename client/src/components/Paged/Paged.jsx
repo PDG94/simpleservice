@@ -10,7 +10,7 @@ export default function Paged({
 }) {
   const pageNumber = [];
   for (let i = 0; i < Math.ceil(allServices / servicesPerPage); i++) {
-    pageNumber.push(i+1);
+    pageNumber.push(i + 1);
   }
 
   function handlePrev() {
@@ -46,7 +46,7 @@ export default function Paged({
         ) : (
           pageNumber &&
           pageNumber.map((n) => (
-            <div className="page">
+            <div key={n} className="page">
               <button
                 className={"page-number" + (n === currentPage ? "active" : "")}
                 key={n}
