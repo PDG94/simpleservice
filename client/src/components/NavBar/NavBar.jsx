@@ -44,9 +44,7 @@ const NavBar = () => {
   <Link to="/Services">
   <li><a href="#Services">Services</a></li>
   </Link>
-  <Link to="/login">
-  <li><a href="#signUp">Login</a></li>
-  </Link>
+  
   <li className='create'>
   <Link to="/Create">Create Service</Link>
   </li>
@@ -55,6 +53,9 @@ const NavBar = () => {
    </a> */}
    <Link to="/register">
    <li><a href="#signIn">Register</a></li>
+  </Link>
+  <Link to="/login">
+  <li><a href="#signUp">Login</a></li>
   </Link>
   <Link to="/home" onClick={logoutUser}>
    <li><a href="#logout">Logout</a></li>

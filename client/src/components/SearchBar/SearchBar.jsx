@@ -32,7 +32,7 @@ export default function SearchBar({setCurrentPage}) {
 
     return(
         <>
-        <div>
+        <div className='search'>
             <form>
                 <input
                 onChange={(e)=>{handleInputChange(e)}}

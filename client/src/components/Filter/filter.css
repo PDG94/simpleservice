@@ -16,12 +16,12 @@ select {
     margin: 35px 3px;
     border: 2px rgb(255, 255, 255) solid;
     border-radius: 5px;
-    color: rgb(229, 247, 237);
+    color: rgb(255, 255, 255);
     display: grid;
     width: 100%;
     font-family: system-ui;
     font-size: medium;
-    background-color:rgb(58, 138, 135);
+    background-color:#1e1e32;
     padding: 8px 21px;
     text-decoration: none;
     appearance: button;
@@ -29,6 +29,6 @@ select {
     letter-spacing: 1px;
   }
 select:hover {
-    background-color:rgba(93, 187, 185, 0.978);
+    background-color:#494974;
     letter-spacing: 1px;
   }
