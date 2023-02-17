@@ -5,8 +5,8 @@ import NavBar from "./NavBar/NavBar";
 import Paged from "./Paged/Paged";
 import SearchBar from "./SearchBar/SearchBar";
 import Footer from "./Footer/Footer";
+import Loading from "./Loading/Loading";
 
 
 
-
-export { Card, CardsContainer, Filter, NavBar, Paged, SearchBar, Footer};
+export { Card, CardsContainer, Filter, NavBar, Paged, SearchBar, Footer, Loading};

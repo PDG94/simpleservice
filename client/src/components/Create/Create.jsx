@@ -1,39 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { NavBar, Footer } from "../index";
-
+import '../Create/create.css'
+import { MdStar,MdPerson,MdDescription,MdOutlineHail,MdImage } from "react-icons/md";
+import {FiDollarSign} from "react-icons/fi";
 export default function Create() {
   const navigate = useNavigate();
-
-  const serv = [
-    "Web Full Stack Developer",
-    "House cleaning",
-    "Lawn care and landscaping",
-    "Personal shopping and errand services",
-    "Babysitting and childcare",
-    "Dog walking and pet sitting",
-    "Personal training and fitness coaching",
-    "Developer",
-    "Event planning and coordination",
-    "Tutoring and academic coaching",
-    "Meal planning and prep",
-    "Photography and videography",
-    "Frontend",
-    "Graphic design and branding",
-    "Social media management and marketing",
-    "Copywriting and content creation",
-    "Music lessons and instruction",
-    "Language translation and interpretation",
-    "Home renovation and repair services",
-    "Elderly care and companionship",
-    "BackEnd",
-    "Business consulting and coaching",
-    "Personal styling and wardrobe consulting",
-    "Designer",
-    "Tech support and computer repair",
-  ];
 
   const [form, setForm] = useState({
     CategoryId: "0285f3e2-7875-40a6-a5ff-b199c2330808",
@@ -47,20 +21,24 @@ export default function Create() {
 
   const validate = (form) => {
     let errors = {};
-    if (form.username.length < 2) {
-      errors.username = "-Name must have at least 2 characters";
+    if (!form.username) {
+      errors.username = "Userame is required";
+    } else if (form.username.length > 30) {
+      errors.username = "Userame is too long";
     }
     if (form.description.length < 15) {
-      errors.description = "-Description must have at least 15 characters";
+      errors.description = "Description must have at least 15 characters";
     }
     if (form.rating < 1 || form.rating > 5) {
-      errors.rating = "-Rating must be between 1 and 5";
+      errors.rating = "Rating must be between 1 and 5";
     }
     if (isNaN(form.rating)) {
-      errors.rating = "-Rating must be a number";
+      errors.rating = "Rating must be a number";
     }
-    if (isNaN(form.price)) {
-      errors.price = "-Price must be a number";
+    if (!form.price) {
+      errors.price = "Price is required";
+    } else if (isNaN(form.price)) {
+      errors.price = "Price must be a number";
     }
 
     return errors;
@@ -90,22 +68,26 @@ export default function Create() {
   return (
     <form onSubmit={submitHandler}>
       <NavBar />
+      <div className="form">
       <Link to={"/Home"}>
-        <button>Back</button>
+        <button className="sub">Back</button>
       </Link>
-
-      <div>
-        <label>Username: </label>
+      <div className="containerCreated">
+<h1>CREATE</h1>
+      <div >
+      <label className="icon"><MdPerson/></label>
+        <label >Username: </label>
         <input
           type="text"
           value={form.username}
           onChange={changeHandler}
           name="username"
         />
-        <p>{error.username}</p>
+        <p className="valid">{error.username}</p>
       </div>
 
       <div>
+      <label className="icon"><MdDescription/></label>
         <label>Description: </label>
         <input
           type="text"
@@ -113,10 +95,11 @@ export default function Create() {
           onChange={changeHandler}
           name="description"
         />
-        <p>{error.description}</p>
+        <p className="valid">{error.description}</p>
       </div>
 
       <div>
+      <label className="icon"><MdStar/></label>
         <label>Rating: </label>
         <input
           type="text"
@@ -124,10 +107,11 @@ export default function Create() {
           onChange={changeHandler}
           name="rating"
         />
-        <p>{error.rating}</p>
+        <p className="valid">{error.rating}</p>
       </div>
 
       <div>
+      <label className="icon"><FiDollarSign/></label>
         <label>Price: </label>
         <input
           type="text"
@@ -135,10 +119,11 @@ export default function Create() {
           onChange={changeHandler}
           name="price"
         />
-        <p>{error.price}</p>
+        <p className="valid">{error.price}</p>
       </div>
 
       <div>
+      <label className="icon"><MdOutlineHail/></label>
         <label>Service: </label>
         <input
           type="text"
@@ -146,10 +131,11 @@ export default function Create() {
           onChange={changeHandler}
           name="servicename"
         />
-        <p>{error.servicename}</p>
+        <p className="valid">{error.servicename}</p>
       </div>
 
       <div>
+      <label className="icon"><MdImage/></label>
         <label>Url img: </label>
         <input
           type="text"
@@ -158,8 +144,9 @@ export default function Create() {
           name="userimage"
         />
       </div>
-
-      <button type="submit">SUBMIT</button>
+      </div>
+      </div>
+      <button type="submit" className="sub">SUBMIT</button>
       <Footer />
     </form>
   );
