@@ -1,37 +1,40 @@
+.bod{
+  margin-top: 0px;
+  background-color: #616192;
+}
 
-.NotFound h1{
-    font-family:"Lucida Console", Courier, monospace;
-    text-transform: uppercase;
-    font-size: 350px;
-    margin: 0px;
-    margin-top: 15%;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    color: #038c73;
-    text-shadow: -1px -1px 0 #7efae3, 1px -1px 0 #7efae3, -1px 1px 0 #7efae3,
-      1px 1px 0 #7efae3, 1px -1px 0 rgb(8, 8, 8), 2px 0 0 rgb(5, 5, 5),
-      2px 1px 0 rgb(5, 5, 5), 4px 2px 0px rgb(5, 5, 5),
-      5px 3px 0 rgb(116, 113, 116), 7px 4px 0 rgb(221, 212, 221),
-      4px 2px 2px #aff5da;
-  }
+.containerX {
+  margin-left: 350px;
+  background-color: #1e1e3b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100vh;
+  height: 90vh;
+}
 
-.NotFound p{
-    font-size: 800px;
-    color: rgb(72, 187, 149);
-        margin: 20px;
-        font-family:"Lucida Console", Courier, monospace;
-        text-transform: uppercase;
-        font-size: 100px;
-        margin: 10px;
-        margin-top: -10%;
-        left: 50%;
-        position: relative;
-        transform: translate(-50%, -50%);
-        color: #038c73;
-        text-shadow: -1px -1px 0 #7efae3, 1px -1px 0 #7efae3, -1px 1px 0 #7efae3,
-          1px 1px 0 #7efae3, 1px -1px 0 rgb(8, 8, 8), 2px 0 0 rgb(5, 5, 5),
-          2px 1px 0 rgb(5, 5, 5), 4px 2px 0px rgb(5, 5, 5),
-          5px 3px 0 rgb(116, 113, 116), 7px 4px 0 rgb(221, 212, 221),
-          4px 2px 2px #aff5da;
-      }
+.containerX h1 {
+  font-size: 10rem;
+  font-weight: bold;
+  color: #f44336;
+}
+
+.containerX p {
+  font-size: 1.5rem;
+  margin: 0;
+  color:#fff;
+}
+
+.containerX a {
+  color: #59b3fd;
+  text-decoration: none;
+  border-bottom: 2px solid #2196f3;
+  margin-top: 1rem;
+}
+
+.containerX a:hover {
+  background-color: #2196f3;
+  color: #fff;
+}
