@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "../Detail/detail.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -19,35 +20,42 @@ export default function Detail() {
   if (serviceDetail.length === 0) return <h1>Cargando</h1>;
 
   return (
-    <div>
+    <div className="detail">
       <NavBar />
-      <Link to={"/Services"}>
-        <button>Back</button>
-      </Link>
+      <div className="detail2">
+        <Link to={"/Services"}>
+          <button className="Bhome">Back</button>
+        </Link>
 
-      {serviceDetail.map((service) => {
-        return (
-          <div key={service.id}>
-            <h1>{service?.username}</h1>
+        {serviceDetail.map((service) => {
+          return (
+            <div>
+              <div key={service.id}>
+                <h1>{service?.username}</h1>
 
-            <img src={service?.userimage} alt="" />
+                <img className="imgDet" src={service?.userimage} alt="" />
 
-            <br></br>
+                <br></br>
+                <div className="Rinfo">
+                  <label>Service Name:  </label>
+                  <p>{service?.servicename}</p>
 
-            <label>Service Name: </label>
-            <p>{service?.servicename}</p>
+                  <label>Price:  </label>
+                  <p>${service?.price}</p>
+                  
+                  <label>Rating:  </label>
+                  <p>{service?.rating}</p>
 
-            <label>Rating: </label>
-            <p>{service?.rating}</p>
-
-            <label>Price: </label>
-            <p>{service?.price}</p>
-
-            <label>Description: </label>
-            <p>{service?.description}</p>
-          </div>
-        );
-      })}
+                </div>
+                <div className="description">
+                  <label>Description: </label>
+                  <p>{service?.description}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       <Footer />
     </div>
   );
