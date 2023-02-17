@@ -1,14 +1,14 @@
 import {
   GET_SERVICES,
-  GET_DETAIL,
-  CLEAN_DETAIL,
+  GET_SERVICES_DETAIL,
   CLEANER_NAME,
   GET_BY_NAME,
+  CLEAN_STATE,
 } from "./actionTypes";
 
 const initialState = {
   services: [],
-  detail: [],
+  serviceDetail: [],
   isLoading: true,
 };
 
@@ -18,6 +18,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         services: action.payload,
+      };
+
+    case GET_SERVICES_DETAIL:
+      return {
+        ...state,
+        serviceDetail: action.payload,
+      };
+
+    case CLEAN_STATE:
+      return {
+        ...state,
+        gamesDetail: action.payload,
       };
 
     case CLEANER_NAME:
@@ -30,18 +42,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         services: action.payload,
-      };
-
-    case GET_DETAIL:
-      return {
-        ...state,
-        detail: action.payload,
-      };
-
-    case CLEAN_DETAIL:
-      return {
-        ...state,
-        detail: action.payload,
       };
 
     default:
