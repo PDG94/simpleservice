@@ -11,17 +11,20 @@
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.637);
   margin: 40px;
   text-align: left;
-  margin-bottom: 60px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-bottom: 150px;
+  margin-left: 50px;
+  margin-right: 150px;
 }
 
 .containerWrapperList {
   flex-direction: column; /* Esta me las ordena en columna */
-  margin-left: 200px; /*CON ESTO LOGRE PONER 3 EN CADA FILA*/
+  margin-left: 200px; 
   
 }
 .cardContainer {
+  margin: 80px;
+margin-right: 50px;
+  margin-top: 80px;
   display: inline-flex;
   justify-content: space-between;
   flex-wrap: wrap;
