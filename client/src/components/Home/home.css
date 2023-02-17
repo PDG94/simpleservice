@@ -1,12 +1,41 @@
-/* .carousel-inner{
-    display: flex;
-    align-items:first baseline;
-    justify-content: left;
-    min-height: 100vh;
-} */
+
+.carousel, .carousel-inner, .carousel-item, .imagen{
+    height: 85vh;
+    width: 35vw;
+
+}
 
 .homeContainer{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+}
+
+.logoService{
+    position: absolute;
+    margin-left: 50vw;
+    margin-top: 8vh;
+
+   
+}
+.imageLogo{
+    height: 65vh;
+    width: 30vw;
+}
+.btnService{
+    position: absolute;
+    margin-left: 61vw;
+    margin-top: 75vh;
+    height: 30px;
+    width: 90px;
+    color: #fffdfd;
+    border: 1px solid #43529d;
+    border-radius: 2px;
+    background-color: transparent;
+}
+.btnService:hover{
+    border: 1px solid #fffdfd;
+    border-radius: 5px;
+    background-color:#cfcfdb;
+    color: rgb(255, 255, 255);
 }
