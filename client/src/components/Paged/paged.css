@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
- 
+  
   
 }
 
@@ -26,10 +26,16 @@
   padding-right: 1rem;
   margin-top: 30px;
 }
+.prev-next button{
+  width: 60px;
+  height: 30px;
+ background-color: #494974;
+ border-radius: 8px;
 
+}
 
 .page-numberactive {
-  background: #202036;
+  background: #0e0e18;
   color: #fffdfc;
   text-decoration: none;
   border: 2px solid transparent;
@@ -37,24 +43,35 @@
   padding: 1px 10px;
   border-radius: 3px;
   transition: 0.2s;
-  width: 30px;
+ 
 }
 .page-numberactive:hover{
-  background-color: #494974;
+  background-color: #18182b;
+  width: 40px;
+}
+.page-numberactive:hover{
+  background-color: #18182b;
 }
 
 .paginate-container {
   display: flex;
   justify-content: center;
 }
+.page button{
+  border-radius: 8px;
+  width: 30px;
+  background-color: #494974;
+}
 
 .page ul {
   list-style: none;
   text-align: center;
+
 }
 .page ul li {
   display: inline-block;
   cursor: pointer;
+ 
 }
 .page ul li :hover {
   transform: translateY(3.5px);
@@ -68,4 +85,5 @@
   background: #000000;
   border-radius: 0.7rem;
   text-decoration: none;
+ 
 }

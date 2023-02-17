@@ -28,13 +28,12 @@ export default function Detail (){
     return (
         <div className="detailContainer">
             <NavBar/>
-            <div>
-                <Link to="/" className="btnHome">
+            <div className="button">
+                <Link to="/home" className="btnHome">
                     <button>Go Back</button>
                 </Link>
             </div>
-            <p>Estoy en Detail</p>
-            {/* { serviceDetail.length > 0 ? (
+            { serviceDetail.length > 0 ? (
                 <div className="main">
                     <div className="left">
                         <div className="details">
@@ -52,7 +51,7 @@ export default function Detail (){
                         </div>
                     </div>
                 </div>
-            ):<Loading/>} */}
+            ):<Loading/>}
             <Footer/>
         </div>
     )

@@ -23,12 +23,12 @@
   margin-top: -40px;
  position: relative;
  width: 250px;
- height:90px;
+ height:105px;
  background: #8383c0;
  transition: 0.5s;
 }
 .card:hover{
-height: 220px;
+height: 250px;
 }
 .container .card{
   position: absolute;
@@ -47,4 +47,7 @@ overflow: hidden;
   transition: 0.5s ;
   background:  #3f3f64;
   color: hsla(288, 100%, 99%, 0.911);
+}
+h2{
+  margin-top: 10px;
 }
