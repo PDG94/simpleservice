@@ -5,6 +5,8 @@ import {
   CLEANER_NAME,
   GET_BY_NAME,
   CLEAN_STATE,
+  GET_CATEGORIES,
+  FILTER_SERVICES,
 } from "./actionTypes";
 
 export function getServices() {
@@ -50,5 +52,54 @@ export function getServicesByName(name) {
     } catch (error) {
       console.log("Error on action GET_BY_NAME", error);
     }
+  };
+}
+
+export function getCategories() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/categories"
+    );
+    return dispatch({
+      type: GET_CATEGORIES,
+      payload: response.data,
+    });
+  };
+}
+
+export function cardsFilter({ order, direction, categoryId }) {
+  return async function (dispatch) {
+    try {
+      if (order && direction && categoryId) {
+        const response = await axios.get(
+          `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}&categoryId=${categoryId}`
+        );
+        return dispatch({
+          type: FILTER_SERVICES,
+          payload: response.data,
+        });
+      }
+      if (order && direction) {
+        const response = await axios.get(
+          `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}`
+        );
+        return dispatch({
+          type: FILTER_SERVICES,
+          payload: response.data,
+        });
+      }
+      if (categoryId) {
+        const response = await axios.get(
+          `https://simpleservice-production.up.railway.app/services?categoryId=${categoryId}`
+        );
+        return dispatch({
+          type: FILTER_SERVICES,
+          payload: response.data,
+        });
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+    
   };
 }

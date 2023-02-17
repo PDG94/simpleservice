@@ -4,12 +4,15 @@ import {
   CLEANER_NAME,
   GET_BY_NAME,
   CLEAN_STATE,
+  GET_CATEGORIES,
+  FILTER_SERVICES,
 } from "./actionTypes";
 
 const initialState = {
   services: [],
   serviceDetail: [],
   isLoading: true,
+  categories: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -43,6 +46,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         services: action.payload,
       };
+
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+      };
+
+    case FILTER_SERVICES:
+      return {
+        ...state,
+        services: action.payload
+      }
 
     default:
       return { ...state };
