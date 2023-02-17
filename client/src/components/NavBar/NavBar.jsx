@@ -35,31 +35,18 @@ const NavBar = () => {
   }
   return (
 <ul>
-  <Link to="/carrito">
   <li className="icon"><a className="icono" href="#icon"><BsFillCartCheckFill/></a></li>
-  </Link>
-  <Link to="/home">
-  <li><a className="home">Home</a></li>
-  </Link>
-  <Link to="/Services">
-  <li><a href="#Services">Services</a></li>
-  </Link>
-  
+  <li><a className="home" href="/home">Home</a></li>
+  <li><a href="/Services">Services</a></li>
+  <li><a href="/login">Login</a></li>
   <li className='create'>
-  <Link to="/Create">Create Service</Link>
+  <a href="/Create">Create Service</a>
   </li>
   {/* <a href="#"><FaUserCircle size={16}/>
    Hi, {displayName}
    </a> */}
-   <Link to="/register">
-   <li><a href="#signIn">Register</a></li>
-  </Link>
-  <Link to="/login">
-  <li><a href="#signUp">Login</a></li>
-  </Link>
-  <Link to="/home" onClick={logoutUser}>
-   <li><a href="#logout">Logout</a></li>
-  </Link>
+   <li><a href="/register">Register</a></li>
+   <li><a href="/home" onClick={logoutUser}>Logout</a></li>
   <li className='search'>
     <SearchBar/>
   </li>

@@ -1,0 +1,12 @@
+/* .carousel-inner{
+    display: flex;
+    align-items:first baseline;
+    justify-content: left;
+    min-height: 100vh;
+} */
+
+.homeContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
