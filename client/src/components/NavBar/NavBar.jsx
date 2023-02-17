@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchBar } from "../index";
 import "../NavBar/navBar.css";
 import { auth } from "../../components/Firebase/config"
@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { /*onAuthStateChanged,*/ signOut } from "firebase/auth";
 import {BsFillCartCheckFill} from 'react-icons/bs'
 // import { useEffect, useState } from "react";
-import {FaUserCircle} from "react-icons/fa"
+// import {FaUserCircle} from "react-icons/fa"
 
 const NavBar = () => {
   const navigate = useNavigate()

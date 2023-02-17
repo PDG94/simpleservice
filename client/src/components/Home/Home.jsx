@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mainhome">
       <NavBar />
       <div className="homeContainer">
       <div
@@ -19,21 +19,21 @@ const Home = () => {
       >
         <div className="carousel-inner ">
           <div className="carousel-item active">
-            <img src={doctor} className="d-block w-100" alt="doc" />
+            <img src={doctor} className="imagen d-block w-100" alt="doc" />
           </div>
           <div className="carousel-item">
-            <img src={woodworker} className="d-block w-100" alt="wood" />
+            <img src={woodworker} className="imagen d-block w-100" alt="wood" />
           </div>
           <div className="carousel-item">
-            <img src={clothes} className="d-block w-100" alt="clothing" />
+            <img src={clothes} className="imagen d-block w-100" alt="clothing" />
           </div>
         </div>
       </div>
       <div className="logoService">
-        <img src={logoServiceName} alt="carrito"/>
+        <img src={logoServiceName} alt="carrito" className="imageLogo"/>
       </div>
-      <Link to="/Services">
-        <button className="btnService">View Services</button>
+      <Link to="/Services" className="btnService">
+        <button >View Services</button>
       </Link>
       </div>
       <Footer />
