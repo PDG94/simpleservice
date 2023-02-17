@@ -70,13 +70,13 @@ export default function Create() {
       <NavBar />
       <div className="form">
       <Link to={"/Home"}>
-        <button className="sub">Back</button>
+        <button className="back">Back</button>
       </Link>
       <div className="containerCreated">
-<h1>CREATE</h1>
+<h1>CREATE SERVICE</h1>
       <div >
       <label className="icon"><MdPerson/></label>
-        <label >Username: </label>
+        <span >Username: </span>
         <input
           type="text"
           value={form.username}
@@ -88,7 +88,7 @@ export default function Create() {
 
       <div>
       <label className="icon"><MdDescription/></label>
-        <label>Description: </label>
+        <span>Description: </span>
         <input
           type="text"
           value={form.description}
@@ -100,7 +100,7 @@ export default function Create() {
 
       <div>
       <label className="icon"><MdStar/></label>
-        <label>Rating: </label>
+        <span>Rating: </span>
         <input
           type="text"
           value={form.rating}
@@ -112,7 +112,7 @@ export default function Create() {
 
       <div>
       <label className="icon"><FiDollarSign/></label>
-        <label>Price: </label>
+        <span>Price: </span>
         <input
           type="text"
           value={form.price}
@@ -124,7 +124,7 @@ export default function Create() {
 
       <div>
       <label className="icon"><MdOutlineHail/></label>
-        <label>Service: </label>
+        <span>Service: </span>
         <input
           type="text"
           value={form.servicename}
@@ -136,7 +136,7 @@ export default function Create() {
 
       <div>
       <label className="icon"><MdImage/></label>
-        <label>Url img: </label>
+        <span>Url img: </span>
         <input
           type="text"
           value={form.userimage}

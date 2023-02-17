@@ -5,18 +5,27 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 970px;
+  height: 1050px;
   
 }
 .containerCreated{
   margin-left: 15%;
-  background-color:#1e1e32 ;
+  align-items: center;
+  background-color:#494974 ;
   color: #fff;
     margin-top: 20px;
-    border: 2px solid #fff;
+    border: 8px solid #494974;
+    border-radius: 20px;
     width: 70%;
-    height: 80%;
+    height: 90%;
+    box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
+    5px 5px 15px rgba(0,0,0,0.35),
+     inset -5px -5px 15px rgba(255,255,255,0.3),
+     inset 5px 5px 15px rgba(0,0,0,0.35);
+
 }
+
+
 .form h1{
   margin-top: 50px;
   margin-bottom: 50px;
@@ -25,21 +34,55 @@
 .icon{
 font-size: 25px;
 margin-right: 5px;
+color: #b6b6f8;
+
 }
 label{
-    margin-right: 5px;
-}
-.valid {
-  color: rgb(240, 89, 89);
+  position: absolute;
+  padding: 8px 0;
+    margin-left: 10px;
+    padding-right: 5px;
+    border-right: 1px solid #b6b6f8;
+  }
+span{
+  font-size: 15px;
+position: absolute;
+margin-top: -25px;
+margin-left: 40px;
+  pointer-events: none;
+  font-size: 1em;
+  font-weight: 300;
 }
 
+.valid {
+  margin-top: 10px;
+  color: rgb(240, 89, 89);
+}
+.back{
+     margin-left: 3px;
+     height: 50px;
+     width: 140px;
+     color: #fffdfd;
+     border: 1px solid #fffdfd;
+     border-radius: 10px;
+     background-color: transparent;
+ }
+ .back:hover{
+     border: 1px solid #fffdfd;
+     border-radius: 5px;
+     background-color:#494974;
+     color: rgb(255, 255, 255);
+     box-shadow:0 0 2px 2px rgb(255, 255, 255);
+   }
   .sub{
+   
+ margin-top: 150px;
     margin-left: 3px;
     height: 50px;
-    width: 150px;
+    width: 140px;
     color: #fffdfd;
     border: 1px solid #fffdfd;
-    border-radius: 2px;
+    border-radius: 10px;
     background-color: transparent;
 }
 .sub:hover{
@@ -49,3 +92,27 @@ label{
     color: rgb(255, 255, 255);
     box-shadow:0 0 2px 2px rgb(255, 255, 255);
   }
+  .form input{
+    padding: 12px 10px 15px 48px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: #494974;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #fff;
+    font-weight: 25px;
+    font-size: 1em;
+    box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
+    5px 5px 15px rgba(0,0,0,0.35);
+transform:0.5s;
+outline: none;
+  }
+  .form input label{
+position: absolute;
+left: 0;
+transition: 0.5s;
+letter-spacing: 0.05em;
+color: rgba(255,255,255,0.5);
+  }
+  
+  
