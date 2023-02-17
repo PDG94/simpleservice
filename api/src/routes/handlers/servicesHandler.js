@@ -5,7 +5,8 @@ const {
   getServiceById,
   orderService,
   getServiceByDescription,
-  getServiceByCategory
+  getServiceByCategory,
+  filterServices
 } = require("../controllers/servicesController");
 
 const getServicesHandler = async (req, res) => {
@@ -14,11 +15,19 @@ const getServicesHandler = async (req, res) => {
 
     //while we use Card use servicename instead of name
 
-    const {order,servicename, direction, description,categoryId } = req.query
+    const {order,servicename, direction, description,categoryId } = req.query;
 
+    if(order && direction && categoryId){
+      const filteredServices = await filterServices(
+        order,
+        direction,
+        categoryId
+      );
+      res.status(200).send(filteredServices);
+      return;
+    }
 
-
-    if(order){
+    if(order && direction){
       const orderServ = await orderService(order,direction)
       res.status(200).send(orderServ)
       return
