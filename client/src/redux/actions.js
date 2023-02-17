@@ -36,10 +36,12 @@ export function clearName(payload) {
   };
 }
 
-export function getServicesByName() {
+export function getServicesByName(name) {
   return async function (dispatch) {
     try {
-      let json = await axios.get("ruta a name (query)");
+      let json = await axios.get(
+        `https://simpleservice-production.up.railway.app/services?servicename=${name}`
+      );
       let json1 = await json.data;
       return dispatch({
         type: GET_BY_NAME,
