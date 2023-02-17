@@ -1,52 +1,50 @@
-.container {
-  font-family: system-ui;
-  letter-spacing: 1px;
-  border: 1px solid rgb(66, 60, 60); /* linea de borde */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.container{
+  color: aliceblue;
+  height: 250px;
   border-radius: 10px;
-  background: rgb(36, 30, 49);
-  background: linear-gradient(
-    300deg,
-    rgba(36, 30, 49, 1) 10%,
-    rgba(30, 30, 50, 1) 20%,
-    rgba(215, 30, 31, 1) 100%
-  );
-  width: 220px; /* Ancho */
-  height: fit-content;
-  box-shadow: 0, 0, 50px black; /* Sombra */
-  
+  background-color: #1e1e32;
 }
-
-.name {
-  font-weight: 600;
-  color: #000000;
+.container img{
+  width: 250px;
+  position: relative;
+  top: -55px;
+  border: 3px solid #8383c0;
+ border-radius: 10px;
 }
-
-.info {
-  color: #000000;
-  display: block;
+.card{
+  border-radius: 10px;
+  margin-top: -40px;
+ position: relative;
+ width: 250px;
+ height:90px;
+ background: #8383c0;
+ transition: 0.5s;
 }
-
-.img {
-  width: 95%;
-  border: 1px solid rgb(66, 60, 60); /* linea de borde */
-  border-radius: 10px; /* Bordes redondeados */
+.card:hover{
+height: 220px;
 }
-
-.button {
-  text-decoration: none;
-  color: #101010;
-  padding: 0.8rem;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 1);
-  background: transparent;
+.container .card{
+  position: absolute;
+align-items: center;
+overflow: hidden;
 }
-.button:hover {
-  color: #101010;
-  background-color: #494974;
+.container button{
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #fff;
+  background: #1e1e32;
+}
+.container button:hover{
+  transition: 0.5s ;
+  background:  #3f3f64;
+  color: hsla(288, 100%, 99%, 0.911);
 }
