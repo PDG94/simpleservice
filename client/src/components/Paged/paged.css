@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+ 
   
 }
 
@@ -17,7 +18,7 @@
   display: inline-block;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .prev-next {
@@ -28,7 +29,7 @@
 
 
 .page-numberactive {
-  background: rgb(52, 105, 104);
+  background: #202036;
   color: #fffdfc;
   text-decoration: none;
   border: 2px solid transparent;
@@ -39,7 +40,7 @@
   width: 30px;
 }
 .page-numberactive:hover{
-  background-color: rgba(91, 172, 170, 0.822);
+  background-color: #494974;
 }
 
 .paginate-container {
@@ -53,19 +54,18 @@
 }
 .page ul li {
   display: inline-block;
-  margin-right: 10px;
   cursor: pointer;
 }
 .page ul li :hover {
   transform: translateY(3.5px);
-  box-shadow: 2px 2px 26px 0px rgba(253, 220, 220, 0.952);
+  box-shadow: 2px 2px 26px 0px rgba(255, 255, 255, 0.952);
 }
 
 .page ul li a {
   display: block;
   padding: 10px 20px;
-  color: rgb(164, 156, 156);
-  background: #c5c1be;
+  color: rgb(0, 0, 0);
+  background: #000000;
   border-radius: 0.7rem;
   text-decoration: none;
 }

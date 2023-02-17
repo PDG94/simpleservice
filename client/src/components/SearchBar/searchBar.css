@@ -1,16 +1,21 @@
+
+.search{
+    margin-top: 6px;
+    margin-left: 150px;
+}
 .submit{
-    margin-left: 2px;
-    height: 24px;
-    width: 60px;
+    margin-left: 3px;
+    height: 30px;
+    width: 90px;
     color: #fffdfd;
     border: 1px solid #fffdfd;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: transparent;
 }
 .submit:hover{
     border: 1px solid #fffdfd;
     border-radius: 5px;
-    background-color: rgba(103, 185, 184, 0.39);
-    color: rgb(206, 233, 232);
-    box-shadow:0 0 2px 2px rgb(206, 233, 232);
+    background-color:#494974;
+    color: rgb(255, 255, 255);
+    box-shadow:0 0 2px 2px rgb(255, 255, 255);
   }
