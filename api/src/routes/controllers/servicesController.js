@@ -156,17 +156,17 @@ const getServiceByDescription = async( valdescription ) =>{
 };
 
 const getServiceByCategory = async(idCategory) =>{
-  // const serviceByCategory = await Service.findAll({
-  //   where: {
-  //     CategoryId: idCategory
-  //   }
-  // });
-
-  const serviceByCategory = await Card.findAll({
+  const serviceByCategory = await Service.findAll({
     where: {
       CategoryId: idCategory
     }
   });
+
+  // const serviceByCategory = await Card.findAll({
+  //   where: {
+  //     CategoryId: idCategory
+  //   }
+  // });
 
 
 };

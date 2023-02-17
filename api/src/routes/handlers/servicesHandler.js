@@ -12,7 +12,9 @@ const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
-    const {order,name, direction, description, categoryId} = req.query
+    //while we use Card use servicename instead of name
+    const {order,servicename, direction, description,categoryId } = req.query
+
 
     if(order){
       const orderServ = await orderService(order,direction)
@@ -20,11 +22,12 @@ const getServicesHandler = async (req, res) => {
       return
     }
 
-    if(name){
-      let serviceName = await servicesResponse.filter((service)=> 
-      service.name.toLowerCase().includes(name.toLowerCase()))
-      if(serviceName.length > 0){
-        res.status(200).send(serviceName)
+    if(servicename){
+      let serviceNameFiltered = await servicesResponse.filter((service)=> 
+      // service.name.toLowerCase().includes(name.toLowerCase()))
+      service.servicename.toLowerCase().includes(servicename.toLowerCase()))
+      if(servicename.length > 0){
+        res.status(200).send(serviceNameFiltered)
         return
       } else{
         throw new Error("Service not found")
