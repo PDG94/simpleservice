@@ -1,44 +1,45 @@
 .landing {
   background-color: #1e1e32;
   background-image: url("../Imagenes/landing.png");
-  background-size: 90% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed;
  margin: none;
 }
-.landing button {
-    font-size: large;
-    font-weight: 600;
-    background-color: #d71e1e;
-  margin-top: 20rem;
-  margin-left: 50rem;
+
+.landing button{
+  font-size: large;
+  font-weight: 600;
+  background-color: #0956ad;
+  margin-top: 28rem;
+  margin-left: 5rem;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  outline: 2px solid #d71e1e;
-  padding: 10px 40px;
+  padding: 10px 30px;
   color: #fff;
   position: relative;
   overflow: hidden;
   transition: color 1s;
+  border: none;
   border-radius: 10px;
   box-shadow: 0 0 2px #fff,
-  0 0 8px #fff,
-  0 0 11px #d71e1e,
-  0 0 11px #d71e1e,
-  0 0 15px #d71e1e,
-  0 0 20px #d71e1e;
+  0 0 2px #5d77a5,
+  0 0 4px #446398,
+  0 0 6px #274ea2,
+  0 0 8px #212199,
+  0 0 10px #1e1e3b;
 }
 .landing button:hover {
   background-color:  #fff;
   color:#111120;
   box-shadow: 0 0 2px #fff,
-  0 0 8px #fff,
-  0 0 11px #9c9ce2,
-  0 0 11px #7b7bbd,
-  0 0 15px #494974,
-  0 0 20px #2d2d4b;
+  0 0 2px #fff,
+  0 0 4px #446398,
+  0 0 6px #274ea2,
+  0 0 8px #212199,
+  0 0 10px #1e1e3b;
 }

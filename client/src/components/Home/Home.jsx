@@ -32,9 +32,11 @@ const Home = () => {
       <div className="logoService">
         <img src={logoServiceName} alt="carrito" className="imageLogo"/>
       </div>
-      <Link to="/Services" className="btnService">
-        <button >View Services</button>
-      </Link>
+      <div className="servicesBtn">
+       <Link to="/Services">
+          <button>View Services</button>
+        </Link>
+      </div>
       </div>
       <Footer />
     </div>
