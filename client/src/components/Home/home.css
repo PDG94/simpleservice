@@ -1,7 +1,7 @@
 
 .carousel, .carousel-inner, .carousel-item, .imagen{
-    height: 85vh;
-    width: 35vw;
+    height: 87.7vh;
+    width: 37vw;
 
 }
 
@@ -22,20 +22,30 @@
     height: 65vh;
     width: 30vw;
 }
-.btnService{
-    position: absolute;
-    margin-left: 61vw;
+
+.servicesBtn button{
+    font-size: large;
+    font-weight: 600;
+    background-color: #1e1e3b;
+    margin-left: 21.5vw;
     margin-top: 75vh;
-    height: 30px;
-    width: 90px;
-    color: #fffdfd;
-    border: 1px solid #43529d;
-    border-radius: 2px;
-    background-color: transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    border-radius: 10px;
 }
-.btnService:hover{
-    border: 1px solid #fffdfd;
-    border-radius: 5px;
-    background-color:#cfcfdb;
-    color: rgb(255, 255, 255);
-}
+.servicesBtn button:hover {
+    background-color:  #fff;
+    color:#111120;
+    box-shadow: 0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 4px #446398,
+    0 0 6px #274ea2,
+    0 0 8px #212199,
+    0 0 10px #1e1e3b;
+  }
