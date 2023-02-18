@@ -1,10 +1,10 @@
-/* import "../CardsContainer/cardsContainer.css"; */
 import { Card, Paged } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import Loading from "../Loading/Loading";
 import "../CardsContainer/cardsContainer.css";
 import { getServices } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
@@ -38,7 +38,9 @@ export default function CardsContainer() {
         {currentServices.length ? (
           currentServices.map((user) => {
             return (
-              <div key={user?.id} className="wrapperList">
+                <Link key={user.id}
+                to={`/Detail/${user.id}`}
+                style={{textDecoration: "none"}}>
                 <Card
                   key={user?.id}
                   id={user?.id}
@@ -48,7 +50,7 @@ export default function CardsContainer() {
                   service={user?.servicename}
                   rating={user?.rating}
                 />
-              </div>
+                </Link>
             );
           })
         ) : (

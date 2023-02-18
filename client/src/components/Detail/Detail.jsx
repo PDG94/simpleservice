@@ -1,4 +1,4 @@
-import { NavBar, Footer } from "../index";
+import { NavBar, Footer, Loading } from "../index";
 import { getServicesDetail, cleanState } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -12,12 +12,12 @@ export default function Detail() {
   const serviceDetail = useSelector((state) => state.serviceDetail);
 
   useEffect(() => {
-    dispatch(cleanState());
     dispatch(getServicesDetail(id));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      dispatch(cleanState());
+    }
+  }, [dispatch, id]);
 
-  if (serviceDetail.length === 0) return <h1>Cargando</h1>;
 
   return (
     <div className="detail">
@@ -27,34 +27,37 @@ export default function Detail() {
           <button className="Bhome">Back</button>
         </Link>
 
-        {serviceDetail.map((service) => {
-          return (
-            <div>
-              <div key={service.id}>
-                <h1>{service?.username}</h1>
-
-                <img className="imgDet" src={service?.userimage} alt="" />
-
-                <br></br>
-                <div className="Rinfo">
-                  <label>Service Name:  </label>
-                  <p>{service?.servicename}</p>
-
-                  <label>Price:  </label>
-                  <p>${service?.price}</p>
-                  
-                  <label>Rating:  </label>
-                  <p>{service?.rating}</p>
-
-                </div>
-                <div className="description">
-                  <h2>Description: </h2>
-                  <h4>{service?.description}</h4>
+        {serviceDetail.length ? (
+          serviceDetail.map((service) => {
+            return (
+              <div>
+                <div key={service.id}>
+                  <h1>{service?.username}</h1>
+  
+                  <img className="imgDet" src={service?.userimage} alt="" />
+  
+                  <br></br>
+                  <div className="Rinfo">
+                    <label>Service Name:  </label>
+                    <p>{service?.servicename}</p>
+  
+                    <label>Price:  </label>
+                    <p>${service?.price}</p>
+                    
+                    <label>Rating:  </label>
+                    <p>{service?.rating}</p>
+  
+                  </div>
+                  <div className="description">
+                    <h2>Description: </h2>
+                    <h4>{service?.description}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        ): (<Loading/>)
+        }
       </div>
       <Footer />
     </div>

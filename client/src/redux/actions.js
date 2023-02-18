@@ -26,13 +26,13 @@ export const getServicesDetail = (id) => {
   };
 };
 
-export const cleanState = (payload) => {
+export const cleanState = () => {
   return function (dispatch) {
     dispatch({ type: CLEAN_STATE, payload: [] });
   };
 };
 
-export function clearName(payload) {
+export function clearName() {
   return function (dispatch) {
     dispatch({ type: CLEANER_NAME, payload: {} });
   };
