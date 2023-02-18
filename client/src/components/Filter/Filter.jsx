@@ -71,7 +71,7 @@ export default function Filter() {
           <option value="DESC">More Rating</option>
           <option value="ASC">Low Rating</option>
         </select>
-        <button onClick={() => handleSubmit()}>Filter & Sort</button>
+        <button className="btnFilter" onClick={() => handleSubmit()}>Filter & Sort</button>
       </li>
     </div>
   );

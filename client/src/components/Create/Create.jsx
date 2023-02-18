@@ -3,9 +3,15 @@ import { useState } from "react";
 import axios from "axios";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { NavBar, Footer } from "../index";
-import '../Create/create.css'
-import { MdStar,MdPerson,MdDescription,MdOutlineHail,MdImage } from "react-icons/md";
-import {FiDollarSign} from "react-icons/fi";
+import "../Create/create.css";
+import {
+  MdStar,
+  MdPerson,
+  MdDescription,
+  MdOutlineHail,
+  MdImage,
+} from "react-icons/md";
+import { FiDollarSign } from "react-icons/fi";
 export default function Create() {
   const navigate = useNavigate();
 
@@ -69,84 +75,98 @@ export default function Create() {
     <form onSubmit={submitHandler}>
       <NavBar />
       <div className="form">
-      <Link to={"/Home"}>
-        <button className="back">Back</button>
-      </Link>
-      <div className="containerCreated">
-<h1>CREATE SERVICE</h1>
-      <div >
-      <label className="icon"><MdPerson/></label>
-        <span >Username: </span>
-        <input
-          type="text"
-          value={form.username}
-          onChange={changeHandler}
-          name="username"
-        />
-        <p className="valid">{error.username}</p>
-      </div>
+        <Link to={"/Home"}>
+          <button className="back">Back</button>
+        </Link>
+        <div className="containerCreated">
+          <h1>CREATE SERVICE</h1>
+          <div>
+            <label className="icon">
+              <MdPerson />
+            </label>
+            <input
+              type="text"
+              placeholder="Username: "
+              value={form.username}
+              onChange={changeHandler}
+              name="username"
+            />
+            <p className="valid">{error.username}</p>
+          </div>
 
-      <div>
-      <label className="icon"><MdDescription/></label>
-        <span>Description: </span>
-        <input
-          type="text"
-          value={form.description}
-          onChange={changeHandler}
-          name="description"
-        />
-        <p className="valid">{error.description}</p>
-      </div>
+          <div>
+            <label className="icon">
+              <MdDescription />
+            </label>
+            <input
+              type="text"
+              placeholder="Description:"
+              value={form.description}
+              onChange={changeHandler}
+              name="description"
+            />
+            <p className="valid">{error.description}</p>
+          </div>
 
-      <div>
-      <label className="icon"><MdStar/></label>
-        <span>Rating: </span>
-        <input
-          type="text"
-          value={form.rating}
-          onChange={changeHandler}
-          name="rating"
-        />
-        <p className="valid">{error.rating}</p>
-      </div>
+          <div>
+            <label className="icon">
+              <MdStar />
+            </label>
+            <input
+              type="text"
+              placeholder="Rating:"
+              value={form.rating}
+              onChange={changeHandler}
+              name="rating"
+            />
+            <p className="valid">{error.rating}</p>
+          </div>
 
-      <div>
-      <label className="icon"><FiDollarSign/></label>
-        <span>Price: </span>
-        <input
-          type="text"
-          value={form.price}
-          onChange={changeHandler}
-          name="price"
-        />
-        <p className="valid">{error.price}</p>
-      </div>
+          <div>
+            <label className="icon">
+              <FiDollarSign />
+            </label>
+            <input
+              type="text"
+              placeholder="Price:"
+              value={form.price}
+              onChange={changeHandler}
+              name="price"
+            />
+            <p className="valid">{error.price}</p>
+          </div>
 
-      <div>
-      <label className="icon"><MdOutlineHail/></label>
-        <span>Service: </span>
-        <input
-          type="text"
-          value={form.servicename}
-          onChange={changeHandler}
-          name="servicename"
-        />
-        <p className="valid">{error.servicename}</p>
-      </div>
+          <div>
+            <label className="icon">
+              <MdOutlineHail />
+            </label>
+            <input
+              type="text"
+              placeholder="Service:"
+              value={form.servicename}
+              onChange={changeHandler}
+              name="servicename"
+            />
+            <p className="valid">{error.servicename}</p>
+          </div>
 
-      <div>
-      <label className="icon"><MdImage/></label>
-        <span>Url img: </span>
-        <input
-          type="text"
-          value={form.userimage}
-          onChange={changeHandler}
-          name="userimage"
-        />
+          <div>
+            <label className="icon">
+              <MdImage />
+            </label>
+            <input
+              type="text"
+              placeholder="Url img:"
+              value={form.userimage}
+              onChange={changeHandler}
+              name="userimage"
+            />
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-      <button type="submit" className="sub">SUBMIT</button>
+      <button type="submit" className="sub">
+        SUBMIT
+      </button>
       <Footer />
     </form>
   );
