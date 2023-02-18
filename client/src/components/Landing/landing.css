@@ -10,18 +10,18 @@
  margin: none;
 }
 
-.landing button{
+.landing .btnLanding{
   font-size: large;
   font-weight: 600;
   background-color: #0956ad;
-  margin-top: 28rem;
-  margin-left: 5rem;
+  margin-top: 70vh;
+  margin-left: 1vw;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 10px 30px;
   color: #fff;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   transition: color 1s;
   border: none;
@@ -33,7 +33,7 @@
   0 0 8px #212199,
   0 0 10px #1e1e3b;
 }
-.landing button:hover {
+.landing .btnLanding:hover {
   background-color:  #fff;
   color:#111120;
   box-shadow: 0 0 2px #fff,
