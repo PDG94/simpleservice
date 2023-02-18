@@ -32,7 +32,7 @@ function rootReducer(state = initialState, action) {
     case CLEAN_STATE:
       return {
         ...state,
-        gamesDetail: action.payload,
+        serviceDetail: action.payload,
       };
 
     case CLEANER_NAME:

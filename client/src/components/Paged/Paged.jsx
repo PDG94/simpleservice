@@ -31,42 +31,42 @@ export default function Paged({
 
   return (
     <nav className="paginateContainer">
-      <div className="prev-next">
-        <button
-          className="next-prev-btn"
+      <ul className="pages">
+      <li>
+        <p
+          className="buttonPage"
           onClick={() => handlePrev()}
           disabled={allServices < 6}
         >
-          Prev
-        </button>
-      </div>
-      <div className="pages">
+          ⪻
+        </p>
+      </li>
         {allServices < 6 ? (
-          <div key="pagination">{paged(1)}</div>
+          <li key="pagination">{paged(1)}</li>
         ) : (
           pageNumber &&
           pageNumber.map((n) => (
-            <div key={n} className="page">
-              <button
+            <li key={n} className="page">
+              <p
                 className={"page-number" + (n === currentPage ? "active" : "")}
                 key={n}
                 onClick={() => paged(n)}
               >
                 {n}
-              </button>
-            </div>
+              </p>
+            </li>
           ))
         )}
-      </div>
-      <div className="prev-next">
-        <button
-          className="next-prev-btn"
+      <li>
+        <p
+          className="buttonPage"
           onClick={() => handleNext()}
           disabled={allServices < 6}
         >
-          Next
-        </button>
-      </div>
+           ⪼
+        </p>
+      </li>
+      </ul>
     </nav>
   );
 }
