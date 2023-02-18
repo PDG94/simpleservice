@@ -42,7 +42,7 @@ export default function SearchBar({setCurrentPage}) {
                 onKeyPress = {e => handleOnKeyPress(e)}
                 className="inputSearch"
                 />
-                <button className='submit' onClick={handleSubmit}>Submit</button>
+                <button  onClick={handleSubmit}>Submit</button>
             </form>
         </div>
         </>

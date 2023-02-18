@@ -19,13 +19,13 @@ const Home = () => {
       >
         <div className="carousel-inner ">
           <div className="carousel-item active">
-            <img src={doctor} className="imagen d-block w-100" alt="doc" />
+            <img src={doctor} className="d-block w-100 imagen" alt="doc" />
           </div>
           <div className="carousel-item">
-            <img src={woodworker} className="imagen d-block w-100" alt="wood" />
+            <img src={woodworker} className="d-block w-100 imagen " alt="wood" />
           </div>
           <div className="carousel-item">
-            <img src={clothes} className="imagen d-block w-100" alt="clothing" />
+            <img src={clothes} className="d-block w-100 imagen" alt="clothing" />
           </div>
         </div>
       </div>
