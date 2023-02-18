@@ -48,8 +48,8 @@ export default function Detail() {
 
                 </div>
                 <div className="description">
-                  <label>Description: </label>
-                  <p>{service?.description}</p>
+                  <h2>Description: </h2>
+                  <h4>{service?.description}</h4>
                 </div>
               </div>
             </div>
