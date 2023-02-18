@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import '../Pages/register.css'
+import { MdOutlineAccountCircle } from "react-icons/md";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -43,9 +45,9 @@ export default function Register() {
     <>
      <NavBar/>
       {isLoading && <Loading />}
-      <section className="container">
-        <div className="form">
-          <h2>Create acoount</h2>
+      <div className="containerRegister">
+        <div className="formRegister">
+          <h1><MdOutlineAccountCircle className="iconR"/>Create account</h1>
           <form onSubmit={registerUSer}>
             <input
               type="text"
@@ -82,7 +84,7 @@ export default function Register() {
               value={cPassword}
               onChange={(event) => setcPassword(event.target.value)}
             />
-            <span>Date of birth</span>
+           
             <input
               type="date"
               placeholder="Date of birth"
@@ -90,15 +92,10 @@ export default function Register() {
               value={dateOfBirth}
               onChange={(event) => setDateOfBirth(event.target.value)}
             />
-            {/* <input type="image"
-                    placeholder="Profile Picture(optional)"
-                    required 
-                    value={image} 
-                    onChange={(event)=>setImage(event.target.value)}/> */}
             <button type="submit">Register</button>
           </form>
         </div>
-      </section>
+      </div>
       <Footer />
     </>
   );

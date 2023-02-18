@@ -32,3 +32,19 @@ select:hover {
     background-color:#494974;
     letter-spacing: 1px;
   }
+.btnFilter {
+  margin-left: 20px;
+  height: 50px;
+  width: 140px;
+  color: #9f9fdf;
+  border: 1px solid #9f9fdf;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.btnFilter:hover{
+  border: 1px solid #fffdfd;
+  border-radius: 5px;
+  background-color:#9f9fdf;
+  color: rgb(255, 255, 255);
+  box-shadow:0 0 2px 2px rgb(255, 255, 255);
+}

@@ -1,0 +1,74 @@
+.formRegister {
+  padding: 2%;
+  margin-bottom: -280px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 120px;
+  
+}
+.containerRegister {
+  margin-left: 15%;
+  align-items: center;
+  background-color: #494974;
+  color: #fff;
+  margin-top: 20px;
+  border: 8px solid #494974;
+  border-radius: 20px;
+  width: 70%;
+  height: 750px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+.formRegister h1 {
+    margin-right:130px ;
+  margin-bottom: 50px;
+  font-size: 50px;
+}
+.formRegister input {
+  padding: 12px 10px 15px 48px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 60%;
+  background-color: #494974;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-weight: 25px;
+  font-size: 1em;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+}
+.formRegister input label {
+  position: absolute;
+  left: 0;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.formRegister button {
+  display: block;
+  margin-top: 20px;
+  margin-left: 42%;
+  height: 50px;
+  width: 140px;
+  color: #fffdfd;
+  border: 1px solid #fffdfd;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.formRegister button:hover {
+  border: 1px solid #fffdfd;
+  border-radius: 5px;
+  background-color: #494974;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+}
+.iconR{
+    font-size: 100px;
+    margin-right: 50px;
+}
