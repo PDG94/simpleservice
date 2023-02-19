@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import "../Pages/auth.css";
+import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../../components/Firebase/config";
@@ -8,10 +8,8 @@ import { Link } from "react-router-dom";
 import { FiMail } from "react-icons/fi";
 import { GrFacebook } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
-import Loading from "../Loading/Loading";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
+import { Loading, NavBar, Footer } from "../index";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -41,7 +39,7 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const user = result.user;
+        /* const user = result.user; */
         toast.success("Login Successfuly!");
         navigate("/home");
       })

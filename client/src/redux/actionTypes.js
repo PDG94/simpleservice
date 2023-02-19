@@ -5,3 +5,4 @@ export const CLEANER_NAME = "CLEANER_NAME";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const FILTER_SERVICES = "FILTER_SERVICES";
+export const RESET_PAGED = "RESET_PAGED";

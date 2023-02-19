@@ -2,8 +2,7 @@ import { NavBar, Footer, Loading } from "../index";
 import { getServicesDetail, cleanState } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../Detail/detail.css";
 
 export default function Detail() {
@@ -15,9 +14,8 @@ export default function Detail() {
     dispatch(getServicesDetail(id));
     return () => {
       dispatch(cleanState());
-    }
+    };
   }, [dispatch, id]);
-
 
   return (
     <div className="detail">
@@ -33,20 +31,19 @@ export default function Detail() {
               <div>
                 <div key={service.id}>
                   <h1>{service?.username}</h1>
-  
+
                   <img className="imgDet" src={service?.userimage} alt="" />
-  
+
                   <br></br>
                   <div className="Rinfo">
-                    <label>Service Name:  </label>
+                    <label>Service Name: </label>
                     <p>{service?.servicename}</p>
-  
-                    <label>Price:  </label>
+
+                    <label>Price: </label>
                     <p>${service?.price}</p>
-                    
-                    <label>Rating:  </label>
+
+                    <label>Rating: </label>
                     <p>{service?.rating}</p>
-  
                   </div>
                   <div className="description">
                     <h2>Description: </h2>
@@ -56,8 +53,9 @@ export default function Detail() {
               </div>
             );
           })
-        ): (<Loading/>)
-        }
+        ) : (
+          <Loading />
+        )}
       </div>
       <Footer />
     </div>

@@ -6,6 +6,7 @@ import {
   CLEAN_STATE,
   GET_CATEGORIES,
   FILTER_SERVICES,
+  RESET_PAGED,
 } from "./actionTypes";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   serviceDetail: [],
   isLoading: true,
   categories: [],
+  currentPage: 1,
 };
 
 function rootReducer(state = initialState, action) {
@@ -56,8 +58,14 @@ function rootReducer(state = initialState, action) {
     case FILTER_SERVICES:
       return {
         ...state,
-        services: action.payload
-      }
+        services: action.payload,
+      };
+
+    case RESET_PAGED:
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
 
     default:
       return { ...state };
