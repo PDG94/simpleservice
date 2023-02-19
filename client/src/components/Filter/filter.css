@@ -9,19 +9,20 @@
 .filter li {
   list-style: none;
   display: grid;
-  margin-top: 25px;
+  margin-top: 2px;
 }
 
 select {
-    margin: 35px 3px;
+    margin: 15px 3px;
     border: 2px rgb(255, 255, 255) solid;
     border-radius: 5px;
-    color: rgb(255, 255, 255);
+    font-weight: 600;
+    color: black;
     display: grid;
     width: 100%;
     font-family: system-ui;
-    font-size: medium;
-    background-color:#2e2e4b;
+    font-size: 16px;
+    background-color: #f2fa04;
     padding: 8px 21px;
     text-decoration: none;
     appearance: button;
@@ -29,22 +30,41 @@ select {
     letter-spacing: 1px;
   }
 select:hover {
-    background-color:#494974;
+    color: #f2fa04;
+    background-color:black;
     letter-spacing: 1px;
   }
 .btnFilter {
   margin-left: 20px;
   height: 50px;
   width: 140px;
-  color: #9f9fdf;
-  border: 1px solid #9f9fdf;
+  color: white;
+  border: 1px solid white;
   border-radius: 10px;
   background-color: transparent;
 }
 .btnFilter:hover{
   border: 1px solid #fffdfd;
   border-radius: 5px;
-  background-color:#9f9fdf;
-  color: rgb(255, 255, 255);
+  background-color:#f2fa04;
+  color: black;
   box-shadow:0 0 2px 2px rgb(255, 255, 255);
+}
+.titleFilter{
+  color: white;
+  font-weight: 600;
+  font-family: system-ui;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.spantitle{
+  color: white;
+  font-family: system-ui;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 15px;
+  margin-top: 0;
 }

@@ -1,45 +1,48 @@
-.landing {
-  background-color: #1e1e32;
-  background-image: url("../Imagenes/landing.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  position: fixed;
- margin: none;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.landing .btnLanding{
-  font-size: large;
+.main{
+  width: 100%;
+  height: 100vh;
+}
+
+video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btnLanding{
+  font-size: 3vh;
+  font-family: "Teko", sans-serif;
+  letter-spacing: 4px;
   font-weight: 600;
-  background-color: #0956ad;
+  background-color: #d7df23;
   margin-top: 70vh;
-  margin-left: 1vw;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 10px 30px;
-  color: #fff;
-  position: absolute;
+  padding: 7px 13px 5px 13px;
+  color: #152039;
+  /* position: absolute; */
   overflow: hidden;
-  transition: color 1s;
+  transition: color 0.1s;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 2px #fff,
-  0 0 2px #5d77a5,
-  0 0 4px #446398,
-  0 0 6px #274ea2,
-  0 0 8px #212199,
-  0 0 10px #1e1e3b;
 }
-.landing .btnLanding:hover {
-  background-color:  #fff;
-  color:#111120;
-  box-shadow: 0 0 2px #fff,
-  0 0 2px #fff,
-  0 0 4px #446398,
-  0 0 6px #274ea2,
-  0 0 8px #212199,
-  0 0 10px #1e1e3b;
+.btnLanding:hover {
+  background-color:  #eef47c;
+  color:#3f5077;
 }
+

@@ -40,21 +40,19 @@ const NavBar = () => {
   <li>
     <a href="/cart" className="cart"><img src={logo} alt="logo" className="icono"/>
   </a></li>
+  <li><a className="welcome" href="/">Welcome Page</a></li>
   <li><a className="home" href="/home">Home</a></li>
-  <li><a href="/Services">Services</a></li>
-  <li className='create'>
-  <a href="/Create">Create Service</a>
+  <li><a  className="services" href="/Services">Services</a></li>
+  <li>
+  <a  className='create' href="/Create">Create Service</a>
   </li>
   {/* <a href="#"><FaUserCircle size={16}/>
    Hi, {displayName}
    </a> */}
-   
-  <li className='search'>
+  <li><a className="register" href="/register">Register</a></li>
+  <li><a className="login" href="/login">Login</a></li>
+  <li><a   className="logout" href="/home" onClick={logoutUser}>Logout</a></li>
     <SearchBar/>
-  </li>
-   <li className="logout"><a href="/home" onClick={logoutUser}>Logout</a></li>
-  <li className="register"><a href="/register">Register</a></li>
-  <li className="login"><a href="/login">Login</a></li>
 </ul>
   )
 }

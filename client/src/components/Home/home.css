@@ -1,6 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.mainhome{
+    margin-bottom: 0;
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);;
+}
 
 .carousel, .carousel-inner, .carousel-item, .imagen{
-    height: 87.7vh;
+    height: 90vh;
     width: 37vw;
 
 }
@@ -10,42 +18,66 @@
     flex-wrap: nowrap;
     flex-direction: row;
 }
-
+.contentHome{
+    justify-content: start;
+}
+.phrase{
+    position: absolute;
+    margin-left: 2vw;
+    margin-right: 40vw;
+    margin-top: 10vh;
+    background-color: rgba(48, 46, 46, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 30px 0 30px 0;
+    padding: 10px;
+}
+.phrasep{
+    font-family: system-ui;
+    font-size: 23px;
+    font-weight: 500;
+    color: rgb(102, 101, 21);
+    
+}
 .logoService{
     position: absolute;
-    margin-left: 50vw;
-    margin-top: 8vh;
-
-   
+    margin-top: 35px;
+    margin-right: 5vw;
+    margin-left: 25vw;
 }
 .imageLogo{
     height: 65vh;
     width: 30vw;
 }
+.servicesBtn{
+    margin-top: 65vh;
+    margin-left: 34vw;
+    position: absolute;   
+}
 
-.servicesBtn button{
+.btnView{
     font-size: large;
-    font-weight: 600;
-    background-color: #1e1e3b;
-    margin-left: 21.5vw;
-    margin-top: 75vh;
+    font-family: system-ui;
+    font-weight: 700;
+    background-color: black;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 10px;
-    color: #fff;
+    padding: 10px 10px 10px 10px;
+    color: white;
     position: relative;
     overflow: hidden;
     transition: color 1s;
     border-radius: 10px;
 }
-.servicesBtn button:hover {
-    background-color:  #fff;
-    color:#111120;
-    box-shadow: 0 0 2px #fff,
+.btnView:hover {
+    background-color:  yellow;
+    font-family: system-ui;
+    font-weight: 700;
+    color:black;
+    box-shadow: 
     0 0 2px #fff,
-    0 0 4px #446398,
-    0 0 6px #274ea2,
-    0 0 8px #212199,
-    0 0 10px #1e1e3b;
+    0 0 4px #f0f06a,
+    0 0 6px #eff63d,
+    0 0 8px #fffc36,
+    0 0 10px #fdf10b;
   }
