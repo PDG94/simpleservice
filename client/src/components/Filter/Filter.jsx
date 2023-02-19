@@ -41,8 +41,12 @@ export default function Filter() {
   return (
     <div className="filter">
       <li>
-        <select onChange={(e) => handleCategory(e)}>
+        <span className="titleFilter">Filters & Sorts</span>
+
           {/*CATEGORIAS*/}
+          <br />
+        <span className="spantitle">Select a category</span>
+        <select onChange={(e) => handleCategory(e)}>
           <option value="all">Categories</option>
           {categories?.map((elem) => (
             <option key={elem.id} value={elem.id}>
@@ -52,6 +56,7 @@ export default function Filter() {
         </select>
 
         {/*PRECIO*/}
+        <span className="spantitle">Order services by </span>
         <select onChange={(e) => handlePrice(e)}>
           <option value="all">Price</option>
           <option value="DESC">More Price</option>
@@ -59,19 +64,22 @@ export default function Filter() {
         </select>
 
         {/*ABC*/}
+        <span className="spantitle">Order services by </span>
         <select onChange={(e) => handleName(e)}>
-          <option value="all">Order</option>
+          <option value="all">Alphabet</option>
           <option value="ASC">A-Z</option>
           <option value="DESC">Z-A</option>
         </select>
 
         {/*RATING*/}
+        <span className="spantitle">Order services by </span>
         <select onChange={(e) => handleRating(e)}>
           <option value="all">Rating</option>
           <option value="DESC">More Rating</option>
           <option value="ASC">Low Rating</option>
         </select>
-        <button className="btnFilter" onClick={() => handleSubmit()}>Filter & Sort</button>
+
+        <button className="btnFilter" onClick={() => handleSubmit()}>Press to Filter</button>
       </li>
     </div>
   );

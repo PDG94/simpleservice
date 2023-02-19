@@ -6,10 +6,11 @@ export default function Card({ name, image, service, price, rating }) {
     <div className="container">
       <div>
         <img src={image} alt="" />
+        <h2 className="name">{name}</h2>
+        <p className="serviceContainer">{service}</p>
       </div>
       <div className="card">
-        <h2 className="name">{name}</h2>
-        <p className="service">Service : {service}</p>
+        {/* <p className="service">Service : {service}</p> */}
         <p className="price"> Price $ {price}</p>
         <p className="rating">⭐ {rating}</p>
         <button className="more" ><span>more info...</span></button>

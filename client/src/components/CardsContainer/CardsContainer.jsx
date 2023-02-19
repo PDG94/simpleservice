@@ -1,4 +1,4 @@
-import { Card, Paged } from "../index";
+import { Card, Filter, Paged } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import Loading from "../Loading/Loading";
@@ -34,6 +34,7 @@ export default function CardsContainer() {
 
   return (
     <div className="containerWrapperList">
+      <div className="filterService"><Filter /></div>
       <div className="cardContainer">
         {currentServices.length ? (
           currentServices.map((user) => {
@@ -56,7 +57,6 @@ export default function CardsContainer() {
         ) : (
           <Loading />
         )}
-      </div>
       <Paged
         servicesPerPage={servicesPerPage}
         allServices={allServices.length}
@@ -64,6 +64,7 @@ export default function CardsContainer() {
         currentPage={currentPage}
         paged={paged}
       />
+      </div>
     </div>
   );
 }

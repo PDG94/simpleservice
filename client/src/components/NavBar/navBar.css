@@ -1,68 +1,91 @@
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 3px;
   overflow: hidden;
-  background-color:#1e1e3b;
+  background-color:black;
   margin-bottom: 0;
 }
 
-
-/* .hr {
-border: 1px rgb(255, 255, 255) solid;
-margin-top: 0px;
-height: 40px;
-width: 40px;
-position: absolute;
-border-radius: 8px;
-} */
-/* .icon{
-  border-radius: 8px;
-  border: 1px rgb(255, 255, 255) solid;
-  padding: 0;
-  margin: 0;
-} */
 .icono{
-  width: 4vw;
-  height: 7vh;
-  padding: 0;
+  width: 55px;
+  height: 55px;
+  padding: 2px;
   margin-top: 2px;
   margin-left: 6px;
-  /* border: 2px solid red; */
-  /* color:#7b7bbd;
-  border: 1px rgb(255, 255, 255) solid;
-  padding: 3px 7px 3px 7px;
-  margin-left: 10px;
-  font-size: 28px;
-  border-radius: 5px;
-  margin-top: 1px; */
 }
 .icono:hover{
-  color: rgb(255, 255, 255);
-  box-shadow:0 0 2px 2px rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 .cart{
   padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.welcome{
+  margin-left: 1vw;
+}
+.welcome:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 .home{
-  margin-left: 15px;
+  margin-left: 0;
+}
+.home:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
+}
+.services{
+  margin-left: 0;
+}
+.services:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
  .create{
-margin-left: 5px;
+margin-left: 0;
  }
-.search{
-  margin-top: 15px;
-  margin-right: 1px;
+ .create:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 .logout{
-  margin-left: 20px;
+  margin-right: 0;
+}
+.logout:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 .register{
-  margin-right: 2px;
-  margin-left: 5px;
+  margin-right: 0;
+}
+.register:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 .login{
-  margin-right: 0px;
+  margin-right: 1vw;
+}
+.login:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
 }
 li {
   float: left;
@@ -71,12 +94,14 @@ li {
 li a {
   font-family: system-ui;
   display: block;
-  color: rgb(229, 247, 237);
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover {
+/* li a:hover {
   background-color: #494974;
-}
+} */

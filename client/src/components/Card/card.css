@@ -1,88 +1,40 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 *{
-  margin:0;
+  margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
-/* .container{
-  color: aliceblue;
-  height: 250px;
-  border-radius: 10px;
-  background-color: #1e1e32;
-}
-
-.container img{
-  width: 250px;
-  position: relative;
-  top: -55px;
-  border: 3px solid #8383c0;
- border-radius: 10px;
-}
-
-.card{
-  border-radius: 10px;
-  margin-top: -40px;
- position: relative;
- width: 250px;
- height:105px;
- background: #8383c0;
- transition: 0.5s;
-}
-.card:hover{
-height: 250px;
-}
-.container .card{
-  position: absolute;
-align-items: center;
-overflow: hidden;
-}
-.container button{
-  padding: 5px 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  color: #fff;
-  background: #1e1e32;
-}
-.container button:hover{
-  transition: 0.5s ;
-  background:  #3f3f64;
-  color: hsla(288, 100%, 99%, 0.911);
-}
-h2{
-  margin-top: 10px;
-} */
-
-
 .container{
-  min-height:200px;
-  width:260px;
+  min-height:315px;
+  width:400px;
   margin:40px 10px!important;
-  padding:1rem;
+  padding: 0;
   cursor:pointer;
-  background-color: #1e1e32;
+  background-color: black;
   border: 1px solid white;
-  box-shadow:  
-  0 0 5px rgb(255 240 243),
-  0 0 10px rgb(236, 236, 236),
-  0 0 15px rgb(194, 194, 195),
-  0 0 20px rgb(168, 168, 169),
-  0 0 25px rgb(114, 114, 115),
-  0 0 30px rgb(128, 128, 128);
-  border-radius: 8px;
+  box-shadow:0 0 2px 4px #f5f752ce;
+  border-radius: 15px;
 }
 .container img{
   width:100%;
-  height:160px;
+  height:220px;
   border-radius:10px;
   position:relative;
   z-index:1000;
   transition:all .5s ease-in-out;
+  margin-top: 5px;
+}
+.serviceContainer {
+  color: yellow;
+  font-weight: 400;
+  font-family: system-ui;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  margin-bottom: 5px;
+  font-size: 24px;
 }
 
 .card{
-  margin:1rem 0;
+  margin:2rem 0;
   color:#222;
   overflow:hidden;
   margin-top:-200px;
@@ -92,55 +44,56 @@ h2{
 }
 
 .name {
-  margin:.6rem auto;
+  color: white;
+  margin:.1rem auto;
   text-align:center;
-  color: initial;
-  font-family: monospace;
-  font-size: 20px;
-}
-
-.service {
-  font-size: 1.1rem;
-  line-height:1.8rem;
-  text-align:center;
-  color: #1e1e32;
-  font-family: monospace;
+  font-weight: 400;
+  font-family: system-ui;
+  letter-spacing: 2px;
+  font-size: 26px;
+ 
 }
 
 .price{
+  margin-top: 7px;
   font-size:1.1rem;
   line-height:1.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-align:center;
   color: #1e1e32;
-  font-family: monospace;
+  font-family: system-ui;
 }
 
 .rating{
   font-size:1.1rem;
+  font-weight: 600;
   line-height:1.8rem;
+  letter-spacing: 2px;
   text-align:center;
   color: #1e1e32;
-  font-family: monospace;
+  font-family: system-ui;
 }
 
 .more {
-  width:200px;
-  padding:10px 15px;
+  width: 145px;
+  padding: 2px 2px 20px 2px;
   display:block;
+  letter-spacing: 2px;
   text-align:center;
   margin:.6rem auto;
   font-size:1.1rem;
-  color:#fff;
+  color:white;
   text-decoration: none;
-  background-color: #1e1e32;
+  background-color: black;
   border-radius:10px;
   transition:.3s;
   font-family:system-ui;
 }
 
 .more:hover{
-  color:#fff;
-  background-color:#000;
+  color: black;
+  background-color:rgb(250, 250, 10);
   box-shadow:0 0 2px 2px rgba(0,0,0,0.4);
 }
 .container:hover img{

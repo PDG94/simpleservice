@@ -31,20 +31,20 @@ export default function SearchBar({setCurrentPage}) {
     }
 
     return(
-        <>
         <div className='search'>
-            <form>
-                <input
-                onChange={(e)=>{handleInputChange(e)}}
-                type = "text"
-                placeholder="🔍   Search..."
-                value={name}
-                onKeyPress = {e => handleOnKeyPress(e)}
-                className="inputSearch"
-                />
-                <button  onClick={handleSubmit}>Submit</button>
-            </form>
+            <div>
+                <form>
+                    <input
+                    onChange={(e)=>{handleInputChange(e)}}
+                    type = "text"
+                    placeholder="🔍   Search..."
+                    value={name}
+                    onKeyPress = {e => handleOnKeyPress(e)}
+                    className="inputSearch"
+                    />
+                    <button  onClick={handleSubmit}>Submit</button>
+                </form>
+            </div>
         </div>
-        </>
     )
 }

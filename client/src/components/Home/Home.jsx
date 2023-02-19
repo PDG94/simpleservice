@@ -29,13 +29,17 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="logoService">
+      <div className="contentHome">
+        <div className="logoService">
         <img src={logoServiceName} alt="carrito" className="imageLogo"/>
+        </div>
+        <div className="servicesBtn">
+         <a className="btnView" href="/Services">View Our Services</a>
       </div>
-      <div className="servicesBtn">
-       <Link to="/Services">
-          <button>View Services</button>
-        </Link>
+        <div className="phrase">
+          <span className="phrasep"><b>Our customers said </b><br/><br/>
+            <i>"It was so easy to find the perfect service when I most needed. I definitely recommend it. <br/>Thank you Simple Service" <br/> Rhonda.</i></span>
+        </div>
       </div>
       </div>
       <Footer />
