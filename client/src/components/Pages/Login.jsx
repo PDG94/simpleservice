@@ -66,7 +66,7 @@ export default function Login() {
 
 
       <div className="imgLog">
-          <img src={loginImg}  width="650" />
+          <img src={loginImg} alt="" width="650" />
         </div>
 
         

@@ -21,3 +21,15 @@ section {
     justify-content: center;
     align-items: center;
 }
+    .admin {
+        display: flex;
+    }
+        .navbar {
+          width: 25%;
+          min-height: 80vh;
+        }
+        .content {
+          width: 75%;
+          padding: 1rem;
+        }
+    

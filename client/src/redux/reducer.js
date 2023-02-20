@@ -7,6 +7,8 @@ import {
   GET_CATEGORIES,
   FILTER_SERVICES,
   RESET_PAGED,
+  SET_ACTIVE_USER,
+  REMOVE_USER
 } from "./actionTypes";
 
 const initialState = {
@@ -15,6 +17,11 @@ const initialState = {
   isLoading: true,
   categories: [],
   currentPage: 1,
+
+  isLoggedIn: false,
+  email: null,
+  useName: null,
+  userID: null,
 };
 
 function rootReducer(state = initialState, action) {
@@ -65,6 +72,22 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         currentPage: action.payload,
+      };
+      case SET_ACTIVE_USER:
+      return {
+        ...state,
+        isLoggedIn:true ,
+        email: action.payload.email,
+        useName: action.payload.useName,
+        userID: action.payload.userID 
+      };
+      case REMOVE_USER:
+      return {
+        ...state,
+        isLoggedIn: false ,
+        email: null,
+        useName: null,
+        userID: null
       };
 
     default:

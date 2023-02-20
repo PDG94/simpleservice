@@ -15,6 +15,8 @@ import Services from "./Services/Services";
 import Create from "./Create/Create";
 import { NotFound } from "./NotFound/NotFound";
 import Landing from "./Landing/Landing";
+import Admin from "../components/Pages/Admin";
+import AdminOnlyRoute from "../components/AdminOnlyRoute/AdminOnlyRoute"
 
 export {
   Card,
@@ -34,4 +36,6 @@ export {
   Create,
   NotFound,
   Landing,
+  Admin,
+  AdminOnlyRoute
 };

@@ -12,6 +12,8 @@ import {
   Create,
   NotFound,
   Landing,
+  Admin,
+  AdminOnlyRoute,
 } from "./components/index";
 
 function App() {
@@ -41,6 +43,13 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/reset" element={<Reset />} />
+
+          <Route path= "/admin/*" element={
+          <AdminOnlyRoute> 
+          <Admin/>
+          </AdminOnlyRoute>
+        } />
+
         </Routes>
       </div>
     </BrowserRouter>

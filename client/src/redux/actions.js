@@ -8,6 +8,8 @@ import {
   GET_CATEGORIES,
   FILTER_SERVICES,
   RESET_PAGED,
+  SET_ACTIVE_USER,
+  REMOVE_USER
 } from "./actionTypes";
 
 export function getServices() {
@@ -109,3 +111,14 @@ export function cardsFilter({ order, direction, categoryId }) {
     }
   };
 }
+export const activeUsers = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SET_ACTIVE_USER, payload });
+  };
+};
+export const removeUsers = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: REMOVE_USER, payload });
+  };
+};
+
