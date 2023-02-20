@@ -12,6 +12,8 @@ import Loading from "../Loading/Loading";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import '../Pages/login.css'
+import { MdLogin } from "react-icons/md"
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -51,53 +53,59 @@ export default function Login() {
   }
 
   return (
-    <>
+   <>
+   
       <NavBar />
+   
       {isLoading && <Loading />}
-      <section className="container">
-        <div className="img">
-          <img src={loginImg} alt="Login" width="400" />
+     
+      <div className="containerLog">
+
+
+      <div className="imgLog">
+          <img src={loginImg}  width="650" />
         </div>
 
-        <div className="form">
-          <h2>Login</h2>
-          <form onSubmit={loginUser}>
-            <input
+        
+      <section className="LogCont">
+        <div className="formLog">
+          <h2><MdLogin className="iconLog"/>Login</h2>
+          <form className="Log" onSubmit={loginUser}>
+            <input className="inputlog"
               type="text"
               placeholder="Email"
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
-            <input
+            <input className="inputlog"
               type="password"
               placeholder="Password"
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">Continue</button>
-            <div>
+            <button className="continue" type="submit">Continue</button>
+            <div className="links">
               <Link to="/reset">
                 <p>forgot your password?</p>
               </Link>
-              <p onClick={signGoogle}>
+              <span  onClick={signGoogle}>
                 <FiMail />
-              </p>{" "}
-              <p>
+              </span>{" "}
+              <span >
                 <GrFacebook />
-              </p>
-              <span>
+              </span> 
                 <p>Don't have an acoount?</p>
                 <Link to="/register">
-                  <button>Register</button>
+                  <button className="RegLog">Register</button>
                 </Link>
-              </span>
             </div>
           </form>
         </div>
       </section>
       <Footer />
+    </div>
     </>
   );
 }

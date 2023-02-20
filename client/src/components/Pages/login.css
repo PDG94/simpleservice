@@ -1,0 +1,99 @@
+.containerLog{
+    background-color: #101010;
+}
+
+.formLog{
+    margin-left: 60%;
+    background-color: #ced379;
+    color: #000000;
+    margin-top: -40px;
+    border: 8px solid #d7df23;
+    border-radius: 40px;
+    width: 35%;
+    height: 510px;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+      5px 5px 15px rgba(0, 0, 0, 0.35),
+      inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+      inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+.Log{
+display: grid;
+margin: 5px 120px ;
+padding: 5%;
+
+}
+.formLog h2{
+    margin-left: -25px;
+    font-size: 50px;
+    margin-top: 20px;
+}
+.iconLog{
+    margin-right: 40px;
+}
+.imgLog{
+
+float: left;
+margin-top: 15px;
+border: #df2323;
+border-radius: 50px;
+}
+
+.links span{
+    font-size: 30px;
+    margin: 15px;
+}
+.links p{
+    margin-top: 15px;
+}
+.continue {
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 40px;
+    width: 140px;
+    color: #000000;
+    border: 1px solid #030303;
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  .continue:hover {
+    border: 1px solid #1f1f1f;
+    border-radius: 5px;
+    background-color: #d7df23;
+    color: rgb(29, 29, 29);
+    box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  }
+.RegLog {
+    margin-left: 6px;
+    margin-top: 10px;
+    height: 40px;
+    width: 140px;
+    color: #000000;
+    border: 1px solid #030303;
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  .RegLog:hover {
+    border: 1px solid #1f1f1f;
+    border-radius: 5px;
+    background-color: #d7df23;
+    color: rgb(29, 29, 29);
+    box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  }
+ .inputlog{
+    margin-top: 5px;
+        padding: 5px 4px;
+        margin-bottom: 12px;
+        margin-left: -40px;
+        border-radius: 10px;
+        width: 150%;
+        background-color: #eaf340;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #000000;
+        font-weight: 25px;
+        font-size: 1em;
+        box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+          5px 5px 15px rgba(0, 0, 0, 0.35);
+        transform: 0.5s;
+        outline: none;
+      
+ }

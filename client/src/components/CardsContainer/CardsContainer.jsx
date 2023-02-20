@@ -55,7 +55,7 @@ export default function CardsContainer() {
             );
           })
         ) : (
-          <Loading />
+          <span class="loader"></span>
         )}
       <Paged
         servicesPerPage={servicesPerPage}
