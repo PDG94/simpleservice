@@ -42,7 +42,7 @@ export default function Register() {
   }
 
   return (
-    <>
+    <div className="containerRe">
      <NavBar/>
       {isLoading && <Loading />}
       <div className="containerRegister">
@@ -97,6 +97,6 @@ export default function Register() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

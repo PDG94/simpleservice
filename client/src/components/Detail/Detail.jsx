@@ -53,9 +53,12 @@ export default function Detail() {
               </div>
             );
           })
-        ) : (
-          <Loading />
-        )}
+
+        ): (<span class="loader"></span>)
+        }
+
+   
+
       </div>
       <Footer />
     </div>
