@@ -60,6 +60,7 @@ export default function Create() {
   };
 
   const submitHandler = (event) => {
+    console.log(form);
     event.preventDefault();
     if (Object.values(error).length) {
       return alert(Object.values(error).join("\n"));

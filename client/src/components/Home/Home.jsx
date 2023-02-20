@@ -50,7 +50,7 @@ const Home = () => {
               <br />
               <br />
               <i>
-                "It was so easy to find the perfect service when I most needed.
+                "It was so easy to find the perfect service when I needed it the most.
                 I definitely recommend it. <br />
                 Thank you Simple Service" <br /> Rhonda.
               </i>
