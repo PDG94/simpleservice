@@ -1,16 +1,16 @@
-import { Card, Filter, Paged } from "../index";
+import { Card, Filter, Paged, Loading } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import Loading from "../Loading/Loading";
 import "../CardsContainer/cardsContainer.css";
-import { getServices } from "../../redux/actions";
+import { getServices, resedPaged } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
   const allServices = useSelector((state) => state.services);
 
-  const [currentPage, setCurrentPage] = useState(1); // seteo la pagina para que empiece en 1
+  const currentPage = useSelector((state) => state.currentPage);
+  /*  const [currentPage, setCurrentPage] = useState(1); */ // seteo la pagina para que empiece en 1
   const [servicesPerPage] = useState(6); // servicios por pagina
   const indexOfLastService = currentPage * servicesPerPage; // 6
   const indexOfFirstService = indexOfLastService - servicesPerPage; // 6-6 = 0
@@ -19,8 +19,8 @@ export default function CardsContainer() {
     indexOfLastService
   );
 
-  const paged = (pageNumber) => {
-    return setCurrentPage(pageNumber);
+  const paged = (currentPage) => {
+    dispatch(resedPaged(currentPage));
   };
 
   //PARA QUE HAGA SCROLL HACIA ARRIBA
@@ -34,14 +34,18 @@ export default function CardsContainer() {
 
   return (
     <div className="containerWrapperList">
-      <div className="filterService"><Filter /></div>
+      <div className="filterService">
+        <Filter />
+      </div>
       <div className="cardContainer">
         {currentServices.length ? (
           currentServices.map((user) => {
             return (
-                <Link key={user.id}
+              <Link
+                key={user.id}
                 to={`/Detail/${user.id}`}
-                style={{textDecoration: "none"}}>
+                style={{ textDecoration: "none" }}
+              >
                 <Card
                   key={user?.id}
                   id={user?.id}
@@ -51,19 +55,17 @@ export default function CardsContainer() {
                   service={user?.servicename}
                   rating={user?.rating}
                 />
-                </Link>
+              </Link>
             );
           })
         ) : (
           <Loading />
         )}
-      <Paged
-        servicesPerPage={servicesPerPage}
-        allServices={allServices.length}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-        paged={paged}
-      />
+        <Paged
+          servicesPerPage={servicesPerPage}
+          allServices={allServices.length}
+          paged={paged}
+        />
       </div>
     </div>
   );
