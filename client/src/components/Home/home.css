@@ -4,7 +4,9 @@
 }
 .mainhome{
     margin-bottom: 0;
-    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 .carousel, .carousel-inner, .carousel-item, .imagen{

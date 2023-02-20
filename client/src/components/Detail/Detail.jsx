@@ -2,8 +2,11 @@ import { NavBar, Footer, Loading } from "../index";
 import { getServicesDetail, cleanState } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import "../Detail/detail.css";
+import ser from "../Imagenes/ser.png";
+import { MdStar } from "react-icons/md";
+import { FiDollarSign } from "react-icons/fi";
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -20,45 +23,54 @@ export default function Detail() {
   return (
     <div className="detail">
       <NavBar />
-      <div className="detail2">
-        <Link to={"/Services"}>
-          <button className="Bhome">Back</button>
-        </Link>
-
+      <div className="detailContainer">
+        <div>
+          <a href="/Services" className="btnH">Go Back</a>
+        </div>
         {serviceDetail.length ? (
           serviceDetail.map((service) => {
             return (
-              <div>
-                <div key={service.id}>
-                  <h1>{service?.username}</h1>
+              <div className="mainDetail">
+                <div className="left">
+                  <div className="infoDetail" key={service.id}>
+                    <h1 className="nameDetail">
+                      {service?.username || "name not found"}
+                    </h1>
+                    <div className="moreDetail">
+                      <p className="serviceDetail">
+                          <img className="imgDetail" src={ser} alt=""/>
+                          {service?.servicename}
+                      </p>
 
+
+                      <div className="ratingDetail">
+                        <label className="iconDetail">
+                          <MdStar />
+                        </label>{" "}
+                        {" "}
+                        <p className="rat">{service?.rating}</p>
+                      </div>
+
+                      <p className="priceDetail"> Price 
+                        <label className="iconDetail">
+                        {"   "}<FiDollarSign />
+                        </label>
+                        {service?.price}
+                      </p>
+
+                      <div className="description">
+                        {service?.description || "description not available"}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="right">
                   <img className="imgDet" src={service?.userimage} alt="" />
-
-                  <br></br>
-                  <div className="Rinfo">
-                    <label>Service Name: </label>
-                    <p>{service?.servicename}</p>
-
-                    <label>Price: </label>
-                    <p>${service?.price}</p>
-
-                    <label>Rating: </label>
-                    <p>{service?.rating}</p>
-                  </div>
-                  <div className="description">
-                    <h2>Description: </h2>
-                    <h4>{service?.description}</h4>
-                  </div>
                 </div>
               </div>
             );
           })
-
-        ): (<span class="loader"></span>)
-        }
-
-   
-
+        ) : (<Loading/>)}
       </div>
       <Footer />
     </div>

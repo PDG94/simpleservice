@@ -1,139 +1,150 @@
 .detail{
-color: #e9e8e8;
-letter-spacing: 2px;
-border-radius: 10px;
-margin-bottom: 5px;
-flex-direction: column;
-height: 1050px;
-}
-.detail2{
- 
-  box-shadow: -5px -5px 15px rgba(54, 53, 53, 0.3),
-  5px 5px 15px rgba(0,0,0,0.35);
-    background-color: #494974;
-    border: 2px solid #ffffff;
-    border-radius: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-    .detail2 label {
-      padding: 10px 15px 12px 20px;
-      margin-left: 650px;
-      margin-bottom: 12px;
-      border-radius: 10px;
-      width: 30%;
-      background-color: #9f9fdf;
-      border: 1px solid rgba(0,0,0,0.1);
-      color: rgb(44, 43, 43);
-      font-weight: 25px;
-      font-size: 1em;
-      box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
-      5px 5px 15px rgba(0,0,0,0.35);
-  transform:0.5s;
-  outline: none;
-    }
-    .detail2 p {
-      padding: 10px 15px 12px 20px;
-      margin-left: 875px;
-      margin-bottom: 12px;
-      border-radius: 10px;
-      width: 10%;
-      background-color: #9f9fdf;
-      border: 1px solid rgba(0,0,0,0.1);
-      color: rgb(44, 43, 43);
-      font-weight: 25px;
-      font-size: 1em;
-      box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
-      5px 5px 15px rgba(0,0,0,0.35);
-  transform:0.5s;
-  outline: none;
-    }
-    
-    
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
+  }
 
-.detail2 h1{
-  margin-top: 40px;
-    margin-bottom: 60px;
-    font-size: 50px;
-    padding: 30px 30px 30px 30px;
-    margin-bottom: 22px;
-    margin-left: 355px;
-    border-radius: 10px;
-    width: 40%;
-    background-color: #9f9fdf;
-    border: 1px solid rgba(0,0,0,0.1);
-    color: rgb(44, 43, 43);
-    font-weight: 25px;
-    font-size: 3em;
-    box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
-    5px 5px 15px rgba(0,0,0,0.35);
-}
-.detail2 button{
-    margin-bottom: 50px;
-}
-  .detail .imgDet{
-    padding: 30px 30px 30px 30px;
-    margin-bottom: 12px;
-    margin-left: 100px;
-    border-radius: 10px;
-    width: 40%;
-    background-color: #9f9fdf;
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
-    5px 5px 15px rgba(0,0,0,0.35);
+  .mainDetail{
+    color: white;
+    height: 100%!important;
+    width: auto!important;
+    display: flex!important;
+    margin: 0 auto!important;
+    margin-bottom: 2vh!important;
+    max-width: 80vw!important;
+    border-radius: 20px!important;
+    background-color: black;
+    box-shadow: 0 0 12px rgb(237, 237, 98);
   }
-  .detail .imgDet {
-position: absolute;
-left: 0;
-transition: 0.5s;
-letter-spacing: 0.05em;
-color: rgba(255,255,255,0.5);
+  
+  .left{
+    width: 100%;
+    border: 1px solid rgb(237, 237, 98);
+    border-radius: 20px 0 0 20px;
   }
-  .description {
-    padding: 10px 15px 12px 20px;
-      margin-left: 50px;
-      margin-bottom: 45px;
-      border-radius: 10px;
-      width: 90%;
-      background-color: #9f9fdf;
-      border: 1px solid rgba(0,0,0,0.1);
-      color: rgb(44, 43, 43);
-      font-weight: 25px;
-      font-size: 1em;
-      box-shadow: -5px -5px 15px rgba(255,255,255,0.3),
-      5px 5px 15px rgba(0,0,0,0.35);
+  
+  .infoDetail{
+    width: 90%;
+    padding:  30px 0 30px 15px;
+    margin-top: -25px;
   }
-  .description h2{
-    color: rgb(44, 43, 43);
-    font-size: 30px;
-    margin-bottom: 25px;
+  
+  .nameDetail{
+    font-size: 8vh;
+    font-weight: 700;
+    font-family:system-ui;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: rgb(237, 237, 98);
   }
-  .description h4{
-    font-size: 20px;
-    padding: 50px;
+  
+  .right img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(237, 237, 98);
+    border-radius: 0 20px 20px 0;
   }
-  .Bhome{
-    float: right;
-    margin-top: 20px;
-    margin-right: 15px;
-    margin-left: 3px;
-    height: 50px;
-    width: 140px;
-    color: #9f9fdf;
-    border: 1px solid #9f9fdf;
-    border-radius: 10px;
+  
+  .right{
+    height: auto;
+    width: 100%;
+  }
+  
+  .moreDetail{
+    margin-top: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 5px;
+  }
+  
+  .ratingDetail{
+    color: white;  
+    font-weight: 600;
+    font-size: 4vh;
+    text-align: center; 
+    letter-spacing: 1px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .rat{
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+  .iconDetail{
+    color: #ce9c07;
+    margin-left: 8px;
+    margin-right: 3px;
+  }
+  .priceDetail{
+    font-weight: 600;
+    line-height: 1px;
+    font-size: 3vh;
+    margin-top: 10px;
+    text-align: center;
+    padding: 0 5px;
+    letter-spacing: 1px;
+  }
+
+  .description{
+    font-weight: 70;
+    line-height: 3vh;
+    font-size: 3vh;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 0 0;
+    letter-spacing: 0.5px;
+  }
+  
+  .serviceDetail{
+    font-weight: 400;
+    line-height: 1px;
+    font-size: 5vh;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0 5px;
+    letter-spacing: 2px;
+  }
+  .imgDetail{
+    width: 4vw;
+  }
+  
+  .btnH{
+    text-decoration: none;
+    color: white;
+    border: white;
+    padding: 0.1%;
+    display: grid;
+    justify-content: center;
+    width: 5%;
+    position: relative;
+    font-size: 2vh;
+    font-family: system-ui;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(237, 237, 98);
+  }
+  
+  .btnH:hover{
+    cursor: pointer;
+    color: rgb(237, 237, 98);
     background-color: transparent;
-}
-.Bhome:hover{
-    border: 1px solid #fffdfd;
-    border-radius: 5px;
-    background-color:#9f9fdf;
-    color: rgb(255, 255, 255);
-    box-shadow:0 0 2px 2px rgb(255, 255, 255);
-  }
-  .Rinfo label{
-    font-size: 25px;
-    color: rgb(44, 43, 43);
+    text-shadow: 0 0 0.1mm rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255),
+    0 0 30px rgb(255, 255, 255), 0 0 80px rgb(255, 255, 255);
+     box-shadow:  0 0 5px rgb(255 240 243),
+    0 0 10px rgb(237, 237, 168),
+    0 0 15px rgb(237, 237, 137),
+    0 0 20px rgb(237, 237, 111),
+    0 0 25px rgb(237, 237, 98),
+    0 0 30px #cecb07!important;
   }

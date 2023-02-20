@@ -14,6 +14,7 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import '../Pages/login.css'
 import { MdLogin } from "react-icons/md"
+import Loading from "../Loading/Loading";
 
 
 
