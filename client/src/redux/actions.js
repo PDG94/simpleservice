@@ -7,6 +7,7 @@ import {
   CLEAN_STATE,
   GET_CATEGORIES,
   FILTER_SERVICES,
+  RESET_PAGED,
 } from "./actionTypes";
 
 export function getServices() {
@@ -67,6 +68,12 @@ export function getCategories() {
   };
 }
 
+export const resedPaged = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: RESET_PAGED, payload });
+  };
+};
+
 export function cardsFilter({ order, direction, categoryId }) {
   return async function (dispatch) {
     try {
@@ -98,8 +105,7 @@ export function cardsFilter({ order, direction, categoryId }) {
         });
       }
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
-    
   };
 }

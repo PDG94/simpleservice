@@ -6,7 +6,32 @@ import Paged from "./Paged/Paged";
 import SearchBar from "./SearchBar/SearchBar";
 import Footer from "./Footer/Footer";
 import Loading from "./Loading/Loading";
+import Home from "./Home/Home";
+import Login from "./Pages/Login";
+import Detail from "./Detail/Detail";
+import Register from "./Pages/Register";
+import { Reset } from "./Pages/Reset";
+import Services from "./Services/Services";
+import Create from "./Create/Create";
+import { NotFound } from "./NotFound/NotFound";
+import Landing from "./Landing/Landing";
 
-
-
-export { Card, CardsContainer, Filter, NavBar, Paged, SearchBar, Footer, Loading};
+export {
+  Card,
+  CardsContainer,
+  Filter,
+  NavBar,
+  Paged,
+  SearchBar,
+  Footer,
+  Loading,
+  Home,
+  Login,
+  Detail,
+  Register,
+  Reset,
+  Services,
+  Create,
+  NotFound,
+  Landing,
+};
