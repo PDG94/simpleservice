@@ -2,15 +2,13 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const AdminOnlyRoute = ({ children }) => {
-  const userEmail = useSelector((state)=>state.email);
-  console.log(userEmail);
-//no esta llenando el estado en esta ruta
+  const userEmail = useSelector((state) => state.email);
+  //no esta llenando el estado en esta ruta
   if (userEmail === "simpleservice@gmail.com") {
     return children;
   }
-return null;
+  return null;
 };
-
 
 // export const AdminOnlyLink = ({ children }) => {
 //   const userEmail = useSelector((state)=>state.email);
@@ -23,7 +21,3 @@ return null;
 // };
 
 export default AdminOnlyRoute;
-
-
-
-
