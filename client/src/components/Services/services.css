@@ -16,6 +16,11 @@
     background-color: rgb(4, 4, 4);
 }
 
+.navSearch{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 
 

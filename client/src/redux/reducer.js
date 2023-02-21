@@ -17,7 +17,6 @@ const initialState = {
   isLoading: true,
   categories: [],
   currentPage: 1,
-
   isLoggedIn: false,
   email: null,
   useName: null,

@@ -14,15 +14,16 @@ const Home = () => {
           id="carouselExampleSlidesOnly"
           className="carousel slide"
           data-bs-ride="carousel"
+          data-interval="1000"
         >
-          <div className="carousel-inner ">
+          <div className="carousel-inner">
             <div className="carousel-item active">
               <img src={doctor} className="d-block w-100 imagen" alt="doc" />
             </div>
             <div className="carousel-item">
               <img
                 src={woodworker}
-                className="d-block w-100 imagen "
+                className="d-block w-100 imagen"
                 alt="wood"
               />
             </div>
