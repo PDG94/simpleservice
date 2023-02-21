@@ -23,7 +23,6 @@ const NavBar = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         // const uid = user.uid;
         if (user.displayName == null) {
           const u1 = user.email.slice(0, -10);
@@ -104,7 +103,10 @@ const NavBar = () => {
 
       <ShowOnLogin>
         <li>
-          <Link className="myorders" to="/myorders"> My Cart </Link>
+          <Link className="myorders" to="/myorders">
+            {" "}
+            My Cart{" "}
+          </Link>
         </li>
       </ShowOnLogin>
 

@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 
 // hidde logout botton or show it
 
- function ShowOnLogout ({ children }) {
-  const isLoggedIn = useSelector((state)=>state.isLoggedIn);
-  console.log(isLoggedIn);
+function ShowOnLogout({ children }) {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   if (!isLoggedIn) {
     return children;
   }
@@ -12,7 +11,3 @@ import { useSelector } from "react-redux";
 }
 
 export default ShowOnLogout;
-
-
-
-
