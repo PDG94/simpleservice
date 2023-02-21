@@ -28,7 +28,7 @@ export default function Create() {
   const validate = (form) => {
     let errors = {};
     if (!form.username) {
-      errors.username = "Userame is required";
+      errors.username = "Username is required";
     } else if (form.username.length > 30) {
       errors.username = "Userame is too long";
     }
@@ -80,14 +80,14 @@ export default function Create() {
           <button className="back">Back</button>
         </Link>
         <div className="containerCreated">
-          <h1>CREATE SERVICE</h1>
+          <h1 className="titleCr">Create Service</h1>
           <div>
             <label className="icon">
               <MdPerson />
             </label>
             <input
               type="text"
-              placeholder="Username: "
+              placeholder="Username "
               value={form.username}
               onChange={changeHandler}
               name="username"
@@ -101,7 +101,7 @@ export default function Create() {
             </label>
             <input
               type="text"
-              placeholder="Description:"
+              placeholder="Description"
               value={form.description}
               onChange={changeHandler}
               name="description"
@@ -115,7 +115,7 @@ export default function Create() {
             </label>
             <input
               type="text"
-              placeholder="Rating:"
+              placeholder="Rating"
               value={form.rating}
               onChange={changeHandler}
               name="rating"
@@ -129,7 +129,7 @@ export default function Create() {
             </label>
             <input
               type="text"
-              placeholder="Price:"
+              placeholder="Price"
               value={form.price}
               onChange={changeHandler}
               name="price"
@@ -143,7 +143,7 @@ export default function Create() {
             </label>
             <input
               type="text"
-              placeholder="Service:"
+              placeholder="Service"
               value={form.servicename}
               onChange={changeHandler}
               name="servicename"
@@ -157,7 +157,7 @@ export default function Create() {
             </label>
             <input
               type="text"
-              placeholder="Url img:"
+              placeholder="Url img"
               value={form.userimage}
               onChange={changeHandler}
               name="userimage"

@@ -56,19 +56,15 @@ export default function Login() {
   }
 
   return (
-   <>
+   <div className="containerLog">
    
       <NavBar />
    
       {isLoading && <Loading />}
-     
-      <div className="containerLog">
-
-
-      <div className="imgLog">
-          <img src={loginImg} alt="" width="650" />
-        </div>
-
+      <Link to={"/Home"}>
+          <button className="backLog">Back to Home</button>
+        </Link>
+      <div >
         
       <section className="LogCont">
         <div className="formLog">
@@ -76,39 +72,40 @@ export default function Login() {
           <form className="Log" onSubmit={loginUser}>
             <input className="inputlog"
               type="text"
-              placeholder="Email"
+              placeholder=" E-mail"
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
             <input className="inputlog"
               type="password"
-              placeholder="Password"
+              placeholder=" Password"
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="continue" type="submit">Continue</button>
             <div className="links">
-              <Link to="/reset">
-                <p>forgot your password?</p>
+              <Link to="/reset" style={{textDecoration: "none"}}>
+                <p className="forgot">forgot your password?</p>
               </Link>
-              <span  onClick={signGoogle}>
+              <span className="symbolsA" onClick={signGoogle}>
                 <FiMail />
               </span>{" "}
-              <span >
+              <span className="symbolsB">
                 <GrFacebook />
               </span> 
-                <p>Don't have an acoount?</p>
+                <p className="account">Don't have an account?</p>
                 <Link to="/register">
                   <button className="RegLog">Register</button>
                 </Link>
             </div>
           </form>
         </div>
+        <div className="imgLog" ><img className="imageLog" src={loginImg} alt="" width="500" /></div>
       </section>
       <Footer />
     </div>
-    </>
+    </div>
   );
 }

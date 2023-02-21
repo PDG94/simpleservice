@@ -12,9 +12,9 @@
   flex-direction: row;
   background-color: transparent;
   justify-content: space-around;
-  padding-right: 50px;
-  padding-left: 50px;
-  color: black;
+  padding-right: 2px;
+  padding-left: 2px;
+  color: white;
   list-style: none;
   font-size: 30px;
   margin-block-start: 0;
@@ -23,14 +23,14 @@
 .buttonPage{
   user-select: none;
   cursor: pointer;
-  background-color: #edf125!important;
-  color: black;
+  background-color: black!important;
+  color: #edf125;
   backdrop-filter: blur(7px);
   cursor: pointer;
   text-decoration: none;
   border-radius: 10%;
-  padding-right: 3px;
-  padding-left: 3px;
+  padding-right: 18px;
+  padding-left: 18px;
   font-weight:1000;
   margin-top: 6px;
   text-shadow: 2px 2px 2px 2px white;
@@ -47,7 +47,6 @@
 }
 
 .page-numberactive {
-  position: absolute;
   user-select: none;
   cursor: pointer;
   background-color: black!important;
@@ -72,9 +71,10 @@
 .page{
 text-decoration: none;
 font-weight: 1000;
+cursor: pointer;
 text-shadow: 3px 3px 3px 3px #edf125;
-margin-left: 5vw;
-margin-right: 5vw;
+margin-left: 1.5vw;
+margin-right: 1.5vw;
 margin-top: 6px;
 }
 .page:hover {
