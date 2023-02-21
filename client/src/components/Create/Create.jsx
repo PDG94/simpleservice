@@ -28,7 +28,7 @@ export default function Create() {
   const validate = (form) => {
     let errors = {};
     if (!form.username) {
-      errors.username = "Userame is required";
+      errors.username = "Username is required";
     } else if (form.username.length > 30) {
       errors.username = "Userame is too long";
     }
