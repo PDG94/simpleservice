@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { activeUsers, removeUsers } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
-import AdminOnlyLink from "../AdminOnlyRoute/AdminOnlyLink";
+import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -94,13 +94,13 @@ const NavBar = () => {
         </li>
       </ShowOnLogout>
 
-      <AdminOnlyLink>
+      <AdminOnlyRoute>
         <li>
           <Link className="admin" to="/admin/dashboard">
             Admin
           </Link>
         </li>
-      </AdminOnlyLink>
+      </AdminOnlyRoute>
 
       <ShowOnLogin>
         <li>

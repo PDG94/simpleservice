@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Dashboard(){
+export default function Home(){
     return (
         <div>
             <h1>Homeee</h1>

@@ -14,17 +14,17 @@ export default function NavBarAdmin(){
         <nav>
             <ul>
                 <li>
-                    <Link to="/admin/dashboard">
+                    <Link to="/admin/home">
                       Home
                     </Link>
                 </li>
                 <li>
-                    <Link to="/admin/addservice">
+                    <Link to="/admin/add-service">
                         Add Service
                         </Link>
                 </li>
                 <li>
-                    <Link to="/admin/allservices">
+                    <Link to="/admin/all-services">
                         View Services
                     </Link>
                 </li>
