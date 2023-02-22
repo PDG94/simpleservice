@@ -1,7 +1,12 @@
 import "../Filter/filter.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { cardsFilter, getCategories, getServices } from "../../redux/actions";
+import {
+  cardsFilter,
+  getCategories,
+  getServices,
+  resedPaged,
+} from "../../redux/actions";
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -36,6 +41,7 @@ export default function Filter() {
   const handleSubmit = () => {
     dispatch(getServices());
     dispatch(cardsFilter(filter));
+    dispatch(resedPaged(1));
   };
 
   return (
@@ -43,8 +49,8 @@ export default function Filter() {
       <li>
         <span className="titleFilter">Filters & Sorts</span>
 
-          {/*CATEGORIAS*/}
-          <br />
+        {/*CATEGORIAS*/}
+        <br />
         <span className="spantitle">Select a category</span>
         <select onChange={(e) => handleCategory(e)}>
           <option value="all">Categories</option>
@@ -79,7 +85,9 @@ export default function Filter() {
           <option value="ASC">Low Rating</option>
         </select>
 
-        <button className="btnFilter" onClick={() => handleSubmit()}>Press to Filter</button>
+        <button className="btnFilter" onClick={() => handleSubmit()}>
+          Press to Filter
+        </button>
       </li>
     </div>
   );

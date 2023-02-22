@@ -16,8 +16,13 @@ import Create from "./Create/Create";
 import { NotFound } from "./NotFound/NotFound";
 import Landing from "./Landing/Landing";
 import Admin from "../components/Pages/Admin";
-import AdminOnlyRoute from "./AdminOnlyRoutes/AdminOnlyRoute"
-
+import AdminOnlyRoute from "./AdminOnlyRoutes/AdminOnlyRoute";
+import AddService from "./Admin/addService/AddService";
+import Orders from "./Admin/orders/Orders";
+import ViewServices from "./Admin/viewServices/ViewServices";
+import Dashboard from "./Admin/dashboard/Dashboard";
+import ShowOnLogin from "./HiddenLinks/ShowOnLogin";
+import ShowOnLogout from "./HiddenLinks/ShowOnLogout";
 
 export {
   Card,
@@ -39,4 +44,10 @@ export {
   Landing,
   Admin,
   AdminOnlyRoute,
+  AddService,
+  Orders,
+  ViewServices,
+  Dashboard,
+  ShowOnLogin,
+  ShowOnLogout,
 };

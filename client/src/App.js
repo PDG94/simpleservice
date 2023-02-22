@@ -14,7 +14,10 @@ import {
   Landing,
   Admin,
   AdminOnlyRoute,
-
+  AddService,
+  Orders,
+  ViewServices,
+  Dashboard,
 } from "./components/index";
 
 function App() {
@@ -39,18 +42,54 @@ function App() {
 
           <Route path="/login" element={<Login />} />
 
-          <Route path="/detail:id" element={<Detail />} />
-
           <Route path="/register" element={<Register />} />
 
           <Route path="/reset" element={<Reset />} />
 
-          <Route path= "/admin/*" element={
-          <AdminOnlyRoute> 
-          <Admin/>
-          </AdminOnlyRoute>
-        } />
+          <Route
+            path="/admin/home"
+            element={
+              <AdminOnlyRoute>
+                <Dashboard />
+              </AdminOnlyRoute>
+            }
+          />
 
+          <Route
+            path="/admin/add-service"
+            element={
+              <AdminOnlyRoute>
+                <AddService />
+              </AdminOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/admin/orders"
+            element={
+              <AdminOnlyRoute>
+                <Orders />
+              </AdminOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/admin/all-services"
+            element={
+              <AdminOnlyRoute>
+                <ViewServices />
+              </AdminOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/admin/*"
+            element={
+              <AdminOnlyRoute>
+                <Admin />
+              </AdminOnlyRoute>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
