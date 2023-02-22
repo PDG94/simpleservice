@@ -1,5 +1,5 @@
 import React from "react";
-import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 export default function ViewServices() {
   return (

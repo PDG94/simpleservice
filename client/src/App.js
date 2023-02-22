@@ -12,7 +12,6 @@ import {
   Create,
   NotFound,
   Landing,
-  Admin,
   AdminOnlyRoute,
   AddService,
   Orders,
@@ -50,15 +49,6 @@ function App() {
           <Route path="/prohibited" element={<Prohibido />} />
 
           <Route
-            path="/admin/home"
-            element={
-              <AdminOnlyRoute>
-                <Dashboard />
-              </AdminOnlyRoute>
-            }
-          />
-
-          <Route
             path="/admin/add-service"
             element={
               <AdminOnlyRoute>
@@ -89,7 +79,7 @@ function App() {
             path="/admin/*"
             element={
               <AdminOnlyRoute>
-                <Admin />
+                <Dashboard />
               </AdminOnlyRoute>
             }
           />
