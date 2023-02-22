@@ -16,12 +16,19 @@ export default function NavBarAdmin() {
           <li>
             <Link to="/admin/home">Home</Link>
           </li>
+
           <li>
             <Link to="/admin/add-service">Add Service</Link>
           </li>
+
+          <li>
+            <Link to="/admin/add-categories">Add Categories</Link>
+          </li>
+
           <li>
             <Link to="/admin/all-services">View Services</Link>
           </li>
+
           <li>
             <Link to="/admin/orders">Orders</Link>
           </li>
