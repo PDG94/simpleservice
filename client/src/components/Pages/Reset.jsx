@@ -4,6 +4,9 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../components/Firebase/config";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import "../Pages/reset.css";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 
 export function Reset() {
   const [email, setEmail] = useState("");
@@ -24,31 +27,42 @@ export function Reset() {
   }
 
   return (
-    <div>
-      <img src={forgot} alt="forgot" width="400" />
-      <section className="container">
-        <div className="form">
-          <h2>Reset</h2>
-          <form onSubmit={resetPassword}>
-            <input
-              type="text"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <button type="submit">Reset Password</button>
-            <div>
-              <p>
-                <Link to="/login">-Login</Link>
-              </p>
-              <p>
-                <Link to="/register">-Register</Link>
-              </p>
-            </div>
-          </form>
+    <div className="mainReset">
+      <NavBar />
+      <div className="boxReset">
+        <section className="containerReset">
+          <div className="formReset">
+            <h2 className="titleReset">Forgot your password</h2>
+            <p className="pleaseMessage">
+              Please enter the email address you'd like your password reset
+              information sent to
+            </p>
+            <form onSubmit={resetPassword} className="formRes">
+            <p className="enterReset">Enter your email address</p>
+              <input
+                type="text"
+                placeholder="user1234@simpleservice.com"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                className="inpReset"
+              />
+              <button type="submit" className="submit">
+                Request reset link
+              </button>
+              <div className="linkBoxReset">
+                <Link to="/login" className="linkReset" style={{textDecoration: "none"}}>
+                  <button className="btnResetBack">Back To Login</button>
+                </Link>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div className="contImg">
+          <img src={forgot} alt="forgot" width="400" className="imgReset" />
         </div>
-      </section>
+      </div>
+      <Footer />
     </div>
   );
 }
