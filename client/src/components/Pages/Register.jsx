@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { createdUser, storeToken } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  // const [image, setImage] = useState("");
+  // const [image, setImage] = useState(""); //parece que esto no se está usando, lo comento por ahora
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -52,21 +53,26 @@ export default function Register() {
     <div className="containerRe">
       <NavBar />
       {isLoading && <Loading />}
+      <Link to={"/login"}>
+          <button className="backRegister">Back</button>
+        </Link>
       <div className="containerRegister">
+        <div className="headerRegister">
+          <MdOutlineAccountCircle className="iconR" />
+          <h1 className="titleRegister">Create New Account</h1>
+        </div>
         <div className="formRegister">
-          <h1>
-            <MdOutlineAccountCircle className="iconR" />
-            Create account
-          </h1>
           <form onSubmit={registerUSer}>
             <input
+              className="inpRegister"
               type="text"
-              placeholder="User"
+              placeholder="Username"
               required
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
             <input
+              className="inpRegister"
               type="text"
               placeholder="Name"
               required
@@ -74,13 +80,15 @@ export default function Register() {
               onChange={(event) => setName(event.target.value)}
             />
             <input
+              className="inpRegister"
               type="email"
-              placeholder="Email"
+              placeholder="E-mail"
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
             <input
+              className="inpRegister"
               type="password"
               placeholder="Password"
               required
@@ -88,6 +96,7 @@ export default function Register() {
               onChange={(event) => setPassword(event.target.value)}
             />
             <input
+              className="inpRegister"
               type="password"
               placeholder="Confirm Password"
               required
@@ -96,14 +105,15 @@ export default function Register() {
             />
 
             <input
+              className="dateRegister"
               type="date"
               placeholder="Date of birth"
               required
               value={dateOfBirth}
               onChange={(event) => setDateOfBirth(event.target.value)}
             />
-            <button type="submit">Register</button>
           </form>
+            <button type="submit" className="submitRegister">Sign up</button>
         </div>
       </div>
       <Footer />

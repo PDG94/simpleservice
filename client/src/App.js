@@ -12,10 +12,13 @@ import {
   Create,
   NotFound,
   Landing,
-  Admin,
-  AdminOnlyRoute,
+  
+  
 
 } from "./components/index";
+import Prohibido from "./components/Security/Prohibido";
+
+
 
 function App() {
   return (
@@ -44,12 +47,14 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/reset" element={<Reset />} />
-
+          
+          <Route path="/prohibited" element={<Prohibido/>} />
+{/* 
           <Route path= "/admin/*" element={
           <AdminOnlyRoute> 
           <Admin/>
           </AdminOnlyRoute>
-        } />
+        } /> */}
 
         </Routes>
       </div>
