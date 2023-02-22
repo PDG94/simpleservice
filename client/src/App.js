@@ -12,10 +12,12 @@ import {
   Create,
   NotFound,
   Landing,
-  Prohibido
+  
   
 
 } from "./components/index";
+import Prohibido from "./components/Security/Prohibido";
+
 
 
 function App() {

@@ -85,10 +85,10 @@ export default function Login() {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="continue" type="submit">Continue</button>
-            <div className="links">
-              <Link to="/reset" style={{textDecoration: "none"}}>
+              <Link to="/reset" style={{textDecoration: "none"}} className="forgotPhrase">
                 <p className="forgot">forgot your password?</p>
               </Link>
+            <div className="links">
               <span className="symbolsA" onClick={signGoogle}>
                 <FiMail />
               </span>{" "}
@@ -97,7 +97,7 @@ export default function Login() {
               </span> 
                 <p className="account">Don't have an account?</p>
                 <Link to="/register">
-                  <button className="RegLog">Register</button>
+                  <button className="RegLog">Create Account</button>
                 </Link>
             </div>
           </form>
