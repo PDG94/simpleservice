@@ -69,11 +69,13 @@ const NavBar = () => {
           Welcome Page
         </Link>
       </li>
+
       <li>
         <Link className="home" to="/home">
           Home
         </Link>
       </li>
+
       <li>
         <Link className="services" to="/Services">
           Services
@@ -117,6 +119,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ShowOnLogin>
+
       <ShowOnLogin>
         <li>
           <Link className="greet" to="/home">

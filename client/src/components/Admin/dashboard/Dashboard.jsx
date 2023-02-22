@@ -1,10 +1,13 @@
 import React from "react";
 import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
 
-export default function ViewServices() {
+export default function Dashboard() {
   return (
     <div>
-      <h1>Estoy en ViewServices</h1>
+      <div>
+        <a href="/Services">Main menu</a>
+      </div>
+      <h1>Estoy en Home</h1>
       <div className="navbar">
         <NavBarAdmin />
       </div>
