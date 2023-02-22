@@ -1,11 +1,11 @@
 import React from "react";
-import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 export default function Dashboard() {
   return (
     <div>
       <div>
-        <a href="/Services">Main menu</a>
+        <a href="/home">Main menu</a>
       </div>
       <h1>Estoy en Home</h1>
       <div className="navbar">

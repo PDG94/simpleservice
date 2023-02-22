@@ -97,7 +97,7 @@ const NavBar = () => {
 
       <AdminOnlyRoute>
         <li>
-          <Link className="admin" to="/admin/dashboard">
+          <Link className="admin" to="/admin/home">
             Admin
           </Link>
         </li>
