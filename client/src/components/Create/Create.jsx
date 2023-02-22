@@ -12,6 +12,7 @@ import {
   MdImage,
 } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
+import { GrCircleAlert } from "react-icons/gr";
 export default function Create() {
   const navigate = useNavigate();
 
@@ -60,6 +61,7 @@ export default function Create() {
   };
 
   const submitHandler = (event) => {
+    console.log(form);
     event.preventDefault();
     if (Object.values(error).length) {
       return alert(Object.values(error).join("\n"));
@@ -80,6 +82,9 @@ export default function Create() {
         </Link>
         <div className="containerCreated">
           <h1 className="titleCr">Create Service</h1>
+          < GrCircleAlert/>
+          <p>Atention see <Link to="/prohibited">prohibited</Link> list before posting.</p>
+
           <div>
             <label className="icon">
               <MdPerson />
