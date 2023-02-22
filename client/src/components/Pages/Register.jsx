@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { auth } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -6,19 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import '../Pages/register.css'
+import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
+import { createdUser, storeToken } from "../../redux/actions";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setcPassword] = useState("");
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function registerUSer(event) {
     event.preventDefault();
@@ -30,7 +33,11 @@ export default function Register() {
       .then((userCredential) => {
         // SI TODO MATCHEA SETEO EL LOADING A FALSE Y LO MANDO A LOGIN
         const user = userCredential.user;
-        console.log(user);
+        user.getIdToken().then((token) => {
+          dispatch(storeToken(token));
+          createdUser(username, name, token);//dateOfBirth later
+        });
+        // console.log(user);
         setIsloading(false);
         toast.success("Registration Successful!");
         navigate("/login");
@@ -43,18 +50,21 @@ export default function Register() {
 
   return (
     <div className="containerRe">
-     <NavBar/>
+      <NavBar />
       {isLoading && <Loading />}
       <div className="containerRegister">
         <div className="formRegister">
-          <h1><MdOutlineAccountCircle className="iconR"/>Create account</h1>
+          <h1>
+            <MdOutlineAccountCircle className="iconR" />
+            Create account
+          </h1>
           <form onSubmit={registerUSer}>
             <input
               type="text"
               placeholder="User"
               required
-              value={user}
-              onChange={(event) => setUser(event.target.value)}
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
             />
             <input
               type="text"
@@ -84,7 +94,7 @@ export default function Register() {
               value={cPassword}
               onChange={(event) => setcPassword(event.target.value)}
             />
-           
+
             <input
               type="date"
               placeholder="Date of birth"

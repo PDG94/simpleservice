@@ -9,7 +9,8 @@ import {
   FILTER_SERVICES,
   RESET_PAGED,
   SET_ACTIVE_USER,
-  REMOVE_USER
+  REMOVE_USER,
+  STORE_TOKEN,
 } from "./actionTypes";
 
 export function getServices() {
@@ -122,3 +123,27 @@ export const removeUsers = (payload) => {
   };
 };
 
+//JWT TOKEN
+export const storeToken = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: STORE_TOKEN, payload });
+  };
+};
+
+//POST REQUEST
+export const createdUser = (username, name, token) => {
+  axios.post(
+    "http://localhost:3001/users",
+    { username, name },
+    {
+      headers: { Authorization: "Bearer " + token },
+    }
+  );
+};
+
+//LOGIN REQUEST
+export const userLogin = (token) => {
+  axios.get("http://localhost:3001/login", {
+    headers: { Authorization: "Bearer " + token },
+  });
+};
