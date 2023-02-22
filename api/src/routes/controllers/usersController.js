@@ -9,19 +9,18 @@ const getAllUsers = async() =>{
     })
 }
 
-const createUser = async({name, surname,profilepic, email, password}) =>{
+const createUser = async({user_id, name, username,profilepic, email}) =>{
     const newUser = await User.create({
+        id: user_id,
         name,
-        surname,
+        username,
         profilepic,
         email,
-        password
-
     })
     return newUser
 }
 
 module.exports = {
     getAllUsers,
-    createUser
+    createUser,
 }

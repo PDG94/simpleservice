@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { auth } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -8,18 +9,20 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
+import { createdUser, storeToken } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setcPassword] = useState("");
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   // const [image, setImage] = useState(""); //parece que esto no se está usando, lo comento por ahora
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function registerUSer(event) {
     event.preventDefault();
@@ -31,7 +34,11 @@ export default function Register() {
       .then((userCredential) => {
         // SI TODO MATCHEA SETEO EL LOADING A FALSE Y LO MANDO A LOGIN
         const user = userCredential.user;
-        console.log(user);
+        user.getIdToken().then((token) => {
+          dispatch(storeToken(token));
+          createdUser(username, name, token);//dateOfBirth later
+        });
+        // console.log(user);
         setIsloading(false);
         toast.success("Registration Successful!");
         navigate("/login");
@@ -61,8 +68,8 @@ export default function Register() {
               type="text"
               placeholder="Username"
               required
-              value={user}
-              onChange={(event) => setUser(event.target.value)}
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
             />
             <input
               className="inpRegister"

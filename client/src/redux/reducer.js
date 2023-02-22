@@ -8,7 +8,8 @@ import {
   FILTER_SERVICES,
   RESET_PAGED,
   SET_ACTIVE_USER,
-  REMOVE_USER
+  REMOVE_USER,
+  STORE_TOKEN
 } from "./actionTypes";
 
 const initialState = {
@@ -21,6 +22,7 @@ const initialState = {
   email: null,
   useName: null,
   userID: null,
+  token: "",
 };
 
 function rootReducer(state = initialState, action) {
@@ -88,6 +90,10 @@ function rootReducer(state = initialState, action) {
         useName: null,
         userID: null
       };
+      case STORE_TOKEN:
+        return {
+          ...state, token: action.payload
+        }
 
     default:
       return { ...state };

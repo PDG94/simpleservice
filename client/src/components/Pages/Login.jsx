@@ -1,5 +1,6 @@
 import "../Pages/auth.css";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../../components/Firebase/config";
@@ -12,17 +13,17 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import '../Pages/login.css'
-import { MdLogin } from "react-icons/md"
+import "../Pages/login.css";
+import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-
-
+import { storeToken, userLogin } from "../../redux/actions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function loginUser(event) {
     event.preventDefault();
@@ -30,7 +31,11 @@ export default function Login() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // const user = userCredential.user;
+        const user = userCredential.user;
+        user.getIdToken().then((token) => {
+          dispatch(storeToken(token));
+          userLogin(token);
+        });
         setIsloading(false);
         toast.success("Login Successful...");
         navigate("/home");
@@ -46,7 +51,11 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        /* const user = result.user; */
+        const user = result.user;
+        user.getIdToken().then((token) => {
+          dispatch(storeToken(token));
+          userLogin(token);
+        });
         toast.success("Login Successfuly!");
         navigate("/home");
       })
@@ -56,10 +65,9 @@ export default function Login() {
   }
 
   return (
-   <div className="containerLog">
-   
+    <div className="containerLog">
       <NavBar />
-   
+
       {isLoading && <Loading />}
       <Link to={"/Home"}>
           <button className="backLog">Back to Home</button>
@@ -99,13 +107,15 @@ export default function Login() {
                 <Link to="/register">
                   <button className="RegLog">Create Account</button>
                 </Link>
-            </div>
-          </form>
-        </div>
-        <div className="imgLog" ><img className="imageLog" src={loginImg} alt="" width="500" /></div>
-      </section>
-      <Footer />
-    </div>
+              </div>
+            </form>
+          </div>
+          <div className="imgLog">
+            <img className="imageLog" src={loginImg} alt="" width="500" />
+          </div>
+        </section>
+        <Footer />
+      </div>
     </div>
   );
 }
