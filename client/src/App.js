@@ -17,8 +17,9 @@ import {
   Orders,
   ViewServices,
   Dashboard,
+  AddCategories,
+  Prohibido,
 } from "./components/index";
-import Prohibido from "./components/Security/Prohibido";
 
 function App() {
   return (
@@ -53,6 +54,15 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <AddService />
+              </AdminOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/admin/add-categories"
+            element={
+              <AdminOnlyRoute>
+                <AddCategories />
               </AdminOnlyRoute>
             }
           />

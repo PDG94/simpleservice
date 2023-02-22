@@ -22,6 +22,8 @@ import ViewServices from "./Admin/ViewServices/ViewServices";
 import Dashboard from "./Admin/Dashboard/Dashboard";
 import ShowOnLogin from "./HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "./HiddenLinks/ShowOnLogout";
+import AddCategories from "./Admin/AddCategories/AddCategories";
+import Prohibido from "./Security/Prohibido";
 
 export {
   Card,
@@ -48,4 +50,6 @@ export {
   Dashboard,
   ShowOnLogin,
   ShowOnLogout,
+  AddCategories,
+  Prohibido,
 };
