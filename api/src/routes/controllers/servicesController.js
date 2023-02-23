@@ -1,4 +1,5 @@
 const { User, Card, Category } = require("../../db");
+
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
@@ -21,12 +22,14 @@ const createService = async ({
   description,
   servicename,
   price,
-  user_id,
+  user_id
+
 }) => {
   const newService = await Card.create({
     description,
     servicename,
     price,
+
   });
 
   const categories = await Category.findByPk(CategoryId);
@@ -39,7 +42,14 @@ const createService = async ({
 };
 
 //updateService updates just one instance
-const updateService = async ({ id, description, servicename, price }) => {
+
+const updateService = async ({
+  id,
+  description,
+  servicename,
+  price,
+}) => {
+
   await Card.update(
     { description, servicename, price },
     {
@@ -55,6 +65,7 @@ const updateService = async ({ id, description, servicename, price }) => {
 };
 
 const getServiceById = async ({ id }) => {
+
   const serviceById = await Card.findAll({
     where: {
       id: id,
