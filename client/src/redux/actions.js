@@ -11,6 +11,7 @@ import {
   SET_ACTIVE_USER,
   REMOVE_USER,
   STORE_TOKEN,
+  GET_SERVICES_LIST,
 } from "./actionTypes";
 
 export function getServices() {
@@ -147,3 +148,15 @@ export const userLogin = (token) => {
     headers: { Authorization: "Bearer " + token },
   });
 };
+
+export function getServiceList() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/servicelist"
+    );
+    return dispatch({
+      type: GET_SERVICES_LIST,
+      payload: response.data,
+    });
+  };
+}
