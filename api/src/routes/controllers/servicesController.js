@@ -11,7 +11,7 @@ const getAllServices = async () => {
     attributes: ["id", "servicename", "price", "CategoryId"],
     include: {
       model: User,
-      attributes: ["id","name","rating"],
+      attributes: ["id","name","rating", "profilepic"],
     },
     raw: true,
   });
