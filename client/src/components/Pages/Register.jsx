@@ -38,7 +38,6 @@ export default function Register() {
           dispatch(storeToken(token));
           createdUser(username, name, token);//dateOfBirth later
         });
-        // console.log(user);
         setIsloading(false);
         toast.success("Registration Successful!");
         navigate("/login");
@@ -112,8 +111,8 @@ export default function Register() {
               value={dateOfBirth}
               onChange={(event) => setDateOfBirth(event.target.value)}
             />
+              <button type="submit" className="submitRegister">Sign up</button>
           </form>
-            <button type="submit" className="submitRegister">Sign up</button>
         </div>
       </div>
       <Footer />
