@@ -12,7 +12,7 @@ const checkOut = require("./controllers/checkOut");//testing for payment with st
 const router = Router();
 
 router.use("/services", servicesRouter);
-
+    
 router.use("/users", usersRouter);
 
 router.use("/categories", categoriesRouter);
