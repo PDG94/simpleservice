@@ -4,6 +4,7 @@
 
 
 /* .navBar{
+    display: flex;
     position:fixed;
 } */
 
@@ -12,14 +13,14 @@
     position: fixed;
     padding-left: 10px;
 } */
+
 .main{
     background-color: #101010;
 }
-
+/* 
 .navSearch{
-    display: flex;
     flex-wrap: wrap;
-}
+} */
 
 
 
