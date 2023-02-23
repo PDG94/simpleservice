@@ -76,7 +76,7 @@ export default function Create() {
   };
 
   const handleCategory = (e) => {
-    setForm({ ...form, categoryId: e.target.value });
+    setForm({ ...form, CategoryId: e.target.value });
   };
 
   const handleServicesList = (e) => {
