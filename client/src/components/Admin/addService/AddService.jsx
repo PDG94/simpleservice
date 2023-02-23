@@ -3,17 +3,16 @@ import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-import { MdStar,MdPerson,MdDescription,MdOutlineHail,MdImage } from "react-icons/md";
+import { MdStar,MdPerson,MdDescription,MdOutlineHail } from "react-icons/md";
 import {FiDollarSign} from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 export default function AddService(){
 const {id} = useParams()
-const allServices = useSelector((state)=>state.services)
+// const allServices = useSelector((state)=>state.services)
 
-const findingId = allServices.find((item)=>item.id === id)
-console.log(findingId);
+//  const findingId = allServices.find((item)=>item.id === id)
 
     const [form, setForm] = useState({
         CategoryId: "",
@@ -25,13 +24,13 @@ console.log(findingId);
         rating: "",
       });
 
-      setForm(()=>{
-        const newState = detectForm(id,
-          {...form},
-          findingId
-          )
-          return newState
-      })
+      // setForm(()=>{
+      //   const newState = detectForm(id,
+      //     {...form},
+      //     findingId
+      //     )
+      //     return newState
+      // })
 
 
 
