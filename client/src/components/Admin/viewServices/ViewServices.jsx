@@ -4,6 +4,9 @@ import { BsTrash } from "react-icons/bs"
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../Loading/Loading";
+
+//import { deleteService } from "../../../redux/actions";
+
 import Notiflix from "notiflix";
 
 // import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
@@ -16,6 +19,7 @@ export default function ViewServices() {
   const navigate = useNavigate()
 
 const deleteS=()=>{ 
+
    }
 
    const editarAlert=(id)=>{
