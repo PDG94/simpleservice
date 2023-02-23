@@ -1,8 +1,13 @@
-const {ServiceList} = require("../../db");
+const {ServiceList, Category} = require("../../db");
 
 
 const getAllServiceLists = async() =>{
-    return await ServiceList.findAll();
+    return await ServiceList.findAll({
+      where: {
+        active: true
+      },
+      include: Category,
+    });
 }
 
 const createServiceList = async({name}) =>{
