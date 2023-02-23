@@ -31,9 +31,13 @@ const createService = async ({
     price,
 
   });
+  console.log(CategoryId);
 
   const categories = await Category.findByPk(CategoryId);
   const user = await User.findByPk(user_id);
+
+  console.log(categories);
+  // console.log(user);
 
   await categories.addCard(newService);
   await user.addCard(newService);
