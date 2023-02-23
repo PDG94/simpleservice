@@ -9,7 +9,8 @@ import {
   RESET_PAGED,
   SET_ACTIVE_USER,
   REMOVE_USER,
-  STORE_TOKEN
+  STORE_TOKEN,
+  GET_SERVICES_LIST,
 } from "./actionTypes";
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   useName: null,
   userID: null,
   token: "",
+  serviceList: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -74,26 +76,33 @@ function rootReducer(state = initialState, action) {
         ...state,
         currentPage: action.payload,
       };
-      case SET_ACTIVE_USER:
+    case SET_ACTIVE_USER:
       return {
         ...state,
-        isLoggedIn:true ,
+        isLoggedIn: true,
         email: action.payload.email,
         useName: action.payload.useName,
-        userID: action.payload.userID 
+        userID: action.payload.userID,
       };
-      case REMOVE_USER:
+    case REMOVE_USER:
       return {
         ...state,
-        isLoggedIn: false ,
+        isLoggedIn: false,
         email: null,
         useName: null,
-        userID: null
+        userID: null,
       };
-      case STORE_TOKEN:
-        return {
-          ...state, token: action.payload
-        }
+    case STORE_TOKEN:
+      return {
+        ...state,
+        token: action.payload,
+      };
+
+    case GET_SERVICES_LIST:
+      return {
+        ...state,
+        serviceList: action.payload,
+      };
 
     default:
       return { ...state };

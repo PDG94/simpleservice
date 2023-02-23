@@ -5,10 +5,13 @@ const fs = require("fs");
 const path = require("path");
 
 //DB_NAME is the database name
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
-  logging: false, 
-  native: false,
-});
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  {
+    logging: false,
+    native: false,
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -35,26 +38,26 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
+
 const {
-  Category, Service, User, Role, Card, ServiceList
+  Category, User, Role, Card, ServiceList
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 
-Category.hasMany(Service);
-Service.belongsTo(Category);
+Category.hasMany(Card);
+Card.belongsTo(Category);
 
 Role.hasMany(User);
 User.belongsTo(Role);
 
-User.hasMany(Service);
-Service.belongsTo(User);
 
-Category.hasMany(Card);
-Card.belongsTo(Category);
+User.belongsToMany(Card, { through: "UserCard" });
+Card.belongsToMany(User, { through: "UserCard" });
 
-Category.hasMany(ServiceList);
-ServiceList.belongsTo(Category);
+
+Category.belongsToMany(ServiceList, {through: "list"});
+ServiceList.belongsToMany(Category, {through: "list"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

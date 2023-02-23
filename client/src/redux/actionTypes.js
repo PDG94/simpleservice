@@ -9,4 +9,4 @@ export const RESET_PAGED = "RESET_PAGED";
 export const SET_ACTIVE_USER = "SET_ACTIVE_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const STORE_TOKEN = "STORE_TOKEN";
-
+export const GET_SERVICES_LIST = "GET_SERVICES_LIST";

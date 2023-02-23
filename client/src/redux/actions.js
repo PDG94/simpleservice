@@ -11,6 +11,7 @@ import {
   SET_ACTIVE_USER,
   REMOVE_USER,
   STORE_TOKEN,
+  GET_SERVICES_LIST,
 } from "./actionTypes";
 
 export function getServices() {
@@ -133,7 +134,7 @@ export const storeToken = (payload) => {
 //POST REQUEST
 export const createdUser = (username, name, token) => {
   axios.post(
-    "http://localhost:3001/users",
+    "https://simpleservice-production.up.railway.app/users",
     { username, name },
     {
       headers: { Authorization: "Bearer " + token },
@@ -143,7 +144,19 @@ export const createdUser = (username, name, token) => {
 
 //LOGIN REQUEST
 export const userLogin = (token) => {
-  axios.get("http://localhost:3001/login", {
+  axios.get("https://simpleservice-production.up.railway.app/login", {
     headers: { Authorization: "Bearer " + token },
   });
 };
+
+export function getServiceList() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/servicelist"
+    );
+    return dispatch({
+      type: GET_SERVICES_LIST,
+      payload: response.data,
+    });
+  };
+}
