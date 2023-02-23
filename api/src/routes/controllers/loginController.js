@@ -1,13 +1,14 @@
 const { User } = require("../../db");
 
-const findUser = async (user_id, email, name) => {
+const findUser = async (uid, email, name, picture) => {
   const [user, created] =await User.findOrCreate({
-    where: { id: user_id },
+    where: { id: uid },
     defaults: {
-      id: user_id,
+      id: uid,
       email,
       username: name,
-      name: name
+      name: name,
+      profilepic: picture,
     },
   });
   if (created) {
