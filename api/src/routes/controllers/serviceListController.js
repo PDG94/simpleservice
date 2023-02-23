@@ -3,7 +3,10 @@ const {ServiceList, Category} = require("../../db");
 
 const getAllServiceLists = async() =>{
     return await ServiceList.findAll({
-      include: Category
+      where: {
+        active: true
+      },
+      include: Category,
     });
 }
 
