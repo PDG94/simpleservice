@@ -1,7 +1,7 @@
 .form {
   padding: 2%;
   margin-bottom: -280px;
-  background:linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
+  background:linear-gradient(270deg, #101010 0%, rgba(255,255,255,1) 50%, #101010 100%);
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -16,7 +16,7 @@
   border: 8px solid #d7df23;
   border-radius: 50px;
   width: 50%;
-  height: 83%;
+  height: 90%;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
     5px 5px 15px rgba(0, 0, 0, 0.35),
     inset -5px -5px 15px rgba(255, 255, 255, 0.3),
@@ -78,8 +78,6 @@
   box-shadow: 0 0 2px 2px rgb(255, 255, 255);
 }
 .sub {
-  margin-top: 0;
-  margin-left: 3px;
   height: 50px;
   width: 140px;
   color: rgb(51, 50, 50);

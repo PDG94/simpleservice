@@ -9,7 +9,7 @@
   margin:40px 10px!important;
   padding: 0;
   cursor:pointer;
-  background-color: black;
+  background-color: #101010;
   border: 1px solid white;
   box-shadow:0 0 2px 4px #f5f752ce;
   border-radius: 15px;
@@ -85,7 +85,7 @@
   font-size:1.1rem;
   color:white;
   text-decoration: none;
-  background-color: black;
+  background-color: #101010;
   border-radius:10px;
   transition:.3s;
   font-family:system-ui;

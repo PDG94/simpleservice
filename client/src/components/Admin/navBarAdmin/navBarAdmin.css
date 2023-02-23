@@ -1,0 +1,75 @@
+.navbar{
+    position: absolute;
+    background-color: #101010;
+    width: 200px;
+    position: fixed;
+}
+.user{
+    padding: 10px;
+    margin-top: 170px;
+    margin-left: 10px;
+    background-color: #101010;
+    color: white;
+}
+.nameAd{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.navAd{
+    height: 700px;
+    background-color: #101010;
+}
+.ulNav{
+    margin-left: 10px;
+    margin-top: 80px;
+    background-color: #101010;
+}
+
+
+
+/*lista de nav*/
+.homeadd{
+    width: 170px;
+    margin-bottom: 10px;
+}
+.homeadd:hover{
+    background-color: #3833338a;
+    width: 170px;
+}
+.addSerAd{
+    width: 170px;
+    margin-bottom: 10px;
+}
+.addSerAd:hover{
+    background-color: #3833338a;
+    width: 170px;
+
+}
+.addCatAd{
+    width: 170px;
+    margin-bottom: 10px;
+}
+.addCatAd:hover{
+    background-color: #3833338a;
+    width: 170px;
+
+}
+.viewAd{
+    width: 170px;
+    margin-bottom: 10px;
+}
+.viewAd:hover{
+    background-color: #3833338a;
+    width: 170px;
+
+}
+.orderAd{
+    width: 170px;
+    margin-bottom: 10px;
+}
+.orderAd:hover{
+    background-color: #3833338a;
+    width: 170px;
+
+}

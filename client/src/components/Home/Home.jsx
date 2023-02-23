@@ -2,7 +2,7 @@ import "../Home/home.css";
 import woodworker from "../Imagenes/woodworker.jpg";
 import doctor from "../Imagenes/doctor.jpg";
 import clothes from "../Imagenes/clothes.jpg";
-import logoServiceName from "../Imagenes/logoServiceName.png";
+import ss from "../Imagenes/ss.png";
 import { NavBar, Footer } from "../index";
 
 const Home = () => {
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
         <div className="contentHome">
           <div className="logoService">
-            <img src={logoServiceName} alt="carrito" className="imageLogo" />
+            <img src={ss} alt="carrito" className="imageLogo" />
           </div>
           <div className="servicesBtn">
             <a className="btnView" href="/Services">
