@@ -1,25 +1,49 @@
 import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs"
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../Loading/Loading";
+
 //import { deleteService } from "../../../redux/actions";
+
 import Notiflix from "notiflix";
+
 // import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 
 export default function ViewServices() {
 
   const allServices = useSelector((state) => state.services);
-  const [isloading, setIsloading] = useState(false)
-  const {id} = useParams()
-  const dispatch = useDispatch();
- 
+  const [isloading, ] = useState(false)
+  const navigate = useNavigate()
+
 const deleteS=()=>{ 
 
    }
 
+   const editarAlert=(id)=>{
+    Notiflix.Confirm.show(
+      'Edit Service',
+      'You are about to edit this service',
+      'yes',
+      'no',
+      function okCb() {
+        alert("OK")
+      },
+      function cancelCb() {
+        alert('If you say so...');
+        navigate()
+      },
+      {
+        width: '320px',
+        borderRadius: '8px',
+        // textDecoration : "none",
+        // titleColor: "orangered"
+      },
+    );
+   }
+   
    const confirmDelete=(id)=>{
     Notiflix.Confirm.show(
       'Delete Service',
@@ -79,7 +103,7 @@ const deleteS=()=>{
                   {`$${price}`}
                 </td>
                 <Link to={`/admin/add-service/${id}`}>
-                <FaEdit color="green"/>
+                <FaEdit color="green" onClick={editarAlert}/>
                 </Link>
                 <Link>
                 <BsTrash color="red"  onClick={confirmDelete}/>

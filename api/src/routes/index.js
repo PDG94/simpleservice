@@ -1,9 +1,12 @@
 const { Router } = require("express");
+const middleware = require("../middleware");
 const servicesRouter = require("./routers/servicesRouter");
 const usersRouter = require("./routers/usersRouter");
 const categoriesRouter = require("./routers/categoriesRouter");
 const loginRouter = require("./routers/loginRouter");
-const userRouter = require("./routers/userRouter")
+const userRouter = require("./routers/userRouter");
+const adminRouter = require("./routers/adminRouter");
+const serviceListRouter = require("./routers/serviceListRouter");
 
 const router = Router();
 
@@ -16,5 +19,9 @@ router.use("/categories", categoriesRouter);
 router.use("/login", loginRouter);
 
 router.use("/user", userRouter); //not ready or functional yet
+
+router.use("/admin", adminRouter);
+
+router.use("/servicelist", serviceListRouter);
 
 module.exports = router;
