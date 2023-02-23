@@ -25,7 +25,7 @@ export default function NavBarAdmin() {
           </li>
 
           <li className="addCatAd">
-            <Link to="/admin/add-categories/ADD">Add Categories</Link>
+            <Link to="/admin/add-categories">Add Categories</Link>
           </li>
 
           <li className="viewAd">
