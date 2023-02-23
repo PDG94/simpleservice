@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap; */
-  background:linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
+  background:linear-gradient(270deg, #101010 0%, rgba(255,255,255,1) 50%, #101010 100%);
 }
 
 .containerWrapperList {
@@ -27,5 +27,5 @@
   justify-content:space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(255, 255, 255) 50%, rgb(0, 0, 0) 100%);
+  background: linear-gradient(0deg, #101010 0%, rgb(255, 255, 255) 50%, #101010 100%);
 }

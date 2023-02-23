@@ -9,7 +9,7 @@
 .filter li {
   list-style: none;
   display: grid;
-  margin-top: 2px;
+  margin-top: 30px;
 }
 
 select {
@@ -17,7 +17,7 @@ select {
     border: 2px rgb(255, 255, 255) solid;
     border-radius: 5px;
     font-weight: 600;
-    color: black;
+    color: #101010;
     display: grid;
     width: 100%;
     font-family: system-ui;
@@ -31,10 +31,11 @@ select {
   }
 select:hover {
     color: #f2fa04;
-    background-color:black;
+    background-color:#101010;
     letter-spacing: 1px;
   }
 .btnFilter {
+  margin-top: 10px;
   margin-left: 20px;
   height: 50px;
   width: 140px;
@@ -47,7 +48,7 @@ select:hover {
   border: 1px solid #fffdfd;
   border-radius: 5px;
   background-color:#f2fa04;
-  color: black;
+  color: #101010;
   box-shadow:0 0 2px 2px rgb(255, 255, 255);
 }
 .titleFilter{
