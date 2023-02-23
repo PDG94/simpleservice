@@ -133,7 +133,7 @@ export const storeToken = (payload) => {
 //POST REQUEST
 export const createdUser = (username, name, token) => {
   axios.post(
-    "http://localhost:3001/users",
+    "https://simpleservice-production.up.railway.app/users",
     { username, name },
     {
       headers: { Authorization: "Bearer " + token },
@@ -143,7 +143,7 @@ export const createdUser = (username, name, token) => {
 
 //LOGIN REQUEST
 export const userLogin = (token) => {
-  axios.get("http://localhost:3001/login", {
+  axios.get("https://simpleservice-production.up.railway.app/login", {
     headers: { Authorization: "Bearer " + token },
   });
 };
