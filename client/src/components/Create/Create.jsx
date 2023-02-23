@@ -13,12 +13,11 @@ import {
 } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { GrCircleAlert } from "react-icons/gr";
-import { toast } from "react-toastify";
 export default function Create() {
   const navigate = useNavigate();
-
+  const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
-    CategoryId: "0285f3e2-7875-40a6-a5ff-b199c2330808",
+    CategoryId: "",
     username: "",
     userimage: "",
     description: "",
@@ -52,25 +51,43 @@ export default function Create() {
     return errors;
   };
 
-  const error = validate(form);
+  // const error = validate(form);
 
-  const changeHandler = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
+  // const changeHandler = (event) => {
+  //   const property = event.target.name;
+  //   const value = event.target.value;
 
-    setForm({ ...form, [property]: value });
-  };
+  //   setForm({ ...form, [property]: value });
+  // };
+
+    function handlerChange(e){
+      setForm({
+        ...form, [e.target.name] : e.target.value
+      })
+      setErrors(
+        validate({
+          ...form,[e.target.name] : [e.target.value]
+        })
+      )
+    }
+
   const submitHandler = (event) => {
     console.log(form);
     event.preventDefault();
-    if (Object.values(error).length) {
-      return toast.error(Object.values(error).join("\n"));
+    let error = Object.keys(validate(form))
+    if(error.length !== 0 && !form.username && !form.description && !form.rating && !form.price){
+      alert("Please, fill in the fields correctly");
+        return;
+    }else{
+      axios.post(
+        "https://simpleservice-production.up.railway.app/services",
+        form
+      );
+      
     }
-    axios.post(
-      "https://simpleservice-production.up.railway.app/services",
-      form
-    );
-    toast.success("Service created successfully!")
+    // if (Object.values(error).length) {
+    //   return alert(Object.values(error).join("\n"));
+    // }
     navigate("/home");
   };
 
@@ -94,10 +111,11 @@ export default function Create() {
               type="text"
               placeholder="Username "
               value={form.username}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="username"
+              onChange={(e)=>handlerChange(e)}
             />
-            <p className="valid">{error.username}</p>
+            <p className="valid">{errors.username}</p>
           </div>
 
           <div>
@@ -108,10 +126,11 @@ export default function Create() {
               type="text"
               placeholder="Description"
               value={form.description}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="description"
+              onChange={(e)=>handlerChange(e)}
             />
-            <p className="valid">{error.description}</p>
+            <p className="valid">{errors.description}</p>
           </div>
 
           <div>
@@ -122,10 +141,11 @@ export default function Create() {
               type="text"
               placeholder="Rating"
               value={form.rating}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="rating"
+              onChange={(e)=>handlerChange(e)}
             />
-            <p className="valid">{error.rating}</p>
+            <p className="valid">{errors.rating}</p>
           </div>
 
           <div>
@@ -136,10 +156,11 @@ export default function Create() {
               type="text"
               placeholder="Price"
               value={form.price}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="price"
+              onChange={(e)=>handlerChange(e)}
             />
-            <p className="valid">{error.price}</p>
+            <p className="valid">{errors.price}</p>
           </div>
 
           <div>
@@ -150,10 +171,11 @@ export default function Create() {
               type="text"
               placeholder="Service"
               value={form.servicename}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="servicename"
+              onChange={(e)=>handlerChange(e)}
             />
-            <p className="valid">{error.servicename}</p>
+            <p className="valid">{errors.servicename}</p>
           </div>
 
           <div>
@@ -164,8 +186,9 @@ export default function Create() {
               type="text"
               placeholder="Url img"
               value={form.userimage}
-              onChange={changeHandler}
+              // onChange={changeHandler}
               name="userimage"
+              onChange={(e)=>handlerChange(e)}
             />
           </div>
         </div>
@@ -176,4 +199,4 @@ export default function Create() {
       <Footer />
     </form>
   );
-}
+};
