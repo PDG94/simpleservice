@@ -30,13 +30,14 @@ const postServiceListHandler = async (req, res) => {
 
 const updateServiceListHandler = async (req, res) => {
   try {
-    const serviceListUpdated = await updateServiceList(req.body);
-    res
-      .status(200)
-      .json({
-        message: "Service List updated succesfully",
-        updated: serviceListUpdated,
-      });
+    // const serviceListUpdated = await updateServiceList(req.body);
+    // res
+    //   .status(200)
+    //   .json({
+    //     message: "Service List updated succesfully",
+    //     updated: serviceListUpdated,
+    //   });
+    
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
