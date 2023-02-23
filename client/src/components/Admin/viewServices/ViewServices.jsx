@@ -4,7 +4,7 @@ import { BsTrash } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../Loading/Loading";
-import { deleteService } from "../../../redux/actions";
+//import { deleteService } from "../../../redux/actions";
 import Notiflix from "notiflix";
 // import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
@@ -17,7 +17,7 @@ export default function ViewServices() {
   const dispatch = useDispatch();
  
 const deleteS=()=>{ 
-dispatch(deleteService(id))
+
    }
 
    const confirmDelete=(id)=>{
