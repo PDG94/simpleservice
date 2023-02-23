@@ -1,3 +1,4 @@
+require("dotenv").config();
 const {FIREBASE_SERVICE_ACCOUNT_KEY} = process.env;
 const admin = require("firebase-admin");
 
