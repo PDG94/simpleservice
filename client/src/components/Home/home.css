@@ -10,6 +10,7 @@
 }
 
 .carousel, .carousel-inner, .carousel-item, .imagen{
+    margin-top: 0.15%;
     height: 90vh;
     width: 37vw;
 

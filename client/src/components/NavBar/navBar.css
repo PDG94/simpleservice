@@ -1,122 +1,58 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 3px;
-  overflow: hidden;
-  background-color:#101010;
-  margin-bottom: 0;
-}
-
-.welcome{
-  margin-left: 0.2vw;
-}
-.welcome:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-.home{
-  margin-left: 0;
-}
-.home:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-.services{
-  margin-left: 0;
-}
-.services:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
- .create{
-margin-left: 0;
- }
- .create:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-.logout{
-  margin-right: 0;
-}
-.logout:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-.greet{
-  margin-right: 6vw;
-  margin-left: 0.5vw;
-  color: #edf125;
+.mainNavContainer {
+  background-color: black;
+  background-position: center;
+  width: 100%;
+  margin: 0 !important;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
   
 }
-.myorders{
-  margin-right: 2px;
-  margin-left: 8vw;
-}
-.myorders:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-/* .icono{
-  width: 55px;
-  height: 55px;
-  padding: 2px;
-  margin-top: 2px;
-  margin-left: 0;
-  border: 2px solid red;
-} */
-/* .cart{
-  padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-} */
-/* .icono:hover{
-  cursor: pointer;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-} */
-/* .greet:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-} */
-.register{
-  margin-right: 0;
-}
-.register:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-.login{
-  margin-right: 1vw;
-}
-.login:hover{
-  cursor: pointer;
-  color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
-  border-radius: 6px;
-}
-li {
-  float: left;
-}
-
-li a {
+.btns{
+  display: flex;
+  justify-items:flex-start;
+  justify-content:flex-start;
+ }
+ .btnsUser{
+   display: flex;
+  justify-items:flex-end;
+  justify-content:flex-end;
+ }
+ .btnNav{
+  margin-top: 1%;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
   font-family: system-ui;
-  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+ }
+ .btnNav:hover{
+  cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
+}
+.searchNav{
+  background-color: black;
+  margin-top: 1%;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.birdy{
+  margin-top: 1%;
+  margin-left: 0.3rem;
+  font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
   color: white;
@@ -125,6 +61,41 @@ li a {
   text-decoration: none;
 }
 
-/* li a:hover {
-  background-color: #494974;
+.greet {
+  color: #edf125;
+  margin-top: 1%;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.space{
+  margin-top: 1%;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  padding: 2px 2px;
+  text-decoration: none;
+}
+/* .logout .logoutLink{
+  border: 2px solid red;
+
+  font-family: system-ui;
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: left;
 } */
+
