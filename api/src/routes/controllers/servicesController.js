@@ -1,4 +1,4 @@
-const {  User, Card, Category } = require("../../db");
+const { User, Card, Category } = require("../../db");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
@@ -7,6 +7,12 @@ const getAllServices = async () => {
     where: {
       active: true,
     },
+    attributes: ["id", "servicename", "price", "CategoryId"],
+    include: {
+      model: User,
+      attributes: ["id","name","rating"],
+    },
+    raw: true,
   });
 };
 
@@ -15,12 +21,12 @@ const createService = async ({
   description,
   servicename,
   price,
-  user_id
+  user_id,
 }) => {
   const newService = await Card.create({
     description,
     servicename,
-    price
+    price,
   });
 
   const categories = await Category.findByPk(CategoryId);
@@ -33,13 +39,7 @@ const createService = async ({
 };
 
 //updateService updates just one instance
-const updateService = async ({
-  id,
-  description,
-  servicename,
-  price,
-}) => {
-
+const updateService = async ({ id, description, servicename, price }) => {
   await Card.update(
     { description, servicename, price },
     {
@@ -55,7 +55,6 @@ const updateService = async ({
 };
 
 const getServiceById = async ({ id }) => {
-
   const serviceById = await Card.findAll({
     where: {
       id: id,

@@ -5,10 +5,13 @@ const fs = require("fs");
 const path = require("path");
 
 //DB_NAME is the database name
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
-  logging: false, 
-  native: false,
-});
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  {
+    logging: false,
+    native: false,
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -35,9 +38,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const {
-  Category, User, Role, Card, ServiceList
-} = sequelize.models;
+const { Category, User, Role, Card, ServiceList } = sequelize.models;
 
 // Aca vendrian las relaciones
 
@@ -47,8 +48,8 @@ Card.belongsTo(Category);
 Role.hasMany(User);
 User.belongsTo(Role);
 
-User.hasMany(Card);
-Card.belongsTo(User);
+User.belongsToMany(Card, { through: "UserCard" });
+Card.belongsToMany(User, { through: "UserCard" });
 
 Category.hasMany(ServiceList);
 ServiceList.belongsTo(Category);

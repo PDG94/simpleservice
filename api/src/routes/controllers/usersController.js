@@ -1,11 +1,11 @@
-const {User} = require("../../db")
+const {User, Card} = require("../../db")
 
 
 const getAllUsers = async() =>{
     return await User.findAll({
         where:{
             active: true
-        }
+        },
     })
 }
 
