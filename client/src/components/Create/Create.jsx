@@ -17,7 +17,7 @@ export default function Create() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
-    CategoryId: "0285f3e2-7875-40a6-a5ff-b199c2330808",
+    CategoryId: "",
     username: "",
     userimage: "",
     description: "",
