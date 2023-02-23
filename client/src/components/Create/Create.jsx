@@ -13,6 +13,7 @@ import {
 } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { GrCircleAlert } from "react-icons/gr";
+import { toast } from "react-toastify";
 export default function Create() {
   const navigate = useNavigate();
 
@@ -59,17 +60,17 @@ export default function Create() {
 
     setForm({ ...form, [property]: value });
   };
-
   const submitHandler = (event) => {
     console.log(form);
     event.preventDefault();
     if (Object.values(error).length) {
-      return alert(Object.values(error).join("\n"));
+      return toast.error(Object.values(error).join("\n"));
     }
     axios.post(
       "https://simpleservice-production.up.railway.app/services",
       form
     );
+    toast.success("Service created successfully!")
     navigate("/home");
   };
 
