@@ -21,7 +21,7 @@ const updateCategory = async ({ id, name, description, active }) => {
   return updatedCategory;
 };
 
-const deleteCategory = async ({ id }) => {
+const deleteCategory = async ({ id, active }) => {
   return await Category.update(
     { active },
     {
