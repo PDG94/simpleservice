@@ -61,11 +61,10 @@ const NavBar = () => {
   return (
     <nav className="mainNavContainer">
       <div className="btns">
-   
         <div className="birdy">
-        <img src={logos} alt="birdIcon" width="30" />
+          <img src={logos} alt="birdIcon" width="30" />
         </div>
-      
+
         <Link className="btnNav" to="/">
           Welcome Page
         </Link>
@@ -78,29 +77,32 @@ const NavBar = () => {
           Services
         </Link>
 
-        <Link className="btnNav" to="/Create">
-          Create Service
-        </Link>
-        </div>
-        <div className="btnsUser">
+        <ShowOnLogin>
+          <Link className="btnNav" to="/Create">
+            Create Service
+          </Link>
+        </ShowOnLogin>
+      </div>
+
+      <div className="btnsUser">
         <div className="searchNav">
           {path === pathSearch ? <SearchBar /> : null}
-          </div>
+        </div>
 
         <ShowOnLogout>
-        <Link className="btnNav login" to="/login">
-          Login
-        </Link>
-      </ShowOnLogout>
-      <ShowOnLogout>
-        <div className="space">a</div>
-      </ShowOnLogout>
+          <Link className="btnNav login" to="/login">
+            Login
+          </Link>
+        </ShowOnLogout>
+        <ShowOnLogout>
+          <div className="space">a</div>
+        </ShowOnLogout>
 
         <AdminOnlyRoute>
-        <Link className="btnNav" to="/admin/home">
-          Admin
-        </Link>
-      </AdminOnlyRoute>
+          <Link className="btnNav" to="/admin/home">
+            Admin
+          </Link>
+        </AdminOnlyRoute>
         <ShowOnLogin>
           <Link className="btnNav" to="/myorders">
             My Cart
@@ -120,7 +122,7 @@ const NavBar = () => {
             {"  "}Hi, {displayName}
           </div>
         </ShowOnLogin>
-        </div>   
+      </div>
     </nav>
   );
 };
