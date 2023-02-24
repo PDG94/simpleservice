@@ -10,7 +10,7 @@ export default function NavBarAdmin() {
   return (
     <div className="navbar" >
       <div className="user">
-        <img className="logoAd" src={logo} width='80px'/>
+        <img className="logoAd" src={logo} width='80px' alt="meaningful text"/>
         <hr/>
         <h4 className="nameAd">{name}</h4>
       </div>
