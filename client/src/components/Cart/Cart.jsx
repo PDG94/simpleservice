@@ -52,7 +52,7 @@ const Cart = () => {
                             )
                                 : <div className={s.empty}>Shopping Cart is empty</div>
                         }
-
+                                ///// ------ ver lo del boton de agregar producto al carrito
                         <div>
                             <hr className={s.hr} />
                             <div className={s.total}>
