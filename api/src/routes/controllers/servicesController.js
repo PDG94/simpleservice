@@ -11,7 +11,7 @@ const getAllServices = async () => {
     attributes: ["id", "servicename", "price", "CategoryId"],
     include: {
       model: User,
-      attributes: ["id","name","rating", "profilepic"],
+      attributes: ["id", "name", "rating", "profilepic"],
     },
     raw: true,
   });
@@ -22,22 +22,16 @@ const createService = async ({
   description,
   servicename,
   price,
-  user_id
-
+  user_id,
 }) => {
   const newService = await Card.create({
     description,
     servicename,
     price,
-
   });
-  console.log(CategoryId);
 
   const categories = await Category.findByPk(CategoryId);
   const user = await User.findByPk(user_id);
-
-  console.log(categories);
-  // console.log(user);
 
   await categories.addCard(newService);
   await user.addCard(newService);
@@ -47,13 +41,7 @@ const createService = async ({
 
 //updateService updates just one instance
 
-const updateService = async ({
-  id,
-  description,
-  servicename,
-  price,
-}) => {
-
+const updateService = async ({ id, description, servicename, price }) => {
   await Card.update(
     { description, servicename, price },
     {
@@ -69,7 +57,6 @@ const updateService = async ({
 };
 
 const getServiceById = async ({ id }) => {
-
   const serviceById = await Card.findAll({
     where: {
       id: id,
@@ -86,7 +73,13 @@ const getServiceById = async ({ id }) => {
 };
 
 const orderService = async (attributes, direction) => {
-  const order = await Card.findAll({ order: [[attributes, direction]] });
+  const order = await Card.findAll({
+    order: [[attributes, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+  });
   return order;
 };
 const getServiceByDescription = async (valdescription) => {
@@ -97,6 +90,10 @@ const getServiceByDescription = async (valdescription) => {
       },
     },
     attributes: ["id", "servicename", "description", "price"],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
   });
 
   return serviceByDesc;
@@ -106,6 +103,10 @@ const getServiceByCategory = async (idCategory) => {
   const serviceByCategory = await Card.findAll({
     where: {
       CategoryId: idCategory,
+    },
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
     },
   });
 
@@ -119,6 +120,10 @@ const filterServices = async (order, direction, categoryId) => {
       CategoryId: categoryId,
     },
     order: [[order, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
   });
 };
 
