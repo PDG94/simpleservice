@@ -163,18 +163,6 @@ export function getServiceList() {
   };
 }
 
-export function getServiceList() {
-  return async function (dispatch) {
-    const response = await axios.get(
-      "https://simpleservice-production.up.railway.app/servicelist"
-    );
-    return dispatch({
-      type: GET_SERVICES_LIST,
-      payload: response.data,
-    });
-  };
-}
-
 // Para obtener carrito
 export const getCart = id => async dispatch => {
   let json = await axios.get(`https://simpleservice-production.up.railway.app/shopingCart?userId=${id}`)

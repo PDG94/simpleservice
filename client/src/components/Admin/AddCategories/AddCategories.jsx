@@ -1,5 +1,5 @@
 import React from "react";
-import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
 
 import { useState } from "react";
 import axios from "axios";

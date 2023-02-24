@@ -1,5 +1,5 @@
 import React from "react";
-import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
 
 export default function Orders() {
   return (

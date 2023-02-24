@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import { getCategories } from "../../../redux/actions";
-import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import NavBarAdmin from "../navBarAdmin/NavBarAdmin";
 import { useSelector, useDispatch } from "react-redux";
 // import { toast } from "react-toastify";
 
