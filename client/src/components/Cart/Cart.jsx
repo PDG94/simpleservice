@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../Footer/Footer.jsx';
-// import NavBar from '../Navbar/Navbar.jsx';
-import s from '../Cart/Cart.css'
+import NavBar from '../NavBar/NavBar';
+import s from "../Cart/Cart.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCart } from '../../redux/actions';
@@ -28,14 +28,16 @@ const Cart = () => {
 
     return (
         <>
-            {/* <NavBar /> */}
+            <NavBar />
+
             <div className={s.container}>
                 <div className={s.grid}>
                     <div className={s.cartList}>
                         <h2 className={s.title}>Shopping Cart</h2>
-                        {
+
+                        {/* {
                             cart.length ? cart.map(e => <div key={e.id} className={s.cartItem}>
-                                <Link to={`/store/${e.id}`}> <img className={s.img} src={e.image} alt={e.name} /></Link>
+                                <Link to={`/services/${e.id}`}> <img className={s.img} src={e.image} alt={e.name} /></Link>
                                 <div className={s.gridd}>
                                     <div className={s.between}>
                                         <p className={s.itemTitle}>{e.name}</p>
@@ -50,6 +52,7 @@ const Cart = () => {
                             )
                                 : <div className={s.empty}>Shopping Cart is empty</div>
                         }
+
                         <div>
                             <hr className={s.hr} />
                             <div className={s.total}>
@@ -58,8 +61,9 @@ const Cart = () => {
                                     return acc + e.subtotal
                                 }, 0) : undefined}</p>
                             </div>
-                        </div>
-                        <p className={s.info}>¿Falta un producto? <Link to='/store'> <span className={s.link}> Seguir Comprando</span></Link></p>
+                        </div> */}
+
+                        <p className={s.info}>¿Falta un producto? <Link to='/services'> <span className={s.link}> Seguir Comprando</span></Link></p>
                     </div>
                     <div className={s.pay}>
                         <h2 className={s.title}>Payment Methods</h2>
@@ -68,6 +72,7 @@ const Cart = () => {
                 </div>
 
             </div>
+
             <Footer />
         </>
     )

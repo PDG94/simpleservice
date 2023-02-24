@@ -19,6 +19,8 @@ import {
   Dashboard,
   AddCategories,
   Prohibido,
+  Cart,
+  Pasarela,
 } from "./components/index";
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
           <Route path="/reset" element={<Reset />} />
 
           <Route path="/prohibited" element={<Prohibido />} />
+
+          <Route path="/cart" element={<Cart />} />
 
           <Route
             path="/admin/add-service"

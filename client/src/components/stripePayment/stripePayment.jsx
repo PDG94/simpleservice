@@ -1,4 +1,4 @@
-import s from './stripePayment.css'
+import s from './stripePayment.module.css'
 
 
 import React from "react";
