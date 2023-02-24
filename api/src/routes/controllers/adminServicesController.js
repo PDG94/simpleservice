@@ -1,19 +1,20 @@
-const { Card, Category } = require("../../db");
+const { Card, Category, ServiceList } = require("../../db");
 
 const getAllServices = async () => {
-  return await Card.findAll();
+  return await Card.findAll({
+    include: Category
+  });
 };
 //esto crea un instancia de servicio no asociada a usuario
 const createService = async ({
   CategoryId,
-  description,
-  servicename,
-  price,
+  name,
 }) => {
-  const newService = await Card.create({ description, servicename, price });
+  const newService = await ServiceList.create({ name, CategoryId });
 
   const categoryInstance = await Category.findByPk(CategoryId);
-  await categoryInstance.addCard(newService);
+
+  await categoryInstance.addServiceList(newService);
 
   return newService;
 };

@@ -1,47 +1,41 @@
 import React from "react";
-import { useState } from "react";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { NavBar, Footer } from "../index";
 import "../Create/create.css";
-import {
-  MdStar,
-  MdPerson,
-  MdDescription,
-  MdOutlineHail,
-  MdImage,
-} from "react-icons/md";
+import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { GrCircleAlert } from "react-icons/gr";
-import { toast } from "react-toastify";
+import { getCategories, getServiceList } from "../../redux/actions";
+
 export default function Create() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const categories = useSelector((state) => state.categories);
+  const serviceList = useSelector((state) => state.serviceList);
+  const token = useSelector((state) => state.token);
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getServiceList());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    CategoryId: "0285f3e2-7875-40a6-a5ff-b199c2330808",
-    username: "",
-    userimage: "",
+    CategoryId: "", //con un select desde el estado global
     description: "",
-    servicename: "",
+    servicename: "", //con un select desde el estado global
     price: "",
-    rating: "",
   });
 
   const validate = (form) => {
     let errors = {};
-    if (!form.username) {
-      errors.username = "Username is required";
-    } else if (form.username.length > 30) {
-      errors.username = "Userame is too long";
-    }
     if (form.description.length < 15) {
       errors.description = "Description must have at least 15 characters";
-    }
-    if (form.rating < 1 || form.rating > 5) {
-      errors.rating = "Rating must be between 1 and 5";
-    }
-    if (isNaN(form.rating)) {
-      errors.rating = "Rating must be a number";
     }
     if (!form.price) {
       errors.price = "Price is required";
@@ -52,26 +46,41 @@ export default function Create() {
     return errors;
   };
 
-  const error = validate(form);
-
-  const changeHandler = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-
-    setForm({ ...form, [property]: value });
-  };
-  const submitHandler = (event) => {
-    console.log(form);
-    event.preventDefault();
-    if (Object.values(error).length) {
-      return toast.error(Object.values(error).join("\n"));
-    }
-    axios.post(
-      "https://simpleservice-production.up.railway.app/services",
-      form
+  function handlerChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+    setErrors(
+      validate({
+        ...form,
+        [e.target.name]: [e.target.value],
+      })
     );
-    toast.success("Service created successfully!")
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    let error = Object.keys(validate(form));
+    if (error.length !== 0 && !form.description && !form.price) {
+      alert("Please, fill in the fields correctly");
+      return;
+    } else {
+      axios.post(
+        "https://simpleservice-production.up.railway.app/services",
+        form,
+        { headers: { Authorization: "Bearer " + token } }
+      );
+    }
     navigate("/home");
+  };
+
+  const handleCategory = (e) => {
+    setForm({ ...form, CategoryId: e.target.value });
+  };
+
+  const handleServicesList = (e) => {
+    setForm({ ...form, servicename: e.target.value });
   };
 
   return (
@@ -81,23 +90,49 @@ export default function Create() {
         <Link to={"/Home"}>
           <button className="back">Back</button>
         </Link>
+
         <div className="containerCreated">
           <h1 className="titleCr">Create Service</h1>
-          < GrCircleAlert/>
-          <p>Atention see <Link to="/prohibited">prohibited</Link> list before posting.</p>
+
+          <GrCircleAlert />
+          <p>
+            Atention see <Link to="/prohibited">prohibited</Link> list before
+            posting.
+          </p>
+
+          <span className="spantitle">Select a category</span>
+          <select onChange={(e) => handleCategory(e)}>
+            <option value="all">Categories</option>
+            {categories?.map((elem) => (
+              <option key={elem.id} value={elem.id}>
+                {elem.name}
+              </option>
+            ))}
+          </select>
+
+          <span className="spantitle">Select a service</span>
+          <select onChange={(e) => handleServicesList(e)}>
+            <option value="all">Services</option>
+            {serviceList?.map((elem) => (
+              <option key={elem.id} value={elem.name}>
+                {elem.name}
+              </option>
+            ))}
+          </select>
 
           <div>
             <label className="icon">
-              <MdPerson />
+              <FiDollarSign />
             </label>
             <input
               type="text"
-              placeholder="Username "
-              value={form.username}
-              onChange={changeHandler}
-              name="username"
+              placeholder="Price"
+              value={form.price}
+              // onChange={changeHandler}
+              name="price"
+              onChange={(e) => handlerChange(e)}
             />
-            <p className="valid">{error.username}</p>
+            <p className="valid">{errors.price}</p>
           </div>
 
           <div>
@@ -108,65 +143,10 @@ export default function Create() {
               type="text"
               placeholder="Description"
               value={form.description}
-              onChange={changeHandler}
               name="description"
+              onChange={(e) => handlerChange(e)}
             />
-            <p className="valid">{error.description}</p>
-          </div>
-
-          <div>
-            <label className="icon">
-              <MdStar />
-            </label>
-            <input
-              type="text"
-              placeholder="Rating"
-              value={form.rating}
-              onChange={changeHandler}
-              name="rating"
-            />
-            <p className="valid">{error.rating}</p>
-          </div>
-
-          <div>
-            <label className="icon">
-              <FiDollarSign />
-            </label>
-            <input
-              type="text"
-              placeholder="Price"
-              value={form.price}
-              onChange={changeHandler}
-              name="price"
-            />
-            <p className="valid">{error.price}</p>
-          </div>
-
-          <div>
-            <label className="icon">
-              <MdOutlineHail />
-            </label>
-            <input
-              type="text"
-              placeholder="Service"
-              value={form.servicename}
-              onChange={changeHandler}
-              name="servicename"
-            />
-            <p className="valid">{error.servicename}</p>
-          </div>
-
-          <div>
-            <label className="icon">
-              <MdImage />
-            </label>
-            <input
-              type="text"
-              placeholder="Url img"
-              value={form.userimage}
-              onChange={changeHandler}
-              name="userimage"
-            />
+            <p className="valid">{errors.description}</p>
           </div>
         </div>
       </div>

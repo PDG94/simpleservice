@@ -6,6 +6,7 @@ const categoriesRouter = require("./routers/categoriesRouter");
 const loginRouter = require("./routers/loginRouter");
 const userRouter = require("./routers/userRouter");
 const adminRouter = require("./routers/adminRouter");
+const serviceListRouter = require("./routers/serviceListRouter");
 
 const checkOut = require("../routes/controllers/checkOut");//testing for payment with stripe
 const shopingCart = require("./routers/shoppingCart.routes");
@@ -27,5 +28,6 @@ router.post("/checkout", checkOut); //testing for payment with stripe
 router.use("/admin", adminRouter);
 
 router.use("/shopingCart", shopingCart);
+router.use("/servicelist", serviceListRouter);
 
 module.exports = router;

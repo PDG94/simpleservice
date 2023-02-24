@@ -34,7 +34,7 @@ export function Reset() {
           <div className="formReset">
             <h2 className="titleReset">Forgot your password</h2>
             <p className="pleaseMessage">
-              Please enter the email address you'd like your password reset
+              Please enter the email address you'd like your <br/> password reset
               information sent to
             </p>
             <form onSubmit={resetPassword} className="formRes">

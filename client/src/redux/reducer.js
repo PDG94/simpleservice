@@ -10,6 +10,7 @@ import {
   SET_ACTIVE_USER,
   REMOVE_USER,
   STORE_TOKEN,
+  GET_SERVICES_LIST,
   GET_CART,
   MODIFY_CART,
 } from "./actionTypes";
@@ -25,8 +26,6 @@ const initialState = {
   useName: null,
   userID: null,
   token: "",
-  cart: [],
-  modifyCart: 0,
 };
 
 function rootReducer(state = initialState, action) {
@@ -78,36 +77,27 @@ function rootReducer(state = initialState, action) {
         ...state,
         currentPage: action.payload,
       };
-      case SET_ACTIVE_USER:
+    case SET_ACTIVE_USER:
       return {
         ...state,
-        isLoggedIn:true ,
+        isLoggedIn: true,
         email: action.payload.email,
         useName: action.payload.useName,
-        userID: action.payload.userID 
+        userID: action.payload.userID,
       };
-      case REMOVE_USER:
+    case REMOVE_USER:
       return {
         ...state,
-        isLoggedIn: false ,
+        isLoggedIn: false,
         email: null,
         useName: null,
-        userID: null
+        userID: null,
       };
       case STORE_TOKEN:
         return {
           ...state, token: action.payload
-      };
-      case GET_CART:
-      return {
-        ...state,
-        cart: action.payload
-      };
-      case MODIFY_CART:
-      return {
-        ...state,
-        modifyCart: action.payload.totalAmount,
-      };
+        }
+
     default:
       return { ...state };
   }

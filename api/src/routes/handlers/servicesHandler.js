@@ -16,7 +16,7 @@ const getServicesHandler = async (req, res) => {
     //while we use Card use servicename instead of name
 
     const {order,servicename, direction, description,categoryId } = req.query;
-
+    
     if(order && direction && categoryId){
       const filteredServices = await filterServices(
         order,

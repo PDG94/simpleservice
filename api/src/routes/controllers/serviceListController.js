@@ -1,8 +1,13 @@
-const {ServiceList} = require("../../db");
+const {ServiceList, Category} = require("../../db");
 
 
 const getAllServiceLists = async() =>{
-    return await ServiceList.findAll();
+    return await ServiceList.findAll({
+      where: {
+        active: true
+      },
+      include: Category,
+    });
 }
 
 const createServiceList = async({name}) =>{
@@ -13,6 +18,14 @@ const createServiceList = async({name}) =>{
 
     return newServiceList;
 
+}
+
+const addCategoryToService = async ({id, CategoryId}) => {
+  const service = await ServiceList.findByPk(id);
+  const category = await Category.findByPk(CategoryId);
+
+  await category.addServiceList(service);
+  return service;
 }
 
 const updateServiceList = async ({ id, name}) => {
@@ -31,4 +44,4 @@ const updateServiceList = async ({ id, name}) => {
   }
 
 
-module.exports = {getAllServiceLists, createServiceList, updateServiceList}
+module.exports = {getAllServiceLists, createServiceList, updateServiceList, addCategoryToService}

@@ -13,6 +13,7 @@ import {
   STORE_TOKEN,
   GET_CART,
   MODIFY_CART,
+  GET_SERVICES_LIST,
 } from "./actionTypes";
 
 export function getServices() {
@@ -149,6 +150,30 @@ export const userLogin = (token) => {
     headers: { Authorization: "Bearer " + token },
   });
 };
+
+export function getServiceList() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/servicelist"
+    );
+    return dispatch({
+      type: GET_SERVICES_LIST,
+      payload: response.data,
+    });
+  };
+}
+
+export function getServiceList() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/servicelist"
+    );
+    return dispatch({
+      type: GET_SERVICES_LIST,
+      payload: response.data,
+    });
+  };
+}
 
 // Para obtener carrito
 export const getCart = id => async dispatch => {

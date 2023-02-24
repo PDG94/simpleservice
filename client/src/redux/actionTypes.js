@@ -12,3 +12,4 @@ export const STORE_TOKEN = "STORE_TOKEN";
 export const GET_CART = 'GET_CART';
 export const MODIFY_CART= 'MODIFY_CART';
 
+export const GET_SERVICES_LIST = "GET_SERVICES_LIST";

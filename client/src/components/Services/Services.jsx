@@ -1,13 +1,11 @@
 import "../Services/services.css";
-import { CardsContainer, NavBar, Footer, SearchBar } from "../index";
+// import "../NavBar/navBar.css";
+import { CardsContainer, NavBar, Footer } from "../index";
 
 const Services = () => {
   return (
     <div className="main">
-      <div className="navSearch">
       <NavBar /> 
-      <SearchBar />
-      </div>
       <CardsContainer />
       <Footer />
     </div>

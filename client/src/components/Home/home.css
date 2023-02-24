@@ -10,6 +10,7 @@
 }
 
 .carousel, .carousel-inner, .carousel-item, .imagen{
+    margin-top: 0.15%;
     height: 90vh;
     width: 37vw;
 
@@ -42,9 +43,9 @@
 .logoService{
     
     position: absolute;
-    margin-top: 35px;
+    margin-top: 10px;
     margin-right: 5vw;
-    margin-left: 22vw;
+    margin-left: 23vw;
 }
 .imageLogo{
     height: 650px;
@@ -60,7 +61,7 @@
     font-size: large;
     font-family: system-ui;
     font-weight: 700;
-    background-color: black;
+    background-color: #101010;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
