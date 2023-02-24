@@ -1,6 +1,9 @@
 // import "../Footer/footer.css";
+import React from 'react';
+import Cart from "../Cart/Cart"
 const date = new Date();
 const year = date.getFullYear();
+
 
 export default function Footer() {
   return (
@@ -8,6 +11,7 @@ export default function Footer() {
       <div className="col-12 justify-content-center text-center">
         &copy; {year} All Rights Reserved
       </div>
+      <Cart/>
     </div>
   );
 }

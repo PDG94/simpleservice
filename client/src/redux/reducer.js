@@ -9,7 +9,9 @@ import {
   RESET_PAGED,
   SET_ACTIVE_USER,
   REMOVE_USER,
-  STORE_TOKEN
+  STORE_TOKEN,
+  GET_CART,
+  MODIFY_CART,
 } from "./actionTypes";
 
 const initialState = {
@@ -23,6 +25,8 @@ const initialState = {
   useName: null,
   userID: null,
   token: "",
+  cart: [],
+  modifyCart: 0,
 };
 
 function rootReducer(state = initialState, action) {
@@ -93,8 +97,17 @@ function rootReducer(state = initialState, action) {
       case STORE_TOKEN:
         return {
           ...state, token: action.payload
-        }
-
+      };
+      case GET_CART:
+      return {
+        ...state,
+        cart: action.payload
+      };
+      case MODIFY_CART:
+      return {
+        ...state,
+        modifyCart: action.payload.totalAmount,
+      };
     default:
       return { ...state };
   }

@@ -11,6 +11,8 @@ import {
   SET_ACTIVE_USER,
   REMOVE_USER,
   STORE_TOKEN,
+  GET_CART,
+  MODIFY_CART,
 } from "./actionTypes";
 
 export function getServices() {
@@ -147,3 +149,15 @@ export const userLogin = (token) => {
     headers: { Authorization: "Bearer " + token },
   });
 };
+
+// Para obtener carrito
+export const getCart = id => async dispatch => {
+  let json = await axios.get(`https://simpleservice-production.up.railway.app/shopingCart?userId=${id}`)
+  return dispatch({ type: GET_CART, payload: json.data })
+}
+
+// Para modificar la cantidad del carrito
+export const modifyCart = id => async dispatch => {
+  let json = await axios.get(`https://simpleservice-production.up.railway.app/shopingCart/totalAmount?userId=${id}`)
+  return dispatch({ type: MODIFY_CART, payload: json.data })
+}
