@@ -40,7 +40,7 @@ const updateService = async ({
   return serviceUpdated;
 };
 
-const deleteService = async ({ id }) => {
+const deleteService = async ({ id, active }) => {
   return await Card.update({ active }, { where: { id: id, active: true } });
 };
 

@@ -42,7 +42,9 @@ const updateServiceHandler = async (req, res) => {
 
 const deleteServiceHandler = async (req, res) => {
   try {
-    const deletedService = await deleteService(req.params);
+    const active = false
+    const params = {...req.params, active}
+    const deletedService = await deleteService(params);
     res.status(200).json({ deleted: deletedService });
   } catch (error) {
     res.status(400).json({error: error.message})
