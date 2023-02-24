@@ -42,7 +42,9 @@ const updateUserHandler = async (req, res) => {
 
 const deleteUserHandler = async (req, res) => {
   try {
-    const deletedUser = await deleteUser(req.params);
+    const active = false;
+    const params = {...req.params, active}
+    const deletedUser = await deleteUser(params);
     res.status(200).json(deletedUser);
   } catch (error) {}
 };

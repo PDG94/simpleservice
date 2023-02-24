@@ -1,10 +1,13 @@
 const {Router} = require('express');
 
-const {getCategoriesHandler, postCategoryHandler, updateCategoryHandler} = require("../handlers/categoriesHandler")
+const {getCategoriesHandler, postCategoryHandler, updateCategoryHandler} = require("../handlers/categoriesHandler");
+const {getServicesListH} = require("../handlers/categorieServiceH");
 
 const categoriesRouter = Router();
 
 categoriesRouter.get("/", getCategoriesHandler);
+
+categoriesRouter.get("/services", getServicesListH);
 
 categoriesRouter.post("/", postCategoryHandler);
 
