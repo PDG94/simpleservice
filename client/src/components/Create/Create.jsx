@@ -32,14 +32,16 @@ export default function Create() {
   });
 
   const validate = (form) => {
-    let errors = {};
-    if (form.description.length < 15) {
-      errors.description = "Description must have at least 15 characters";
-    }
+    let errors = {}
     if (!form.price) {
       errors.price = "Price is required";
     } else if (isNaN(form.price)) {
       errors.price = "Price must be a number";
+    }
+    if (!form.description) {
+      errors.description = "Description is required";
+    }else if (form.description.length < 15) {
+      errors.description = "Description must have at least 15 characters";
     }
 
     return errors;
@@ -53,7 +55,7 @@ export default function Create() {
     setErrors(
       validate({
         ...form,
-        [e.target.name]: [e.target.value],
+        [e.target.name]: e.target.value,
       })
     );
   }
@@ -61,7 +63,7 @@ export default function Create() {
   const submitHandler = (event) => {
     event.preventDefault();
     let error = Object.keys(validate(form));
-    if (error.length !== 0 && !form.description && !form.price) {
+    if (error.length !== 0 && !form.description && !form.price && !form.servicename && !form.CategoryId) {
       alert("Please, fill in the fields correctly");
       return;
     } else {
