@@ -11,7 +11,7 @@ const getAllServices = async () => {
     attributes: ["id", "servicename", "price", "CategoryId"],
     include: {
       model: User,
-      attributes: ["id","name","rating"],
+      attributes: ["id", "name", "rating", "profilepic"],
     },
     raw: true,
   });
@@ -22,14 +22,12 @@ const createService = async ({
   description,
   servicename,
   price,
-  user_id
-
+  user_id,
 }) => {
   const newService = await Card.create({
     description,
     servicename,
     price,
-
   });
 
   const categories = await Category.findByPk(CategoryId);
@@ -43,13 +41,7 @@ const createService = async ({
 
 //updateService updates just one instance
 
-const updateService = async ({
-  id,
-  description,
-  servicename,
-  price,
-}) => {
-
+const updateService = async ({ id, description, servicename, price }) => {
   await Card.update(
     { description, servicename, price },
     {
@@ -65,7 +57,6 @@ const updateService = async ({
 };
 
 const getServiceById = async ({ id }) => {
-
   const serviceById = await Card.findAll({
     where: {
       id: id,
@@ -82,7 +73,14 @@ const getServiceById = async ({ id }) => {
 };
 
 const orderService = async (attributes, direction) => {
-  const order = await Card.findAll({ order: [[attributes, direction]] });
+  const order = await Card.findAll({
+    order: [[attributes, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
+  });
   return order;
 };
 const getServiceByDescription = async (valdescription) => {
@@ -93,6 +91,11 @@ const getServiceByDescription = async (valdescription) => {
       },
     },
     attributes: ["id", "servicename", "description", "price"],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
   });
 
   return serviceByDesc;
@@ -103,6 +106,11 @@ const getServiceByCategory = async (idCategory) => {
     where: {
       CategoryId: idCategory,
     },
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
   });
 
   return serviceByCategory;
@@ -115,6 +123,11 @@ const filterServices = async (order, direction, categoryId) => {
       CategoryId: categoryId,
     },
     order: [[order, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
   });
 };
 

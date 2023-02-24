@@ -1,4 +1,4 @@
-import { Card, Filter, Paged, Loading } from "../index";
+import { Card, Filter, Paged } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import "../CardsContainer/cardsContainer.css";
@@ -49,11 +49,11 @@ export default function CardsContainer() {
                 <Card
                   key={user?.id}
                   id={user?.id}
-                  name={user?.username}
-                  image={user?.userimage}
+                  name={user["Users.name"]}
+                  image={user["Users.profilepic"]}
                   price={user?.price}
                   service={user?.servicename}
-                  rating={user?.rating}
+                  rating={user["Users.rating"]}
                 />
               </Link>
             );

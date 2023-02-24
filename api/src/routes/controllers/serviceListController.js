@@ -20,6 +20,14 @@ const createServiceList = async({name}) =>{
 
 }
 
+const addCategoryToService = async ({id, CategoryId}) => {
+  const service = await ServiceList.findByPk(id);
+  const category = await Category.findByPk(CategoryId);
+
+  await category.addServiceList(service);
+  return service;
+}
+
 const updateServiceList = async ({ id, name}) => {
     await ServiceList.update(
       { name },
@@ -36,4 +44,4 @@ const updateServiceList = async ({ id, name}) => {
   }
 
 
-module.exports = {getAllServiceLists, createServiceList, updateServiceList}
+module.exports = {getAllServiceLists, createServiceList, updateServiceList, addCategoryToService}

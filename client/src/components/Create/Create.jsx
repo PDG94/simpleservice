@@ -76,7 +76,7 @@ export default function Create() {
   };
 
   const handleCategory = (e) => {
-    setForm({ ...form, categoryId: e.target.value });
+    setForm({ ...form, CategoryId: e.target.value });
   };
 
   const handleServicesList = (e) => {
@@ -100,35 +100,6 @@ export default function Create() {
             posting.
           </p>
 
-          <div>
-            <label className="icon">
-              <MdDescription />
-            </label>
-            <input
-              type="text"
-              placeholder="Description"
-              value={form.description}
-              name="description"
-              onChange={(e) => handlerChange(e)}
-            />
-            <p className="valid">{errors.description}</p>
-          </div>
-
-          <div>
-            <label className="icon">
-              <FiDollarSign />
-            </label>
-            <input
-              type="text"
-              placeholder="Price"
-              value={form.price}
-              // onChange={changeHandler}
-              name="price"
-              onChange={(e) => handlerChange(e)}
-            />
-            <p className="valid">{errors.price}</p>
-          </div>
-
           <span className="spantitle">Select a category</span>
           <select onChange={(e) => handleCategory(e)}>
             <option value="all">Categories</option>
@@ -148,6 +119,35 @@ export default function Create() {
               </option>
             ))}
           </select>
+
+          <div>
+            <label className="icon">
+              <FiDollarSign />
+            </label>
+            <input
+              type="text"
+              placeholder="Price"
+              value={form.price}
+              // onChange={changeHandler}
+              name="price"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="valid">{errors.price}</p>
+          </div>
+
+          <div>
+            <label className="icon">
+              <MdDescription />
+            </label>
+            <input
+              type="text"
+              placeholder="Description"
+              value={form.description}
+              name="description"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="valid">{errors.description}</p>
+          </div>
         </div>
       </div>
       <button type="submit" className="sub">
