@@ -79,6 +79,7 @@ const orderService = async (attributes, direction) => {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
     },
+    raw: true,
   });
   return order;
 };
@@ -94,6 +95,7 @@ const getServiceByDescription = async (valdescription) => {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
     },
+    raw: true,
   });
 
   return serviceByDesc;
@@ -108,6 +110,7 @@ const getServiceByCategory = async (idCategory) => {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
     },
+    raw: true,
   });
 
   return serviceByCategory;
@@ -124,6 +127,7 @@ const filterServices = async (order, direction, categoryId) => {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
     },
+    raw: true,
   });
 };
 
