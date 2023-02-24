@@ -18,7 +18,7 @@ router.use("/categories", categoriesRouter);
 
 router.use("/login", loginRouter);
 
-router.use("/user", userRouter); //not ready or functional yet
+router.use("/user", middleware.decodeToken, userRouter); //not ready or functional yet
 
 router.use("/admin", adminRouter);
 

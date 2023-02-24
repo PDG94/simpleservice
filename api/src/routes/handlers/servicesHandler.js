@@ -13,8 +13,6 @@ const getServicesHandler = async (req, res) => {
   try {
     const servicesResponse = await getAllServices();
 
-    //while we use Card use servicename instead of name
-
     const {order,servicename, direction, description,categoryId } = req.query;
     
     if(order && direction && categoryId){
