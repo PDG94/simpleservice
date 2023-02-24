@@ -62,9 +62,7 @@ export function getServicesByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    const response = await axios.get(
-      "https://simpleservice-production.up.railway.app/categories"
-    );
+    const response = await axios.get("https://simpleservice-production.up.railway.app/categories");
     return dispatch({
       type: GET_CATEGORIES,
       payload: response.data,
@@ -149,14 +147,15 @@ export const userLogin = (token) => {
   });
 };
 
-export function getServiceList() {
+export function getServiceList(id) {
   return async function (dispatch) {
     const response = await axios.get(
-      "https://simpleservice-production.up.railway.app/servicelist"
+      "https://simpleservice-production.up.railway.app/categories/" + id
     );
+
     return dispatch({
       type: GET_SERVICES_LIST,
-      payload: response.data,
+      payload: response.data[0].ServiceLists,
     });
   };
 }

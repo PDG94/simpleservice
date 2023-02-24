@@ -2,7 +2,7 @@ const { getServicesList } = require("../controllers/categorieservices");
 
 const getServicesListH = async (req, res) => {
   try {
-    const serviceListsResponse = await getServicesList();
+    const serviceListsResponse = await getServicesList(req.params);
 
     if (serviceListsResponse.length > 0) {
       res.status(200).json(serviceListsResponse);

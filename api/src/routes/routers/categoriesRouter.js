@@ -7,7 +7,7 @@ const categoriesRouter = Router();
 
 categoriesRouter.get("/", getCategoriesHandler);
 
-categoriesRouter.get("/services", getServicesListH);
+categoriesRouter.get("/:id", getServicesListH);
 
 categoriesRouter.post("/", postCategoryHandler);
 

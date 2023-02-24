@@ -20,7 +20,6 @@ export default function Create() {
 
   useEffect(() => {
     dispatch(getCategories());
-    dispatch(getServiceList());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -77,6 +76,7 @@ export default function Create() {
 
   const handleCategory = (e) => {
     setForm({ ...form, CategoryId: e.target.value });
+    dispatch(getServiceList(e.target.value))
   };
 
   const handleServicesList = (e) => {
