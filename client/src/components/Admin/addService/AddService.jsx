@@ -36,8 +36,14 @@ export default function AddService(){
         return errors;
       };
 
+      const handleCategory = (event) => {
+        setForm({ 
+          ...form, 
+          CategoryId: event.target.value })
+      }
 
       const handleInputChange = (event) => {
+        console.log(event.target.value)
         setForm({ 
             ...form, 
             [event.target.name]: event.target.value })
@@ -51,7 +57,6 @@ export default function AddService(){
 
       const submitHandler = (event) => {
         event.preventDefault();
-       
         axios.post(
           "https://simpleservice-production.up.railway.app/admin/services",
           form
@@ -73,7 +78,7 @@ export default function AddService(){
           type="text"
           placeholder="Service name"
           value={form.name}
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e)=>handleInputChange(e)}
           name="name"
         />
         <p className="valid">{errors.name}</p>
@@ -84,10 +89,10 @@ export default function AddService(){
         <span>
             --Choose Service Category--
         </span>
-        <select>
+        <select onChange={(e)=>handleCategory(e)}>
           <option value="all">Categories</option>
           {categories?.map((elem)=>(
-            <option key={elem.id} value={elem.value}>
+            <option key={elem.id} value={elem.id}>
             {elem.name}
             </option>
           ))}

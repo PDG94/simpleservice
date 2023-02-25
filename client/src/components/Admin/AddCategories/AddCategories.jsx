@@ -20,9 +20,7 @@ export default function AddCategories() {
     } else if (form.name.length > 30) {
       errors.name = "name is too long";
     }
-    if (form.description.length < 15) {
-      errors.description = "Description must have at least 15 characters";
-    }
+    
     return errors;
   };
 

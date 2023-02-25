@@ -56,8 +56,8 @@ User.belongsToMany(Card, { through: "UserCard" });
 Card.belongsToMany(User, { through: "UserCard" });
 
 
-Category.belongsToMany(ServiceList, {through: "list"});
-ServiceList.belongsToMany(Category, {through: "list"});
+Category.hasMany(ServiceList);
+ServiceList.belongsTo(Category);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
