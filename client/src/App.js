@@ -23,7 +23,8 @@ import {
   Profile,
   OrdersUser,
   ViewServiceUser,
-  DashboardUser
+  DashboardUser,
+  UpdateInfoUser,
 } from "./components/index";
 import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 
@@ -38,25 +39,15 @@ function App() {
           <Route exact path="/" element={<Landing />} />
           {/* componente que utilizamos para crear nuestras rutas a otras paginas*/}
           <Route path="/home" element={<Home />} />
-
           <Route path="/Services" element={<Services />} />
-
           <Route path="/Detail/:id" element={<Detail />} />
-
           <Route path="/Create" element={<Create />} />
-
           <Route path="*" element={<NotFound />} />
-
           <Route path="/login" element={<Login />} />
-
           <Route path="/register" element={<Register />} />
-
           <Route path="/reset" element={<Reset />} />
-
           <Route path="/prohibited" element={<Prohibido />} />
-
           <Route path="/profile" element={<Profile />} />
-
           <Route
             path="/admin/add-service"
             element={
@@ -65,7 +56,6 @@ function App() {
               </AdminOnlyRoute>
             }
           />
-
           <Route
             path="/admin/add-categories"
             element={
@@ -74,7 +64,6 @@ function App() {
               </AdminOnlyRoute>
             }
           />
-
           <Route
             path="/admin/orders"
             element={
@@ -83,7 +72,6 @@ function App() {
               </AdminOnlyRoute>
             }
           />
-
           <Route
             path="/admin/all-services"
             element={
@@ -92,7 +80,6 @@ function App() {
               </AdminOnlyRoute>
             }
           />
-
           <Route
             path="/admin/*"
             element={
@@ -111,19 +98,26 @@ function App() {
           />
           ------------User Profile-------------
           <Route
-          path="/profile/*"
-          element={
-            <UserOnlyRoute>
-              <DashboardUser/>
-            </UserOnlyRoute>
-          }
+            path="/profile/*"
+            element={
+              <UserOnlyRoute>
+                <DashboardUser />
+              </UserOnlyRoute>
+            }
           />
-
+          <Route
+            path="/profile/update"
+            element={
+              <UserOnlyRoute>
+                <UpdateInfoUser />
+              </UserOnlyRoute>
+            }
+          />
           <Route
             path="/profile/orders"
             element={
               <UserOnlyRoute>
-                <OrdersUser/>
+                <OrdersUser />
               </UserOnlyRoute>
             }
           />
@@ -131,7 +125,7 @@ function App() {
             path="/profile/my-services"
             element={
               <UserOnlyRoute>
-                <ViewServiceUser/>
+                <ViewServiceUser />
               </UserOnlyRoute>
             }
           />
