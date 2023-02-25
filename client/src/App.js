@@ -21,7 +21,11 @@ import {
   Prohibido,
   Edit,
   Profile,
+  OrdersUser,
+  ViewServiceUser,
+  DashboardUser
 } from "./components/index";
+import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 
 function App() {
   return (
@@ -103,6 +107,32 @@ function App() {
               <AdminOnlyRoute>
                 <Edit />
               </AdminOnlyRoute>
+            }
+          />
+          ------------User Profile-------------
+          <Route
+          path="/profile/*"
+          element={
+            <UserOnlyRoute>
+              <DashboardUser/>
+            </UserOnlyRoute>
+          }
+          />
+
+          <Route
+            path="/profile/orders"
+            element={
+              <UserOnlyRoute>
+                <OrdersUser/>
+              </UserOnlyRoute>
+            }
+          />
+          <Route
+            path="/profile/my-services"
+            element={
+              <UserOnlyRoute>
+                <ViewServiceUser/>
+              </UserOnlyRoute>
             }
           />
         </Routes>

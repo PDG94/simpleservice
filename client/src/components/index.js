@@ -26,6 +26,9 @@ import AddCategories from "./Admin/AddCategories/AddCategories";
 import Prohibido from "./Security/Prohibido";
 import Edit from "./Admin/Edit/Edit";
 import Profile from "./User/Dashboard/Profile";
+import OrdersUser from "./User/Orders/OrdersUser";
+import ViewServiceUser from "./User/ViewService/ViewServiceUser";
+import DashboardUser from "./User/Dashboard/Profile";
 
 export {
   Card,
@@ -56,4 +59,7 @@ export {
   Prohibido,
   Edit,
   Profile,
+  OrdersUser,
+  ViewServiceUser,
+  DashboardUser,
 };
