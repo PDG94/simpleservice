@@ -1,71 +1,72 @@
-/* .filter {
-  margin-top: -30px;
-  margin-left: 0px;
-  padding: 37px;
-  padding-bottom: 100px;
-  background-color: rgb(58, 138, 135);
-
-} */
-.filter li {
-  list-style: none;
-  display: grid;
-  margin-top: 30px;
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-select {
-    margin: 15px 3px;
-    border: 2px rgb(255, 255, 255) solid;
-    border-radius: 5px;
-    font-weight: 600;
-    color: #101010;
-    display: grid;
-    width: 100%;
-    font-family: system-ui;
-    font-size: 16px;
-    background-color: #f2fa04;
-    padding: 8px 21px;
-    text-decoration: none;
-    appearance: button;
-    outline: none;
-    letter-spacing: 1px;
-  }
-select:hover {
-    color: #f2fa04;
-    background-color:#101010;
-    letter-spacing: 1px;
-  }
+.selectFilter {
+  margin: 15px 1px;
+  border: 2px rgb(255, 255, 255) solid;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #101010;
+  display: grid;
+  width: 90%;
+  font-family: system-ui;
+  font-size: 16px;
+  background-color: #f2fa04;
+  padding: 8px 21px;
+  text-decoration: none;
+  appearance: button;
+  outline: none;
+  letter-spacing: 1px;
+}
+.selectFilter:hover {
+  color: #f2fa04;
+  background-color: #101010;
+  letter-spacing: 1px;
+}
 .btnFilter {
-  margin-top: 10px;
-  margin-left: 20px;
-  height: 50px;
-  width: 140px;
+  margin-top: 5%;
+  margin-left: 0;
+  font-size: 145%;
+  padding: 1.5% 2%;
+  height: 100%;
+  width: 70%;
+  font-weight: 600;
   color: white;
   border: 1px solid white;
   border-radius: 10px;
   background-color: transparent;
 }
-.btnFilter:hover{
+.btnFilter:hover {
   border: 1px solid #fffdfd;
   border-radius: 5px;
-  background-color:#f2fa04;
+  background-color: #f2fa04;
   color: #101010;
-  box-shadow:0 0 2px 2px rgb(255, 255, 255);
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
 }
-.titleFilter{
+.titleFil {
   color: white;
   font-weight: 600;
   font-family: system-ui;
   letter-spacing: 2px;
-  font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 10px;
+  font-size: 160%;
+  margin-top: 15%;
+  margin-bottom: 7%;
 }
 
-.spantitle{
-  color: white;
+.spanFilter {
+  color: white !important;
   font-family: system-ui;
   font-weight: 500;
   letter-spacing: 2px;
-  font-size: 15px;
-  margin-top: 0;
+  font-size: 120% !important;
+  margin-top: 4%;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 1%;
 }
