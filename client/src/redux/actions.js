@@ -159,3 +159,7 @@ export function getServiceList(id) {
     });
   };
 }
+
+export function deleteUser(){
+  //esta función se esta importando en ViewServices pero no existe
+}

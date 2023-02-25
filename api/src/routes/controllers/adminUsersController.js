@@ -22,7 +22,7 @@ const updateUser = async ({
     { where: { id: id } }
   );
 
-  return await User.findByPk(user_id);
+  return await User.findByPk(id);
 };
 
 const deleteUser = async ({ id, active }) => {
