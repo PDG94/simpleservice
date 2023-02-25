@@ -22,13 +22,9 @@ export default function NavBarUser() {
           <li className="addSerAd">
             <Link to="/Create">Add Service</Link>
           </li>
-
-          <li className="addCatAd">
-            <Link to="/profile/add-categories">Add Categories</Link>
-          </li>
-
+          
           <li className="viewAd">
-            <Link to="/profile/all-services">View Services</Link>
+            <Link to="/profile/my-services">View Services</Link>
           </li>
 
           <li className="orderAd">
