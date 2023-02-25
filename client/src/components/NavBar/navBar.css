@@ -74,7 +74,7 @@
   text-decoration: none;
 }
 .space{
-  margin-top: 1%;
+  margin-top: 4%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
   font-family: system-ui;
@@ -85,6 +85,26 @@
   padding: 2px 2px;
   text-decoration: none;
 }
+.login{
+  margin-top: 2.5%;
+  margin-bottom: 0;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 14px 12px 8px 12px;
+  text-decoration: none;
+}
+.login:hover{
+   cursor: pointer;
+  color: #edf125;
+  box-shadow:0 0 4px 6px #edf125;
+  border-radius: 6px;
+}
+
 /* .logout .logoutLink{
   border: 2px solid red;
 

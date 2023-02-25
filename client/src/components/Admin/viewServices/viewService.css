@@ -1,0 +1,25 @@
+.table{
+    padding: 5px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 150%;
+   
+}
+   thead{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+   }
+   th{
+    border: 1px solid #eee;
+   }
+   .thead{
+    border-top: 2px solid var(--bs-blue);
+    border-top: 2px solid var(--bs-blue);
+   
+   }
