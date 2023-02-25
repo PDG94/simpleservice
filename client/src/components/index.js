@@ -53,5 +53,6 @@ export {
   ShowOnLogout,
   AddCategories,
   Prohibido,
-  Edit
+  Edit,
+
 };
