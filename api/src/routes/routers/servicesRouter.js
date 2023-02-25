@@ -13,8 +13,8 @@ servicesRouter.get("/", getServicesHandler);
 
 servicesRouter.get("/:id", getServicesByIdHandler);
 
-servicesRouter.post("/", middleware.decodeToken, postServiceHandler);
+servicesRouter.post("/", middleware.decodeToken, middleware.checkBody, postServiceHandler);
 
-servicesRouter.put("/", updateServiceHandler);
+servicesRouter.put("/", middleware.decodeToken, updateServiceHandler);
 
 module.exports = servicesRouter;

@@ -40,7 +40,9 @@ const updateCategoryHandler = async (req, res) => {
 
 const deleteCategoryHandler = async (req, res) => {
   try {
-    const categoryDeleted = await deleteCategory(req.params);
+    const active = false;
+    const params = {...req.params, active}
+    const categoryDeleted = await deleteCategory(params);
     res.status(200).json({deleted: categoryDeleted});
   } catch (error) {
     res.status(400).json({error: error.message})
