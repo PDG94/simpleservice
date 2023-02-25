@@ -19,7 +19,7 @@ import {
   Dashboard,
   AddCategories,
   Prohibido,
-  Edit
+  Edit,
 } from "./components/index";
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
           <Route path="/prohibited" element={<Prohibido />} />
 
           <Route
-            path="/admin/add-service"    
+            path="/admin/add-service"
             element={
               <AdminOnlyRoute>
                 <AddService />
