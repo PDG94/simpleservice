@@ -54,4 +54,5 @@ export {
   AddCategories,
   Prohibido,
   Edit,
+
 };
