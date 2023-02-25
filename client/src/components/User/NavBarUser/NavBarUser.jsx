@@ -13,16 +13,21 @@ export default function NavBarUser() {
         <hr />
         <h4 className="nameAd">{name}</h4>
       </div>
+
       <nav className="navAd">
         <ul className="ulNav">
           <li className="homeadd">
-            <Link to="/profile/home">Home</Link>
+            <Link to="/profile">Home</Link>
+          </li>
+
+          <li className="addSerAd">
+            <Link to="/profile/update">Update Info</Link>
           </li>
 
           <li className="addSerAd">
             <Link to="/Create">Add Service</Link>
           </li>
-          
+
           <li className="viewAd">
             <Link to="/profile/my-services">View Services</Link>
           </li>
