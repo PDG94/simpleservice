@@ -130,10 +130,10 @@ export const storeToken = (payload) => {
 };
 
 //POST REQUEST
-export const createdUser = (username, name, token) => {
+export const createdUser = (username, name, token, profilepic) => {
   axios.post(
     "https://simpleservice-production.up.railway.app/users",
-    { username, name },
+    { username, name, profilepic },
     {
       headers: { Authorization: "Bearer " + token },
     }

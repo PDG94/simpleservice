@@ -1,7 +1,5 @@
 const {updateUserInfo, deleteUser} = require('../controllers/userController');
 
-//updateUserHandler is placeholder code atm
-
 const updateUserHandler = async (req, res) => {
     try {
       const params={...req.body, ...req.params}
