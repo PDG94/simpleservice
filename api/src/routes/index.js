@@ -8,6 +8,7 @@ const userRouter = require("./routers/userRouter");
 const adminRouter = require("./routers/adminRouter");
 const serviceListRouter = require("./routers/serviceListRouter");
 const checkOut = require("./controllers/checkOut.js");
+const shopingCart = require("./shopingCart.routes.js");
 
 const router = Router();
 
