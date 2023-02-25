@@ -32,13 +32,13 @@ export function Reset() {
       <div className="boxReset">
         <section className="containerReset">
           <div className="formReset">
-            <h2 className="titleReset">Forgot your password</h2>
+            <h2 className="titleReset">Forgot your password?</h2>
             <p className="pleaseMessage">
-              Please enter the email address you'd like your <br/> password reset
-              information sent to
+              Please enter the email address you'd like your <br /> password
+              reset information sent to
             </p>
             <form onSubmit={resetPassword} className="formRes">
-            <p className="enterReset">Enter your email address</p>
+              <p className="enterReset">Enter your email address</p>
               <input
                 type="text"
                 placeholder="user1234@simpleservice.com"
@@ -51,7 +51,11 @@ export function Reset() {
                 Request reset link
               </button>
               <div className="linkBoxReset">
-                <Link to="/login" className="linkReset" style={{textDecoration: "none"}}>
+                <Link
+                  to="/login"
+                  className="linkReset"
+                  style={{ textDecoration: "none" }}
+                >
                   <button className="btnResetBack">Back To Login</button>
                 </Link>
               </div>
@@ -59,7 +63,7 @@ export function Reset() {
           </div>
         </section>
         <div className="contImg">
-          <img src={forgot} alt="forgot" width="400" className="imgReset" />
+          <img src={forgot} alt="forgot" className="imgReset" />
         </div>
       </div>
       <Footer />

@@ -1,16 +1,24 @@
+* {
+  background: none;
+}
 .containerWrapperList {
   /* display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap; */
-  background:linear-gradient(270deg, #101010 0%, rgba(255,255,255,1) 50%, #101010 100%);
+  background: linear-gradient(
+    270deg,
+    #101010 0%,
+    rgba(255, 255, 255, 1) 50%,
+    #101010 100%
+  );
 }
 
 .containerWrapperList {
-  display:block;
+  display: block;
   /* Esta me las ordena en columna */
 }
-.filterService{
+.filterService {
   width: 20%;
   height: 100vh;
   float: left;
@@ -23,9 +31,14 @@
   margin-left: 18%;
   margin-right: 0;
   margin-top: 0;
-  display:flex;
-  justify-content:space-evenly;
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  background: linear-gradient(0deg, #101010 0%, rgb(255, 255, 255) 50%, #101010 100%);
+  background: linear-gradient(
+    0deg,
+    #101010 0%,
+    rgb(255, 255, 255) 50%,
+    #101010 100%
+  );
 }

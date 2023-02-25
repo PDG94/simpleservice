@@ -2,7 +2,6 @@
  background-color:#1e1e3b;
 } */
 
-
 /* .navBar{
     display: flex;
     position:fixed;
@@ -13,15 +12,13 @@
     position: fixed;
     padding-left: 10px;
 } */
-
-.main{
-    background-color: #101010;
+* {
+  background: none;
+}
+.main {
+  background-color: #101010;
 }
 /* 
 .navSearch{
     flex-wrap: wrap;
 } */
-
-
-
-

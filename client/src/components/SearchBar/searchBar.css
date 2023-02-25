@@ -1,29 +1,29 @@
- .search{
-    background-color: #101010;
+.search {
+  background-color: #101010;
 }
-  .inputSearch {
-    width: 250px;
-    height: 35px;
-    border-color: transparent ;
-    padding: 0 25px;
-    border-radius: 10px 0 0 10px;
-    position: relative;
-    margin-bottom: 3px;
+.inputSearch {
+  width: 250px;
+  height: 35px;
+  background-color: white;
+  border-color: transparent;
+  padding: 0 25px;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+  margin-bottom: 3px;
+}
+.btnSearch {
+  border-radius: 0 10px 10px 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+  height: 35px;
+  width: 130px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+}
 
-  }
-  .btnSearch {
-    border-radius: 0 10px 10px 0;
-    font-weight: 600;
-    letter-spacing: 2px;
-    height: 35px;
-    width: 130px;
-    background-color: transparent;
-    color:rgb(255, 255, 255);
-    border-color: rgb(255, 255, 255);
-  }
-
-  .btnSearch:hover{
-    backdrop-filter: blur(10px);
-    background-color: transparent;
-    color: #edf125;
-  }
+.btnSearch:hover {
+  backdrop-filter: blur(10px);
+  background-color: transparent;
+  color: #edf125;
+}

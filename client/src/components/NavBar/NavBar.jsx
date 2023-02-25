@@ -88,7 +88,7 @@ const NavBar = () => {
           </div>
 
         <ShowOnLogout>
-        <Link className="btnNav login" to="/login">
+        <Link className="login" to="/login">
           Login
         </Link>
       </ShowOnLogout>
