@@ -70,39 +70,49 @@ export default function Login() {
 
       {isLoading && <Loading />}
       <Link to={"/Home"}>
-          <button className="backLog">Back to Home</button>
-        </Link>
-      <div >
-        
-      <section className="LogCont">
-        <div className="formLog">
-          <h2><MdLogin className="iconLog"/>Login</h2>
-          <form className="Log" onSubmit={loginUser}>
-            <input className="inputlog"
-              type="text"
-              placeholder=" E-mail"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input className="inputlog"
-              type="password"
-              placeholder=" Password"
-              required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <button className="continue" type="submit">Continue</button>
-              <Link to="/reset" style={{textDecoration: "none"}} className="forgotPhrase">
+        <button className="backLog">Back to Home</button>
+      </Link>
+      <div>
+        <section className="LogCont">
+          <div className="formLog">
+            <h2>
+              <MdLogin className="iconLog" />
+              Login
+            </h2>
+            <form className="Log" onSubmit={loginUser}>
+              <input
+                className="inputlog"
+                type="text"
+                placeholder=" E-mail"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <input
+                className="inputlog"
+                type="password"
+                placeholder=" Password"
+                required
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <button className="continue" type="submit">
+                Continue
+              </button>
+              <Link
+                to="/reset"
+                style={{ textDecoration: "none" }}
+                className="forgotPhrase"
+              >
                 <p className="forgot">forgot your password?</p>
               </Link>
-            <div className="links">
-              <span className="symbolsA" onClick={signGoogle}>
-                <FiMail />
-              </span>{" "}
-              <span className="symbolsB">
-                <GrFacebook />
-              </span> 
+              <div className="links">
+                <span className="symbolsA" onClick={signGoogle}>
+                  <FiMail className="envelope" />
+                </span>{" "}
+                <span className="symbolsB">
+                  <GrFacebook className="facebook" />
+                </span>
                 <p className="account">Don't have an account?</p>
                 <Link to="/register">
                   <button className="RegLog">Create Account</button>

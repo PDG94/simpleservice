@@ -90,13 +90,14 @@ const NavBar = () => {
         </div>
 
         <ShowOnLogout>
-          <Link className="btnNav login" to="/login">
-            Login
-          </Link>
-        </ShowOnLogout>
-        <ShowOnLogout>
-          <div className="space">a</div>
-        </ShowOnLogout>
+        <Link className="login" to="/login">
+          Login
+        </Link>
+      </ShowOnLogout>
+      
+      <ShowOnLogout>
+        <div className="space">a</div>
+      </ShowOnLogout>
 
         <AdminOnlyRoute>
           <Link className="btnNav" to="/admin/home">

@@ -1,7 +1,12 @@
 .form {
   padding: 2%;
   margin-bottom: -280px;
-  background:linear-gradient(270deg, #101010 0%, rgba(255,255,255,1) 50%, #101010 100%);
+  background: linear-gradient(
+    270deg,
+    #101010 0%,
+    rgba(255, 255, 255, 1) 50%,
+    #101010 100%
+  );
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -23,13 +28,13 @@
     inset 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
-.titleCr{
+.titleCr {
   margin-top: 45px;
   margin-bottom: 30px;
   font-size: 50px;
   font-weight: 700;
   font-family: system-ui;
-  color:rgb(69, 67, 67);
+  color: rgb(69, 67, 67);
   letter-spacing: 1px;
 }
 .icon {
@@ -97,14 +102,14 @@
   color: rgb(0, 0, 0);
   box-shadow: 0 0 2px 2px rgb(255, 255, 255);
 }
-.form input {
+.inpCreate {
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
   width: 60%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #020202;
+  color: rgb(69, 67, 67);
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 1em;
@@ -113,13 +118,57 @@
   transform: 0.5s;
   outline: none;
 }
-.form input label {
-  position: absolute;
-  left: 0;
-  transition: 0.5s;
-  letter-spacing: 0.05em;
-  color: white;
-}
-.icon{
+
+.icon {
   background-color: rgba(128, 128, 128, 0.228);
+}
+
+.proPhrase {
+  font-size: 120%;
+  font-weight: 500;
+  font-family: system-ui;
+  color: rgb(69, 67, 67);
+  letter-spacing: 1px;
+}
+.circleBox {
+  color: rgb(69, 67, 67);
+  font-family: system-ui;
+  font-weight: 500;
+  margin-left: 8px;
+  font-size: 130%;
+}
+.proLink {
+  color: rgb(240, 89, 89);
+}
+
+.spantitle {
+  font-size: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 21%;
+  color: rgb(69, 67, 67);
+}
+
+.selCreate {
+  background-color: white;
+  margin-left: 20%;
+  padding: 12px 2px 15px 48px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 60%;
+  background-color: white;
+  color: rgb(87, 87, 87);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1em;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+}
+
+.priceC {
+  margin-top: 3.5%;
 }

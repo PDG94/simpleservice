@@ -103,14 +103,24 @@ export default function Create() {
         <div className="containerCreated">
           <h1 className="titleCr">Create Service</h1>
 
-          <GrCircleAlert />
-          <p>
-            Atention see <Link to="/prohibited">prohibited</Link> list before
-            posting.
+          <span className="circleBox">
+            <GrCircleAlert />
+            {"  "}Atention
+          </span>
+          <p className="proPhrase">
+            See{" "}
+            <Link
+              to="/prohibited"
+              className="proLink"
+              style={{ textDecoration: "none" }}
+            >
+              prohibited
+            </Link>{" "}
+            list before posting.
           </p>
 
           <span className="spantitle">Select a category</span>
-          <select onChange={(e) => handleCategory(e)}>
+          <select className="selCreate" onChange={(e) => handleCategory(e)}>
             <option value="all">Categories</option>
             {categories?.map((elem) => (
               <option key={elem.id} value={elem.id}>
@@ -120,7 +130,7 @@ export default function Create() {
           </select>
 
           <span className="spantitle">Select a service</span>
-          <select onChange={(e) => handleServicesList(e)}>
+          <select className="selCreate" onChange={(e) => handleServicesList(e)}>
             <option value="all">Services</option>
             {serviceList?.map((elem) => (
               <option key={elem.id} value={elem.name}>
@@ -129,11 +139,12 @@ export default function Create() {
             ))}
           </select>
 
-          <div>
+          <div className="priceC">
             <label className="icon">
               <FiDollarSign />
             </label>
             <input
+              className="inpCreate"
               type="text"
               placeholder="Price"
               value={form.price}
@@ -149,6 +160,7 @@ export default function Create() {
               <MdDescription />
             </label>
             <input
+              className="inpCreate"
               type="text"
               placeholder="Description"
               value={form.description}
