@@ -79,7 +79,7 @@ export default function Create() {
         form,
         { headers: { Authorization: "Bearer " + token } }
       );
-
+    toast.success("Service created successfully!")
     navigate("/home");
   };
 
