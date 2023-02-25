@@ -22,6 +22,14 @@ export default function Filter() {
     categoryId: "",
   });
 
+  //Con esta funcion reiniciamos los SELECT
+  const resetFilter = () => {
+    document.getElementById("categoriesSelect").selectedIndex = 0; // Primero se agrega un id al select para identificarlo y luego podemos acceder a el mediante getElementById y despues le decimos en que posicion de las opciones queremos que reinicie el valor del select con selectedIndex = 0
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("alphabetSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
+  };
+
   const handleCategory = (e) => {
     setFilter({ ...filter, categoryId: e.target.value });
   };
@@ -42,6 +50,7 @@ export default function Filter() {
     dispatch(getServices());
     dispatch(cardsFilter(filter));
     dispatch(resedPaged(1));
+    resetFilter();
   };
 
   return (
@@ -52,7 +61,7 @@ export default function Filter() {
         {/*CATEGORIAS*/}
         <br />
         <span className="spantitle">Select a category</span>
-        <select onChange={(e) => handleCategory(e)}>
+        <select id="categoriesSelect" onChange={(e) => handleCategory(e)}>
           <option value="all">Categories</option>
           {categories?.map((elem) => (
             <option key={elem.id} value={elem.id}>
@@ -63,7 +72,7 @@ export default function Filter() {
 
         {/*PRECIO*/}
         <span className="spantitle">Order services by </span>
-        <select onChange={(e) => handlePrice(e)}>
+        <select id="priceSelect" onChange={(e) => handlePrice(e)}>
           <option value="all">Price</option>
           <option value="DESC">More Price</option>
           <option value="ASC">Low Price</option>
@@ -71,7 +80,7 @@ export default function Filter() {
 
         {/*ABC*/}
         <span className="spantitle">Order services by </span>
-        <select onChange={(e) => handleName(e)}>
+        <select id="alphabetSelect" onChange={(e) => handleName(e)}>
           <option value="all">Alphabet</option>
           <option value="ASC">A-Z</option>
           <option value="DESC">Z-A</option>
@@ -79,7 +88,7 @@ export default function Filter() {
 
         {/*RATING*/}
         <span className="spantitle">Order services by </span>
-        <select onChange={(e) => handleRating(e)}>
+        <select id="ratingSelect" onChange={(e) => handleRating(e)}>
           <option value="all">Rating</option>
           <option value="DESC">More Rating</option>
           <option value="ASC">Low Rating</option>
