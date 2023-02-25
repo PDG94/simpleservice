@@ -2,7 +2,7 @@ const {updateUserInfo, deleteUser} = require('../controllers/userController');
 
 //updateUserHandler is placeholder code atm
 
-const getUserInfo = async
+// const getUserInfo = async
 
 const updateUserHandler = async (req, res) => {
     try {
@@ -20,7 +20,8 @@ const updateUserHandler = async (req, res) => {
 const deleteUserHandler = async (req, res) => {
   const active = false;
   const params = {...req.params, active};
-  const userDeleted = await deleteUser(params)
+  const userDeleted = await deleteUser(params);
+  res.status(200).json(userDeleted);
 } 
 
 module.exports = {updateUserHandler, deleteUserHandler}
