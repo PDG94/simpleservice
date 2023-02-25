@@ -33,12 +33,12 @@ export default function Create() {
   });
 
   const validate = (form) => {
-    let errors = {}
-    if(!form.CategoryId){
-      errors.CategoryId = "Select Category"
+    let errors = {};
+    if (!form.CategoryId) {
+      errors.CategoryId = "Select Category";
     }
-    if(!form.servicename){
-      errors.servicename = "Select Service"
+    if (!form.servicename) {
+      errors.servicename = "Select Service";
     }
     if (!form.price) {
       errors.price = "Price is required";
@@ -47,7 +47,7 @@ export default function Create() {
     }
     if (!form.description) {
       errors.description = "Description is required";
-    }else if (form.description.length < 15) {
+    } else if (form.description.length < 15) {
       errors.description = "Description must have at least 15 characters";
     }
 
@@ -67,25 +67,26 @@ export default function Create() {
     );
   }
 
- const error = validate(form);
+  const error = validate(form);
 
   const submitHandler = (event) => {
     event.preventDefault();
-   
+
     if (Object.values(error).length) {
-      return toast.error(Object.values(error).join(", "));}
-      axios.post(
-        "https://simpleservice-production.up.railway.app/services",
-        form,
-        { headers: { Authorization: "Bearer " + token } }
-      );
-    toast.success("Service created successfully!")
+      return toast.error(Object.values(error).join(", "));
+    }
+    axios.post(
+      "https://simpleservice-production.up.railway.app/services",
+      form,
+      { headers: { Authorization: "Bearer " + token } }
+    );
+    toast.success("Service created successfully!");
     navigate("/home");
   };
 
   const handleCategory = (e) => {
     setForm({ ...form, CategoryId: e.target.value });
-    dispatch(getServiceList(e.target.value))
+    dispatch(getServiceList(e.target.value));
   };
 
   const handleServicesList = (e) => {

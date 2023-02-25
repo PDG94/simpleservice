@@ -147,13 +147,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  font-weight: 600;
   margin-left: 21%;
+  margin-bottom: 1.5%;
   color: rgb(69, 67, 67);
 }
 
 .selCreate {
   background-color: white;
-  margin-left: 20%;
+  margin-left: 0;
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
@@ -162,6 +164,7 @@
   color: rgb(87, 87, 87);
   font-weight: 600;
   letter-spacing: 1px;
+  border: none;
   font-size: 1em;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
     5px 5px 15px rgba(0, 0, 0, 0.35);
