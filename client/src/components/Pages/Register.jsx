@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { auth } from "../../components/Firebase/config";
+import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
 import { useNavigate } from "react-router-dom";
@@ -22,8 +22,10 @@ export default function Register() {
   // const [dateOfBirth, setDateOfBirth] = useState("");
   // const [image, setImage] = useState(""); //parece que esto no se está usando, lo comento por ahora
   const [isLoading, setIsloading] = useState(false);
+  const [file, setFile] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   function registerUser(event) {
     event.preventDefault();
@@ -32,14 +34,16 @@ export default function Register() {
     }
     setIsloading(true);
     createUserWithEmailAndPassword(auth, input.email, input.password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // SI TODO MATCHEA SETEO EL LOADING A FALSE Y LO MANDO A LOGIN
         const user = userCredential.user;
-        user.getIdToken().then((token) => {
-          dispatch(storeToken(token));
-          createdUser(input.username, input.name, token); //dateOfBirth later
-        });
-        // console.log(user);
+        const token = await user.getIdToken();
+        dispatch(storeToken(token));
+        
+        const userId = auth.currentUser.uid
+        const profilepic = await uploadFile(file, userId);
+        createdUser(input.username, input.name, token, profilepic); //dateOfBirth later
+
         setIsloading(false);
         toast.success("Registration Successful!");
         navigate("/login");
@@ -226,6 +230,13 @@ export default function Register() {
                 />
                 <p className="errP">{errors.dateOfBirth}</p>
               </div>
+            </div>
+            <div>
+              <input
+                type="file"
+                name="Select an archive"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
             </div>
             <div className="btnRegister">
               <button type="submit" className="submitRegister">
