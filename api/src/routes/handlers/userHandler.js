@@ -1,9 +1,13 @@
-const {updateUserInfo} = require('../controllers/userController');
+const {updateUserInfo, deleteUser} = require('../controllers/userController');
 
 //updateUserHandler is placeholder code atm
+
+const getUserInfo = async
+
 const updateUserHandler = async (req, res) => {
     try {
-      const userUpdated = await updateUserInfo(req.body);
+      const params={...req.body, ...req.params}
+      const userUpdated = await updateUserInfo(params);
       res.status(200).json({
         message: "User updated succesfully",
         updated: userUpdated,
@@ -13,4 +17,10 @@ const updateUserHandler = async (req, res) => {
     }
   };
 
-module.exports = {updateUserHandler}
+const deleteUserHandler = async (req, res) => {
+  const active = false;
+  const params = {...req.params, active};
+  const userDeleted = await deleteUser(params)
+} 
+
+module.exports = {updateUserHandler, deleteUserHandler}
