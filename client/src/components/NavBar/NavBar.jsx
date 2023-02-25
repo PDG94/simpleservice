@@ -13,6 +13,7 @@ import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../index";
+import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -90,20 +91,29 @@ const NavBar = () => {
         </div>
 
         <ShowOnLogout>
-        <Link className="login" to="/login">
-          Login
-        </Link>
-      </ShowOnLogout>
-      
-      <ShowOnLogout>
-        <div className="space">a</div>
-      </ShowOnLogout>
+          <Link className="login" to="/login">
+            Login
+          </Link>
+        </ShowOnLogout>
+
+        <ShowOnLogout>
+          <div className="space">a</div>
+        </ShowOnLogout>
 
         <AdminOnlyRoute>
           <Link className="btnNav" to="/admin/home">
             Admin
           </Link>
         </AdminOnlyRoute>
+
+        <ShowOnLogin>
+          <UserOnlyRoute>
+            <Link className="btnNav" to="/profile">
+              My Profile
+            </Link>
+          </UserOnlyRoute>
+        </ShowOnLogin>
+
         <ShowOnLogin>
           <Link className="btnNav" to="/myorders">
             My Cart
@@ -118,9 +128,8 @@ const NavBar = () => {
 
         <ShowOnLogin>
           <div className="greet">
-            {" "}
             <FaUserCircle size={16} />
-            {"  "}Hi, {displayName}
+            Hi, {displayName}
           </div>
         </ShowOnLogin>
       </div>

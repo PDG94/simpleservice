@@ -20,6 +20,7 @@ import {
   AddCategories,
   Prohibido,
   Edit,
+  Profile,
 } from "./components/index";
 
 function App() {
@@ -49,6 +50,8 @@ function App() {
           <Route path="/reset" element={<Reset />} />
 
           <Route path="/prohibited" element={<Prohibido />} />
+
+          <Route path="/profile" element={<Profile />} />
 
           <Route
             path="/admin/add-service"
