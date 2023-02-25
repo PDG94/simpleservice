@@ -15,4 +15,18 @@ const updateUserInfo = async ({id, name, username, userbio, profilepic}) => {
     return userUpdated;
 }
 
-module.exports = {updateUserInfo}
+const deleteUser = async ({id, active}) => {
+    await User.update({
+        active
+    }, {
+        where: {
+            id:id,
+        }
+    });
+
+    const userDeleted = await User.findByPk(id);
+
+    return userDeleted;
+}
+
+module.exports = {updateUserInfo, deleteUser}
