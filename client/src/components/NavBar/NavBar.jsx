@@ -94,6 +94,7 @@ const NavBar = () => {
             Login
           </Link>
         </ShowOnLogout>
+
         <ShowOnLogout>
           <div className="space">a</div>
         </ShowOnLogout>

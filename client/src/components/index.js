@@ -24,6 +24,7 @@ import ShowOnLogin from "./HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "./HiddenLinks/ShowOnLogout";
 import AddCategories from "./Admin/AddCategories/AddCategories";
 import Prohibido from "./Security/Prohibido";
+import Edit from "./Admin/Edit/Edit";
 
 export {
   Card,
@@ -52,4 +53,6 @@ export {
   ShowOnLogout,
   AddCategories,
   Prohibido,
+  Edit,
+
 };

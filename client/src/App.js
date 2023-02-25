@@ -19,6 +19,7 @@ import {
   Dashboard,
   AddCategories,
   Prohibido,
+  Edit,
 } from "./components/index";
 
 function App() {
@@ -90,6 +91,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <Dashboard />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/edit/:id"
+            element={
+              <AdminOnlyRoute>
+                <Edit />
               </AdminOnlyRoute>
             }
           />
