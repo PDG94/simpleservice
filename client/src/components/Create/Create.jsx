@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { NavBar, Footer } from "../index";
 import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
@@ -33,6 +34,12 @@ export default function Create() {
 
   const validate = (form) => {
     let errors = {}
+    if(!form.CategoryId){
+      errors.CategoryId = "Select Category"
+    }
+    if(!form.servicename){
+      errors.servicename = "Select Service"
+    }
     if (!form.price) {
       errors.price = "Price is required";
     } else if (isNaN(form.price)) {
@@ -60,19 +67,19 @@ export default function Create() {
     );
   }
 
+ const error = validate(form);
+
   const submitHandler = (event) => {
     event.preventDefault();
-    let error = Object.keys(validate(form));
-    if (error.length !== 0 && !form.description && !form.price && !form.servicename && !form.CategoryId) {
-      alert("Please, fill in the fields correctly");
-      return;
-    } else {
+   
+    if (Object.values(error).length) {
+      return toast.error(Object.values(error).join(", "));}
       axios.post(
         "https://simpleservice-production.up.railway.app/services",
         form,
         { headers: { Authorization: "Bearer " + token } }
       );
-    }
+
     navigate("/home");
   };
 
