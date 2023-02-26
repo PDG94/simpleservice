@@ -12,6 +12,7 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+  GET_USERS,
 } from "./actionTypes";
 
 export function getServices() {
@@ -62,7 +63,9 @@ export function getServicesByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    const response = await axios.get("https://simpleservice-production.up.railway.app/categories");
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/categories"
+    );
     return dispatch({
       type: GET_CATEGORIES,
       payload: response.data,
@@ -160,6 +163,15 @@ export function getServiceList(id) {
   };
 }
 
-export function deleteUser(){
+export function deleteUser() {
   //esta función se esta importando en ViewServices pero no existe
+}
+
+export function getUsers() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/users"
+    );
+    return dispatch({ type: GET_USERS, payload: response.data });
+  };
 }

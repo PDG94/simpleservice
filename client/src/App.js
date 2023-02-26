@@ -25,6 +25,7 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
+  UpdateProfilesUsers,
 } from "./components/index";
 import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 
@@ -61,6 +62,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <AddCategories />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/update"
+            element={
+              <AdminOnlyRoute>
+                <UpdateProfilesUsers />
               </AdminOnlyRoute>
             }
           />
