@@ -30,6 +30,7 @@ import OrdersUser from "./User/Orders/OrdersUser";
 import ViewServiceUser from "./User/ViewService/ViewServiceUser";
 import DashboardUser from "./User/Dashboard/Profile";
 import UpdateInfoUser from "./User/UpdateInfo/UpdateInfo";
+import Cart from "../components/Pages/Cart"
 
 export {
   Card,
@@ -64,4 +65,5 @@ export {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
+  Cart,
 };

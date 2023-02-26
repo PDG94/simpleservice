@@ -2,6 +2,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 import {
   Home,
   Login,
@@ -25,8 +26,9 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
+  Cart
 } from "./components/index";
-import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
+
 
 function App() {
   return (
@@ -127,6 +129,12 @@ function App() {
               <UserOnlyRoute>
                 <ViewServiceUser />
               </UserOnlyRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+                <Cart />
             }
           />
         </Routes>
