@@ -11,6 +11,7 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+  GET_SERVICE_USER
 } from "./actionTypes";
 
 const initialState = {
@@ -25,6 +26,7 @@ const initialState = {
   userID: null,
   token: "",
   serviceList: [],
+  serviceUser:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -103,6 +105,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         serviceList: action.payload,
       };
+    case GET_SERVICE_USER:
+      return {
+        ...state,
+        serviceUser: action.payload
+      }
 
     default:
       return { ...state };
