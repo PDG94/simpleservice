@@ -1,5 +1,4 @@
 import React from "react";
-import s from './Payment.module.css'
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,

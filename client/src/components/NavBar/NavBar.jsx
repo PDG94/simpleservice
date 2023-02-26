@@ -7,6 +7,7 @@ import logos from "../Imagenes/logos.ico";
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { activeUsers, calculateTotalQuantity, removeUsers } from "../../redux/actions";
 import { activeUsers, removeUsers, storeSession } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
@@ -18,10 +19,26 @@ import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 const NavBar = () => {
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState("");
+  const [scrollPage, setScrollPage] = useState(false);
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
   const cartTotalQuantity = useSelector((state)=>state.cartTotalQuantity)
+
+  useEffect(() => {
+    dispatch(calculateTotalQuantity());
+  }, []);
+
+
+  //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
+  // const fixNavbar = () => {
+  //   if (window.scrollY > 50) {
+  //     setScrollPage(true);
+  //   } else {
+  //     setScrollPage(false);
+  //   }
+  // };
+  // window.addEventListener("scroll", fixNavbar);
 
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
@@ -131,7 +148,7 @@ const NavBar = () => {
             Logout
           </Link>
         </ShowOnLogin>
-        
+
         <div>
         <ShowOnLogin>
           {cart}

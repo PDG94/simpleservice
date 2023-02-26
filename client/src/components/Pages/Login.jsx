@@ -11,6 +11,7 @@ import { GrFacebook } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
+
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import "../Pages/login.css";
@@ -25,6 +26,17 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const previousURL1 = useSelector((state)=>state.previousURL);
+  console.log(previousURL1);
+
+  const redirectUser = () => {
+    if (previousURL1.includes("cart")) {
+      return navigate("/cart");
+    }
+      navigate("/home");
+   
+  };
+
   function loginUser(event) {
     event.preventDefault();
     setIsloading(true);
@@ -38,7 +50,7 @@ export default function Login() {
         });
         setIsloading(false);
         toast.success("Login Successful...");
-        navigate("/home");
+        redirectUser()
       })
       .catch((error) => {
         setIsloading(false);
@@ -58,7 +70,7 @@ export default function Login() {
           userLogin(token);
         });
         toast.success("Login Successfuly!");
-        navigate("/home");
+        redirectUser()
       })
       .catch((error) => {
         toast.error(error.message);
