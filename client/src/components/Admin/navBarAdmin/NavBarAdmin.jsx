@@ -1,23 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import '../NavBarAdmin/navBarAdmin.css'
-import logo from '../../Imagenes/logos.ico' 
-
+import "../NavBarAdmin/navBarAdmin.css";
+import logo from "../../Imagenes/logos.ico";
 
 export default function NavBarAdmin() {
   const name = useSelector((state) => state.useName);
   return (
-    <div className="navbar" >
+    <div className="navbar">
       <div className="user">
-        <img className="logoAd" src={logo} width='80px' alt="meaningful text"/>
-        <hr/>
+        <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
+        <hr />
         <h4 className="nameAd">{name}</h4>
       </div>
       <nav className="navAd">
         <ul className="ulNav">
           <li className="homeadd">
             <Link to="/admin/home">Home</Link>
+          </li>
+
+          <li className="addSerAd">
+            <Link to="/admin/update">Update Users</Link>
           </li>
 
           <li className="addSerAd">

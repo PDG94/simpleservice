@@ -12,16 +12,14 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
-
+  GET_USERS,
   ADD_TO_CART,
   DECREASE_CART,
   CLEAR_CART,
   REMOVE_CART,
   CALCULATE_SUB_TOTAL,
-  CALCULATE_TOTAL_QUANTITY
-
-  GET_SERVICE_USER
-
+  CALCULATE_TOTAL_QUANTITY,
+  GET_SERVICE_USER,
 } from "./actionTypes";
 
 export function getServices() {
@@ -72,7 +70,9 @@ export function getServicesByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    const response = await axios.get("https://simpleservice-production.up.railway.app/categories");
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/categories"
+    );
     return dispatch({
       type: GET_CATEGORIES,
       payload: response.data,
@@ -170,10 +170,18 @@ export function getServiceList(id) {
   };
 }
 
-export function deleteUser(){
+export function deleteUser() {
   //esta función se esta importando en ViewServices pero no existe
 }
 
+export function getUsers() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/users"
+    );
+    return dispatch({ type: GET_USERS, payload: response.data });
+  };
+}
 //CART
 export const addToCart = (payload) => {
   return function (dispatch) {
@@ -211,16 +219,18 @@ export const calculateTotalQuantity = (payload) => {
   };
 };
 
+export function getServiceUser(userId, token) {
+  return async function (dispatch) {
+    const response = await axios.get(
+      `https://simpleservice-production.up.railway.app/user/${userId}`,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
 
-export function getServiceUser(userId, token){
-  return async function(dispatch){
-    const response = await axios.get(`https://simpleservice-production.up.railway.app/user/${userId}`,{
-      headers: { Authorization: "Bearer " + token }})
-    
-   return dispatch({
-    type: GET_SERVICE_USER,
-    payload: response.data
-   })
-  }
+    return dispatch({
+      type: GET_SERVICE_USER,
+      payload: response.data,
+    });
+  };
 }
-

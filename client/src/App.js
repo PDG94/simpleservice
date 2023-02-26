@@ -26,9 +26,9 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
-  Cart
+  UpdateProfilesUsers,
+  Cart,
 } from "./components/index";
-
 
 function App() {
   return (
@@ -63,6 +63,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <AddCategories />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/update"
+            element={
+              <AdminOnlyRoute>
+                <UpdateProfilesUsers />
               </AdminOnlyRoute>
             }
           />
@@ -131,12 +139,7 @@ function App() {
               </UserOnlyRoute>
             }
           />
-          <Route
-            path="/cart"
-            element={
-                <Cart />
-            }
-          />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </BrowserRouter>

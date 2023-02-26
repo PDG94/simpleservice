@@ -30,7 +30,11 @@ import OrdersUser from "./User/Orders/OrdersUser";
 import ViewServiceUser from "./User/ViewService/ViewServiceUser";
 import DashboardUser from "./User/Dashboard/Profile";
 import UpdateInfoUser from "./User/UpdateInfo/UpdateInfo";
+<<<<<<< HEAD
+import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
+=======
 import Cart from "../components/Pages/Cart"
+>>>>>>> 210bd7ce3827b80a52608845a0e2ee05d0cbcac3
 
 export {
   Card,
@@ -65,5 +69,9 @@ export {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
+<<<<<<< HEAD
+  UpdateProfilesUsers,
+=======
   Cart,
+>>>>>>> 210bd7ce3827b80a52608845a0e2ee05d0cbcac3
 };
