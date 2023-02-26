@@ -7,12 +7,12 @@ import { toast } from "react-toastify";
 import "./UpdateInfo.css";
 import { MdDescription } from "react-icons/md";
 import NavBarUser from "../NavBarUser/NavBarUser";
+import { auth } from "../../Firebase/config.js";
 
 export default function UpdateInfoUser() {
   const navigate = useNavigate();
 
   const token = useSelector((state) => state.token);
-  console.log(token);
 
   const [form, setForm] = useState({
     name: "",
@@ -21,8 +21,6 @@ export default function UpdateInfoUser() {
     profilepic: "",
   });
 
-  console.log(form);
-
   function handlerChange(e) {
     setForm({
       ...form,
@@ -30,10 +28,36 @@ export default function UpdateInfoUser() {
     });
   }
 
+  const updateValidator = () => {
+    const finalForm = {};
+    if (form.name.length > 0) {
+      finalForm.name = form.name;
+    }
+    if (form.username.length > 0) {
+      finalForm.username = form.username;
+    }
+    if (form.userbio.length > 0) {
+      finalForm.userbio = form.userbio;
+    }
+    if (form.profilepic.length > 0) {
+      finalForm.profilepic = form.profilepic;
+    }
+
+    return finalForm;
+  };
+
+  
+
+  const userId = auth.currentUser.uid;
+
   const submitHandler = (event) => {
     event.preventDefault();
 
-    axios.post("https://simpleservice-production.up.railway.app/user", form, {
+    const info = updateValidator();
+
+
+
+    axios.put(`https://simpleservice-production.up.railway.app/user/${userId}`, info, {
       headers: { Authorization: "Bearer " + token },
     });
     toast.success("User update successfully!");
