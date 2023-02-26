@@ -43,7 +43,7 @@ export default function Dashboard() {
           </div>
       {/* ------------------------------------- */}
           <div className="insights">
-          <Link className="linkAd" style={{ textDecoration: "none" }} to='/admin/all-services'>
+          <Link className="linkAd" style={{ textDecoration: "none" }} to='/admin/all-users'>
 
             <div className="users">
               <MdPerson className="icDash1"/>
@@ -67,7 +67,9 @@ export default function Dashboard() {
           </div>
            {/* ------------------------------------- */}
            <div className="insights">
-            <div className="users">
+           <Link className="linkAd" style={{ textDecoration: "none" }} to='/admin/orders'>
+
+            <div className="orders">
               <MdOutlineBorderColor className="icDash2"/>
               Orders
             </div>
@@ -83,6 +85,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+            </Link>
           </div>
         </main>
       </div>
