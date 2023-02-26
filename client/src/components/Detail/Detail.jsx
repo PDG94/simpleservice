@@ -1,5 +1,5 @@
 import { NavBar, Footer, Loading } from "../index";
-import { getServicesDetail, cleanState } from "../../redux/actions";
+import { getServicesDetail, cleanState, addToCart, decreaseCart, calculateTotalQuantity } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -11,7 +11,15 @@ import { FiDollarSign } from "react-icons/fi";
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const cartI = useSelector((state)=>state.cartItems)
+
+  const cart = cartI.findIndex((cart)=>cart.id === id)
+  console.log(cart);
+
   const serviceDetail = useSelector((state) => state.serviceDetail);
+  const allServices = useSelector((state)=>state.services)
+  
+  
 
   useEffect(() => {
     dispatch(getServicesDetail(id));
@@ -19,6 +27,16 @@ export default function Detail() {
       dispatch(cleanState());
     };
   }, [dispatch, id]);
+
+  const addToCart1 = (id) => {
+    dispatch(addToCart(id));
+  };
+
+  const decreaseCart1 = (id) => {
+    dispatch(decreaseCart(id));
+    dispatch(calculateTotalQuantity());
+  };
+
 
   return (
     <div className="detail">
@@ -44,14 +62,12 @@ export default function Detail() {
                         <img className="imgDetail" src={ser} alt="" />
                         {service?.servicename}
                       </p>
-
                       <div className="ratingDetail">
                         <label className="iconDetail">
                           <MdStar />
                         </label>{" "}
                         <p className="rat">{service?.rating}</p>
                       </div>
-
                       <p className="priceDetail">
                         {" "}
                         Price
@@ -61,10 +77,27 @@ export default function Detail() {
                         </label>
                         {service?.price}
                       </p>
-
                       <div className="description">
                         {service?.description || "description not available"}
                       </div>
+                      <>
+                      <button
+                        className="--btn"
+                        onClick={() => decreaseCart1(id)}
+                      >
+                        -
+                      </button>
+                      <p>
+                         <b>{cart.cartQuantity}</b> 
+                      </p>
+                      <button
+                        className="--btn"
+                         onClick={() => addToCart1(id)}
+                      >
+                        +
+                      </button>
+                    </>
+                      <button onClick={() => addToCart1(id)}>ADD TO CART</button>
                     </div>
                   </div>
                 </div>

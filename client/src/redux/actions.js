@@ -12,7 +12,16 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+
+  ADD_TO_CART,
+  DECREASE_CART,
+  CLEAR_CART,
+  REMOVE_CART,
+  CALCULATE_SUB_TOTAL,
+  CALCULATE_TOTAL_QUANTITY
+
   GET_SERVICE_USER
+
 } from "./actionTypes";
 
 export function getServices() {
@@ -165,6 +174,44 @@ export function deleteUser(){
   //esta función se esta importando en ViewServices pero no existe
 }
 
+//CART
+export const addToCart = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: ADD_TO_CART, payload });
+  };
+};
+
+export const decreaseCart = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: DECREASE_CART, payload });
+  };
+};
+
+export const removeCart = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: REMOVE_CART, payload });
+  };
+};
+
+export const clearCart = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: CLEAR_CART, payload });
+  };
+};
+
+export const calculateSubTotal = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: CALCULATE_SUB_TOTAL, payload });
+  };
+};
+
+export const calculateTotalQuantity = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: CALCULATE_TOTAL_QUANTITY, payload });
+  };
+};
+
+
 export function getServiceUser(userId, token){
   return async function(dispatch){
     const response = await axios.get(`https://simpleservice-production.up.railway.app/user/${userId}`,{
@@ -176,3 +223,4 @@ export function getServiceUser(userId, token){
    })
   }
 }
+
