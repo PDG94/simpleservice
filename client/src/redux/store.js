@@ -29,5 +29,6 @@ store.subscribe(throttle(() => {
       cartTotalQuantity: store.getState().cartTotalQuantity,
       cartTotalAmount: store.getState().cartTotalAmount,
       serviceUser: store.getState().serviceUser,
+      session: store.getState().session,
   });
 }, 1000))

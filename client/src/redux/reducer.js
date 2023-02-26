@@ -21,6 +21,7 @@ import {
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
   GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 const initialState = {
@@ -36,6 +37,7 @@ const initialState = {
   token: "",
   serviceList: [],
   users: [],
+  session: null,
 
   //CART
   cartItems: localStorage.getItem("cartItems")
@@ -229,6 +231,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         serviceList: action.payload,
+      };
+    case USER_SESSION:
+      return {
+        ...state,
+        session: action.payload ,
       };
     default:
       return { ...state };

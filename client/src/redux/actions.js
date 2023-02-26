@@ -20,6 +20,7 @@ import {
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
   GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 export function getServices() {
@@ -228,9 +229,17 @@ export function getServiceUser(userId, token) {
       }
     );
 
+   
+
     return dispatch({
       type: GET_SERVICE_USER,
       payload: response.data,
     });
   };
 }
+
+export function storeSession(user){
+  return function (dispatch) {
+    dispatch({type: USER_SESSION, payload: user })
+  }
+} 

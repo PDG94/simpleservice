@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -132,6 +132,14 @@ export default function Register() {
       filename: e.target.files[0].name,
     });
   }
+
+  const session = useSelector((state) => state.session)
+
+  useEffect(() => {
+    if(session){
+      navigate("/home");
+    }
+  })
 
   return (
     <div className="containerRe">
