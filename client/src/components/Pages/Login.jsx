@@ -1,5 +1,5 @@
 import "../Pages/auth.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import { storeToken, userLogin } from "../../redux/actions";
+import { storeSession, storeToken, userLogin } from "../../redux/actions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -66,6 +66,7 @@ export default function Login() {
         const user = result.user;
         user.getIdToken().then((token) => {
           dispatch(storeToken(token));
+          dispatch(storeSession(auth.currentUser));
           userLogin(token);
         });
         toast.success("Login Successfuly!");
@@ -75,6 +76,14 @@ export default function Login() {
         toast.error(error.message);
       });
   }
+
+  const session = useSelector((state) => state.session);
+
+  useEffect(() => {
+    if (session) {
+      navigate("/home");
+    }
+  });
 
   return (
     <div className="containerLog">

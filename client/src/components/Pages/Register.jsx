@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -11,6 +11,7 @@ import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { createdUser, storeToken } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { BsCloudArrowUp } from "react-icons/bs";
 
 export default function Register() {
   // const [email, setEmail] = useState("");
@@ -26,7 +27,6 @@ export default function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   function registerUser(event) {
     event.preventDefault();
     if (input.password !== input.cPassword) {
@@ -39,8 +39,8 @@ export default function Register() {
         const user = userCredential.user;
         const token = await user.getIdToken();
         dispatch(storeToken(token));
-        
-        const userId = auth.currentUser.uid
+
+        const userId = auth.currentUser.uid;
         const profilepic = await uploadFile(file, userId);
         createdUser(input.username, input.name, token, profilepic); //dateOfBirth later
 
@@ -61,11 +61,7 @@ export default function Register() {
     cPassword: "",
     email: "",
     dateOfBirth: "",
-  });
-
-  //PARA QUE HAGA SCROLL HACIA ARRIBA
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    filename: "",
   });
 
   let regExpPassword =
@@ -74,6 +70,7 @@ export default function Register() {
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   let regExpName = /^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/;
   let regExpUsername = /^[a-zA-Z0-9-() .]+$/;
+  let validFile = /.(?:jpg|jpeg|png|gif)/;
 
   function validate(input) {
     let errors = {};
@@ -106,6 +103,9 @@ export default function Register() {
     if (!input.dateOfBirth) {
       errors.dateOfBirth = "Date required.";
     }
+    if (input.file && !validFile.test(input.file)) {
+      errors.file = "I'm expexting a jpg, jpeg, png or gif file";
+    }
 
     return errors; //la funcion validate devuelve el objeto errors, ya sea vacio o con alguna propiedad si es q encuentra un errors
   }
@@ -122,6 +122,24 @@ export default function Register() {
       })
     );
   }
+
+  function changing(e) {
+    var pdrs = document.getElementById("file-upload").files[0].name;
+    document.getElementById("info").innerHTML = pdrs;
+    setFile(e.target.files[0]);
+    setInput({
+      ...input,
+      filename: e.target.files[0].name,
+    });
+  }
+
+  const session = useSelector((state) => state.session)
+
+  useEffect(() => {
+    if(session){
+      navigate("/home");
+    }
+  })
 
   return (
     <div className="containerRe">
@@ -184,6 +202,20 @@ export default function Register() {
                   }}
                 />
                 <p className="errP">{errors.email}</p>
+
+                <input
+                  className="dateRegister"
+                  type="date"
+                  placeholder="Date of birth"
+                  required
+                  value={input.dateOfBirth}
+                  name="dateOfBirth"
+                  // onChange={(event) => setDateOfBirth(event.target.value)}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
+                <p className="errP">{errors.dateOfBirth}</p>
               </div>
               <div className="pass">
                 <input
@@ -216,27 +248,19 @@ export default function Register() {
 
             <div className="dateBox">
               <div className="dateR">
+                <label htmlFor="file-upload" className="subir">
+                  <BsCloudArrowUp className="iconCloud" />
+                  {"  "}Upload image
+                </label>
                 <input
-                  className="dateRegister"
-                  type="date"
-                  placeholder="Date of birth"
-                  required
-                  value={input.dateOfBirth}
-                  name="dateOfBirth"
-                  // onChange={(event) => setDateOfBirth(event.target.value)}
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
+                  id="file-upload"
+                  onChange={(e) => changing(e)}
+                  type="file"
+                  style={{ display: "none" }}
                 />
-                <p className="errP">{errors.dateOfBirth}</p>
+                <p className="errP">{errors.file}</p>
+                <div id="info"></div>
               </div>
-            </div>
-            <div>
-              <input
-                type="file"
-                name="Select an archive"
-                onChange={(e) => setFile(e.target.files[0])}
-              />
             </div>
             <div className="btnRegister">
               <button type="submit" className="submitRegister">

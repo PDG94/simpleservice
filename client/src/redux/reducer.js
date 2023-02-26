@@ -12,6 +12,7 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+  GET_USERS,
   DELETE_USER,
   ADD_TO_CART,
   DECREASE_CART,
@@ -21,7 +22,9 @@ import {
   CALCULATE_TOTAL_QUANTITY,
   SAVE_URL,
   SAVE_SHIPPING_ADDRESS,
-  SAVE_BILLING_ADDRESS
+  SAVE_BILLING_ADDRESS,
+  GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 const initialState = {
@@ -36,7 +39,10 @@ const initialState = {
   userID: null,
   token: "",
   serviceList: [],
-//CART
+  users: [],
+  session: null,
+
+  //CART
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [],
@@ -46,6 +52,7 @@ const initialState = {
 //SUMMARY
 shippingAddress: {},
 billingAddress: {},
+  serviceUser: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -124,9 +131,10 @@ function rootReducer(state = initialState, action) {
         ...state,
         serviceList: action.payload,
       };
+
       case DELETE_USER:
         return { ...state 
-        }
+        };
 
         case ADD_TO_CART:
           const productIndex = state.cartItems.findIndex(
@@ -153,15 +161,15 @@ function rootReducer(state = initialState, action) {
       break;
 
       case DECREASE_CART:
-        const productIndex1 = state.cartItems.findIndex(
+        const productIndex2 = state.cartItems.findIndex(
           (item) => item.id === action.payload.id
         );
-        if (state.cartItems[productIndex1].cartQuantity > 1) {
-          state.cartItems[productIndex1].cartQuantity -= 1;
+        if (state.cartItems[productIndex2].cartQuantity > 1) {
+          state.cartItems[productIndex2].cartQuantity -= 1;
           toast.info(`${action.payload.servicename} decreased by one`, {
             position: "top-left",
           });
-        } else if (state.cartItems[productIndex1].cartQuantity === 1) {
+        } else if (state.cartItems[productIndex2].cartQuantity === 1) {
           const newCartItem = state.cartItems.filter(
             (item) => item.id !== action.payload.id
           );
@@ -174,11 +182,11 @@ function rootReducer(state = initialState, action) {
 break;
 
         case REMOVE_CART:
-          const newCartItem = state.cartItems.filter(
+          const newCartItem1 = state.cartItems.filter(
             (item) => item.id !== action.payload.id
           );
     
-          state.cartItems = newCartItem;
+          state.cartItems = newCartItem1;
           toast.success(`${action.payload.description} removed from cart`, {
             position: "top-left",
           });
@@ -186,14 +194,42 @@ break;
           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 break;
 
-        case CLEAR_CART:
-        console.log(action.payload);
-        state.cartItems = [];
-        toast.info(`Cart cleared`, {
+case CLEAR_CART:
+  console.log(action.payload);
+  state.cartItems = [];
+  toast.info(`Cart cleared`, {
+    position: "top-left",
+  });
+  localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+break;
+
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+
+    case DELETE_USER:
+      return { ...state };
+  
+    case GET_SERVICE_USER:
+      return {
+        ...state,
+        serviceUser: action.payload,
+      };
+
+    case REMOVE_CART:
+      const newCartItem = state.cartItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+
+      state.cartItems = newCartItem;
+      toast.success(`${action.payload.name} removed from cart`, {
         position: "top-left",
       });
+
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-break;
+      break;
 
       case CALCULATE_SUB_TOTAL:
           const array = [];
@@ -233,10 +269,17 @@ break;
        case SAVE_BILLING_ADDRESS:
        console.log(action.payload);
        state.billingAddress = action.payload;
+break;
 
+    case USER_SESSION:
+      return {
+        ...state,
+        session: action.payload ,
+      };
     default:
       return { ...state };
   }
 }
+
 
 export default rootReducer;

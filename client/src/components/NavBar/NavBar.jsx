@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { activeUsers, calculateTotalQuantity, removeUsers } from "../../redux/actions";
+import { activeUsers, removeUsers, storeSession } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
@@ -69,6 +70,7 @@ const NavBar = () => {
   function logoutUser() {
     signOut(auth)
       .then(() => {
+        dispatch(storeSession(auth.currentUser));
         toast.success("Logout successfully.");
         navigate("/home");
       })

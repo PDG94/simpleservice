@@ -12,6 +12,7 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+  GET_USERS,
   ADD_TO_CART,
   DECREASE_CART,
   CLEAR_CART,
@@ -20,7 +21,9 @@ import {
   CALCULATE_TOTAL_QUANTITY,
   SAVE_URL,
   SAVE_SHIPPING_ADDRESS,
-  SAVE_BILLING_ADDRESS
+  SAVE_BILLING_ADDRESS,
+  GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 export function getServices() {
@@ -71,7 +74,9 @@ export function getServicesByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    const response = await axios.get("https://simpleservice-production.up.railway.app/categories");
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/categories"
+    );
     return dispatch({
       type: GET_CATEGORIES,
       payload: response.data,
@@ -169,10 +174,18 @@ export function getServiceList(id) {
   };
 }
 
-export function deleteUser(){
+export function deleteUser() {
   //esta función se esta importando en ViewServices pero no existe
 }
 
+export function getUsers() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/users"
+    );
+    return dispatch({ type: GET_USERS, payload: response.data });
+  };
+}
 //CART
 export const addToCart = (payload) => {
   return function (dispatch) {
@@ -229,4 +242,23 @@ export const saveBillingAddress = (payload) => {
 };
 
 
+export function getServiceUser(userId, token) {
+  return async function (dispatch) {
+    const response = await axios.get(
+      `https://simpleservice-production.up.railway.app/user/${userId}`,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    return dispatch({
+      type: GET_SERVICE_USER,
+      payload: response.data,
+    });
+  };
+}
 
+export function storeSession(user){
+  return function (dispatch) {
+    dispatch({type: USER_SESSION, payload: user })
+  }
+} 

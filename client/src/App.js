@@ -30,8 +30,8 @@ import {
   Checkout,
   CheckoutDetails,
   CheckoutSuccess,
+  UpdateProfilesUsers,
 } from "./components/index";
-
 
 function App() {
   return (
@@ -66,6 +66,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <AddCategories />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/update"
+            element={
+              <AdminOnlyRoute>
+                <UpdateProfilesUsers />
               </AdminOnlyRoute>
             }
           />
@@ -143,6 +151,7 @@ function App() {
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </BrowserRouter>
