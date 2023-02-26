@@ -26,7 +26,10 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
-  Cart
+  Cart,
+  Checkout,
+  CheckoutDetails,
+  CheckoutSuccess,
 } from "./components/index";
 
 
@@ -137,6 +140,9 @@ function App() {
                 <Cart />
             }
           />
+          <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
         </Routes>
       </div>
     </BrowserRouter>

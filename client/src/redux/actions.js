@@ -17,7 +17,10 @@ import {
   CLEAR_CART,
   REMOVE_CART,
   CALCULATE_SUB_TOTAL,
-  CALCULATE_TOTAL_QUANTITY
+  CALCULATE_TOTAL_QUANTITY,
+  SAVE_URL,
+  SAVE_SHIPPING_ADDRESS,
+  SAVE_BILLING_ADDRESS
 } from "./actionTypes";
 
 export function getServices() {
@@ -206,5 +209,24 @@ export const calculateTotalQuantity = (payload) => {
     dispatch({ type: CALCULATE_TOTAL_QUANTITY, payload });
   };
 };
+
+export const saveUrl = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_URL, payload });
+  };
+};
+
+export const saveShippingAddress = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_SHIPPING_ADDRESS, payload });
+  };
+};
+
+export const saveBillingAddress = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_BILLING_ADDRESS, payload });
+  };
+};
+
 
 

@@ -31,6 +31,9 @@ import ViewServiceUser from "./User/ViewService/ViewServiceUser";
 import DashboardUser from "./User/Dashboard/Profile";
 import UpdateInfoUser from "./User/UpdateInfo/UpdateInfo";
 import Cart from "../components/Pages/Cart"
+import Checkout from "./Pages/Checkout/Checkout";
+import CheckoutDetails from "./Pages/Checkout/CheckoutDetails";
+import CheckoutSuccess from "./Pages/Checkout/CheckoutSucess";
 
 export {
   Card,
@@ -66,4 +69,7 @@ export {
   DashboardUser,
   UpdateInfoUser,
   Cart,
+  Checkout,
+  CheckoutDetails,
+  CheckoutSuccess,
 };
