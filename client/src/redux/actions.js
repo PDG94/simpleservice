@@ -12,6 +12,7 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+  GET_SERVICE_USER
 } from "./actionTypes";
 
 export function getServices() {
@@ -162,4 +163,16 @@ export function getServiceList(id) {
 
 export function deleteUser(){
   //esta función se esta importando en ViewServices pero no existe
+}
+
+export function getServiceUser(userId, token){
+  return async function(dispatch){
+    const response = await axios.get(`https://simpleservice-production.up.railway.app/user/${userId}`,{
+      headers: { Authorization: "Bearer " + token }})
+    
+   return dispatch({
+    type: GET_SERVICE_USER,
+    payload: response.data
+   })
+  }
 }
