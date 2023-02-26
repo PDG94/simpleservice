@@ -10,7 +10,6 @@ import {
   MdOutlineVisibility,
   MdReorder,
 } from "react-icons/md";
-import logo from "../../Imagenes/logos.ico";
 
 export default function NavBarAdmin() {
 
@@ -73,7 +72,7 @@ export default function NavBarAdmin() {
       <div className="user">
         <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
         <hr />
-        <h4 className="nameAd">{name}</h4>
+        <h4 className="nameAd">Simple Service</h4>
       </div>
       <nav className="navAd">
         <ul className="ulNav">
