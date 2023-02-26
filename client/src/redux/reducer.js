@@ -19,6 +19,7 @@ import {
   CLEAR_CART,
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY
+  GET_SERVICE_USER
 } from "./actionTypes";
 
 const initialState = {
@@ -33,12 +34,15 @@ const initialState = {
   userID: null,
   token: "",
   serviceList: [],
+
 //CART
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
+  serviceUser:[]
+
 };
 
 function rootReducer(state = initialState, action) {
@@ -117,6 +121,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         serviceList: action.payload,
       };
+
       case DELETE_USER:
         return { ...state 
         }
@@ -175,6 +180,12 @@ break;
     
           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 break;
+
+    case GET_SERVICE_USER:
+      return {
+        ...state,
+        serviceUser: action.payload
+      }
 
         case CLEAR_CART:
         console.log(action.payload);

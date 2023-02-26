@@ -12,12 +12,16 @@ import {
   REMOVE_USER,
   STORE_TOKEN,
   GET_SERVICES_LIST,
+
   ADD_TO_CART,
   DECREASE_CART,
   CLEAR_CART,
   REMOVE_CART,
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY
+
+  GET_SERVICE_USER
+
 } from "./actionTypes";
 
 export function getServices() {
@@ -207,4 +211,16 @@ export const calculateTotalQuantity = (payload) => {
   };
 };
 
+
+export function getServiceUser(userId, token){
+  return async function(dispatch){
+    const response = await axios.get(`https://simpleservice-production.up.railway.app/user/${userId}`,{
+      headers: { Authorization: "Bearer " + token }})
+    
+   return dispatch({
+    type: GET_SERVICE_USER,
+    payload: response.data
+   })
+  }
+}
 
