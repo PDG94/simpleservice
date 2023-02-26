@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk"; //is used to delay the evaluation of an operation(asynchronous actions)
 import rootReducer from "../redux/reducer";
 import {loadState, saveState} from "../localstorage";
+import throttle from "lodash/throttle";
 
 const persistedState = loadState();
 
@@ -12,7 +13,7 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.subscribe(() => {
+store.subscribe(throttle(() => {
   saveState({
     
       services: store.getState().services,
@@ -29,4 +30,4 @@ store.subscribe(() => {
       cartTotalAmount: store.getState().cartTotalAmount,
       serviceUser: store.getState().serviceUser,
   });
-})
+}, 1000))
