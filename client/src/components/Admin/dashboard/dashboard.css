@@ -1,10 +1,9 @@
 .dash{
     background-color:  #1a1a25;
     width: 100%;
-    height: 100vh;
-
+    height: 140vh;
+    position: absolute;
 }
-
 .mainMenu{
     color: aliceblue;
     font-size: 20px;
@@ -13,6 +12,12 @@
     border-radius: 8px;
     margin-left: 180vh;
 
+}
+.hi{
+    font-size: 70px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+   margin-left: -35%;
 }
 .dashboard{
     background-color:  #1a1a25;
@@ -24,6 +29,9 @@
    display: flex;
     margin-top: 1.4rem;
     margin-left: 250px;
+
+}
+.services{
 
 }
 .insights{
@@ -122,4 +130,33 @@ stroke-dasharray: 80;
     height: 20%;
     justify-content: center;
     align-items:center;
+}
+.recentOrder{
+    margin-top: 300px;
+    margin-left: 70px;
+    position: absolute;
+}
+.recentOrder h2{
+    margin-right: 400px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.tableOrd{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #252636;
+    width: 188%;
+border-radius: 30px;
+}
+
+.tbody td{
+    height: 2.9rem;
+    border-bottom: 1px solid #9f90ea;
+}
+.tbody tr:last-child td{
+border: none;
+}
+.ViewOrders{
+    margin-left: 620px;
+    color: #9f90ea;
 }
