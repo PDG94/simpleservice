@@ -2,6 +2,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 import {
   Home,
   Login,
@@ -25,8 +26,9 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
+  UpdateProfilesUsers,
+  Cart,
 } from "./components/index";
-import UserOnlyRoute from "./components/AdminOnlyRoutes/UsersOnlyRoutes";
 
 function App() {
   return (
@@ -61,6 +63,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <AddCategories />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/update"
+            element={
+              <AdminOnlyRoute>
+                <UpdateProfilesUsers />
               </AdminOnlyRoute>
             }
           />
@@ -129,6 +139,7 @@ function App() {
               </UserOnlyRoute>
             }
           />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -5,14 +5,14 @@ import { toast } from "react-toastify";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import logos from "../Imagenes/logos.ico";
 import { useEffect, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { activeUsers, removeUsers } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
 import { Link } from "react-router-dom";
-import { SearchBar } from "../index";
+import { Cart, SearchBar } from "../index";
 import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 
 const NavBar = () => {
@@ -21,6 +21,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
+  const cartTotalQuantity = useSelector((state)=>state.cartTotalQuantity)
 
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
@@ -59,6 +60,16 @@ const NavBar = () => {
         toast.error(error.message);
       });
   }
+
+  const cart = (
+    <span className=''>
+      <Link to="/cart">
+        Cart
+        <FaShoppingCart size={20} />
+        <p>{cartTotalQuantity}</p>
+      </Link>
+    </span>
+  );
   return (
     <nav className="mainNavContainer">
       <div className="btns">
@@ -115,16 +126,16 @@ const NavBar = () => {
         </ShowOnLogin>
 
         <ShowOnLogin>
-          <Link className="btnNav" to="/myorders">
-            My Cart
-          </Link>
-        </ShowOnLogin>
-
-        <ShowOnLogin>
           <Link className="btnNav" to="/home" onClick={logoutUser}>
             Logout
           </Link>
         </ShowOnLogin>
+        
+        <div>
+        <ShowOnLogin>
+          {cart}
+          </ShowOnLogin>
+        </div>
 
         <ShowOnLogin>
           <div className="greet">
