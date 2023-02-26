@@ -1,5 +1,5 @@
 import "../Pages/auth.css";
-import React, { useEffect, useState } from "react";
+import React, { /* useEffect, */ useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -77,13 +77,14 @@ export default function Login() {
       });
   }
 
-  const session = useSelector((state) => state.session);
+  // const session = useSelector((state) => state.session);
+  // console.log(session)
 
-  useEffect(() => {
-    if (session) {
-      navigate("/home");
-    }
-  });
+  // useEffect(() => {
+  //   if (session) {
+  //     navigate("/home");
+  //   }
+  // });
 
   return (
     <div className="containerLog">

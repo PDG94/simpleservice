@@ -18,18 +18,11 @@ export default function Create() {
   const categories = useSelector((state) => state.categories);
   const serviceList = useSelector((state) => state.serviceList);
   const token = useSelector((state) => state.token);
-  const session = useSelector((state) => state.session);
 
   useEffect(() => {
     dispatch(getCategories());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    if(session === null){
-      navigate("/home");
-    }
-  })
 
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
