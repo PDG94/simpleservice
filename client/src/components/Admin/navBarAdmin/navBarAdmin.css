@@ -1,75 +1,97 @@
-.navbar{
-    position: absolute;
-    background-color: #101010;
-    width: 200px;
-    position: fixed;
+.navbarAd {
+  background-color:  #252636;
+  width: 260px;
+  position: fixed;
+  margin-top: 100px;
 }
-.user{
-    padding: 10px;
-    margin-top: 170px;
-    margin-left: 10px;
-    background-color: #101010;
-    color: white;
+.userAd {
+  padding: 10px;
+  margin-top: 320px;
+  margin-left: 5px;
+  background-color:  #252636;
+  color: #9f90ea;
 }
-.nameAd{
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.navAd{
-    height: 700px;
-    background-color: #101010;
-}
-.ulNav{
-    margin-left: 10px;
-    margin-top: 80px;
-    background-color: #101010;
+.nameAd {
+  margin-top: 20px;
+  margin-left: 5px;
+  font-size: 30px;
 }
 
+.navAd1 {
 
+  margin-top: 0px;
+  background-color:  #252636;
+}
+.divNavAd {
+  margin-left: 10px;
+  margin-top: 80px;
+  margin-bottom: 300px;
+  background-color:  #252636;
+}
 
 /*lista de nav*/
-.homeadd{
-    width: 170px;
-    margin-bottom: 10px;
+.adhome {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-.homeadd:hover{
-    background-color: #3833338a;
-    width: 170px;
+.adhome:hover {
+  background-color: #3833338a;
+  border-radius: 6px;
 }
-.addSerAd{
-    width: 170px;
-    margin-bottom: 10px;
+.adservices {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-.addSerAd:hover{
-    background-color: #3833338a;
-    width: 170px;
-
+.adservices:hover {
+  background-color: #3833338a;
+  border-radius: 6px;
 }
-.addCatAd{
-    width: 170px;
-    margin-bottom: 10px;
+.adcategories {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-.addCatAd:hover{
-    background-color: #3833338a;
-    width: 170px;
-
+.adcategories:hover {
+  background-color: #3833338a;
+  border-radius: 6px;
 }
-.viewAd{
-    width: 170px;
-    margin-bottom: 10px;
+.adview {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-.viewAd:hover{
-    background-color: #3833338a;
-    width: 170px;
-
+.adview:hover {
+  background-color: #3833338a;
+  border-radius: 6px;
 }
-.orderAd{
-    width: 170px;
-    margin-bottom: 10px;
+.adorders {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-.orderAd:hover{
-    background-color: #3833338a;
-    width: 170px;
-
+.adorders:hover {
+  background-color: #3833338a;
+  border-radius: 6px;
+}
+.icNavDash{
+font-size: 30px;
+  margin-left: -15px;
+margin-right: 20px;
 }

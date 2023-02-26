@@ -1,16 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+
 }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(
+  /* background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(255, 255, 255, 1) 50%,
     rgba(0, 0, 0, 1) 100%
-  );
+  ); */
 }
 
 code {
