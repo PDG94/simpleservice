@@ -83,6 +83,83 @@
   transform: 0.5s;
   outline: none;
 }
+/* .inpFile {
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 90%;
+  background-color: white;
+  border: 1px solid transparent;
+  border: 1px solid red;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 1px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+} */
+/* input[type="file"]#ourinput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.labelinp[for="ourinput"] {
+  font-size: 100%;
+  font-weight: 600;
+  color: black;
+  background-color: #def25a;
+  display: inline-block;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  width: fit-content;
+  text-align: center;
+} */
+.subir {
+  /* padding: 5px 10px;
+  background: gray;
+  color: #fff;
+  border: 0px solid #fff; */
+  cursor: pointer;
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 70%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000000;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 1px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+}
+
+.subir:hover {
+  color: yellow;
+  background: black;
+}
+#info {
+  color: blue;
+  font-weight: 500;
+  font-size: 100%;
+  font-family: system-ui;
+  letter-spacing: 0.5%;
+  margin-top: 0;
+  margin-bottom: 7%;
+}
+.iconCloud {
+  font-size: 180%;
+  margin-right: 5%;
+}
 .errP {
   color: red;
   font-size: 95%;
@@ -131,28 +208,12 @@
   justify-content: center;
   align-items: center;
 }
-/* .inpRegister {
-  padding: 12px 10px 15px 20px;
-  position: fixed;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  width: 60%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #000000;
-  font-weight: 500;
-  font-size: 1em;
-  letter-spacing: 1px;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
-  transform: 0.5s;
-  outline: none;
-} */
+
 .dateRegister {
   padding: 12px 10px 15px 20px;
   margin-bottom: 12px;
   border-radius: 10px;
-  width: 100%;
+  width: 90.8%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #615f5f;
@@ -172,7 +233,7 @@
   align-items: center;
   margin-top: 0;
   margin-left: 35%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   height: 50px;
   width: 30%;
   border: 2px solid #b4ab07;
