@@ -8,6 +8,7 @@ import Notiflix from "notiflix";
 import PaginationAdmin from "../PaginationAdmin/PaginationAdmin";
 import { removeUsers, resedPaged } from "../../../redux/actions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import "../ViewServices/viewService.css";
 
 export default function ViewServices() {
   const dispatch = useDispatch();
@@ -84,48 +85,54 @@ export default function ViewServices() {
     <>
       <NavBarAdmin />
       {isloading && <Loading />}
-      <div className="">
-        <h2>All Services</h2>
-        <div className="table">
+      <div className="containerView">
+        <p className="h2">All Services</p>
+        <div className="table table-responsive table-dark">
           {allServices.length === 0 ? (
             <p>No product found</p>
           ) : (
-            <table>
+            <table className="tableContainer">
               <thead>
                 <tr>
-                  <th>s/n</th>
-                  <th>Image</th>
-                  <th>Name</th>
-                  <th>Service</th>
-                  <th>Price</th>
-                  <th>Actions</th>
+                  <th className="thView">
+                    {"  "}
+                    s/n
+                  </th>
+                  <th className="thView">Image</th>
+                  <th className="thView">Name</th>
+                  <th className="thView">Service</th>
+                  <th className="thView">Price</th>
+                  <th className="thView">Actions</th>
                 </tr>
               </thead>
               {currentServices.map((service, index) => {
                 const { id, price } = service;
                 return (
                   <tbody>
-                    <tr key={id}>
-                      <td>{index + 1}</td>
+                    <tr key={id} className="table-secondary">
+                      <td className="tdView">{index + 1}</td>
                       <td>
                         <img
                           src={service["Users.profilepic"]}
                           alt="img"
-                          style={{ width: "100px" }}
+                          style={{ width: "80px" }}
                         ></img>
                       </td>
-                      <td>{service["Users.name"]}</td>
-                      <td>{service?.servicename}</td>
-                      <td>{`${price}`}</td>
-                      <Link to={`/admin/edit/${id}`}>
-                        <FaEdit color="green" onClick={editarAlert} />
-                      </Link>
-                      <Link>
-                        <BsTrash
-                          color="red"
-                          onClick={() => confirmDelete(id)}
-                        />
-                      </Link>
+                      <td className="tdView">{service["Users.name"]}</td>
+                      <td className="tdView">{service?.servicename}</td>
+                      <td className="tdView">{`${price}`}</td>
+                      <td>
+                        <Link to={`/admin/edit/${id}`} className="editView">
+                          <FaEdit color="green" onClick={editarAlert} />
+                        </Link>
+
+                        <Link className="bin">
+                          <BsTrash
+                            color="red"
+                            onClick={() => confirmDelete(id)}
+                          />
+                        </Link>
+                      </td>
                     </tr>
                   </tbody>
                 );
