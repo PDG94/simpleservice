@@ -1,6 +1,7 @@
-.containerCheckDetail {
+/* .containerCheckDetail {
   background-color: var(--colorWhite);
   border-radius: 3px;
+  border: 2px solid yellow;
 }
 
 .labelCheck {
@@ -12,6 +13,8 @@
 .inputCheck {
   padding: 10px 45px 10px 45px;
   scale: 1.11;
+  color: red;
+  border: 2px solid blue;
 }
 
 .btnCheckDet {
@@ -25,4 +28,59 @@
 .btnCheckDet:hover {
   background-color: var(--colorPrimary);
   color: #e8e8e8;
+} */
+
+.containerChackDetail {
+  border: 2px solid red;
+  background-color: black;
+}
+.formCheckout {
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: #ced379;
+  color: #000000;
+  margin-top: 3%;
+  border: 8px solid #d7df23;
+  border-radius: 50px;
+  width: 50%;
+  height: 50%;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+.labelCheck {
+  margin-bottom: 30px;
+  font-size: 190%;
+  font-weight: 700;
+  font-family: system-ui;
+  color: rgb(69, 67, 67);
+  letter-spacing: 1px;
+  margin-top: 5%;
+}
+.elementCheck {
+  color: red;
+}
+.checkFormStripe {
+  color: red;
+}
+.chSum {
+  color: red;
+  border: 2px solid red;
+}
+.inpuCheck {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+.inputCheck {
+  color: red;
+  width: 30%;
+  margin-left: 30%;
+}
+.btnCheckDet {
 }
