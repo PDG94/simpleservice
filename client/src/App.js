@@ -26,9 +26,12 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
-  UpdateProfilesUsers,
   Cart,
-  ViewAllServices
+  ViewAllServices,
+  Checkout,
+  CheckoutDetails,
+  CheckoutSuccess,
+  UpdateProfilesUsers,
 } from "./components/index";
 
 function App() {
@@ -149,6 +152,15 @@ function App() {
               </UserOnlyRoute>
             }
           />
+          <Route
+            path="/cart"
+            element={
+                <Cart />
+            }
+          />
+          <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>

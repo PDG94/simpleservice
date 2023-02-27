@@ -11,13 +11,17 @@ import { FiDollarSign } from "react-icons/fi";
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const cartI = useSelector((state)=>state.cartItems)
+  const cartItems = useSelector((state)=>state.cartItems)
 
-  const cart = cartI.findIndex((cart)=>cart.id === id)
+  const cart = cartItems.find((cart) => cart.id === id);
   console.log(cart);
+  const isCartAdded = cartItems.findIndex((cart) => {
+    return cart.id === id;
+  });
+  console.log(isCartAdded);
 
   const serviceDetail = useSelector((state) => state.serviceDetail);
-  const allServices = useSelector((state)=>state.services)
+
   
   
 
@@ -28,13 +32,17 @@ export default function Detail() {
     };
   }, [dispatch, id]);
 
-  const addToCart1 = (id) => {
-    dispatch(addToCart(id));
+
+  const addToCart1 = (service) => {
+    dispatch(addToCart(service));
+    dispatch(calculateTotalQuantity())
+  
+ 
   };
 
-  const decreaseCart1 = (id) => {
-    dispatch(decreaseCart(id));
-    dispatch(calculateTotalQuantity());
+  const decreaseCart1 = (service) => {
+    dispatch(decreaseCart(service));
+   
   };
 
 
@@ -80,10 +88,11 @@ export default function Detail() {
                       <div className="description">
                         {service?.description || "description not available"}
                       </div>
+                      {isCartAdded < 0 ? null : (
                       <>
                       <button
                         className="--btn"
-                        onClick={() => decreaseCart1(id)}
+                        onClick={() => decreaseCart1(service)}
                       >
                         -
                       </button>
@@ -92,12 +101,13 @@ export default function Detail() {
                       </p>
                       <button
                         className="--btn"
-                         onClick={() => addToCart1(id)}
+                         onClick={() => addToCart1(service)}
                       >
                         +
                       </button>
                     </>
-                      <button onClick={() => addToCart1(id)}>ADD TO CART</button>
+                     )}
+                      <button onClick={() => addToCart1(service)}>ADD TO CART</button>
                     </div>
                   </div>
                 </div>

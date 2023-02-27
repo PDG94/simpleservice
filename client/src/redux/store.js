@@ -2,7 +2,7 @@ import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk"; //is used to delay the evaluation of an operation(asynchronous actions)
 import rootReducer from "../redux/reducer";
-import {loadState, saveState} from "../localstorage";
+import { loadState, saveState } from "../localstorage";
 import throttle from "lodash/throttle";
 
 const persistedState = loadState();
@@ -13,9 +13,9 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.subscribe(throttle(() => {
-  saveState({
-    
+store.subscribe(
+  throttle(() => {
+    saveState({
       services: store.getState().services,
       serviceDetail: store.getState().serviceDetail,
       categories: store.getState().categories,
@@ -29,6 +29,10 @@ store.subscribe(throttle(() => {
       cartTotalQuantity: store.getState().cartTotalQuantity,
       cartTotalAmount: store.getState().cartTotalAmount,
       serviceUser: store.getState().serviceUser,
-      session: store.getState().session,
-  });
-}, 1000))
+      // session: store.getState().session,
+      cartItems: store.getState().cartItems,
+      shippingAddress: store.getState().shippingAddress,
+      billingAddress: store.getState().billingAddress,
+    });
+  }, 1000)
+);

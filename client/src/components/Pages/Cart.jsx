@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { addToCart, decreaseCart, removeCart, clearCart, calculateSubTotal, calculateTotalQuantity } from "../../redux/actions";
+import { Link, useNavigate } from "react-router-dom";
+import { addToCart, decreaseCart, removeCart, clearCart, calculateSubTotal, calculateTotalQuantity, cleanState, saveUrl } from "../../redux/actions";
+import NavBar from "../NavBar/NavBar";
+
 
 
 
@@ -10,14 +12,31 @@ const Cart = () => {
     const cartItems = useSelector((state)=>state.cartItems);
     const cartTotalAmount = useSelector((state)=>state.cartTotalAmount);
     const cartTotalQuantity = useSelector((state)=>state.cartTotalQuantity);
+    const isLoggedIn1 = useSelector((state)=>state.isLoggedIn);
+    console.log(isLoggedIn1);
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector((state)=>state.selectIsLoggedIn);
+    const navigate =  useNavigate();
+    const url = window.location.href;
 
     useEffect(() => {
         dispatch(calculateSubTotal());
         dispatch(calculateTotalQuantity());
-        // dispatch(SAVE_URL(""));
+        dispatch(saveUrl(""))
+        return () => {
+            dispatch(cleanState());
+          };
+        
       }, [cartItems, dispatch]);
+
+      const checkout = () => {
+        if (isLoggedIn1) {
+          navigate("/checkout-details");
+        } else {
+          dispatch(saveUrl(url));
+          navigate("/login");
+        }
+      };
+
 
     const increaseCart = (cart) => {
         dispatch(addToCart(cart));
@@ -25,16 +44,22 @@ const Cart = () => {
 
       const decreaseCart1=(cart)=>{
         dispatch(decreaseCart(cart));
+        
+   
       }
       const removeFromCart = (cart) => {
         dispatch(removeCart(cart));
+       
+        
       };
       const clearCart1 = () => {
         dispatch(clearCart());
+       
       };
     
     return (
         <section>
+               <NavBar/>
           <div className="">
             <h2>Shopping Cart</h2>
             {cartItems.length === 0 ? (
@@ -51,7 +76,7 @@ const Cart = () => {
                   <thead>
                     <tr>
                       <th>s/n</th>
-                      <th>Product</th>
+                      <th>Service</th>
                       <th>Price</th>
                       <th>Quantity</th>
                       <th>Total</th>
@@ -60,17 +85,17 @@ const Cart = () => {
                   </thead>
                   <tbody>
                     {cartItems.map((cart, index) => {
-                      const { id, price, cartQuantity } = cart;
+                      const { id, servicename, price, cartQuantity } = cart;
                       return (
                         <tr key={id}>
                           <td>{index + 1}</td>
                           <td>
                             <p>
-                              <b>{cart["Users.name"]}</b>
+                              <b>{servicename}</b>
                             </p>
                             <img
                               src={cart["Users.profilepic"]}
-                              alt={cart["Users.profilepic"]}
+                              alt="img"
                               style={{ width: "100px" }}
                             />
                           </td>
@@ -127,7 +152,7 @@ const Cart = () => {
                       <p>Tax an shipping calculated at checkout</p>
                       <button
                         className="--btn --btn-primary --btn-block"
-                        
+                        onClick={checkout}
                       >
                         Checkout
                       </button>
