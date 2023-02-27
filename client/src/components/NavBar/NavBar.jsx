@@ -11,7 +11,7 @@ import {
   activeUsers,
   removeUsers,
   getServices,
-  storeSession,
+  /* storeSession,*/
   calculateTotalQuantity,
 } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
@@ -75,7 +75,7 @@ const NavBar = () => {
     signOut(auth)
       .then(() => {
         // dispatch(storeSession(auth.currentUser));
-        localStorage.setItem("token", "")
+        localStorage.setItem("token", "");
         toast.success("Logout successfully.");
         navigate("/home");
       })

@@ -1,6 +1,6 @@
 import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import s from "../Checkout/checkoutDetails.css"
+import s from "../Checkout/checkoutDetails.css";
 import {
   Elements,
   CardElement,
@@ -45,11 +45,11 @@ const CheckOutForm = () => {
     }
   };
   return (
-    <div className={s.container}>
+    <div className={s.containerCheckDetail}>
       <form onSubmit={handleSubmit}>
-        <h2 className={s.label} >Introduce tu metodo de pago</h2>
-        <CardElement className={s.input} />
-        <button className={s.btn}>Buy</button>
+        <h2 className={s.labelCheck}>Introduce tu metodo de pago</h2>
+        <CardElement className={s.inputCheck} />
+        <button className={s.btnCheckDet}>Buy</button>
       </form>
     </div>
   );
