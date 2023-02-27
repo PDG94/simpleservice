@@ -62,12 +62,12 @@
 .cartBox {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
     270deg,
     #101010 0%,
     rgba(255, 255, 255, 1) 50%,
     #101010 100%
-  );
+  ); */
 }
 .tableBoxCart {
   width: 80%;
