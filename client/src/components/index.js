@@ -30,14 +30,12 @@ import OrdersUser from "./User/Orders/OrdersUser";
 import ViewServiceUser from "./User/ViewService/ViewServiceUser";
 import DashboardUser from "./User/Dashboard/Profile";
 import UpdateInfoUser from "./User/UpdateInfo/UpdateInfo";
-import Cart from "../components/Pages/Cart"
+import Cart from "../components/Pages/Cart";
 import Checkout from "./Pages/Checkout/Checkout";
 import CheckoutDetails from "./Pages/Checkout/CheckoutDetails";
 import CheckoutSuccess from "./Pages/Checkout/CheckoutSucess";
 import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
-import Cart from "../components/Pages/Cart";
 import ViewAllServices from "./User/ViewService/ViewAllServices";
-
 
 export {
   Card,
