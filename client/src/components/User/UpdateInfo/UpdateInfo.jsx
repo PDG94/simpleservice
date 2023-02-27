@@ -7,13 +7,12 @@ import { toast } from "react-toastify";
 import "./UpdateInfo.css";
 import { MdDescription } from "react-icons/md";
 import NavBarUser from "../NavBarUser/NavBarUser";
-import { auth } from "../../Firebase/config.js";
 
 export default function UpdateInfoUser() {
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token")
-  const userID = useSelector((state) => state.userID)
+  const token = localStorage.getItem("token");
+  const userID = useSelector((state) => state.userID);
   // console.log(userID)
 
   const [form, setForm] = useState({
@@ -54,7 +53,7 @@ export default function UpdateInfoUser() {
 
     const info = updateValidator();
 
-    /* const response =  */await axios.put(
+    /* const response =  */ await axios.put(
       `https://simpleservice-production.up.railway.app/user/${userID}`,
       info,
       {
@@ -62,7 +61,7 @@ export default function UpdateInfoUser() {
       }
     );
     toast.success("User update successfully!");
-    // navigate("/home");
+    navigate("/Services");
   };
 
   return (
