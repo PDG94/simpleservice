@@ -1,4 +1,4 @@
-/* .container {
+.container {
     background-color: var(--colorWhite);
     border-radius: 3px;
 }
@@ -25,4 +25,4 @@
 .btn:hover {
     background-color: var(--colorPrimary);
     color: #e8e8e8;
-} */
+}
