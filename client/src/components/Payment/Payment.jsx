@@ -27,7 +27,7 @@ const CheckOutForm = () => {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
 
-      const { data } = await axios.post(`http://localhost:3001/checkout`, {
+      const { data } = await axios.post(`https://simpleservice-production.up.railway.app/checkout`, {
         // id o nombre del cliente 
 
         // email donde se enviara el recibo
