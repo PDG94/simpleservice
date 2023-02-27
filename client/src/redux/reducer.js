@@ -10,7 +10,7 @@ import {
   RESET_PAGED,
   SET_ACTIVE_USER,
   REMOVE_USER,
-  STORE_TOKEN,
+  // STORE_TOKEN,
   GET_SERVICES_LIST,
   GET_USERS,
   DELETE_USER,
@@ -24,7 +24,7 @@ import {
   SAVE_SHIPPING_ADDRESS,
   SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
-  USER_SESSION,
+  // USER_SESSION,
 } from "./actionTypes";
 
 const initialState = {
@@ -122,12 +122,11 @@ function rootReducer(state = initialState, action) {
         userID: null,
       };
 
-    case STORE_TOKEN:
-      console.log(action.payload)
-      return {
-        ...state,
-        token: action.payload,
-      };
+    // case STORE_TOKEN:
+    //   return {
+    //     ...state,
+    //     token: action.payload,
+    //   };
 
     case GET_SERVICES_LIST:
       return {
@@ -160,7 +159,7 @@ function rootReducer(state = initialState, action) {
         // Add item to the cart
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.name} added to cart`, {
+        toast.success(`${action.payload.servicename} added to cart`, {
           position: "top-left",
         });
       }
@@ -258,11 +257,11 @@ function rootReducer(state = initialState, action) {
         serviceUser: action.payload,
       };
 
-    case USER_SESSION:
-      return {
-        ...state,
-        session: action.payload,
-      };
+    // case USER_SESSION:
+    //   return {
+    //     ...state,
+    //     session: action.payload,
+    //   };
     default:
       return { ...state };
   }

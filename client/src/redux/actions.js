@@ -23,7 +23,7 @@ import {
   SAVE_SHIPPING_ADDRESS,
   SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
-  USER_SESSION,
+  // USER_SESSION,
 } from "./actionTypes";
 
 export function getServices() {
@@ -137,11 +137,11 @@ export const removeUsers = (payload) => {
 };
 
 //JWT TOKEN
-export const storeToken = (payload) => {
-  return function (dispatch) {
-    dispatch({ type: STORE_TOKEN, payload });
-  };
-};
+// export const storeToken = (payload) => {
+//   return function (dispatch) {
+//     dispatch({ type: STORE_TOKEN, payload });
+//   };
+// };
 
 //POST REQUEST
 export const createdUser = (username, name, token, profilepic) => {
@@ -257,8 +257,8 @@ export function getServiceUser(userId, token) {
   };
 }
 
-export function storeSession(user){
-  return function (dispatch) {
-    dispatch({type: USER_SESSION, payload: user })
-  }
-} 
+// export function storeSession(user){
+//   return function (dispatch) {
+//     dispatch({type: USER_SESSION, payload: user })
+//   }
+// } 

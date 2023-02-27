@@ -94,7 +94,7 @@ const Cart = () => {
                               <b>{servicename}</b>
                             </p>
                             <img
-                              src={cart["Users.profilepic"]}
+                              src={cart.Users[0].profilepic}
                               alt="img"
                               style={{ width: "100px" }}
                             />

@@ -69,7 +69,8 @@ const NavBar = () => {
   function logoutUser() {
     signOut(auth)
       .then(() => {
-        dispatch(storeSession(auth.currentUser));
+        // dispatch(storeSession(auth.currentUser));
+        localStorage.setItem("token", "")
         toast.success("Logout successfully.");
         navigate("/home");
       })

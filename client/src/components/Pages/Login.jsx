@@ -17,7 +17,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import { storeSession, storeToken, userLogin } from "../../redux/actions";
+import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -45,7 +45,7 @@ export default function Login() {
       .then((userCredential) => {
         const user = userCredential.user;
         user.getIdToken().then((token) => {
-          dispatch(storeToken(token));
+          // dispatch(storeToken(token));
           userLogin(token);
         });
         setIsloading(false);
