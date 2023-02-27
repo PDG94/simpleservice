@@ -56,8 +56,6 @@ const Cart = () => {
         dispatch(clearCart());
        
       };
-
-      console.log(cartItems);
     
     return (
         <section>
