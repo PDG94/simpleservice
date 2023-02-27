@@ -24,7 +24,6 @@ store.subscribe(
       email: store.getState().email,
       useName: store.getState().useName,
       userID: store.getState().userId,
-      token: store.getState().token,
       users: store.getState().users,
       cartTotalQuantity: store.getState().cartTotalQuantity,
       cartTotalAmount: store.getState().cartTotalAmount,

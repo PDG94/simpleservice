@@ -17,7 +17,7 @@ export default function Create() {
 
   const categories = useSelector((state) => state.categories);
   const serviceList = useSelector((state) => state.serviceList);
-  const token = useSelector((state) => state.token);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     dispatch(getCategories());

@@ -9,14 +9,15 @@ import { getServiceUser } from "../../../redux/actions";
 export default function ViewServiceUser () {
 
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
+  const token = localStorage.getItem("token");
 
-  const userId = auth.currentUser.uid
+  const userID = useSelector((state) => state.userID)
+  // console.log(userID)
 
   const serviceUser = useSelector((state)=> state.serviceUser)
 
   useEffect(()=>{
-    dispatch(getServiceUser(userId, token))
+    dispatch(getServiceUser(userID, token))
   }, [dispatch])
 
   return (

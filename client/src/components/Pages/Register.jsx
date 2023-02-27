@@ -38,7 +38,8 @@ export default function Register() {
         // SI TODO MATCHEA SETEO EL LOADING A FALSE Y LO MANDO A LOGIN
         const user = userCredential.user;
         const token = await user.getIdToken();
-        dispatch(storeToken(token));
+        localStorage.setItem("token", token);
+        // dispatch(storeToken(token));
 
         const userId = auth.currentUser.uid;
         const profilepic = await uploadFile(file, userId);
