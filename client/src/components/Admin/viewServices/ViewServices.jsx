@@ -8,7 +8,7 @@ import Notiflix from "notiflix";
 import PaginationAdmin from "../PaginationAdmin/PaginationAdmin";
 import { removeUsers, resedPaged } from "../../../redux/actions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-import "../ViewServices/viewService.css";
+import "./viewService.css";
 
 export default function ViewServices() {
   const dispatch = useDispatch();

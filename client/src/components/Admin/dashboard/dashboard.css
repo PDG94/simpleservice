@@ -45,6 +45,9 @@ margin-left: 65px;
 .linkAd{
     color: aliceblue;
 }
+.linkAd:hover{
+    color: rgba(240, 248, 255, 0.562);
+}
 .middle{
     margin-left: 15px;
   display: flex;
