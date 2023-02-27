@@ -7,10 +7,11 @@ const checkOut = async (req, res) => {
   const { id, amount } = req.body;
   try {
     const payment = await stripe.paymentIntents.create({
+      amount,
       currency: "USD",
-      amount: amount,
+      description: "Gaming Keyboard",
       payment_method: id,
-      confirm: true,
+      confirm: true, //confirm the payment at the same time
     });
     res.send({ message: "Succesfull payment" });
   } catch (error) {
