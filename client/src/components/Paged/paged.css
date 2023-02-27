@@ -35,7 +35,7 @@
   padding-right: 18px;
   padding-left: 18px;
   font-weight: 1000;
-  margin-top: 6px;
+  margin-top: 23%;
   margin-left: 2%;
   margin-right: 1.5%;
   text-shadow: 2px 2px 2px 2px white;
@@ -48,7 +48,7 @@
   backdrop-filter: blur(7px);
   cursor: pointer;
   text-shadow: 1px 1px 20px #edf125;
-  box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 6px rgba(237, 223, 20, 0.655);
 }
 
 .page-numberactive {
@@ -70,8 +70,7 @@
   color: white;
   backdrop-filter: blur(7px);
   cursor: pointer;
-  text-shadow: 1px 1px 20px #edf125;
-  box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 6px rgba(237, 223, 20, 0.655);
 }
 .page {
   text-decoration: none;
@@ -84,4 +83,5 @@
 }
 .page:hover {
   cursor: pointer;
+  color: yellow;
 }

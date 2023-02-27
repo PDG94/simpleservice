@@ -1,6 +1,6 @@
-import "../Pages/auth.css";
+// import "../Pages/auth.css";
 import React, { /* useEffect, */ useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { /* useDispatch,*/ useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../../components/Firebase/config";
@@ -10,7 +10,6 @@ import { FiMail } from "react-icons/fi";
 import { GrFacebook } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
 
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -24,17 +23,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const previousURL1 = useSelector((state)=>state.previousURL);
+  const previousURL1 = useSelector((state) => state.previousURL);
   console.log(previousURL1);
 
   const redirectUser = () => {
     if (previousURL1.includes("cart")) {
       return navigate("/cart");
     }
-      navigate("/home");
-   
+    navigate("/home");
   };
 
   function loginUser(event) {
@@ -50,7 +48,7 @@ export default function Login() {
         });
         setIsloading(false);
         toast.success("Login Successful...");
-        redirectUser()
+        redirectUser();
       })
       .catch((error) => {
         setIsloading(false);
@@ -70,7 +68,7 @@ export default function Login() {
           userLogin(token);
         });
         toast.success("Login Successfuly!");
-        redirectUser()
+        redirectUser();
       })
       .catch((error) => {
         toast.error(error.message);

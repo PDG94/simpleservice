@@ -1,0 +1,158 @@
+.containerCart {
+  width: 100%;
+  height: 100vh;
+}
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleCart {
+  margin-top: 45px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: system-ui;
+  color: rgb(69, 67, 67);
+  letter-spacing: 1px;
+}
+.emptyBox {
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: #ced379;
+  color: #000000;
+  margin-top: 10%;
+  border: 8px solid #d7df23;
+  border-radius: 50px;
+  width: 50%;
+  height: 50%;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+.pEmpty {
+  text-align: center;
+  border-radius: 10px;
+  width: 60%;
+  color: rgb(69, 67, 67);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 150%;
+}
+.btnEmpty {
+  text-decoration: none;
+  color: yellow;
+  text-shadow: 0 0 10px black;
+  font-weight: 600;
+  font-size: 150%;
+  letter-spacing: 2px;
+  font-family: system-ui;
+  border-radius: 10px;
+}
+.btnEmpty:hover {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+.cartBox {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    270deg,
+    #101010 0%,
+    rgba(255, 255, 255, 1) 50%,
+    #101010 100%
+  );
+}
+.tableBoxCart {
+  width: 80%;
+  margin-left: 10%;
+}
+.thCart {
+  font-size: 150%;
+  text-align: center;
+}
+.tdCart {
+  font-size: 120%;
+}
+.imgCart {
+  margin-bottom: 3%;
+}
+.editCart {
+  margin-right: 10%;
+  font-size: 150%;
+}
+.binCart {
+  font-size: 150%;
+}
+.quantCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+.btnDecr {
+  border: 2px solid grey;
+  padding: 2px 13px 2px 13px;
+  font-size: 120%;
+  border-radius: 10px;
+  margin-right: 10%;
+  cursor: pointer;
+}
+.btnDecr:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #5b5b5b;
+  box-shadow: 0 0 2px 4px white;
+}
+.btnIncr {
+  border: 2px solid grey;
+  padding: 2px 13px 2px 13px;
+  font-size: 120%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btnIncr:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #5b5b5b;
+  box-shadow: 0 0 2px 4px white;
+}
+.pQuant {
+  margin-right: 10%;
+}
+.btn-danger:hover {
+  font-weight: 600;
+  color: red;
+  background-color: white;
+  box-shadow: 0 0 2px 4px red;
+}
+.pCartItems {
+  color: rgb(69, 67, 67);
+  font-size: 100%;
+}
+
+.totalContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+.h4Total {
+  color: rgb(69, 67, 67);
+  font-size: 180%;
+}
+.amount {
+  color: rgb(242, 32, 32);
+  font-size: 180%;
+  text-shadow: 0 0 10px rgb(196, 192, 192);
+}
+.binCart:hover {
+  size: 35px;
+  cursor: pointer;
+}

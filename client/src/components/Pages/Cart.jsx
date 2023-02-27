@@ -12,7 +12,9 @@ import {
   cleanState,
   saveUrl,
 } from "../../redux/actions";
+import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
+import "../Pages/cart.css";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cartItems);
@@ -57,96 +59,110 @@ const Cart = () => {
   };
 
   return (
-    <section>
+    <div className="containerCart">
       <NavBar />
-      <div className="">
-        <h2>Shopping Cart</h2>
+      <div className="cartBox">
         {cartItems.length === 0 ? (
-          <>
-            <p>Your cart is currently empty.</p>
-            <br />
-            <div>
-              <Link to="/services">&larr; Continue shopping</Link>
+          <div className="emptyBox">
+            <h2 className="titleCart">Shopping Cart</h2>
+            <div className="emptyCart">
+              <p className="pEmpty">Your cart is currently empty</p>
+              <br />
+              <div>
+                <Link className="btnEmpty" to="/services">
+                  &larr;{"  "} Continue shopping{"  "}
+                </Link>
+              </div>
             </div>
-          </>
+          </div>
         ) : (
-          <>
-            <table>
-              <thead>
-                <tr>
-                  <th>s/n</th>
-                  <th>Service</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cartItems.map((cart, index) => {
-                  const { id, servicename, price, cartQuantity } = cart;
-                  return (
-                    <tr key={id}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <p>
-                          <b>{servicename}</b>
-                        </p>
-                        <img
-                          src={cart.Users[0].profilepic}
-                          alt="img"
-                          style={{ width: "100px" }}
-                        />
-                      </td>
-                      <td>{price}</td>
-                      <td>
-                        <div className="">
-                          <button
-                            className="btn btn-secondary"
-                            onClick={() => decreaseCart1(cart)}
-                          >
-                            -
-                          </button>
+          <div className="tableCart">
+            <div className="table table-responsive table-dark">
+              <h2 className="titleCart">Shopping Cart</h2>
+              <div>
+                <Link className="btnEmpty" to="/services">
+                  &larr; Continue shopping
+                </Link>
+              </div>
+              <br />
+              <table className="tableBoxCart">
+                <thead>
+                  <tr>
+                    <th className="thCart">s/n</th>
+                    <th className="thCart">Service</th>
+                    <th className="thCart">Price</th>
+                    <th className="thCart">Quantity</th>
+                    <th className="thCart">Total</th>
+                    <th className="thCart">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartItems.map((cart, index) => {
+                    const { id, servicename, price, cartQuantity } = cart;
+                    return (
+                      <tr key={id} className="table-secondary">
+                        <td className="tdCart">{index + 1}</td>
+                        <td className="tdCart">
                           <p>
-                            <b>{cartQuantity}</b>
+                            <b>{servicename}</b>
                           </p>
-                          <button
-                            className="btn btn-secondary"
-                            onClick={() => increaseCart(cart)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
-                      <td className="">
-                        <FaTrashAlt
-                          size={19}
-                          color="red"
-                          onClick={() => removeFromCart(cart)}
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="">
-              <button className="btn btn-danger" onClick={clearCart1}>
-                Clear Cart
-              </button>
-              <div className="">
-                <div>
-                  <Link to="/services">&larr; Continue shopping</Link>
-                </div>
-                <br />
-
-                <p>
+                          <img
+                            src={cart.Users[0].profilepic}
+                            alt="img"
+                            style={{ width: "100px" }}
+                            className="imgCart"
+                          />
+                        </td>
+                        <td className="tdCart">{price}</td>
+                        <td className="tdCart">
+                          <div className="quantCart">
+                            <button
+                              className="btnDecr"
+                              onClick={() => decreaseCart1(cart)}
+                            >
+                              -
+                            </button>
+                            <p className="pQuant">
+                              <b>{cartQuantity}</b>
+                            </p>
+                            <button
+                              className="btnIncr"
+                              onClick={() => increaseCart(cart)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td className="tdCart">
+                          {(price * cartQuantity).toFixed(2)}
+                        </td>
+                        <td className="tdCart">
+                          <FaTrashAlt
+                            className="binCart"
+                            size={26}
+                            color="red"
+                            onClick={() => removeFromCart(cart)}
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <div className="totalContainer">
+              <div>
+                <button className="btn btn-danger" onClick={clearCart1}>
+                  Clear Cart
+                </button>
+              </div>
+              <div className="totalInfo">
+                <p className="pCartItems">
                   <b> {`Cart item(s): ${cartTotalQuantity}`}</b>
                 </p>
-                <div className="">
-                  <h4>Subtotal:</h4>
-                  <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
+                <div className="boxTotal">
+                  <h4 className="h4Total">Subtotal:</h4>
+                  <h3 className="amount">{`$${cartTotalAmount.toFixed(2)}`}</h3>
                 </div>
                 <p>Tax an shipping calculated at checkout</p>
                 <button
@@ -155,12 +171,15 @@ const Cart = () => {
                 >
                   Checkout
                 </button>
+
+                <br />
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
-    </section>
+      <Footer />
+    </div>
   );
 };
 
