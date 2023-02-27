@@ -20,7 +20,7 @@ export default function Edit({currentServices}) {
   const serviceList = useSelector((state) => state.serviceList);
   const allServices = useSelector((state) => state.services);
   console.log(allServices);
-  const token = useSelector((state) => state.token);
+  const token = localStorage.getItem("token");
   const servicesEdit = allServices.find((item)=> item.id === id)
   console.log(servicesEdit);
 

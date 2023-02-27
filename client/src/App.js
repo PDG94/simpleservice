@@ -26,8 +26,12 @@ import {
   ViewServiceUser,
   DashboardUser,
   UpdateInfoUser,
-  UpdateProfilesUsers,
   Cart,
+  ViewAllServices,
+  Checkout,
+  CheckoutDetails,
+  CheckoutSuccess,
+  UpdateProfilesUsers,
 } from "./components/index";
 
 function App() {
@@ -132,13 +136,31 @@ function App() {
             }
           />
           <Route
-            path="/profile/my-services"
+            path="/profile/my-services/:id"
             element={
               <UserOnlyRoute>
                 <ViewServiceUser />
               </UserOnlyRoute>
             }
           />
+
+          <Route
+            path="/profile/my-servicesdetail"
+            element={
+              <UserOnlyRoute>
+                <ViewAllServices />
+              </UserOnlyRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+                <Cart />
+            }
+          />
+          <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>

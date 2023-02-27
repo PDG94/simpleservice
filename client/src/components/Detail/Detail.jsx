@@ -18,13 +18,16 @@ import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const cartI = useSelector((state) => state.cartItems);
+  const cartItems = useSelector((state) => state.cartItems);
 
-  const cart = cartI.findIndex((cart) => cart.id === id);
+  const cart = cartItems.find((cart) => cart.id === id);
   console.log(cart);
+  const isCartAdded = cartItems.findIndex((cart) => {
+    return cart.id === id;
+  });
+  console.log(isCartAdded);
 
   const serviceDetail = useSelector((state) => state.serviceDetail);
-  // const allServices = useSelector((state)=>state.services)
 
   useEffect(() => {
     dispatch(getServicesDetail(id));
@@ -33,13 +36,13 @@ export default function Detail() {
     };
   }, [dispatch, id]);
 
-  const addToCart1 = (id) => {
-    dispatch(addToCart(id));
+  const addToCart1 = (service) => {
+    dispatch(addToCart(service));
+    dispatch(calculateTotalQuantity());
   };
 
-  const decreaseCart1 = (id) => {
-    dispatch(decreaseCart(id));
-    dispatch(calculateTotalQuantity());
+  const decreaseCart1 = (service) => {
+    dispatch(decreaseCart(service));
   };
 
   return (
@@ -97,27 +100,29 @@ export default function Detail() {
 
                       <ShowOnLogin>
                         <div className="addBox">
-                          <div className="cantBox">
-                            <button
-                              className="--btn"
-                              onClick={() => decreaseCart1(id)}
-                            >
-                              -
-                            </button>
-                            <p>
-                              <b>{cart.cartQuantity}</b>
-                            </p>
-                            <button
-                              className="--btnplus"
-                              onClick={() => addToCart1(id)}
-                            >
-                              +
-                            </button>
-                          </div>
+                          {isCartAdded < 0 ? null : (
+                            <div className="cantBox">
+                              <button
+                                className="--btn"
+                                onClick={() => decreaseCart1(service)}
+                              >
+                                -
+                              </button>
+                              <p>
+                                <b>{cart.cartQuantity}</b>
+                              </p>
+                              <button
+                                className="--btnplus"
+                                onClick={() => addToCart1(service)}
+                              >
+                                +
+                              </button>
+                            </div>
+                          )}
                           <div className="pBox">
                             <button
                               className="btnAdd"
-                              onClick={() => addToCart1(id)}
+                              onClick={() => addToCart1(service)}
                             >
                               ADD TO CART
                             </button>

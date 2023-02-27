@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { /* useEffect, */ useState } from "react";
+import { useDispatch, /* useSelector */ } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -38,7 +38,8 @@ export default function Register() {
         // SI TODO MATCHEA SETEO EL LOADING A FALSE Y LO MANDO A LOGIN
         const user = userCredential.user;
         const token = await user.getIdToken();
-        dispatch(storeToken(token));
+        localStorage.setItem("token", token);
+        // dispatch(storeToken(token));
 
         const userId = auth.currentUser.uid;
         const profilepic = await uploadFile(file, userId);
@@ -132,6 +133,14 @@ export default function Register() {
       filename: e.target.files[0].name,
     });
   }
+
+  // const session = useSelector((state) => state.session)
+
+  // useEffect(() => {
+  //   if(session){
+  //     navigate("/home");
+  //   }
+  // })
 
   return (
     <div className="containerRe">

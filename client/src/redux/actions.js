@@ -19,7 +19,11 @@ import {
   REMOVE_CART,
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
+  SAVE_URL,
+  SAVE_SHIPPING_ADDRESS,
+  SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 export function getServices() {
@@ -219,6 +223,25 @@ export const calculateTotalQuantity = (payload) => {
   };
 };
 
+export const saveUrl = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_URL, payload });
+  };
+};
+
+export const saveShippingAddress = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_SHIPPING_ADDRESS, payload });
+  };
+};
+
+export const saveBillingAddress = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: SAVE_BILLING_ADDRESS, payload });
+  };
+};
+
+
 export function getServiceUser(userId, token) {
   return async function (dispatch) {
     const response = await axios.get(
@@ -227,10 +250,15 @@ export function getServiceUser(userId, token) {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
     return dispatch({
       type: GET_SERVICE_USER,
       payload: response.data,
     });
   };
 }
+
+export function storeSession(user){
+  return function (dispatch) {
+    dispatch({type: USER_SESSION, payload: user })
+  }
+} 

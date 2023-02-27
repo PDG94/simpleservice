@@ -20,7 +20,11 @@ import {
   CLEAR_CART,
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
+  SAVE_URL,
+  SAVE_SHIPPING_ADDRESS,
+  SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
+  USER_SESSION,
 } from "./actionTypes";
 
 const initialState = {
@@ -36,13 +40,17 @@ const initialState = {
   token: "",
   serviceList: [],
   users: [],
-
+  session: null,
   //CART
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
+  previousURL: "",
+  //SUMMARY
+  shippingAddress: {},
+  billingAddress: {},
   serviceUser: [],
 };
 
@@ -60,12 +68,6 @@ function rootReducer(state = initialState, action) {
         serviceDetail: action.payload,
       };
 
-    case CLEAN_STATE:
-      return {
-        ...state,
-        serviceDetail: action.payload,
-      };
-
     case CLEANER_NAME:
       return {
         ...state,
@@ -76,6 +78,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         services: action.payload,
+      };
+
+    case CLEAN_STATE:
+      return {
+        ...state,
+        serviceDetail: action.payload,
       };
 
     case GET_CATEGORIES:
@@ -95,6 +103,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         currentPage: action.payload,
       };
+
     case SET_ACTIVE_USER:
       return {
         ...state,
@@ -103,6 +112,7 @@ function rootReducer(state = initialState, action) {
         useName: action.payload.useName,
         userID: action.payload.userID,
       };
+
     case REMOVE_USER:
       return {
         ...state,
@@ -111,7 +121,9 @@ function rootReducer(state = initialState, action) {
         useName: null,
         userID: null,
       };
+
     case STORE_TOKEN:
+      console.log(action.payload)
       return {
         ...state,
         token: action.payload,
@@ -131,6 +143,7 @@ function rootReducer(state = initialState, action) {
 
     case DELETE_USER:
       return { ...state };
+
     case ADD_TO_CART:
       const productIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
@@ -139,7 +152,7 @@ function rootReducer(state = initialState, action) {
         // Item already exists in the cart
         // Increase the cartQuantity
         state.cartItems[productIndex].cartQuantity += 1;
-        toast.info(`${action.payload.username} increased by one`, {
+        toast.info(`${action.payload.servicename} increased by one`, {
           position: "top-left",
         });
       } else {
@@ -154,44 +167,38 @@ function rootReducer(state = initialState, action) {
       // save cart to LS
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       break;
+
     case DECREASE_CART:
-      const productIndex1 = state.cartItems.findIndex(
+      const productIndex2 = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      if (state.cartItems[productIndex1].cartQuantity > 1) {
-        state.cartItems[productIndex1].cartQuantity -= 1;
-        toast.info(`${action.payload.name} decreased by one`, {
+      if (state.cartItems[productIndex2].cartQuantity > 1) {
+        state.cartItems[productIndex2].cartQuantity -= 1;
+        toast.info(`${action.payload.servicename} decreased by one`, {
           position: "top-left",
         });
-      } else if (state.cartItems[productIndex1].cartQuantity === 1) {
+      } else if (state.cartItems[productIndex2].cartQuantity === 1) {
         const newCartItem = state.cartItems.filter(
           (item) => item.id !== action.payload.id
         );
         state.cartItems = newCartItem;
-        toast.success(`${action.payload.name} removed from cart`, {
+        toast.success(`${action.payload.servicename} removed from cart`, {
           position: "top-left",
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       break;
+
     case REMOVE_CART:
-      const newCartItem = state.cartItems.filter(
+      const newCartItem1 = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );
-
-      state.cartItems = newCartItem;
-      toast.success(`${action.payload.name} removed from cart`, {
+      state.cartItems = newCartItem1;
+      toast.success(`${action.payload.description} removed from cart`, {
         position: "top-left",
       });
-
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       break;
-
-    case GET_SERVICE_USER:
-      return {
-        ...state,
-        serviceUser: action.payload,
-      };
 
     case CLEAR_CART:
       console.log(action.payload);
@@ -199,9 +206,9 @@ function rootReducer(state = initialState, action) {
       toast.info(`Cart cleared`, {
         position: "top-left",
       });
-
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       break;
+
     case CALCULATE_SUB_TOTAL:
       const array = [];
       state.cartItems.map((item) => {
@@ -214,21 +221,47 @@ function rootReducer(state = initialState, action) {
       }, 0);
       state.cartTotalAmount = totalAmount;
       break;
+
     case CALCULATE_TOTAL_QUANTITY:
       const array1 = [];
-      state.cartItems.map((item) => {
-        const { cartQuantity } = item;
-        const quantity = cartQuantity;
-        return array1.push(quantity);
-      });
+      if (state.cartItems) {
+        // Agregamos un control de flujo para verificar si "cartItems" existe
+        state.cartItems.map((item) => {
+          const { cartQuantity } = item;
+          const quantity = cartQuantity;
+          return array1.push(quantity);
+        });
+      }
       const totalQuantity = array1.reduce((a, b) => {
         return a + b;
       }, 0);
       state.cartTotalQuantity = totalQuantity;
+      break;
 
+    case SAVE_URL:
+      state.previousURL = action.payload;
+      break;
+
+    case SAVE_SHIPPING_ADDRESS:
+      console.log(action.payload);
+      state.shippingAddress = action.payload;
+      break;
+
+    case SAVE_BILLING_ADDRESS:
+      console.log(action.payload);
+      state.billingAddress = action.payload;
+      break;
+
+    case GET_SERVICE_USER:
       return {
         ...state,
-        serviceList: action.payload,
+        serviceUser: action.payload,
+      };
+
+    case USER_SESSION:
+      return {
+        ...state,
+        session: action.payload,
       };
     default:
       return { ...state };
