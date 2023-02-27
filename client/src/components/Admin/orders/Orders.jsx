@@ -1,11 +1,13 @@
 import React from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import '../Orders/orders.css'
+
 
 export default function Orders() {
   return (
-    <div>
-      <h1>Estoy en Orders</h1>
-      <div className="navbar">
+    <div className="fondoOrders">
+      <h1 className="h1Orders">Orders</h1>
+      <div className="navbar3">
         <NavBarAdmin />
       </div>
     </div>
