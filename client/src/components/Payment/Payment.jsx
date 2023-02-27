@@ -28,7 +28,7 @@ const CheckOutForm = () => {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
       console.log("este deberia ser id para stripe", id)
-      const { data } = await axios.post("https://simpleservice-production.up.railway.app/checkoutcheckout",
+      const { data } = await axios.post("https://simpleservice-production.up.railway.app/checkout",
        {
         id,
         amount: 15000,
