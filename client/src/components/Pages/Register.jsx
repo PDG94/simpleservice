@@ -1,5 +1,5 @@
 import React, { /* useEffect, */ useState } from "react";
-import { useDispatch, /* useSelector */ } from "react-redux";
+import { useDispatch /* useSelector */ } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -47,7 +47,7 @@ export default function Register() {
 
         setIsloading(false);
         toast.success("Registration Successful!");
-        navigate("/login");
+        navigate("/home");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -65,8 +65,10 @@ export default function Register() {
     filename: "",
   });
 
-  let regExpPassword = /^(?=(?:.*\d))(?=.*[A-Z])(?=.*[a-z])(?=.*[.,*!?¿¡/#$%&])\S{8,64}$/
-  let regExpEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  let regExpPassword =
+    /^(?=(?:.*\d))(?=.*[A-Z])(?=.*[a-z])(?=.*[.,*!?¿¡/#$%&])\S{8,64}$/;
+  let regExpEmail =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   let regExpName = /^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/;
   let regExpUsername = /^[a-zA-Z0-9-() .]+$/;
   let validFile = /.(?:jpg|jpeg|png|gif)/;
