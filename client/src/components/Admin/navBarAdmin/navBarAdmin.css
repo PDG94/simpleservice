@@ -39,8 +39,9 @@
   margin-bottom: 20px;
 }
 .adhome:hover {
-  background-color: #3833338a;
+  background-color: #303246;
   border-radius: 6px;
+  color: #9f90ea;
 }
 .adservices {
   color: #9f90ea;
@@ -51,8 +52,9 @@
   margin-bottom: 20px;
 }
 .adservices:hover {
-  background-color: #3833338a;
+  background-color: #303246;
   border-radius: 6px;
+  color: #9f90ea;
 }
 .adcategories {
   color: #9f90ea;
@@ -63,8 +65,9 @@
   margin-bottom: 20px;
 }
 .adcategories:hover {
-  background-color: #3833338a;
+  background-color: #303246;
   border-radius: 6px;
+  color: #9f90ea;
 }
 .adview {
   color: #9f90ea;
@@ -75,8 +78,9 @@
   margin-bottom: 20px;
 }
 .adview:hover {
-  background-color: #3833338a;
+  background-color: #303246;
   border-radius: 6px;
+  color: #9f90ea;
 }
 .adorders {
   color: #9f90ea;
@@ -87,8 +91,9 @@
   margin-bottom: 20px;
 }
 .adorders:hover {
-  background-color: #3833338a;
+  background-color: #303246;
   border-radius: 6px;
+  color: #9f90ea;
 }
 .icNavDash{
 font-size: 30px;
