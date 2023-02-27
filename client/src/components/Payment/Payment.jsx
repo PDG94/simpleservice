@@ -1,4 +1,6 @@
 import React from "react";
+import s from "./Payment.module.css";
+import {Link} from "react-router-dom"
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -8,7 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 const stripePromise = loadStripe(
-  `pk_test_51MeScXEohVMDTuBfkv6jlBnpXq6EN6W0vJs3bFlepyOusbfYEuIAhoOXcsYFGgcDcOqwJLAqYL4qqNegKOdGJOvE00lBepiZlb`
+  "pk_test_51MeScXEohVMDTuBfkv6jlBnpXq6EN6W0vJs3bFlepyOusbfYEuIAhoOXcsYFGgcDcOqwJLAqYL4qqNegKOdGJOvE00lBepiZlb"
 );
 
 const CheckOutForm = () => {
@@ -18,7 +20,6 @@ const CheckOutForm = () => {
     e.preventDefault();
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      // esto es para configurar el recuadro donde se pone la tarjeta de credito y los datos
       type: "card",
       card: elements.getElement(CardElement),
     });
@@ -26,19 +27,16 @@ const CheckOutForm = () => {
     if (!error) {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
-
-      const { data } = await axios.post(`https://simpleservice-production.up.railway.app/checkout`, {
-        // id o nombre del cliente 
-
-        // email donde se enviara el recibo
-        receipt_email: "p.d.g.38411422@gmail.com",
-        // el id del metodo de pago que utilizo esto es parte de stripe
-        id: id,
-        // la cantidad del objeto que cuesta
-        amount: 10000,
-        // la descripcion del objeto que va a comprar
-        description: "qwerty",
+      console.log("este deberia ser id para stripe", id)
+      const { data } = await axios.post("https://simpleservice-production.up.railway.app/checkoutcheckout",
+       {
+        id,
+        amount: 15000,
       });
+      console.log(data);
+    }
+    else{
+      console.log("error de stripe")
     }
   };
   return (
@@ -46,7 +44,9 @@ const CheckOutForm = () => {
       <form onSubmit={handleSubmit}>
         <h2 className={s.label} >Introduce tu metodo de pago</h2>
         <CardElement className={s.input} />
+        <Link to="/cart">
         <button className={s.btn}>Buy</button>
+        </Link>
       </form>
     </div>
   );
@@ -54,7 +54,10 @@ const CheckOutForm = () => {
 function PasarelaStripe() {
   return (
     <Elements stripe={stripePromise}>
+      <div>
       <CheckOutForm />
+      </div>
+      
     </Elements>
   );
 }
