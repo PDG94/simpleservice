@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { saveBillingAddress, saveShippingAddress } from "../../../redux/actions";
 import CheckoutSummary from "../../CheckoutSummary/CheckoutSummary";
-
+import Payment from "../../Payment/Payment";
 
 
 const initialAddressState = {
@@ -218,6 +218,7 @@ const CheckoutDetails = () => {
               </button>
           </div>
           <div>
+                  <Payment/>
               <CheckoutSummary />
           </div>
         </form>
