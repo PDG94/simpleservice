@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-
 
 import { toast } from "react-toastify";
 // import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
-import { calculateSubTotal, calculateTotalQuantity } from "../../../redux/actions";
+import {
+  calculateSubTotal,
+  calculateTotalQuantity,
+} from "../../../redux/actions";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
@@ -15,12 +16,12 @@ const Checkout = () => {
   const [message, setMessage] = useState("Initializing checkout...");
   const [clientSecret, setClientSecret] = useState("");
 
-  const cartItems = useSelector((state)=>state.cartItems);
-  const totalAmount = useSelector((state)=>state.cartTotalAmount);
-  const customerEmail = useSelector((state)=>state.email);
+  const cartItems = useSelector((state) => state.cartItems);
+  const totalAmount = useSelector((state) => state.cartTotalAmount);
+  const customerEmail = useSelector((state) => state.email);
 
-  const shippingAddress = useSelector((state)=>state.shippingAddress);
-  const billingAddress = useSelector((state)=>state.selectBillingAddress);
+  const shippingAddress = useSelector((state) => state.shippingAddress);
+  const billingAddress = useSelector((state) => state.selectBillingAddress);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -43,20 +44,21 @@ const Checkout = () => {
         description,
       }),
     })
-      .then((res) => {
+      .then(async (res) => {
         if (res.ok) {
           return res.json();
         }
-        return res.json().then((json) => Promise.reject(json));
+        const json = await res.json();
+        return await Promise.reject(json);
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
       })
       .catch((error) => {
         setMessage("Failed to initialize checkout");
-        toast.error("Something went wrong!!!");
+        toast.error(error, "Something went wrong!!!");
       });
-  }, []);
+  }, [billingAddress, shippingAddress, customerEmail, cartItems, description]);
 
   const appearance = {
     theme: "stripe",
@@ -69,7 +71,9 @@ const Checkout = () => {
   return (
     <>
       <section>
-        <div className="container">{!clientSecret && <h3>{message}</h3>}</div>
+        <div className="containerCheck">
+          {!clientSecret && <h3>{message}</h3>}
+        </div>
       </section>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
