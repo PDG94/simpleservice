@@ -4,8 +4,10 @@
   height: 100vh;
   position: absolute;
 }
-.nav2{
-  margin-top: -20%;
+.navView{
+  background-color: #252636;
+  position: absolute;
+  margin-top: -15%;
   position: fixed;
 }
 .containerView {

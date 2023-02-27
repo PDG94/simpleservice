@@ -7,7 +7,7 @@ export default function Orders() {
   return (
     <div className="fondoOrders">
       <h1 className="h1Orders">Orders</h1>
-      <div className="navbar3">
+      <div className="navOrde">
         <NavBarAdmin />
       </div>
     </div>

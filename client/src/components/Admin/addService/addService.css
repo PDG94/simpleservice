@@ -10,6 +10,12 @@ margin-left: 5%;
 margin-top: 3%;
 border-radius: 100%;
 }
+.navServ{
+  background-color: #252636;
+  position: absolute;
+  margin-top: -15%;
+  position: fixed;
+}
 .containerAdSer {
   position: absolute;
   width: 30%;

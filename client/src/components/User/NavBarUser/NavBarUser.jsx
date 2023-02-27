@@ -7,7 +7,7 @@ import logo from "../../Imagenes/logos.ico";
 export default function NavBarUser() {
   const name = useSelector((state) => state.useName);
   return (
-    <div className="navbar">
+    <div className="navUser">
       <div className="user">
         <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
         <hr />
