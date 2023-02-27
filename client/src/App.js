@@ -27,6 +27,7 @@ import {
   DashboardUser,
   UpdateInfoUser,
   Cart,
+  ViewAllServices,
   Checkout,
   CheckoutDetails,
   CheckoutSuccess,
@@ -135,10 +136,19 @@ function App() {
             }
           />
           <Route
-            path="/profile/my-services"
+            path="/profile/my-services/:id"
             element={
               <UserOnlyRoute>
                 <ViewServiceUser />
+              </UserOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/profile/my-servicesdetail"
+            element={
+              <UserOnlyRoute>
+                <ViewAllServices />
               </UserOnlyRoute>
             }
           />
