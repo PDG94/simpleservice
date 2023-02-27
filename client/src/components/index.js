@@ -32,6 +32,7 @@ import DashboardUser from "./User/Dashboard/Profile";
 import UpdateInfoUser from "./User/UpdateInfo/UpdateInfo";
 import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
 import Cart from "../components/Pages/Cart";
+import ViewAllServices from "./User/ViewService/ViewAllServices";
 
 export {
   Card,
@@ -64,6 +65,7 @@ export {
   Profile,
   OrdersUser,
   ViewServiceUser,
+  ViewAllServices,
   DashboardUser,
   UpdateInfoUser,
   UpdateProfilesUsers,

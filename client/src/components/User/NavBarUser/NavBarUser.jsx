@@ -29,7 +29,11 @@ export default function NavBarUser() {
           </li>
 
           <li className="viewAd">
-            <Link to="/profile/my-services">View Services</Link>
+            <Link to="/profile/my-services/:id">View Services</Link>
+          </li>
+
+          <li className="viewAd">
+            <Link to="/profile/my-servicesdetail">View All Services</Link>
           </li>
 
           <li className="orderAd">

@@ -28,6 +28,7 @@ import {
   UpdateInfoUser,
   UpdateProfilesUsers,
   Cart,
+  ViewAllServices
 } from "./components/index";
 
 function App() {
@@ -132,10 +133,19 @@ function App() {
             }
           />
           <Route
-            path="/profile/my-services"
+            path="/profile/my-services/:id"
             element={
               <UserOnlyRoute>
                 <ViewServiceUser />
+              </UserOnlyRoute>
+            }
+          />
+
+          <Route
+            path="/profile/my-servicesdetail"
+            element={
+              <UserOnlyRoute>
+                <ViewAllServices />
               </UserOnlyRoute>
             }
           />
