@@ -1,107 +1,110 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getCategories } from "../../../redux/actions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import { useSelector, useDispatch } from "react-redux";
+import "../AddService/addService.css";
+import adservice from "../AddService/addservice1.png";
 // import { toast } from "react-toastify";
 
-export default function AddService(){
-  
-  const navigate = useNavigate()
-  const dispatch= useDispatch();
-  const categories = useSelector((state)=>state.categories)
-  const [errors, setErrors] = useState({})
-  
+export default function AddService() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
 
   const [form, setForm] = useState({
-        CategoryId: "",
-        name: "",
-      });
+    CategoryId: "",
+    name: "",
+  });
 
-    
-   
-    const validate = (form) => {
-        let errors = {};
-        if (!form.name) {
-          errors.name = "Name is required";
-        } else if (form.name.length > 30) {
-          errors.name = "Name is too long";
-        }
+  const validate = (form) => {
+    let errors = {};
+    if (!form.name) {
+      errors.name = "Name is required";
+    } else if (form.name.length > 30) {
+      errors.name = "Name is too long";
+    }
 
-        return errors;
-      };
+    return errors;
+  };
 
-      const handleCategory = (event) => {
-        setForm({ 
-          ...form, 
-          CategoryId: event.target.value })
-      }
+  const handleCategory = (event) => {
+    setForm({
+      ...form,
+      CategoryId: event.target.value,
+    });
+  };
 
-      const handleInputChange = (event) => {
-        console.log(event.target.value)
-        setForm({ 
-            ...form, 
-            [event.target.name]: event.target.value })
-            
-        setErrors(
-            validate({
-               ...form, [event.target.name] : [event.target.value]
-              })
-            )
-      }
+  const handleInputChange = (event) => {
+    console.log(event.target.value);
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
 
-      const submitHandler = (event) => {
-        event.preventDefault();
-        axios.post(
-          "https://simpleservice-production.up.railway.app/admin/services",
-          form
-        );
-        navigate("/admin/home");
-      };
+    setErrors(
+      validate({
+        ...form,
+        [event.target.name]: [event.target.value],
+      })
+    );
+  };
 
-    return(
-        <div>
-            <form onSubmit={submitHandler}>
-            <div className="navbar">
-        <NavBarAdmin />
-      </div>
-      <div>
-      <div className="containerCreated">
-      <div >
-      <label className="icon"></label>
-        <input
-          type="text"
-          placeholder="Service name"
-          value={form.name}
-          onChange={(e)=>handleInputChange(e)}
-          name="name"
-        />
-        <p className="valid">{errors.name}</p>
-      </div>
+  const submitHandler = (event) => {
+    event.preventDefault();
+    axios.post(
+      "https://simpleservice-production.up.railway.app/admin/services",
+      form
+    );
+    navigate("/admin/home");
+  };
 
-
-      <div>
-        <span>
-            --Choose Service Category--
-        </span>
-        <select onChange={(e)=>handleCategory(e)}>
-          <option value="all">Categories</option>
-          {categories?.map((elem)=>(
-            <option key={elem.id} value={elem.id}>
-            {elem.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      </div>
-      </div>
-      <button type="submit" className="sub">Submit</button>
-    </form>
+  return (
+    <div className="AdSer">
+      <form onSubmit={submitHandler}>
+        <div className="navbar">
+          <NavBarAdmin />
         </div>
-    )
+        <div>
+          <img className="imagenad" src={adservice} width="700px" />
+          <div className="containerAdSer">
+            <h1>Add Service</h1>
+            <hr />
+            <div className="choose">
+              <p>Choose Service Category</p>
+              <select onChange={(e) => handleCategory(e)}>
+                <option value="all">Categories</option>
+                {categories?.map((elem) => (
+                  <option key={elem.id} value={elem.id}>
+                    {elem.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <input
+                className="inpAdSer"
+                type="text"
+                placeholder="Service name"
+                value={form.name}
+                onChange={(e) => handleInputChange(e)}
+                name="name"
+              />
+              <p className="validAdSer">{errors.name}</p>
+            </div>
+            <button type="submit" className="subAdSer">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
 }
