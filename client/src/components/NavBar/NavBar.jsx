@@ -116,13 +116,15 @@ const NavBar = () => {
           </Link>
         </ShowOnLogin>
 
-        <Link
-          className="btnNav"
-          to="/Services"
-          onClick={(e) => handleRefresh(e)}
-        >
-          Refresh
-        </Link>
+        {path === pathSearch ? (
+          <Link
+            className="btnNav"
+            to="/Services"
+            onClick={(e) => handleRefresh(e)}
+          >
+            Refresh
+          </Link>
+        ) : null}
       </div>
 
       <div className="btnsUser">
@@ -131,7 +133,7 @@ const NavBar = () => {
         </div>
 
         <ShowOnLogout>
-          <Link className="login" to="/login">
+          <Link className="btnNav" to="/login">
             Login
           </Link>
         </ShowOnLogout>

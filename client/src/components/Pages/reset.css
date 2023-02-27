@@ -6,12 +6,12 @@
 .mainReset {
   width: 100%;
   height: 100vh;
-  /* background: linear-gradient(
+  background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(255, 255, 255, 1) 50%,
     rgba(0, 0, 0, 1) 100%
-  ); */
+  );
 }
 .boxReset {
   display: flex;
@@ -51,13 +51,13 @@
   align-items: center;
 }
 .titleReset {
-  margin-top: 0;
+  margin-top: 13%;
   margin-bottom: 4%;
   font-size: 4.5vh;
   font-weight: 700;
   letter-spacing: 1px;
   font-family: system-ui;
-  color: black;
+  color: #615f5f;
 }
 .formRes {
   display: flex;
@@ -71,7 +71,10 @@
 
 .pleaseMessage {
   margin-bottom: 2%;
-  font-size: 2.5vh;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 8%;
+  font-size: 110%;
   font-weight: 400;
   font-family: system-ui;
   letter-spacing: 1px;

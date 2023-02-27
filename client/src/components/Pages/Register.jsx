@@ -1,5 +1,5 @@
 import React, { /* useEffect, */ useState } from "react";
-import { useDispatch /* useSelector */ } from "react-redux";
+// import { useDispatch  useSelector  } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -9,7 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { createdUser, storeToken } from "../../redux/actions";
+import { createdUser /*, storeToken*/ } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { BsCloudArrowUp } from "react-icons/bs";
 
@@ -25,7 +25,7 @@ export default function Register() {
   const [isLoading, setIsloading] = useState(false);
   const [file, setFile] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   function registerUser(event) {
     event.preventDefault();
@@ -143,7 +143,7 @@ export default function Register() {
   // })
 
   return (
-    <div className="containerRe">
+    <div className="containerMain">
       <NavBar />
       {isLoading && <Loading />}
       <Link to={"/login"}>
