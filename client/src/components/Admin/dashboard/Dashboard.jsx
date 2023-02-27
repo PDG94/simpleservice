@@ -111,50 +111,50 @@ export default function Dashboard() {
               <tbody className="tbody">
                 <tr>
                   <td>Luciana Heredia</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Front End</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Jason Valderrama</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Full Stack Developer</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Edwards Ardila</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Full Stack Developer</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Ayelen Llampa</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Front End</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Magali Diaz</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Full Stack Developer</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Pedro Gonzalez</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Back End</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Christian Rosero</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Back End</td>
                   <td>$2000</td>
                 </tr>
                 <tr>
                   <td>Jose Baldor</td>
-                  <td>Medicina</td>
-                  <td>Cardiologo</td>
+                  <td>Software Engineering</td>
+                  <td>Back End</td>
                   <td>$2000</td>
                 </tr>
               </tbody>
