@@ -83,10 +83,14 @@ export default function ViewServices() {
 
   return (
     <>
-      <NavBarAdmin />
+    <div className="fondoView">
+      <div className="nav2">
+<NavBarAdmin/>
+      </div>
+      
       {isloading && <Loading />}
       <div className="containerView">
-        <p className="h2">All Services</p>
+        <p className="h2View">All Services</p>
         <div className="table table-responsive table-dark">
           {allServices.length === 0 ? (
             <p>No product found</p>
@@ -145,6 +149,7 @@ export default function ViewServices() {
           allServices={allServices.length}
           paged={paged}
         />
+      </div>
       </div>
     </>
   );
