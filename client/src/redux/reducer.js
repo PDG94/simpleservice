@@ -123,6 +123,7 @@ function rootReducer(state = initialState, action) {
       };
 
     case STORE_TOKEN:
+      console.log(action.payload)
       return {
         ...state,
         token: action.payload,

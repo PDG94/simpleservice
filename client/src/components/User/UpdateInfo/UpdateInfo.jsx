@@ -12,7 +12,9 @@ import { auth } from "../../Firebase/config.js";
 export default function UpdateInfoUser() {
   const navigate = useNavigate();
 
-  const token = useSelector((state) => state.token);
+  const token = localStorage.getItem("token")
+  const userID = useSelector((state) => state.userID)
+  // console.log(userID)
 
   const [form, setForm] = useState({
     name: "",
@@ -42,26 +44,25 @@ export default function UpdateInfoUser() {
     if (form.profilepic.length > 0) {
       finalForm.profilepic = form.profilepic;
     }
-
     return finalForm;
   };
 
-  const userId = auth.currentUser.uid;
+  // const userId = auth.currentUser.uid;
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const info = updateValidator();
 
-    axios.put(
-      `https://simpleservice-production.up.railway.app/user/${userId}`,
+    /* const response =  */await axios.put(
+      `https://simpleservice-production.up.railway.app/user/${userID}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
       }
     );
     toast.success("User update successfully!");
-    navigate("/home");
+    // navigate("/home");
   };
 
   return (

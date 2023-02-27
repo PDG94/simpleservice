@@ -64,9 +64,9 @@ export default function Login() {
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const user = result.user;
+        // console.log(result);
         user.getIdToken().then((token) => {
-          dispatch(storeToken(token));
-          dispatch(storeSession(auth.currentUser));
+          localStorage.setItem("token", token);
           userLogin(token);
         });
         toast.success("Login Successfuly!");
