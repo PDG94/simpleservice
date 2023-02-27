@@ -79,8 +79,8 @@ export default function AddService() {
             <hr />
             <div className="choose">
               <p>Choose Service Category</p>
-              <select onChange={(e) => handleCategory(e)}>
-                <option value="all">Categories</option>
+              <select className="optAdSer" onChange={(e) => handleCategory(e)}>
+                <option  value="all">Categories</option>
                 {categories?.map((elem) => (
                   <option key={elem.id} value={elem.id}>
                     {elem.name}
@@ -89,10 +89,11 @@ export default function AddService() {
               </select>
             </div>
             <div>
+              <p className="pService">Service Name</p>
               <input
                 className="inpAdSer"
                 type="text"
-                placeholder="Service name"
+                placeholder=" "
                 value={form.name}
                 onChange={(e) => handleInputChange(e)}
                 name="name"

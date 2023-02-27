@@ -1,9 +1,10 @@
 import React from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../AddCategories/addcategories.css";
+import imagenCat from "../AddCategories/addcategories.png";
 
 export default function AddCategories() {
   const navigate = useNavigate();
@@ -16,11 +17,11 @@ export default function AddCategories() {
   const validate = (form) => {
     let errors = {};
     if (!form.name) {
-      errors.name = "name is required";
+      errors.name = "Name is required";
     } else if (form.name.length > 30) {
-      errors.name = "name is too long";
+      errors.name = "Name is too long";
     }
-    
+
     return errors;
   };
 
@@ -46,36 +47,45 @@ export default function AddCategories() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="navbar">
-        <NavBarAdmin />
-      </div>
+    <div className="fondoAdCat">
+      <form onSubmit={submitHandler}>
+        <div className="navbar">
+          <NavBarAdmin />
+        </div>
+        <img className="imagencat" src={imagenCat} width="700px" />
+        <div className="containerAdCat">
+          <h1>Create Categories</h1>
+          <hr />
+          <div >
+            <p className="pCat">Categorie name</p>
+            <input
+            className="inpAdCat"
+              type="text"
+              placeholder=" "
+              value={form.name}
+              onChange={changeHandler}
+              name="name"
+            />
+            <p className="valid">{error.name}</p>
+          </div>
 
-      <h1>Create Categories</h1>
-
-      <div>
-        <input
-          type="text"
-          placeholder="name "
-          value={form.name}
-          onChange={changeHandler}
-          name="name"
-        />
-        <p className="valid">{error.name}</p>
-      </div>
-
-      <div>
-        <input
-          type="text"
-          placeholder="Description"
-          value={form.description}
-          onChange={changeHandler}
-          name="description"
-        />
-        <p>{error.description}</p>
-      </div>
-
-      <button>SUBMIT</button>
-    </form>
+          <div>
+            <p className="pCat">Description</p>
+            <input
+             className="inpAdCat"
+              type="text"
+              placeholder=" "
+              value={form.description}
+              onChange={changeHandler}
+              name="description"
+            />
+            <p>{error.description}</p>
+            <button type="submit" className="subAdcat">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }

@@ -4,52 +4,52 @@
   width: 100%;
   margin: 0 !important;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-between;
-  
 }
-.btns{
+.btns {
   display: flex;
-  justify-items:flex-start;
-  justify-content:flex-start;
- }
- .btnsUser{
-   display: flex;
-  justify-items:flex-end;
-  justify-content:flex-end;
- }
- .btnNav{
+  justify-items: flex-start;
+  justify-content: flex-start;
+}
+.btnsUser {
+  display: flex;
+  justify-items: flex-end;
+  justify-content: flex-end;
+}
+.btnNav {
   margin-top: 1%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
   font-family: system-ui;
-  font-size: 20px;
+  font-size: 100%;
   font-weight: 500;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
- }
- .btnNav:hover{
+}
+.btnNav:hover {
   cursor: pointer;
   color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
+  box-shadow: 0 0 2px 4px #edf125;
   border-radius: 6px;
 }
-.searchNav{
+
+.searchNav {
   background-color: black;
   margin-top: 1%;
   margin-left: 0;
   margin-right: 0;
   font-family: system-ui;
-  font-size: 20px;
+  font-size: 100%;
   font-weight: 500;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-.birdy{
+.birdy {
   margin-top: 1%;
   margin-left: 0.3rem;
   font-family: system-ui;
@@ -73,7 +73,7 @@
   padding: 14px 16px;
   text-decoration: none;
 }
-.space{
+.space {
   margin-top: 4%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
@@ -85,7 +85,7 @@
   padding: 2px 2px;
   text-decoration: none;
 }
-.login{
+.login {
   margin-top: 2.5%;
   margin-bottom: 0;
   margin-left: 0.3rem;
@@ -98,10 +98,10 @@
   padding: 14px 12px 8px 12px;
   text-decoration: none;
 }
-.login:hover{
-   cursor: pointer;
+.login:hover {
+  cursor: pointer;
   color: #edf125;
-  box-shadow:0 0 4px 6px #edf125;
+  box-shadow: 0 0 4px 6px #edf125;
   border-radius: 6px;
 }
 
@@ -118,4 +118,3 @@
   text-decoration: none;
   float: left;
 } */
-

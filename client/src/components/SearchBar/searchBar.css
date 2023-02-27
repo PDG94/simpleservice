@@ -2,8 +2,8 @@
   background-color: #101010;
 }
 .inputSearch {
-  width: 250px;
-  height: 35px;
+  width: 60%;
+  height: 80%;
   background-color: white;
   border-color: transparent;
   padding: 0 25px;
@@ -15,8 +15,8 @@
   border-radius: 0 10px 10px 0;
   font-weight: 600;
   letter-spacing: 2px;
-  height: 35px;
-  width: 130px;
+  height: 40%;
+  width: 40%;
   background-color: transparent;
   color: rgb(255, 255, 255);
   border-color: rgb(255, 255, 255);

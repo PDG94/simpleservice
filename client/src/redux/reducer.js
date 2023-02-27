@@ -193,7 +193,7 @@ function rootReducer(state = initialState, action) {
         (item) => item.id !== action.payload.id
       );
       state.cartItems = newCartItem1;
-      toast.success(`${action.payload.description} removed from cart`, {
+      toast.success(`${action.payload.servicename} removed from cart`, {
         position: "top-left",
       });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
