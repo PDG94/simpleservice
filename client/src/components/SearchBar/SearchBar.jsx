@@ -35,12 +35,14 @@ export default function SearchBar() {
             handleInputChange(e);
           }}
           type="text"
-          placeholder="🔍   Search Service..."
+          placeholder="🔍Search Service..."
           value={name}
-          onKeyPress={(e) => handleOnKeyPress(e)}
+          onKeyDown={(e) => handleOnKeyPress(e)}
           className="inputSearch"
         />
-        <button className="btnSearch" onClick={handleSubmit}>Submit</button>
+        <button className="btnSearch" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );

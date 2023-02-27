@@ -7,12 +7,12 @@ import logos from "../Imagenes/logos.ico";
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { activeUsers, removeUsers } from "../../redux/actions";
+import { activeUsers, removeUsers, getServices } from "../../redux/actions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
 import { Link } from "react-router-dom";
-import { Cart, SearchBar } from "../index";
+import { SearchBar } from "../index";
 import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 
 const NavBar = () => {
@@ -21,7 +21,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
-  const cartTotalQuantity = useSelector((state)=>state.cartTotalQuantity)
+  const cartTotalQuantity = useSelector((state) => state.cartTotalQuantity);
 
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
@@ -60,16 +60,10 @@ const NavBar = () => {
         toast.error(error.message);
       });
   }
+  const handleRefresh = () => {
+    dispatch(getServices());
+  };
 
-  const cart = (
-    <span className=''>
-      <Link to="/cart">
-        Cart
-        <FaShoppingCart size={20} />
-        <p>{cartTotalQuantity}</p>
-      </Link>
-    </span>
-  );
   return (
     <nav className="mainNavContainer">
       <div className="btns">
@@ -85,7 +79,11 @@ const NavBar = () => {
           Home
         </Link>
 
-        <Link className="btnNav" to="/Services">
+        <Link
+          className="btnNav"
+          to="/Services"
+          onClick={(e) => handleRefresh(e)}
+        >
           Services
         </Link>
 
@@ -94,6 +92,14 @@ const NavBar = () => {
             Create Service
           </Link>
         </ShowOnLogin>
+
+        <Link
+          className="btnNav"
+          to="/Services"
+          onClick={(e) => handleRefresh(e)}
+        >
+          Refresh
+        </Link>
       </div>
 
       <div className="btnsUser">
@@ -130,12 +136,15 @@ const NavBar = () => {
             Logout
           </Link>
         </ShowOnLogin>
-        
-        <div>
+
         <ShowOnLogin>
-          {cart}
-          </ShowOnLogin>
-        </div>
+          {" "}
+          <Link className="btnNav" to="/cart">
+            <FaShoppingCart size={26} className="shoppingCart" />
+            {"  "}
+            {cartTotalQuantity}
+          </Link>
+        </ShowOnLogin>
 
         <ShowOnLogin>
           <div className="greet">
