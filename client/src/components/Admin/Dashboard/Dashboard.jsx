@@ -6,7 +6,7 @@ import { MdDashboard, MdPerson, MdOutlineBorderColor } from "react-icons/md";
 
 export default function Dashboard() {
   return (
-    <div className="dash">
+    <div className="dashBo">
       <div className="navDash">
         <NavBarAdmin />
       </div>
