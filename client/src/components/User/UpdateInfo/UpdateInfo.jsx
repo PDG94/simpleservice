@@ -1,4 +1,5 @@
 import React from "react";
+import { uploadFile } from "../../Firebase/config";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,8 +20,9 @@ export default function UpdateInfoUser() {
     name: "",
     username: "",
     userbio: "",
-    profilepic: "",
+    filename: "",
   });
+  const [file, setFile] = useState("");
 
   function handlerChange(e) {
     setForm({
@@ -29,7 +31,7 @@ export default function UpdateInfoUser() {
     });
   }
 
-  const updateValidator = () => {
+  const updateValidator = async () => {
     const finalForm = {};
     if (form.name.length > 0) {
       finalForm.name = form.name;
@@ -40,20 +42,37 @@ export default function UpdateInfoUser() {
     if (form.userbio.length > 0) {
       finalForm.userbio = form.userbio;
     }
-    if (form.profilepic.length > 0) {
-      finalForm.profilepic = form.profilepic;
+    if (!isObjectEmpty(file)) {
+      finalForm.profilepic = await uploadFile(file, userID);
     }
     return finalForm;
   };
 
   // const userId = auth.currentUser.uid;
+  const isObjectEmpty = (objectName) => {
+    return (
+      objectName &&
+      Object.keys(objectName).length === 0 &&
+      objectName.constructor === Object
+    );
+  };
+
+  function changing(e) {
+    // var pdrs = document.getElementById("file-upload").files[0].name;
+    // document.getElementById("info").innerHTML = pdrs;
+    setFile(e.target.files[0]);
+    setForm({
+      ...form,
+      filename: e.target.files[0].name,
+    });
+  }
 
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    const info = updateValidator();
+    const info = await updateValidator();
 
-    /* const response =  */ await axios.put(
+    /* const response = */ await axios.put(
       `https://simpleservice-production.up.railway.app/user/${userID}`,
       info,
       {
@@ -121,13 +140,19 @@ export default function UpdateInfoUser() {
             <label className="icon">
               <MdDescription />
             </label>
-            <input
+            {/* <input
               className="inpCreate"
               type="text"
               placeholder="Profile Photo"
               value={form.profilepic}
               name="profilepic"
               onChange={(e) => handlerChange(e)}
+            /> */}
+            <input
+              // id="file-upload"
+              onChange={(e) => changing(e)}
+              type="file"
+              // style={{ display: "none" }}
             />
           </div>
         </div>
