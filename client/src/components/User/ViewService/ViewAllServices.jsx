@@ -1,13 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import NavBarUser from "../NavBarUser/NavBarUser";
 import { AiOutlineEye} from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { getServiceUser } from "../../../redux/actions";
 
 export default function ViewAllServices(){
+
+  
 const serviceUser = useSelector((state)=>state.serviceUser)
-const length = Object.keys(serviceUser)
 console.log(serviceUser);
+const length = Object.keys(serviceUser)
+const dispatch= useDispatch()
+const token = localStorage.getItem("token");
+const userID = useSelector((state) => state.userID)
+
+
+  useEffect(()=>{
+    dispatch(getServiceUser(userID, token))
+  }, [dispatch])
+
 
 return (
     <>
