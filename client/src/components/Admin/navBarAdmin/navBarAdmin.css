@@ -1,8 +1,7 @@
-.navbarAd {
+.navbarAdmin {
   background-color:  #252636;
   width: 260px;
-  position: fixed;
-  margin-top: 100px;
+  margin-top: 45%;
 }
 .userAd {
   padding: 10px;

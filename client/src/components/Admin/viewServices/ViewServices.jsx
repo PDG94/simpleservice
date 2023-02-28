@@ -84,7 +84,7 @@ export default function ViewServices() {
   return (
     <>
     <div className="fondoView">
-      <div className="nav2">
+      <div className="navView">
 <NavBarAdmin/>
       </div>
       

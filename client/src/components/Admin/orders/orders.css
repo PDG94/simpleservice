@@ -1,6 +1,9 @@
-.navbar3{
-    margin-top: -27%;
+.navOrde{
+    background-color: #252636;
+    position: absolute;
+    margin-top: -22%;
     position: fixed;
+   
 }
 .fondoOrders{
     background-color: #1a1a25;

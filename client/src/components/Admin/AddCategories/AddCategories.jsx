@@ -49,7 +49,7 @@ export default function AddCategories() {
   return (
     <div className="fondoAdCat">
       <form onSubmit={submitHandler}>
-        <div className="navbar">
+        <div className="navCat">
           <NavBarAdmin />
         </div>
         <img className="imagencat" src={imagenCat} width="700px" />

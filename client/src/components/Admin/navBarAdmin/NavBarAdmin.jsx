@@ -14,7 +14,7 @@ import {
 export default function NavBarAdmin() {
 
   return (
-    <div className="navbarAd">
+    <div className="navbarAdmin">
       <div className="userAd">
         <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
         <hr />
