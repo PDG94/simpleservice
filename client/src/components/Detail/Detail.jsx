@@ -21,7 +21,6 @@ export default function Detail() {
   const cartItems = useSelector((state) => state.cartItems);
 
   const cart = cartItems.find((cart) => cart.id === id);
-  console.log(cart);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });

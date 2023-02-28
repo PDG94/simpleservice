@@ -26,10 +26,11 @@ export default function Login() {
   // const dispatch = useDispatch();
 
   const previousURL1 = useSelector((state) => state.previousURL);
-  console.log(previousURL1);
+  previousURL1 && console.log(previousURL1);
+  // localStorage.clear()
 
   const redirectUser = () => {
-    if (previousURL1.includes("cart")) {
+    if (previousURL1 && previousURL1.includes("cart")) {
       return navigate("/cart");
     }
     navigate("/home");
