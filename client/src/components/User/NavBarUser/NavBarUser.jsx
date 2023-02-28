@@ -38,14 +38,6 @@ export default function NavBarUser() {
         >
           Update My Info
         </Link>
-
-        <Link
-          className="btnNavUser"
-          to="/profile/my-services/:id"
-          style={{ textDecoration: "none" }}
-        >
-          My Services
-        </Link>
         <Link
           className="btnNavUser"
           to="/profile/my-servicesdetail"
@@ -59,13 +51,6 @@ export default function NavBarUser() {
           style={{ textDecoration: "none" }}
         >
           My Orders
-        </Link>
-        <Link
-          className="btnNavUser"
-          to="/Create"
-          style={{ textDecoration: "none" }}
-        >
-          Add Service
         </Link>
       </div>
       <div className="otherButton">

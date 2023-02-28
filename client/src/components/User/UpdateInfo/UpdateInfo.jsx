@@ -87,9 +87,6 @@ export default function UpdateInfoUser() {
     <form onSubmit={submitHandler}>
       <NavBarUser />
       <div className="form">
-        <Link to={"/profile"}>
-          <button className="back">Back</button>
-        </Link>
 
         <div className="containerCreated">
           <h1 className="titleCr">Update User</h1>
