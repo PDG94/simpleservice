@@ -19,10 +19,8 @@ export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cartItems);
-  console.log(cartItems);
 
   const cart = cartItems.find((cart) => cart.id === id);
-  console.log(cart);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });

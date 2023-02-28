@@ -58,13 +58,13 @@ const Cart = () => {
   const decreaseCart1 = (cart) => {
     dispatch(calculateTotalQuantity())
     dispatch(calculateSubTotal());
-    return dispatch(decreaseCart(cart));
+    dispatch(decreaseCart(cart));
   };
   const removeFromCart = (cart) => {
     dispatch(removeCart(cart));
   };
   const clearCart1 = () => {
-    return dispatch(clearCart());
+    dispatch(clearCart());
   };
 
   return (

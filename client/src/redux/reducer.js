@@ -145,13 +145,10 @@ function rootReducer(state = initialState, action) {
       return {...state, cartItems: action.payload }
 
     case DECREASE_CART:
-      console.log([...action.payload])
-      console.log(state)
       return {...state, cartItems: [...action.payload]}
 
     case REMOVE_CART:
       const prueba = {...state, cartItems:[...action.payload]}
-      console.log(prueba)
       return {...prueba}
 
     case CLEAR_CART:
@@ -167,11 +164,9 @@ function rootReducer(state = initialState, action) {
       return {...state, previousURL: action.payload}
 
     case SAVE_SHIPPING_ADDRESS:
-      console.log(action.payload);
       return {...state, shippingAddress: action.payload}
 
     case SAVE_BILLING_ADDRESS:
-      console.log(action.payload);
       return {
         ...state, billingAddress: action.payload
       }
