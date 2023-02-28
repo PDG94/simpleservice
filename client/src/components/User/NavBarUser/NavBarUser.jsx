@@ -38,14 +38,6 @@ export default function NavBarUser() {
         >
           Update My Info
         </Link>
-
-        <Link
-          className="btnNavUser"
-          to="/profile/my-services/:id"
-          style={{ textDecoration: "none" }}
-        >
-          My Services
-        </Link>
         <Link
           className="btnNavUser"
           to="/profile/my-servicesdetail"
@@ -73,30 +65,6 @@ export default function NavBarUser() {
           Main Menu
         </Link>
       </div>
-
-      <nav className="navAd">
-        <ul className="ulNav">
-          <li className="homeadd">
-            <Link to="/profile">Home</Link>
-          </li>
-
-          <li className="addSerAd">
-            <Link to="/profile/update">Update Info</Link>
-          </li>
-
-          <li className="addSerAd">
-            <Link to="/Create">Add Service</Link>
-          </li>
-
-          <li className="viewAd">
-            <Link to="/profile/my-servicesdetail">View All Services</Link>
-          </li>
-
-          <li className="orderAd">
-            <Link to="/profile/orders">Orders</Link>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 }
