@@ -52,13 +52,6 @@ export default function NavBarUser() {
         >
           My Orders
         </Link>
-        <Link
-          className="btnNavUser"
-          to="/Create"
-          style={{ textDecoration: "none" }}
-        >
-          Add Service
-        </Link>
       </div>
       <div className="otherButton">
         <Link className="btnNavUser" to="/home">
