@@ -23,9 +23,6 @@ export default function ViewServiceUser () {
     <form>
       <NavBarUser />
       <div className="form">
-        <Link to={"/profile/my-servicesdetail"}>
-          <button className="back">Back</button>
-        </Link>
 
         <div className="containerCreated">
           <h1 className="titleCr">View My Services</h1>

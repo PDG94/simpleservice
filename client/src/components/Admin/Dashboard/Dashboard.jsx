@@ -11,13 +11,6 @@ export default function Dashboard() {
         <NavBarAdmin />
       </div>
       <div className="dashboard">
-        <Link
-          className="mainMenu"
-          style={{ textDecoration: "none" }}
-          to="/home"
-        >
-          Main menu
-        </Link>
         <h1 className="hi">Hi, Admin!</h1>
         <main className="Menu">
           <div className="insights">
