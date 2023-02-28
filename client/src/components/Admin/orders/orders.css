@@ -1,0 +1,20 @@
+.navOrde{
+    background-color: #252636;
+    position: absolute;
+    margin-top: -22%;
+    position: fixed;
+   
+}
+.fondoOrders{
+    background-color: #1a1a25;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+.h1Orders{
+    margin-top: 55px;
+    width: 30px;
+    margin-left: 50%;
+    color: #9f90ea;
+    font-size: 300%;
+}

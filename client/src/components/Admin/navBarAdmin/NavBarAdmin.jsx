@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../NavBarAdmin/navBarAdmin.css";
 import logo from "../../Imagenes/logoslila.ico";
@@ -12,9 +12,8 @@ import {
 } from "react-icons/md";
 
 export default function NavBarAdmin() {
-
   return (
-    <div className="navbarAd">
+    <div className="navbarAdmin">
       <div className="userAd">
         <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
         <hr />
@@ -36,7 +35,7 @@ export default function NavBarAdmin() {
             style={{ textDecoration: "none" }}
             to="/admin/add-service"
           >
-            <MdAddCircle className="icNavDash"/>
+            <MdAddCircle className="icNavDash" />
             Add Service
           </Link>
           <br />
@@ -45,7 +44,7 @@ export default function NavBarAdmin() {
             style={{ textDecoration: "none" }}
             to="/admin/add-categories"
           >
-            <MdCategory className="icNavDash"/>
+            <MdCategory className="icNavDash" />
             Add Categories
           </Link>
           <br />
@@ -54,7 +53,7 @@ export default function NavBarAdmin() {
             style={{ textDecoration: "none" }}
             to="/admin/all-services"
           >
-            <MdOutlineVisibility className="icNavDash"/>
+            <MdOutlineVisibility className="icNavDash" />
             View Services
           </Link>
           <br />
@@ -63,12 +62,12 @@ export default function NavBarAdmin() {
             style={{ textDecoration: "none" }}
             to="/admin/orders"
           >
-            <MdReorder className="icNavDash"/>
+            <MdReorder className="icNavDash" />
             Orders
           </Link>
         </div>
       </div>
-    <div className="navbar">
+      {/* <div className="navbar"> POR QUÉ HAY DOS NAVBAR SI SOLO SE ESTÁ USANDO UNA?
       <div className="user">
         <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
         <hr />
@@ -101,7 +100,7 @@ export default function NavBarAdmin() {
           </li>
         </ul>
       </nav>
-    </div>
+    </div> */}
     </div>
   );
 }

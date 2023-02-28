@@ -2,17 +2,17 @@
   margin: 0;
   padding: 0;
 }
-.containerRe {
-  /* background: linear-gradient(
+.containerMain {
+  background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(255, 255, 255, 1) 50%,
     rgba(0, 0, 0, 1) 100%
-  ); */
+  );
   width: 100%;
   height: 100vh;
-  background-attachment: scroll;
-  margin-bottom: 3%;
+  /* background-attachment: scroll; */
+  margin-bottom: 0;
 }
 
 .containerRegister {
@@ -69,58 +69,20 @@
 }
 .inp {
   padding: 12px 10px 15px 20px;
-  margin-bottom: 12px;
+  margin-bottom: 1%;
   border-radius: 10px;
-  width: 90%;
+  width: 85%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #000000;
   font-weight: 500;
-  font-size: 1em;
+  font-size: 80%;
   letter-spacing: 1px;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
     5px 5px 15px rgba(0, 0, 0, 0.35);
   transform: 0.5s;
   outline: none;
 }
-/* .inpFile {
-  padding: 12px 10px 15px 20px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  width: 90%;
-  background-color: white;
-  border: 1px solid transparent;
-  border: 1px solid red;
-  color: #000000;
-  font-weight: 500;
-  font-size: 1em;
-  letter-spacing: 1px;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
-  transform: 0.5s;
-  outline: none;
-} */
-/* input[type="file"]#ourinput {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.labelinp[for="ourinput"] {
-  font-size: 100%;
-  font-weight: 600;
-  color: black;
-  background-color: #def25a;
-  display: inline-block;
-  transition: all 0.5s;
-  cursor: pointer;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  width: fit-content;
-  text-align: center;
-} */
 .subir {
   cursor: pointer;
   padding: 12px 10px 15px 20px;
@@ -168,7 +130,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  height: 40px;
+  height: 7%;
   font-size: 3.5vh;
   align-items: center;
   justify-content: center;
@@ -176,18 +138,17 @@
   padding-right: 4px;
   font-family: system-ui;
   font-weight: 600;
-  margin-top: 4vh;
-  margin-left: 5vw;
-  width: 100px;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 7%;
   color: #fcfcfc;
   letter-spacing: 1px;
   border: 1px solid #fdfdfd;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: transparent;
 }
 .backRegister:hover {
   border: 1px solid white;
-  border-radius: 5px;
   background-color: #d7df23;
   color: rgb(29, 29, 29);
   box-shadow: 0 0 2px 2px rgb(255, 255, 255);
@@ -200,7 +161,7 @@
 
 .headerRegister {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -209,7 +170,7 @@
   padding: 12px 10px 15px 20px;
   margin-bottom: 12px;
   border-radius: 10px;
-  width: 90.8%;
+  width: 86%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #615f5f;
@@ -233,13 +194,12 @@
   height: 50px;
   width: 30%;
   border: 2px solid #b4ab07;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgba(128, 128, 128, 0.188);
   box-shadow: 0 0 10px yellow;
 }
 .btnRegister:hover {
   border: 1px solid white;
-  border-radius: 10px;
   background-color: #d7df23;
   color: rgb(0, 0, 0);
   box-shadow: 0 0 2px 2px rgb(255, 255, 255);
@@ -250,7 +210,7 @@
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 1%;
-  color: rgb(51, 50, 50);
+  color: #615f5f;
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
@@ -258,6 +218,14 @@
   text-align: center;
 }
 .iconR {
-  font-size: 100px;
+  font-size: 70px;
   margin-top: 2%;
+  color: #484747;
+}
+.titleRegister {
+  font-family: system-ui;
+  font-weight: 500;
+  color: #484747;
+  margin-top: 2.5%;
+  font-size: 200%;
 }

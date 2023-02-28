@@ -1,16 +1,13 @@
 import React from "react";
-
 import NavBarUser from "../NavBarUser/NavBarUser";
+import "../../User/Dashboard/profile.css";
 
 export default function DashboardUser() {
   return (
-    <div>
+    <div className="fondoProf">
+      <NavBarUser />
       <div>
-        <a href="/home">Main menu</a>
-      </div>
-      <h1>Estoy en Home de User</h1>
-      <div className="navbar">
-        <NavBarUser />
+        <h1>Estoy en Home de User</h1>
       </div>
     </div>
   );

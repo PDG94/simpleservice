@@ -5,7 +5,7 @@ export default function OrdersUser() {
   return (
     <div>
       <h1>Estoy en Orders User</h1>
-      <div className="navbar">
+      <div className="navOrUser">
         <NavBarUser />
       </div>
     </div>

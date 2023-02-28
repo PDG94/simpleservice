@@ -37,8 +37,9 @@ export default function PaginationAdmin({paged,allServices,servicesPerPage}){
         
     return (
         <nav className="page">
-    <div className="">
-        <div onClick={prev} className={currentPage === pageNumber[0] ? `hidden` : null}>&laquo;</div>
+    <div className="pagesAd">
+             <div onClick={prev} className={currentPage === pageNumber[0] ? `hidden` : null}>&laquo;</div>
+             
         {pageNumber.map((number)=>{
             if(number<maxPageNumberLimit + 1 && number > minPageNumberLimit){
         return(
@@ -47,9 +48,10 @@ export default function PaginationAdmin({paged,allServices,servicesPerPage}){
             }
         })}
         
-        <li onClick={nextPage} className={currentPage === pageNumber[pageNumber.length-1] ? "hidden" : ""}>&raquo;</li>
-        <p>
-            <b className="page">{`page
+        
+       <li onClick={nextPage} className={currentPage === pageNumber[pageNumber.length-1] ? "hidden" : ""}>&raquo;</li> 
+        <p className="pAdPage">
+            <b className="Page">{`Page
             ${currentPage}`}</b>
             <span>{` of `}</span>
             <b>{`${Math.ceil(pageNumbers)}`}</b>

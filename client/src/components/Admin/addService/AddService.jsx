@@ -69,7 +69,7 @@ export default function AddService() {
   return (
     <div className="AdSer">
       <form onSubmit={submitHandler}>
-        <div className="navbar">
+        <div className="navServ">
           <NavBarAdmin />
         </div>
         <div>

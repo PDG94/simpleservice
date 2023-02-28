@@ -1,4 +1,5 @@
 import "../Home/home.css";
+import React from "react";
 import woodworker from "../Imagenes/woodworker.jpg";
 import doctor from "../Imagenes/doctor.jpg";
 import clothes from "../Imagenes/clothes.jpg";

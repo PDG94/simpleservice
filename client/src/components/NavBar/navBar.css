@@ -18,11 +18,10 @@
   justify-content: flex-end;
 }
 .btnNav {
-  margin-top: 1%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
   font-family: system-ui;
-  font-size: 100%;
+  font-size: 20px;
   font-weight: 500;
   color: white;
   text-align: center;
@@ -32,13 +31,11 @@
 .btnNav:hover {
   cursor: pointer;
   color: #edf125;
-  box-shadow: 0 0 2px 4px #edf125;
-  border-radius: 6px;
+  background-color: #313233;
 }
 
 .searchNav {
-  background-color: black;
-  margin-top: 1%;
+  background-color: transparent;
   margin-left: 0;
   margin-right: 0;
   font-family: system-ui;
@@ -50,7 +47,6 @@
   text-decoration: none;
 }
 .birdy {
-  margin-top: 1%;
   margin-left: 0.3rem;
   font-family: system-ui;
   font-size: 20px;
