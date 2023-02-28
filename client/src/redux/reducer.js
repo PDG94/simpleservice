@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import {
   GET_SERVICES,
   GET_SERVICES_DETAIL,
@@ -42,9 +42,7 @@ const initialState = {
   users: [],
   session: null,
   //CART
-  cartItems: localStorage.getItem("cartItems")
-    ? JSON.parse(localStorage.getItem("cartItems"))
-    : [],
+  cartItems: [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
   previousURL: "",
@@ -144,112 +142,34 @@ function rootReducer(state = initialState, action) {
       return { ...state };
 
     case ADD_TO_CART:
-      const productIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      if (productIndex >= 0) {
-        // Item already exists in the cart
-        // Increase the cartQuantity
-        state.cartItems[productIndex].cartQuantity += 1;
-        toast.info(`${action.payload.servicename} increased by one`, {
-          position: "top-left",
-        });
-      } else {
-        // Item doesn't exists in the cart
-        // Add item to the cart
-        const tempProduct = { ...action.payload, cartQuantity: 1 };
-        state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.servicename} added to cart`, {
-          position: "top-left",
-        });
-      }
-      // save cart to LS
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      break;
+      return {...state, cartItems: action.payload }
 
     case DECREASE_CART:
-      const productIndex2 = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      if (state.cartItems[productIndex2].cartQuantity > 1) {
-        state.cartItems[productIndex2].cartQuantity -= 1;
-        toast.info(`${action.payload.servicename} decreased by one`, {
-          position: "top-left",
-        });
-      } else if (state.cartItems[productIndex2].cartQuantity === 1) {
-        const newCartItem = state.cartItems.filter(
-          (item) => item.id !== action.payload.id
-        );
-        state.cartItems = newCartItem;
-        toast.success(`${action.payload.servicename} removed from cart`, {
-          position: "top-left",
-        });
-      }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      break;
+      return {...state, cartItems: [...action.payload]}
 
     case REMOVE_CART:
-      const newCartItem1 = state.cartItems.filter(
-        (item) => item.id !== action.payload.id
-      );
-      state.cartItems = newCartItem1;
-      toast.success(`${action.payload.servicename} removed from cart`, {
-        position: "top-left",
-      });
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      break;
+      const prueba = {...state, cartItems:[...action.payload]}
+      return {...prueba}
 
     case CLEAR_CART:
-      console.log(action.payload);
-      state.cartItems = [];
-      toast.info(`Cart cleared`, {
-        position: "top-left",
-      });
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      break;
+      return {...state, cartItems: action.payload}
 
     case CALCULATE_SUB_TOTAL:
-      const array = [];
-      state.cartItems.map((item) => {
-        const { price, cartQuantity } = item;
-        const cartItemAmount = price * cartQuantity;
-        return array.push(cartItemAmount);
-      });
-      const totalAmount = array.reduce((a, b) => {
-        return a + b;
-      }, 0);
-      state.cartTotalAmount = totalAmount;
-      break;
+      return {...state, cartTotalAmount: action.payload}
 
     case CALCULATE_TOTAL_QUANTITY:
-      const array1 = [];
-      if (state.cartItems) {
-        // Agregamos un control de flujo para verificar si "cartItems" existe
-        state.cartItems.map((item) => {
-          const { cartQuantity } = item;
-          const quantity = cartQuantity;
-          return array1.push(quantity);
-        });
-      }
-      const totalQuantity = array1.reduce((a, b) => {
-        return a + b;
-      }, 0);
-      state.cartTotalQuantity = totalQuantity;
-      break;
+      return {...state, cartTotalQuantity: action.payload}
 
     case SAVE_URL:
-      state.previousURL = action.payload;
-      break;
+      return {...state, previousURL: action.payload}
 
     case SAVE_SHIPPING_ADDRESS:
-      console.log(action.payload);
-      state.shippingAddress = action.payload;
-      break;
+      return {...state, shippingAddress: action.payload}
 
     case SAVE_BILLING_ADDRESS:
-      console.log(action.payload);
-      state.billingAddress = action.payload;
-      break;
+      return {
+        ...state, billingAddress: action.payload
+      }
 
     case GET_SERVICE_USER:
       return {
