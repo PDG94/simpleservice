@@ -27,7 +27,7 @@ export default function NavBarAdmin() {
             to="/admin/home"
           >
             <MdHome className="icNavDash" />
-            Home
+            Dashboard
           </Link>
           <br />
           <Link
@@ -64,6 +64,13 @@ export default function NavBarAdmin() {
           >
             <MdReorder className="icNavDash" />
             Orders
+          </Link>
+          <Link
+          className="mainMenu"
+          style={{ textDecoration: "none" }}
+          to="/home"
+        >
+          Back to Home
           </Link>
         </div>
       </div>
