@@ -46,7 +46,7 @@ export default function Prohibido(){
              <hr className="hrPro"/>
           <h5>Flag anyone else you see doing so</h5>
              <hr className="hrPro"/>
-          <h4><b>Thanks for helping keep Simple Service safe and useful for everyone </b> </h4>
+          <h4><b>Thanks for helping keep Simple Service safe and useful for everyone </b></h4>
           <br/>
           </div>
          </div>
