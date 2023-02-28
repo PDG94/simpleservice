@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, /* useState */ } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,6 +25,9 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const url = window.location.href;
+  // console.log(cartItems)
+  // const [, setAmount] = useState(0);
+  // localStorage.clear();
 
   useEffect(() => {
     dispatch(calculateSubTotal());
@@ -45,17 +48,23 @@ const Cart = () => {
   };
 
   const increaseCart = (cart) => {
+    // console.log(cart.cartQuantity)
+    dispatch(calculateTotalQuantity())
     dispatch(addToCart(cart));
+    // setAmount(cart.cartQuantity)
+    dispatch(calculateSubTotal());
   };
 
   const decreaseCart1 = (cart) => {
-    dispatch(decreaseCart(cart));
+    dispatch(calculateTotalQuantity())
+    dispatch(calculateSubTotal());
+    return dispatch(decreaseCart(cart));
   };
   const removeFromCart = (cart) => {
     dispatch(removeCart(cart));
   };
   const clearCart1 = () => {
-    dispatch(clearCart());
+    return dispatch(clearCart());
   };
 
   return (

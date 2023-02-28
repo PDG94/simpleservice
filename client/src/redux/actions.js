@@ -25,6 +25,7 @@ import {
   GET_SERVICE_USER,
   // USER_SESSION,
 } from "./actionTypes";
+import { addToCartHelper, calculateSubTotalHelper, clearCartHelper, decreaseCartHelper, removeCartHelper } from "./reduxhelper";
 
 export function getServices() {
   return async function (dispatch) {
@@ -187,31 +188,36 @@ export function getUsers() {
   };
 }
 //CART
-export const addToCart = (payload) => {
+export const addToCart = (input) => {
+  const payload = addToCartHelper(input)
   return function (dispatch) {
     dispatch({ type: ADD_TO_CART, payload });
   };
 };
 
-export const decreaseCart = (payload) => {
+export const decreaseCart = (input) => {
+  const payload = decreaseCartHelper(input)
   return function (dispatch) {
     dispatch({ type: DECREASE_CART, payload });
   };
 };
 
-export const removeCart = (payload) => {
+export const removeCart = (input) => {
+  const payload = removeCartHelper(input);
   return function (dispatch) {
     dispatch({ type: REMOVE_CART, payload });
   };
 };
 
-export const clearCart = (payload) => {
+export const clearCart = (input) => {
+  const payload = clearCartHelper(input)
   return function (dispatch) {
     dispatch({ type: CLEAR_CART, payload });
   };
 };
 
-export const calculateSubTotal = (payload) => {
+export const calculateSubTotal = () => {
+  const payload = calculateSubTotalHelper();
   return function (dispatch) {
     dispatch({ type: CALCULATE_SUB_TOTAL, payload });
   };
