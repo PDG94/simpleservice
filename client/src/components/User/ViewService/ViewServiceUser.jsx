@@ -1,38 +1,37 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import NavBarUser from "../NavBarUser/NavBarUser";
-import { auth } from "../../Firebase/config";
-import { getServiceUser } from "../../../redux/actions";
+
 
 export default function ViewServiceUser () {
 
-  const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-
-  const userID = useSelector((state) => state.userID)
-  // console.log(userID)
-
+  const {id} = useParams();
   const serviceUser = useSelector((state)=> state.serviceUser)
+ 
 
-  useEffect(()=>{
-    dispatch(getServiceUser(userID, token))
-  }, [dispatch])
+
+
+  function filterById(id){
+    return serviceUser.Cards.findIndex((item) => item.id === id);
+  };
+
+  const index = filterById(id)
+  
 
   return (
     <form>
       <NavBarUser />
       <div className="form">
-        <Link to={"/profile"}>
+        <Link to={"/profile/my-servicesdetail"}>
           <button className="back">Back</button>
         </Link>
 
         <div className="containerCreated">
           <h1 className="titleCr">View My Services</h1>
-          <h5>Service Name: {serviceUser.Cards?.map((e)=> e.servicename)}</h5>
-          <h5>Price: $ {serviceUser.Cards?.map((e)=> e.price)}</h5>
-          <h5>Description: {serviceUser.Cards?.map((e)=> e.description)}</h5>
+          <h5>Service Name: {serviceUser.Cards[index].servicename}</h5>
+          <h5>Price: $ {serviceUser.Cards[index].price}</h5>
+          <h5>Description: {serviceUser.Cards[index].description}</h5>
          
         </div>
       </div>
