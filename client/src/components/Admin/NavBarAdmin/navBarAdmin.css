@@ -99,3 +99,12 @@ font-size: 30px;
   margin-left: -15px;
 margin-right: 20px;
 }
+.mainMenu{
+  color: #9f90ea;
+  font-size: 20px;
+  border: 2px solid #9f90ea;
+  padding: 5%;
+  border-radius: 8px;
+margin-right: 8%;
+}
+

@@ -65,6 +65,7 @@ export default function NavBarAdmin() {
             <MdReorder className="icNavDash" />
             Orders
           </Link>
+          <br className="brMenu"/>
           <Link
           className="mainMenu"
           style={{ textDecoration: "none" }}
