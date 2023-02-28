@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 import Notiflix from "notiflix";
 import PaginationAdmin from "../PaginationAdmin/PaginationAdmin";
-import { removeUsers, resedPaged } from "../../../redux/actions";
+import { getServices, removeUsers, resedPaged } from "../../../redux/actions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import "./viewService.css";
 
@@ -14,9 +14,12 @@ export default function ViewServices() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const allServices = useSelector((state) => state.services);
-
   const [isloading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    dispatch(getServices())
+  }, [dispatch])  
 
   //PAGINATION
   const currentPage = useSelector((state) => state.currentPage);
