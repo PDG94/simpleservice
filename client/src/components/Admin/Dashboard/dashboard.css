@@ -1,28 +1,20 @@
 .dashBo{
     background-color:  #1a1a25;
+    margin-top: -5%;
     width: 100%;
-    height: 140vh;
-    position: relative;
+    height: 140%;
+    position: absolute;
 }
 .navDash{
     background-color: #252636;
     position: absolute;
-    margin-top: -15%;
+    margin-top: -8%;
     position: fixed;
 }
-.mainMenu{
-    color: aliceblue;
-    font-size: 20px;
-    border: 2px solid aliceblue;
-    padding: 10px;
-    border-radius: 8px;
-    margin-left: 180vh;
-
-}
 .hi{
-    font-size: 70px;
-    margin-top: 40px;
-    margin-bottom: 50px;
+    font-size: 500%;
+    margin-top: 10%;
+    margin-bottom: 5%;
    margin-left: -35%;
 }
 .dashboard{
@@ -33,16 +25,15 @@
 
 .Menu{
    display: flex;
-    margin-top: 1.4rem;
-    margin-left: 250px;
+    margin-left: 18%;
 
 }
 
 .insights{
-    padding: 40px;
+    padding: 4%;
     background-color: #252636;
     border-radius: 30px;
-margin-left: 65px;
+margin-left: 1%;
     display: grid;
    columns: 3;
     gap: 1.6rem;
@@ -55,20 +46,19 @@ margin-left: 65px;
     color: rgba(240, 248, 255, 0.562);
 }
 .middle{
-    margin-left: 15px;
+    margin-left: 12%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .insights h3{
-    margin-right: 30px;
-    margin-top: -60px;
+    margin-right: 10%;
+    margin-top: -20%;
     font-size: 1rem;
 }
 .insights h1{
-    margin-top: 50px;
-    margin-right: 40px;
-    margin-left: -108px;
+    margin-top: 20%;
+    margin-left: -45%;
     position: relative;
 }
 
@@ -78,7 +68,7 @@ margin-left: 65px;
     border-radius: 50%;
     font-size: 3rem;
     display:grid;
-    margin-top: -30px;
+    margin-top: -10%;
 }
 .icDash1{
     background:#ff69b4;
@@ -86,7 +76,7 @@ margin-left: 65px;
     border-radius: 50%;
     font-size: 3rem;
     display:grid;
-    margin-top: -30px;
+    margin-top: -10%;
 }
 .icDash2{
     background:#5dc1b9;
@@ -94,7 +84,7 @@ margin-left: 65px;
     border-radius: 50%;
     font-size: 3rem;
     display:grid;
-    margin-top: -30px;
+    margin-top: -10%;
 }
 .progress{
     width: 150px;
