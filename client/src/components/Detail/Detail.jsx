@@ -108,7 +108,7 @@ export default function Detail() {
                               >
                                 -
                               </button>
-                              <p>
+                              <p className="pqDet">
                                 <b>{cart.cartQuantity}</b>
                               </p>
                               <button
