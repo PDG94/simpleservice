@@ -14,7 +14,7 @@
   justify-content: space-around;
   padding-right: 2px;
   padding-left: 2px;
-  color: white;
+  color: #E9EFF2;
   list-style: none;
   font-size: 30px;
   margin-block-start: 0;
@@ -26,8 +26,8 @@
   justify-content: space-around;
   user-select: none;
   cursor: pointer;
-  background-color: black !important;
-  color: white;
+  background-color: #1a1a25 !important;
+  color: #E9EFF2;
   backdrop-filter: blur(7px);
   cursor: pointer;
   text-decoration: none;
@@ -39,43 +39,43 @@
   margin-top: 10%;
   margin-left: 2%;
   margin-right: 1.5%;
-  text-shadow: 2px 2px 2px 2px white;
+  text-shadow: 2px 2px 2px 2px #E9EFF2;
 }
 
 .buttonPage:hover {
   cursor: pointer;
-  color: #edf125;
-  background-color: #272828 !important;
+  color: #5EBFB5;
+  background-color: #252636 !important;
 }
 
 .page-numberactive {
   user-select: none;
   cursor: pointer;
-  background-color: black !important;
-  color: white;
+  background-color: #1a1a25 !important;
+  color: #E9EFF2;
   backdrop-filter: blur(7px);
   cursor: pointer;
   text-decoration: none;
   border-radius: 10%;
   padding: 1px 15px 1px 15px;
   font-weight: 1000;
-  text-shadow: 3px 3px 3px 3px #edf125;
+  text-shadow: 3px 3px 3px 3px #5EBFB5;
 }
 .page-numberactive:hover {
   cursor: pointer;
-  color: #edf125;
-  background-color: #272828 !important;
+  color: #5EBFB5;
+  background-color: #252636 !important;
 }
 .page {
   text-decoration: none;
   font-weight: 1000;
   cursor: pointer;
-  text-shadow: 3px 3px 3px 3px #edf125;
+  text-shadow: 3px 3px 3px 3px #5EBFB5;
   margin-left: 1.5vw;
   margin-right: 1.5vw;
   margin-top: 6px;
 }
 .page:hover {
   cursor: pointer;
-  color: #edf125;
+  color: #5EBFB5;
 }

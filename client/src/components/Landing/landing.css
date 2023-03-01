@@ -22,16 +22,16 @@ video{
   align-items: center;
 }
 .btnLanding{
-  font-size: 3vh;
+  font-size: 4vh;
   font-family: "Teko", sans-serif;
   letter-spacing: 4px;
   font-weight: 600;
-  background-color: #d7df23;
+  background-color: #5EBFB5;
   margin-top: 70vh;
   text-decoration: none;
   text-transform: uppercase;
   padding: 7px 13px 5px 13px;
-  color: #152039;
+  color: #1C1C26;
   /* position: absolute; */
   overflow: hidden;
   transition: color 0.1s;
@@ -39,7 +39,7 @@ video{
   border-radius: 10px;
 }
 .btnLanding:hover {
-  background-color:  #eef47c;
-  color:#3f5077;
+  background-color:  #2f5f5a;
+  color:#1C1C26;
 }
 
