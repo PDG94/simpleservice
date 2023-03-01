@@ -46,9 +46,9 @@ const deleteUser = async ({ id, active }) => {
   return userDeleted;
 };
 
-const editService = async ({ id }) => {
+const editService = async ({ id, servicename, description, price, active }) => {
   await Card.update(
-    { servicename, serviceimage, description, price, active },
+    { servicename, /* serviceimage, */ description, price, active },
     {
       where: {
         id: id,
