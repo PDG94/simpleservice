@@ -46,4 +46,16 @@ const deleteUser = async ({ id, active }) => {
   return userDeleted;
 };
 
-module.exports = { updateUserInfo, deleteUser, getUserInfo };
+const editService = async ({ id }) => {
+  await Card.update(
+    { servicename, serviceimage, description, price, active },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+  return await Card.findByPk(id);
+};
+
+module.exports = { updateUserInfo, deleteUser, getUserInfo, editService };

@@ -15,12 +15,17 @@ const updateUser = async ({
   userbio,
   profilepic,
   active,
-  isAdmin,
 }) => {
   await User.update(
-    { name, username, userbio, profilepic, active, isAdmin },
+    { name, username, userbio, profilepic, active },
     { where: { id: id } }
   );
+
+  return await User.findByPk(id);
+};
+
+const adminUser = async ({ id, isAdmin }) => {
+  await User.update({ isAdmin }, { where: { id: id } });
 
   return await User.findByPk(id);
 };
@@ -29,4 +34,4 @@ const deleteUser = async ({ id, active }) => {
   return await User.update({ active }, { where: { id: id, active: true } });
 };
 
-module.exports = { getAllUsers, updateUser, getUserById, deleteUser };
+module.exports = { getAllUsers, updateUser, getUserById, deleteUser, adminUser };
