@@ -1,68 +1,58 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import "../Create/create.css";
+import { toast } from "react-toastify";
+import { Footer } from "../../index";
+import "../Edit/edit.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
-import { GrCircleAlert } from "react-icons/gr";
-import { getCategories,getServiceList } from "../../../redux/actions";
-import Footer from "../../Footer/Footer";
+import { getServiceList } from "../../../redux/actions";
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
-export default function Edit({currentServices}) {
+export default function Create() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {id} = useParams()
-  
+  const { CategoryId, id } = useParams();
 
-  const categories = useSelector((state) => state.categories);
   const serviceList = useSelector((state) => state.serviceList);
-  const allServices = useSelector((state) => state.services);
-  console.log(allServices);
   const token = localStorage.getItem("token");
-  const servicesEdit = allServices.find((item)=> item.id === id)
-  console.log(servicesEdit);
 
   useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getServiceList());
+    category();
+    dispatch(getServiceList(CategoryId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function category() {
+    setForm({
+      ...form,
+      CategoryId: CategoryId,
+    });
+  }
+
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    CategoryId: "", //con un select desde el estado global
     description: "",
     servicename: "", //con un select desde el estado global
     price: "",
   });
 
-//   const [service, setService] = useState(()=>{
-// const newState = detectForm(id,{...form},
-//   servicesEdit
-//   )
-//   return newState
-// });
-
-// const detectForm=(e)=>{
-// e.preventDefault();
-// try {
-//   price = service.price
-// } catch (error) {
-//   console.log(error);
-// }
-// }
-
   const validate = (form) => {
     let errors = {};
-    if (form.description.length < 15) {
-      errors.description = "Description must have at least 15 characters";
+    if (!form.servicename) {
+      errors.servicename = "Select Service";
     }
     if (!form.price) {
       errors.price = "Price is required";
     } else if (isNaN(form.price)) {
       errors.price = "Price must be a number";
+    }
+    if (!form.description) {
+      errors.description = "Description is required";
+    } else if (form.description.length < 15) {
+      errors.description = "Description must have at least 15 characters";
     }
 
     return errors;
@@ -76,115 +66,86 @@ export default function Edit({currentServices}) {
     setErrors(
       validate({
         ...form,
-        [e.target.name]: [e.target.value],
+        [e.target.name]: e.target.value,
       })
     );
   }
 
-  // const detectForm=(e)=>{
-  //   e.preventDefault()
-  //   try {
-      
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  const error = validate(form);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let error = Object.keys(validate(form));
-    if (error.length !== 0 && !form.description && !form.price) {
-      alert("Please, fill in the fields correctly");
-      return;
-    } else {
-      axios.post(
-        "https://simpleservice-production.up.railway.app/services",
-        form,
-        { headers: { Authorization: "Bearer " + token } }
-      );
-    }
-    navigate("/home");
-  };
 
-  const handleCategory = (e) => {
-    setForm({ ...form, CategoryId: e.target.value });
+    if (Object.values(error).length) {
+      return toast.error(Object.values(error).join(", "));
+    }
+    axios.put(
+      `https://simpleservice-production.up.railway.app/admin/services/${id}`,
+      form,
+      { headers: { Authorization: "Bearer " + token } }
+    );
+    toast.success("Service update successfully!");
+    navigate("/home");
   };
 
   const handleServicesList = (e) => {
     setForm({ ...form, servicename: e.target.value });
   };
 
-    return (
-        <form >
-          {/* <NavBar /> */}
-          <div className="form">
-            <Link to={"/Home"}>
-              <button className="back">Back</button>
-            </Link>
-    
-            <div className="containerCreated">
-              <h1 className="titleCr">Edit Service</h1>
-    
-              <GrCircleAlert />
-              <p>
-                Atention see <Link to="/prohibited">prohibited</Link> list before
-                posting.
-              </p>
-    
-              <span className="spantitle">Select a category</span>
-              <select onChange={(e) => handleCategory(e)}>
-                <option value="all">Categories</option>
-                {categories?.map((elem) => (
-                  <option key={elem.id} value={elem.id}>
-                    {elem.name}
-                  </option>
-                ))}
-              </select>
-    
-              <span className="spantitle">Select a service</span>
-              <select onChange={(e) => handleServicesList(e)}>
-                <option value="all">Services</option>
-                {serviceList?.map((elem) => (
-                  <option key={elem.id} value={elem.name}>
-                    {elem.name}
-                  </option>
-                ))}
-              </select>
-    
-              <div>
-                <label className="icon">
-                  <FiDollarSign />
-                </label>
-                <input
-                  type="text"
-                  placeholder="Price"
-                  value={form.price}
-                  // onChange={changeHandler}
-                  name="price"
-                  onChange={(e) => handlerChange(e)}
-                />
-                <p className="valid">{errors.price}</p>
-              </div>
-    
-              <div>
-                <label className="icon">
-                  <MdDescription />
-                </label>
-                <input
-                  type="text"
-                  placeholder="Description"
-                  value={form.description}
-                  name="description"
-                  onChange={(e) => handlerChange(e)}
-                />
-                <p className="valid">{errors.description}</p>
-              </div>
-            </div>
+  return (
+    <form onSubmit={submitHandler}>
+      <div className="navedit">
+        <NavBarAdmin />
+      </div>
+      <div className="formEdit">
+        <div className="containerEdit">
+          <h1 className="titleEdit">Update Service of User</h1>
+
+          <span className="spantitleEdit">Select a service</span>
+          <select className="selEdit" onChange={(e) => handleServicesList(e)}>
+            <option value="all">Services</option>
+            {serviceList?.map((elem) => (
+              <option key={elem.id} value={elem.name}>
+                {elem.name}
+              </option>
+            ))}
+          </select>
+
+          <div className="priceEdit">
+            <label className="iconEdit">
+              <FiDollarSign />
+            </label>
+            <input
+              className="inpEdit"
+              type="text"
+              placeholder="Price"
+              value={form.price}
+              name="price"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="validEdit">{errors.price}</p>
           </div>
-          <button type="submit" className="sub">
-            SUBMIT
-          </button>
-          <Footer /> 
-        </form>
-      );
-    }
+
+          <div>
+            <label className="iconEdit">
+              <MdDescription />
+            </label>
+            <input
+              className="inpEdit"
+              type="text"
+              placeholder="Description"
+              value={form.description}
+              name="description"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="validEdit">{errors.description}</p>
+          </div>
+        </div>
+      </div>
+      <button type="submit" className="subEdit">
+        SUBMIT
+      </button>
+      <Footer />
+    </form>
+  );
+}
