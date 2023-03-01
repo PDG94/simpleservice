@@ -3,12 +3,7 @@
   padding: 0;
 }
 .containerMain {
-  background: linear-gradient(
-    270deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background:#E9EFF2 ;
   width: 100%;
   height: 100vh;
   /* background-attachment: scroll; */
@@ -18,18 +13,18 @@
 .containerRegister {
   margin-left: 25%;
   align-items: center;
-  background-color: #ced379;
-  color: #000000;
-  margin-top: 10px;
+  background-color: #252636;
+  color: #1a1a25;
+  margin-top: 30px;
   margin-bottom: 5%;
-  border: 8px solid #d7df23;
+  border: 8px solid #252636;
   border-radius: 50px;
   width: 50%;
-  height: fit-content;
+  height: 80%;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35),
+    5px 5px 15px #1a1a25,
     inset -5px -5px 15px rgba(255, 255, 255, 0.3),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+    inset 5px 5px 15px #1a1a25;
 }
 .nameBox {
   display: flex;
@@ -72,14 +67,14 @@
   margin-bottom: 1%;
   border-radius: 10px;
   width: 85%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #000000;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  color: #1a1a25;
   font-weight: 500;
   font-size: 80%;
   letter-spacing: 1px;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
@@ -89,21 +84,21 @@
   margin-bottom: 3%;
   border-radius: 10px;
   width: 70%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #000000;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  color: #1a1a25;
   font-weight: 500;
   font-size: 1em;
   letter-spacing: 1px;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
 
 .subir:hover {
-  color: yellow;
-  background: black;
+  color: #5EBFB5;
+  background: #1a1a25;
 }
 #info {
   color: blue;
@@ -119,7 +114,7 @@
   margin-right: 5%;
 }
 .errP {
-  color: red;
+  color: rgb(196, 95, 95);
   font-size: 95%;
   font-weight: 500;
   font-family: system-ui;
@@ -141,17 +136,17 @@
   margin-top: 2%;
   margin-left: 5%;
   width: 7%;
-  color: #fcfcfc;
+  color: #E9EFF2;
   letter-spacing: 1px;
-  border: 1px solid #fdfdfd;
+  border: 1px solid #E9EFF2;
   border-radius: 15px;
   background-color: transparent;
 }
 .backRegister:hover {
-  border: 1px solid white;
-  background-color: #d7df23;
-  color: rgb(29, 29, 29);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .formRegister {
   margin-top: 3%;
@@ -171,14 +166,14 @@
   margin-bottom: 12px;
   border-radius: 10px;
   width: 86%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
   color: #615f5f;
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 1em;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
@@ -193,16 +188,17 @@
   margin-bottom: 2%;
   height: 50px;
   width: 30%;
-  border: 2px solid #b4ab07;
+  border: 2px solid #5EBFB5;
   border-radius: 15px;
   background-color: rgba(128, 128, 128, 0.188);
-  box-shadow: 0 0 10px yellow;
+  box-shadow: 0 0 10px #5EBFB5;
+
 }
 .btnRegister:hover {
-  border: 1px solid white;
-  background-color: #d7df23;
-  color: rgb(0, 0, 0);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .submitRegister {
   border: none;
@@ -210,22 +206,25 @@
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 1%;
-  color: #615f5f;
+  color: #5EBFB5;
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
   font-family: system-ui;
   text-align: center;
 }
+.submitRegister{
+  color: #1a1a25;
+}
 .iconR {
   font-size: 70px;
-  margin-top: 2%;
-  color: #484747;
+  margin-top: 4%;
+  color: #5EBFB5;
 }
 .titleRegister {
   font-family: system-ui;
   font-weight: 500;
-  color: #484747;
-  margin-top: 2.5%;
-  font-size: 200%;
+  color: #5EBFB5;
+  margin-top: 4.5%;
+  font-size: 300%;
 }

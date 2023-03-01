@@ -6,12 +6,7 @@
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap; */
-  background: linear-gradient(
-    270deg,
-    #101010 0%,
-    rgba(255, 255, 255, 1) 50%,
-    #101010 100%
-  );
+  background: #1a1a25
 }
 
 .containerWrapperList {
@@ -35,10 +30,5 @@
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  background: linear-gradient(
-    0deg,
-    #101010 0%,
-    rgb(255, 255, 255) 50%,
-    #101010 100%
-  );
+  background: #c3cace;
 }

@@ -1,5 +1,5 @@
 .mainNavContainer {
-  background-color: black;
+  background-color: #1a1a25;
   background-position: center;
   width: 100%;
   margin: 0 !important;
@@ -23,15 +23,15 @@
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: white;
+  color: #E9EFF2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 .btnNav:hover {
   cursor: pointer;
-  color: #edf125;
-  background-color: #313233;
+  color: #E9EFF2;
+  background-color: #252636;
 }
 
 .searchNav {
@@ -41,7 +41,7 @@
   font-family: system-ui;
   font-size: 100%;
   font-weight: 500;
-  color: white;
+  color: #E9EFF2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -51,14 +51,14 @@
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: white;
+  color: #E9EFF2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 .greet {
-  color: #edf125;
+  color: #5EBFB5;
   margin-top: 1%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
@@ -76,7 +76,7 @@
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: black;
+  color: #1a1a25;
   text-align: center;
   padding: 2px 2px;
   text-decoration: none;
@@ -89,15 +89,15 @@
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: white;
+  color: #E9EFF2;
   text-align: center;
   padding: 14px 12px 8px 12px;
   text-decoration: none;
 }
 .login:hover {
   cursor: pointer;
-  color: #edf125;
-  box-shadow: 0 0 4px 6px #edf125;
+  color: #E9EFF2;
+  box-shadow: 0 0 4px 6px #1a1a25;
   border-radius: 6px;
 }
 

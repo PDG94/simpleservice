@@ -96,19 +96,19 @@ export default function Create() {
   return (
     <form onSubmit={submitHandler}>
       <NavBar />
-      <div className="form">
+      <div className="formCreate">
         <Link to={"/Home"}>
-          <button className="back">Back</button>
+          <button className="backCr">Back</button>
         </Link>
 
-        <div className="containerCreated">
-          <h1 className="titleCr">Create Service</h1>
-
-          <span className="circleBox">
+        <div className="containerCreate">
+          <h1 className="titleCre">Create Service</h1>
+          <hr />
+          <span className="circleBoX">
             <GrCircleAlert />
             {"  "}Atention
           </span>
-          <p className="proPhrase">
+          <p className="prohPhrase">
             See{" "}
             <Link
               to="/prohibited"
@@ -120,7 +120,7 @@ export default function Create() {
             list before posting.
           </p>
 
-          <span className="spantitle">Select a category</span>
+          <span className="spanTitle">Select a category</span>
           <select className="selCreate" onChange={(e) => handleCategory(e)}>
             <option value="all">Categories</option>
             {categories?.map((elem) => (
@@ -130,7 +130,7 @@ export default function Create() {
             ))}
           </select>
 
-          <span className="spantitle">Select a service</span>
+          <span className="spanTitle">Select a service</span>
           <select className="selCreate" onChange={(e) => handleServicesList(e)}>
             <option value="all">Services</option>
             {serviceList?.map((elem) => (
@@ -141,7 +141,8 @@ export default function Create() {
           </select>
 
           <div className="priceC">
-            <label className="icon">
+          <span className="spanTitle">Select a price</span>
+            <label className="iconCr">
               <FiDollarSign />
             </label>
             <input
@@ -157,9 +158,11 @@ export default function Create() {
           </div>
 
           <div>
-            <label className="icon">
+          <span className="spanTitle">Select a description</span>
+            <label className="iconCr">
               <MdDescription />
             </label>
+           
             <input
               className="inpCreate"
               type="text"
@@ -172,7 +175,7 @@ export default function Create() {
           </div>
         </div>
       </div>
-      <button type="submit" className="sub">
+      <button type="submit" className="subCr">
         SUBMIT
       </button>
       <Footer />

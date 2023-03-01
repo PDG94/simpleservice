@@ -1,10 +1,5 @@
 .containerLog {
-  background: linear-gradient(
-    270deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: #c3cace;
   width: 100%;
   height: 100vh;
 }
@@ -12,47 +7,52 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  height: 40px;
+  height: 50px;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
   font-family: system-ui;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 9vh;
   margin-left: 10vw;
-  width: 130px;
-  color: #fcfcfc;
+  width: 150px;
+  color: #5EBFB5;
   letter-spacing: 1px;
-  border: 1px solid #fdfdfd;
+  border: 1px solid #5EBFB5;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #1a1a25;
 }
 .backLog:hover {
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: #d7df23;
-  font-weight: 600;
-  color: rgb(29, 29, 29);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .imgLog {
   border-radius: 0 50px 50px 0;
-  background-color: #ced379;
+  background-color: #252636;
   width: 32%;
-  height: 510px;
+  height: 710px;
+  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25,
+  inset -5px -5px 15px #252636, inset 5px 5px 15px #1a1a25;
+
 }
 .imageLog {
-  margin-top: 7vh;
+  margin-top: 15vh;
   margin-left: 0;
-  padding: 0;
+
 }
 .formLog {
-  background-color: #ced379;
-  color: #000000;
+  background-color: #252636;
+  color: #1a1a25;
+ border: 2px solid #252636;
   border-radius: 40px 0 0 40px;
   width: 28%;
-  height: 510px;
+  height: 710px;
+  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25,
+  inset -5px -5px 15px #252636, inset 5px 5px 15px #1a1a25;
+
 }
 .LogCont {
   margin-top: 2%;
@@ -63,17 +63,17 @@
 }
 .Log {
   display: grid;
-  margin: 5px 120px;
+  margin: 20px 120px;
   padding: 5%;
 }
 .formLog h2 {
   margin-left: -25px;
   font-size: 50px;
-  margin-top: 20px;
+  margin-top: 90px;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: system-ui;
-  color: rgb(69, 67, 67);
+  color: #5EBFB5;
 }
 .iconLog {
   margin-right: 40px;
@@ -90,23 +90,24 @@
   margin-top: 5px;
   margin-bottom: 0 !important;
   letter-spacing: 1px;
-  color: rgb(12, 116, 160);
+  color: #E9EFF2;
 }
 .forgot:hover {
-  text-shadow: 0 2px 15px black;
-  color: white;
+  text-shadow: 0 2px 15px #1a1a25;
+  color: #E9EFF2;
 }
 .account {
   font-size: 2vh;
   margin-top: 5px;
+  margin-left: -10px;
   margin-bottom: 0 !important;
   letter-spacing: 1px;
-  color: rgb(160, 108, 12);
+  color: #E9EFF2;
   font-weight: 500;
 }
 .symbolsA {
-  margin-left: 8px;
-  color: rgb(58, 53, 53);
+  margin-left: -35px;
+  color: #5EBFB5;
   font-size: 42px;
   margin-top: 0;
 }
@@ -122,7 +123,7 @@
 }
 .symbolsB {
   margin-left: 8px;
-  color: rgb(58, 53, 53);
+  color: #5EBFB5;
   font-size: 40px;
   margin-top: 0;
 }
@@ -133,39 +134,39 @@
   margin-bottom: 10px;
   height: 40px;
   width: 140px;
-  color: white;
-  border: 1px solid #030303;
+  color: #5EBFB5;
+  border: 1px solid #1a1a25;
   font-weight: 700;
   font-family: system-ui;
   letter-spacing: 2px;
   border-radius: 10px;
-  background-color: rgb(43, 44, 66);
+  background-color: #1a1a25;
 }
 .continue:hover {
-  border: 1px solid white;
-  background-color: #d7df23;
-  color: rgb(29, 29, 29);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .RegLog {
-  margin-left: 6px;
+  margin-left: -30px;
   margin-top: 15px;
   height: 40px;
   width: 100%;
   font-weight: 700;
   font-family: system-ui;
   letter-spacing: 1px;
-  color: rgb(27, 71, 132);
+  color: #5EBFB5;
   border: 1px solid transparent;
   letter-spacing: 2px;
   border-radius: 8px;
-  background-color: #c1c836;
+  background-color: #1a1a25;
 }
 .RegLog:hover {
-  border: 1px solid white;
-  background-color: #000000;
-  color: white;
-  box-shadow: 0 0 25px yellow;
+  border: 1px solid #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
 }
 .inputlog {
   margin-top: 5px;
@@ -176,13 +177,13 @@
   font-weight: 500;
   letter-spacing: 1px;
   width: 150%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #000000;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  color: #1a1a25;
   font-weight: 25px;
   font-size: 1em;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
