@@ -110,7 +110,7 @@ const Home = () => {
           <div className="logoService">
             <img src={ss} alt="carrito" className="imageLogo" />
             <Link className="servicesBtn" to="/Services">
-              <button className="btnView">View Our Services</button>
+              <button className="btnView">Hello World</button>
             </Link>
           </div>
           <div className="phrase">
