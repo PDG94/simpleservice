@@ -14,11 +14,18 @@ import ser from "../Imagenes/ser.png";
 import { MdStar } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
+import useFetchCollection from "../CustomHooks/UseFetchCollection";
+import StarsRating from "react-star-rate";
 
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cartItems);
+  const {data} = useFetchCollection("reviews")
+
+  const filterReviews = data.filter((data)=>data.productID === id)
+  console.log(filterReviews);
+ 
 
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
@@ -148,6 +155,34 @@ export default function Detail() {
         ) : (
           <Loading />
         )}
+      </div>
+      <h3>Service Review</h3>
+      <div>
+        {filterReviews.length===0 ? 
+        (
+          <p> There are no reviews for this service yet.</p>
+        ):(
+          <>
+          {filterReviews.map((item,index)=>{
+            const{rate, review, reviewDate ,userEmail} = item
+            return(
+              <div>
+                <StarsRating
+                value={rate}/>
+                <p>{review}</p>
+                <span>
+                  <b>{reviewDate}</b>
+                </span>
+                <span>
+                  <br/>
+                  <b>By {userEmail} </b>
+                </span>
+              </div>
+            )
+          })}
+          </>
+        )
+        }
       </div>
       <Footer />
     </div>

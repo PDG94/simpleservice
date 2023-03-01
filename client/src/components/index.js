@@ -36,6 +36,9 @@ import CheckoutDetails from "./Pages/Checkout/CheckoutDetails";
 import CheckoutSuccess from "./Pages/Checkout/CheckoutSucess";
 import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
 import ViewAllServices from "./User/ViewService/ViewAllServices";
+import OrdersDetails from "./User/Orders/OrdersDetails";
+import ReviewService from "./User/Orders/ReviewService";
+
 
 export {
   Card,
@@ -76,4 +79,6 @@ export {
   Checkout,
   CheckoutDetails,
   CheckoutSuccess,
+  OrdersDetails,
+  ReviewService,
 };

@@ -21,9 +21,9 @@ import {
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
   SAVE_URL,
-  SAVE_SHIPPING_ADDRESS,
-  SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
+  //ODER HISTORY
+  STORE_ORDERS
   // USER_SESSION,
 } from "./actionTypes";
 
@@ -47,9 +47,9 @@ const initialState = {
   cartTotalAmount: 0,
   previousURL: "",
   //SUMMARY
-  shippingAddress: {},
-  billingAddress: {},
   serviceUser: [],
+  //ORDERHISTORY
+  orderHistory : []
 };
 
 function rootReducer(state = initialState, action) {
@@ -141,40 +141,38 @@ function rootReducer(state = initialState, action) {
     case DELETE_USER:
       return { ...state };
 
-    case ADD_TO_CART:
-      return {...state, cartItems: action.payload }
-
-    case DECREASE_CART:
-      return {...state, cartItems: [...action.payload]}
-
-    case REMOVE_CART:
-      const prueba = {...state, cartItems:[...action.payload]}
-      return {...prueba}
-
-    case CLEAR_CART:
-      return {...state, cartItems: action.payload}
-
-    case CALCULATE_SUB_TOTAL:
-      return {...state, cartTotalAmount: action.payload}
-
-    case CALCULATE_TOTAL_QUANTITY:
-      return {...state, cartTotalQuantity: action.payload}
-
-    case SAVE_URL:
-      return {...state, previousURL: action.payload}
-
-    case SAVE_SHIPPING_ADDRESS:
-      return {...state, shippingAddress: action.payload}
-
-    case SAVE_BILLING_ADDRESS:
-      return {
-        ...state, billingAddress: action.payload
-      }
+      case ADD_TO_CART:
+        return {...state, cartItems: action.payload }
+  
+      case DECREASE_CART:
+        return {...state, cartItems: [...action.payload]}
+  
+      case REMOVE_CART:
+        const prueba = {...state, cartItems:[...action.payload]}
+        return {...prueba}
+  
+      case CLEAR_CART:
+        return {...state, cartItems: action.payload}
+  
+      case CALCULATE_SUB_TOTAL:
+        return {...state, cartTotalAmount: action.payload}
+  
+      case CALCULATE_TOTAL_QUANTITY:
+        return {...state, cartTotalQuantity: action.payload}
+  
+      case SAVE_URL:
+        return {...state, previousURL: action.payload}
 
     case GET_SERVICE_USER:
       return {
         ...state,
         serviceUser: action.payload,
+      };
+      
+    case STORE_ORDERS:
+      return {
+        ...state,
+        orderHistory: action.payload,
       };
 
     // case USER_SESSION:
