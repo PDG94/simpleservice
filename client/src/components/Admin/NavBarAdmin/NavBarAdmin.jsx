@@ -48,6 +48,7 @@ export default function NavBarAdmin() {
             Add Categories
           </Link>
           <br />
+
           <Link
             className="adview"
             style={{ textDecoration: "none" }}
@@ -57,6 +58,7 @@ export default function NavBarAdmin() {
             View Services
           </Link>
           <br />
+
           <Link
             className="adorders"
             style={{ textDecoration: "none" }}
@@ -65,13 +67,13 @@ export default function NavBarAdmin() {
             <MdReorder className="icNavDash" />
             Orders
           </Link>
-          <br className="brMenu"/>
+          <br className="brMenu" />
           <Link
-          className="mainMenu"
-          style={{ textDecoration: "none" }}
-          to="/home"
-        >
-          Back to Home
+            className="mainMenu"
+            style={{ textDecoration: "none" }}
+            to="/home"
+          >
+            Back to Home
           </Link>
         </div>
       </div>

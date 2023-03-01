@@ -17,9 +17,9 @@ export default function ViewServices() {
   const [isloading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    dispatch(getServices())
-  }, [dispatch])  
+  useEffect(() => {
+    dispatch(getServices());
+  }, [dispatch]);
 
   //PAGINATION
   const currentPage = useSelector((state) => state.currentPage);
@@ -40,15 +40,14 @@ export default function ViewServices() {
     e.preventDefault();
     dispatch(removeUsers(id));
   };
-
-  const editarAlert = (id) => {
+  const editarAlert = (id, CategoryId) => {
     Notiflix.Confirm.show(
       "Edit Service",
       "You are about to edit this service",
       "yes",
       "no",
       function okCb() {
-        alert("OK");
+        navigate(`/admin/edit/${id}/${CategoryId}`);
       },
       function cancelCb() {
         alert("If you say so...");
@@ -86,73 +85,76 @@ export default function ViewServices() {
 
   return (
     <>
-    <div className="fondoView">
-      <div className="navView">
-<NavBarAdmin/>
-      </div>
-      
-      {isloading && <Loading />}
-      <div className="containerView">
-        <p className="h2View">All Services</p>
-        <div className="table table-responsive table-dark">
-          {allServices.length === 0 ? (
-            <p>No product found</p>
-          ) : (
-            <table className="tableContainer">
-              <thead>
-                <tr>
-                  <th className="thView">
-                    {"  "}
-                    s/n
-                  </th>
-                  <th className="thView">Image</th>
-                  <th className="thView">Name</th>
-                  <th className="thView">Service</th>
-                  <th className="thView">Price</th>
-                  <th className="thView">Actions</th>
-                </tr>
-              </thead>
-              {currentServices.map((service, index) => {
-                const { id, price } = service;
-                return (
-                  <tbody>
-                    <tr key={id} className="table-secondary">
-                      <td className="tdView">{index + 1}</td>
-                      <td>
-                        <img
-                          src={service["Users.profilepic"]}
-                          alt="img"
-                          style={{ width: "80px" }}
-                        ></img>
-                      </td>
-                      <td className="tdView">{service["Users.name"]}</td>
-                      <td className="tdView">{service?.servicename}</td>
-                      <td className="tdView">{`${price}`}</td>
-                      <td>
-                        <Link to={`/admin/edit/${id}`} className="editView">
-                          <FaEdit color="green" onClick={editarAlert} />
-                        </Link>
-
-                        <Link className="bin">
-                          <BsTrash
-                            color="red"
-                            onClick={() => confirmDelete(id)}
-                          />
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </table>
-          )}
+      <div className="fondoView">
+        <div className="navView">
+          <NavBarAdmin />
         </div>
-        <PaginationAdmin
-          servicesPerPage={servicesPerPage}
-          allServices={allServices.length}
-          paged={paged}
-        />
-      </div>
+
+        {isloading && <Loading />}
+        <div className="containerView">
+          <p className="h2View">All Services</p>
+          <div className="table table-responsive table-dark">
+            {allServices.length === 0 ? (
+              <p>No product found</p>
+            ) : (
+              <table className="tableContainer">
+                <thead>
+                  <tr>
+                    <th className="thView">
+                      {"  "}
+                      s/n
+                    </th>
+                    <th className="thView">Image</th>
+                    <th className="thView">Name</th>
+                    <th className="thView">Service</th>
+                    <th className="thView">Price</th>
+                    <th className="thView">Actions</th>
+                  </tr>
+                </thead>
+                {currentServices.map((service, index) => {
+                  const { id, price, CategoryId } = service;
+                  return (
+                    <tbody>
+                      <tr key={id} className="table-secondary">
+                        <td className="tdView">{index + 1}</td>
+                        <td>
+                          <img
+                            src={service["Users.profilepic"]}
+                            alt="img"
+                            style={{ width: "80px" }}
+                          ></img>
+                        </td>
+                        <td className="tdView">{service["Users.name"]}</td>
+                        <td className="tdView">{service?.servicename}</td>
+                        <td className="tdView">{`${price}`}</td>
+                        <td>
+                          <Link className="editView">
+                            <FaEdit
+                              color="green"
+                              onClick={() => editarAlert(id, CategoryId)}
+                            />
+                          </Link>
+
+                          <Link className="bin">
+                            <BsTrash
+                              color="red"
+                              onClick={() => confirmDelete(id)}
+                            />
+                          </Link>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+            )}
+          </div>
+          <PaginationAdmin
+            servicesPerPage={servicesPerPage}
+            allServices={allServices.length}
+            paged={paged}
+          />
+        </div>
       </div>
     </>
   );

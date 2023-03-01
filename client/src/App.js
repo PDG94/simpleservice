@@ -103,7 +103,7 @@ function App() {
             }
           />
           <Route
-            path="/admin/edit/:id"
+            path="/admin/edit/:id/:CategoryId"
             element={
               <AdminOnlyRoute>
                 <Edit />
@@ -143,7 +143,6 @@ function App() {
               </UserOnlyRoute>
             }
           />
-
           <Route
             path="/profile/my-servicesdetail"
             element={
@@ -152,12 +151,7 @@ function App() {
               </UserOnlyRoute>
             }
           />
-          <Route
-            path="/cart"
-            element={
-                <Cart />
-            }
-          />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
