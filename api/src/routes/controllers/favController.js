@@ -58,4 +58,15 @@ const cardFav = async ({id}) => {
     return service;
 };
 
-module.exports = { getUserFav, createUserFav, cardFav };
+const deleteFav = async (id, active) => {
+    await Fav.update({active}, {
+        where: {
+            id: id
+        }
+    });
+
+    return await Fav.findByPk(id);
+
+}
+
+module.exports = { getUserFav, createUserFav, cardFav, deleteFav };

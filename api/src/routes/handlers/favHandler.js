@@ -2,6 +2,7 @@ const {
   getUserFav,
   cardFav,
   createUserFav,
+  deleteFav,
 } = require("../controllers/favController");
 
 const getUserFavHandler = async (req, res) => {
@@ -33,4 +34,20 @@ const cardFavHandler = async (req, res) => {
   }
 };
 
-module.exports = { getUserFavHandler, cardFavHandler, postUserFavHandler };
+const deleteFavHandler = async (req, res) => {
+  try {
+    const active = false;
+    const { id } = req.params;
+    const deletedFav = await deleteFav(id, active);
+    res.status(200).json({ message: "Favorite deleted", favorite: deletedFav });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  getUserFavHandler,
+  cardFavHandler,
+  postUserFavHandler,
+  deleteFavHandler,
+};
