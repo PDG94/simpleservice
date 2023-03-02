@@ -29,10 +29,16 @@ export function Reset() {
   return (
     <div className="mainReset">
       <NavBar />
-      <div className="boxReset">
+        <Link
+                  to="/login"
+                  style={{ textDecoration: "none" }}
+                >
+                  <button className="btnResetBack">Back To Login</button>
+                </Link>
+      <div>
         <section className="containerReset">
           <div className="formReset">
-            <h2 className="titleReset">Forgot your password?</h2>
+            <h1 className="titleReset">Forgot your password?</h1>
             <p className="pleaseMessage">
               Please enter the email address you'd like
               <br /> your password reset information sent to
@@ -50,21 +56,12 @@ export function Reset() {
               <button type="submit" className="submit">
                 Request reset link
               </button>
-              <div className="linkBoxReset">
-                <Link
-                  to="/login"
-                  className="linkReset"
-                  style={{ textDecoration: "none" }}
-                >
-                  <button className="btnResetBack">Back To Login</button>
-                </Link>
-              </div>
             </form>
           </div>
-        </section>
         <div className="contImg">
           <img src={forgot} alt="forgot" className="imgReset" />
         </div>
+        </section>
       </div>
       <Footer />
     </div>

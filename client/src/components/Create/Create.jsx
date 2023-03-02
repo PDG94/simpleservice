@@ -141,7 +141,7 @@ export default function Create() {
           </select>
 
           <div className="priceC">
-          <span className="spanTitle">Select a price</span>
+          <span className="spanTitle">Set a price</span>
             <label className="iconCr">
               <FiDollarSign />
             </label>
@@ -158,7 +158,7 @@ export default function Create() {
           </div>
 
           <div>
-          <span className="spanTitle">Select a description</span>
+          <span className="spanTitle">Provide a description</span>
             <label className="iconCr">
               <MdDescription />
             </label>

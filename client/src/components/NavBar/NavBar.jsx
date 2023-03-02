@@ -165,7 +165,7 @@ const NavBar = () => {
         <ShowOnLogin>
           {" "}
           <Link className="btnNav" to="/cart">
-            <FaShoppingCart size={26} className="shoppingCart" />
+            <FaShoppingCart size={32} className="shoppingCart" />
             {"  "}
             {cartTotalQuantity}
           </Link>
@@ -173,7 +173,7 @@ const NavBar = () => {
 
         <ShowOnLogin>
           <div className="greet">
-            <FaUserCircle size={16} />
+            <FaUserCircle className="circleNav" size={30} />{"  "}
             Hi, {displayName}
           </div>
         </ShowOnLogin>

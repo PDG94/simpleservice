@@ -23,9 +23,30 @@
   src: url("./fonts/echelonrg.otf");
 }
 @font-face {
-  font-family: brimarg;
-  src: url("./fonts/BRIMI___.TTF");
+  font-family: asusItalic;
+  src: url("./fonts/LTAsus-Italic.ttf");
 }
+@font-face {
+  font-family: asusLightItalic;
+  src: url("./fonts/LTAsus-LightItalic.ttf");
+}
+@font-face {
+  font-family: asusLight;
+  src: url("./fonts/LTAsus-Light.ttf");
+}
+@font-face {
+  font-family: asusRegular;
+  src: url("./fonts/LTAsus-Regular.ttf");
+}
+@font-face {
+  font-family: fair;
+  src: url("./fonts/FairProsper.ttf");
+}
+@font-face {
+  font-family: magnum;
+  src: url("./fonts/magnum.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -20,8 +20,8 @@
 .btnNav {
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: system-ui;
-  font-size: 20px;
+  font-family: rondalSemibold;
+  font-size: 160%;
   font-weight: 500;
   color: #E9EFF2;
   text-align: center;
@@ -36,10 +36,10 @@
 }
 
 .searchNav {
-  background-color: transparent;
+  margin-top: 1%;
   margin-left: 0;
   margin-right: 0;
-  font-family: rondalRegular;
+  font-family: system-ui;
   font-size: 100%;
   font-weight: 500;
   color: #E9EFF2;
@@ -60,14 +60,17 @@
 
 .greet {
   color: #5EBFB5;
-  margin-top: 1%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: brimarg;
-  font-size: 190%;
+  font-family: magnum;
+  letter-spacing: 3px;
+  font-size: 180%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+.circleNav{
+  margin-bottom: 1%;
 }
 .space {
   margin-top: 4%;
@@ -86,7 +89,7 @@
   margin-bottom: 0;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: rondalRegular;
+  font-family: rondalSemibold;
   font-size: 20px;
   font-weight: 500;
   color: #E9EFF2;
