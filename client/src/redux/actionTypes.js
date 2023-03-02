@@ -22,3 +22,4 @@ export const SAVE_URL = "SAVE_URL";
 export const GET_SERVICE_USER = "GET_SERVICE_USER";
 // export const USER_SESSION = "USER_SESSION";
 export const STORE_ORDERS = "STORE_ORDERS";
+export const STORE_API_METRICS = "STORE_API_METRICS";

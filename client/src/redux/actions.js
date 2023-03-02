@@ -23,9 +23,16 @@ import {
   GET_SERVICE_USER,
   //ORDER HISTORY
   STORE_ORDERS,
+  STORE_API_METRICS,
   // USER_SESSION,
 } from "./actionTypes";
-import { addToCartHelper, calculateSubTotalHelper, clearCartHelper, decreaseCartHelper, removeCartHelper } from "./reduxhelper";
+import {
+  addToCartHelper,
+  calculateSubTotalHelper,
+  clearCartHelper,
+  decreaseCartHelper,
+  removeCartHelper,
+} from "./reduxhelper";
 
 export function getServices() {
   return async function (dispatch) {
@@ -189,14 +196,14 @@ export function getUsers() {
 }
 //CART
 export const addToCart = (input) => {
-  const payload = addToCartHelper(input)
+  const payload = addToCartHelper(input);
   return function (dispatch) {
     dispatch({ type: ADD_TO_CART, payload });
   };
 };
 
 export const decreaseCart = (input) => {
-  const payload = decreaseCartHelper(input)
+  const payload = decreaseCartHelper(input);
   return function (dispatch) {
     dispatch({ type: DECREASE_CART, payload });
   };
@@ -210,7 +217,7 @@ export const removeCart = (input) => {
 };
 
 export const clearCart = (input) => {
-  const payload = clearCartHelper(input)
+  const payload = clearCartHelper(input);
   return function (dispatch) {
     dispatch({ type: CLEAR_CART, payload });
   };
@@ -256,8 +263,19 @@ export const storeOrders = (payload) => {
   };
 };
 
-// export function storeSession(user){
-//   return function (dispatch) {
-//     dispatch({type: USER_SESSION, payload: user })
-//   }
-// } 
+export const adminMetrics = (token) => {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/admin/metrics",
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    console.log(response.data)
+    const {services, users, totalServices, totalUsers } = response.data
+    return dispatch({
+      type: STORE_API_METRICS,
+      payload: {servicePercentage: services , usersPercentage: users, totalServices, totalUsers},
+    });
+  };
+};

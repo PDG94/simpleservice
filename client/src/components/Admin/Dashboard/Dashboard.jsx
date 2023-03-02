@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import "../Dashboard/dashboard.css";
 import { Link } from "react-router-dom";
 import { MdDashboard, MdPerson, MdOutlineBorderColor } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { adminMetrics } from "../../../redux/actions";
 
 export default function Dashboard() {
+  const dispatch = useDispatch();
+  const servicePercentage = useSelector((state) => state.servicePercentage);
+  const totalServices = useSelector((state) => state.totalServices);
+  const usersPercentage = useSelector((state) => state.usersPercentage);
+  const totalUsers = useSelector((state) => state.totalUsers);
+
+  // console.log(servicePercentage)
+
+  useEffect(() => {
+    dispatch(adminMetrics());
+  }, [dispatch]);
+
   return (
     <div className="dashBo">
       <div className="navDash">
@@ -25,13 +39,13 @@ export default function Dashboard() {
               </div>
               <div className="middle">
                 <h3>Total Services</h3>
-                <h1>500</h1>
+                <h1>{totalServices}</h1>
                 <div className="progress">
                   <svg className="circle">
                     <circle cx="48" cy="48" r="36"></circle>
                   </svg>
                   <div className="number">
-                    <p>81%</p>
+                    <p>{servicePercentage}%</p>
                   </div>
                 </div>
               </div>
@@ -50,14 +64,14 @@ export default function Dashboard() {
               </div>
               <div className="middle">
                 <h3>Total Users</h3>
-                <h1>1850</h1>
+                <h1>{totalUsers}</h1>
 
                 <div className="progress">
                   <svg className="circle1">
                     <circle cx="48" cy="48" r="36"></circle>
                   </svg>
                   <div className="number">
-                    <p>25%</p>
+                    <p>{usersPercentage}%</p>
                   </div>
                 </div>
               </div>
@@ -92,14 +106,14 @@ export default function Dashboard() {
           <div className="recentOrder">
             <h2>Recent Orders</h2>
             <table className="tableOrd">
-              <thead >
+              <thead>
                 <tr>
                   <th>User</th>
                   <th>Categorie</th>
                   <th>Service</th>
                   <th>Price</th>
                 </tr>
-                <br/>
+                <br />
               </thead>
               <tbody className="tbody">
                 <tr>
@@ -152,7 +166,9 @@ export default function Dashboard() {
                 </tr>
               </tbody>
             </table>
-            <Link className="ViewOrders" to='/admin/orders'>View More</Link>
+            <Link className="ViewOrders" to="/admin/orders">
+              View More
+            </Link>
           </div>
         </main>
       </div>
