@@ -271,7 +271,6 @@ export const adminMetrics = (token) => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-    console.log(response.data)
     const {services, users, totalServices, totalUsers } = response.data
     return dispatch({
       type: STORE_API_METRICS,

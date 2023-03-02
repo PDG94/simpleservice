@@ -13,8 +13,6 @@ export default function Dashboard() {
   const usersPercentage = useSelector((state) => state.usersPercentage);
   const totalUsers = useSelector((state) => state.totalUsers);
 
-  // console.log(servicePercentage)
-
   useEffect(() => {
     dispatch(adminMetrics());
   }, [dispatch]);
