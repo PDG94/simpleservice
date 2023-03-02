@@ -16,7 +16,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     dispatch(adminMetrics(token));
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <div className="dashBo">
