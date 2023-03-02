@@ -21,7 +21,12 @@ const metricsHandler = async (req, res) => {
 
     res
       .status(200)
-      .json({ services: servicePercentage, users: usersPercentage });
+      .json({
+        services: servicePercentage,
+        users: usersPercentage,
+        totalServices: totalServices,
+        totalUsers: totalUsers,
+      });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
