@@ -6,9 +6,9 @@ const favRouter = Router();
 
 favRouter.get("/user/:id", getUserFavHandler); //user id
 
-favRouter.post("/user/:id", middleware.decodeToken, postUserFavHandler); //control this one
+favRouter.post("/user/:id", middleware.decodeToken, postUserFavHandler); //service(card) id
 
-favRouter.get("/service/:id", cardFavHandler);
+favRouter.get("/service/:id", cardFavHandler); //service(card) id
 
 favRouter.delete("/:id", middleware.decodeToken, deleteFavHandler); //fav id
 
