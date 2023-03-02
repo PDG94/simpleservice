@@ -96,10 +96,10 @@ export default function Login() {
       <div>
         <section className="LogCont">
           <div className="formLog">
-            <h2>
+            <h1 className="titleLogin">
               <MdLogin className="iconLog" />
               Login
-            </h2>
+            </h1>
             <form className="Log" onSubmit={loginUser}>
               <input
                 className="inputlog"

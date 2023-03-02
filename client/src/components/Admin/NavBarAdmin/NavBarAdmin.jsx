@@ -9,6 +9,7 @@ import {
   MdCategory,
   MdOutlineVisibility,
   MdReorder,
+  MdMode,
 } from "react-icons/md";
 
 export default function NavBarAdmin() {
@@ -19,6 +20,7 @@ export default function NavBarAdmin() {
         <hr />
         <h4 className="nameAd">Simple Service</h4>
       </div>
+
       <div className="navAd1">
         <div className="divNavAd">
           <Link
@@ -30,6 +32,7 @@ export default function NavBarAdmin() {
             Dashboard
           </Link>
           <br />
+
           <Link
             className="adservices"
             style={{ textDecoration: "none" }}
@@ -39,6 +42,7 @@ export default function NavBarAdmin() {
             Add Service
           </Link>
           <br />
+
           <Link
             className="adcategories"
             style={{ textDecoration: "none" }}
@@ -60,6 +64,16 @@ export default function NavBarAdmin() {
           <br />
 
           <Link
+            className="adview"
+            style={{ textDecoration: "none" }}
+            to="/admin/update"
+          >
+            <MdMode className="icNavDash" />
+            Update Users
+          </Link>
+          <br />
+
+          <Link
             className="adorders"
             style={{ textDecoration: "none" }}
             to="/admin/orders"
@@ -68,6 +82,7 @@ export default function NavBarAdmin() {
             Orders
           </Link>
           <br className="brMenu" />
+
           <Link
             className="mainMenu"
             style={{ textDecoration: "none" }}
@@ -77,40 +92,6 @@ export default function NavBarAdmin() {
           </Link>
         </div>
       </div>
-      {/* <div className="navbar"> POR QUÉ HAY DOS NAVBAR SI SOLO SE ESTÁ USANDO UNA?
-      <div className="user">
-        <img className="logoAd" src={logo} width="80px" alt="meaningful text" />
-        <hr />
-        <h4 className="nameAd">Simple Service</h4>
-      </div>
-      <nav className="navAd">
-        <ul className="ulNav">
-          <li className="homeadd">
-            <Link to="/admin/home">Home</Link>
-          </li>
-
-          <li className="addSerAd">
-            <Link to="/admin/update">Update Users</Link>
-          </li>
-
-          <li className="addSerAd">
-            <Link to="/admin/add-service">Add Service</Link>
-          </li>
-
-          <li className="addCatAd">
-            <Link to="/admin/add-categories">Add Categories</Link>
-          </li>
-
-          <li className="viewAd">
-            <Link to="/admin/all-services">View Services</Link>
-          </li>
-
-          <li className="orderAd">
-            <Link to="/admin/orders">Orders</Link>
-          </li>
-        </ul>
-      </nav>
-    </div> */}
     </div>
   );
 }
