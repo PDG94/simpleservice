@@ -1,14 +1,24 @@
-.main{
- display: -ms-grid;
+/* .main{
+ background-color:#1e1e3b;
+} */
+
+/* .navBar{
+    display: flex;
+    position:fixed;
+} */
+
+/* .filterService{
+    float: left;
+    position: fixed;
+    padding-left: 10px;
+} */
+* {
+  background: none;
 }
-
-
-.navBar{
-    border: 5px solid blue;
+.main {
+  background-color: #c3cace;
 }
-
-
-
-
-
-
+/* 
+.navSearch{
+    flex-wrap: wrap;
+} */

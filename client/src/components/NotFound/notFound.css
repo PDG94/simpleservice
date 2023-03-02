@@ -1,37 +1,19 @@
+.bod{
+  background-color: #1a1a25;
+  width: 100%;
+  height: 100vh;
+}
+.containerX h1{
+  color: #d7df23;
+font-size: 30em;
+text-shadow: 10px 8px #2C2F73, -10px 12px #5dc1b9, -8px -12px #5055a8, 12px -5px #3c5a58;
+color: #1a1a25;
+}
 
-.NotFound h1{
-    font-family:"Lucida Console", Courier, monospace;
-    text-transform: uppercase;
-    font-size: 350px;
-    margin: 0px;
-    margin-top: 15%;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    color: #038c73;
-    text-shadow: -1px -1px 0 #7efae3, 1px -1px 0 #7efae3, -1px 1px 0 #7efae3,
-      1px 1px 0 #7efae3, 1px -1px 0 rgb(8, 8, 8), 2px 0 0 rgb(5, 5, 5),
-      2px 1px 0 rgb(5, 5, 5), 4px 2px 0px rgb(5, 5, 5),
-      5px 3px 0 rgb(116, 113, 116), 7px 4px 0 rgb(221, 212, 221),
-      4px 2px 2px #aff5da;
-  }
-
-.NotFound p{
-    font-size: 800px;
-    color: rgb(72, 187, 149);
-        margin: 20px;
-        font-family:"Lucida Console", Courier, monospace;
-        text-transform: uppercase;
-        font-size: 100px;
-        margin: 10px;
-        margin-top: -10%;
-        left: 50%;
-        position: relative;
-        transform: translate(-50%, -50%);
-        color: #038c73;
-        text-shadow: -1px -1px 0 #7efae3, 1px -1px 0 #7efae3, -1px 1px 0 #7efae3,
-          1px 1px 0 #7efae3, 1px -1px 0 rgb(8, 8, 8), 2px 0 0 rgb(5, 5, 5),
-          2px 1px 0 rgb(5, 5, 5), 4px 2px 0px rgb(5, 5, 5),
-          5px 3px 0 rgb(116, 113, 116), 7px 4px 0 rgb(221, 212, 221),
-          4px 2px 2px #aff5da;
-      }
+.containerX p{
+  font-size: 30px;
+  color: #fff;
+}
+.containerX a{
+  font-size: 20px;
+}

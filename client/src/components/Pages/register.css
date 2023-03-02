@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.containerMain {
+  background:#c3cace ;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 0;
+}
+
+.containerRegister {
+  margin-left: 25%;
+  align-items: center;
+  background-color: #252636;
+  color: #1a1a25;
+  margin-top: 30px;
+  margin-bottom: 5%;
+  border: 8px solid #252636;
+  border-radius: 50px;
+  width: 50%;
+  height: 80%;
+}
+.nameBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.mailBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.dateBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 2.8%;
+}
+.dateR {
+  width: 45.75%;
+}
+.username {
+  width: 100%;
+}
+.nameAccount {
+  width: 100%;
+}
+.mail {
+  width: 100%;
+}
+.pass {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inp {
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 1%;
+  border-radius: 10px;
+  width: 85%;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  font-family: asusRegular;
+  color: #1a1a25;
+  font-size: 120%;
+  letter-spacing: 1px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+  transform: 0.5s;
+  outline: none;
+}
+.subir {
+  cursor: pointer;
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  width: 70%;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  color: #1a1a25;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 1px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+  transform: 0.5s;
+  outline: none;
+}
+
+.subir:hover {
+  color: #5EBFB5;
+  background: #1a1a25;
+}
+#info {
+  color: blue;
+  font-weight: 500;
+  font-size: 100%;
+  font-family: asusLight;
+  letter-spacing: 0.5%;
+  margin-top: 0;
+  margin-bottom: 7%;
+}
+.iconCloud {
+  font-size: 180%;
+  margin-right: 5%;
+}
+.errP {
+  color: rgb(239, 145, 145);
+  font-size: 110%;
+  font-weight: 500;
+  font-family: asusLight;
+  letter-spacing: 1px;
+  width: 90%;
+}
+.backRegister {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 7%;
+  font-size: 140%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-family: asusLight;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 10%;
+  color: #5EBFB5;
+  letter-spacing: 3px;
+  border: 1px solid #5EBFB5;
+  border-radius: 10px;
+  background-color: #1a1a25;
+}
+.backRegister:hover {
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
+}
+.formRegister {
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerRegister {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dateRegister {
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 86%;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  color: #615f5f;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1em;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+  transform: 0.5s;
+  outline: none;
+}
+.submitRegister {
+ margin-top: 4%;
+  height: 35%;
+  width: 25%;
+  font-weight: 700;
+  font-family: asusLight;
+  font-size: 150%;
+  padding: 8px 1px 8px 1px ;
+  color: #5EBFB5!important;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: #1a1a25;
+}
+.submitRegister:hover {
+  border: 1px solid #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
+}
+.iconR {
+  font-size: 70px;
+  margin-top: 4%;
+  color: #5EBFB5;
+}
+.titleRegister {
+  font-family: asusRegular;
+  font-weight: 500;
+  color: #5EBFB5;
+  margin-top: 4.5%;
+  font-size: 300%;
+}

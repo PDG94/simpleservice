@@ -1,109 +1,184 @@
 import React from "react";
-import { useState } from "react";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { NavBar, Footer } from "../index";
+import "../Create/create.css";
+import { MdDescription } from "react-icons/md";
+import { FiDollarSign } from "react-icons/fi";
+import { GrCircleAlert } from "react-icons/gr";
+import { getCategories, getServiceList } from "../../redux/actions";
 
 export default function Create() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  /*   const serv = [
-    "House cleaning",
-    "Lawn care and landscaping",
-    "Personal shopping and errand services",
-    "Babysitting and childcare",
-    "Dog walking and pet sitting",
-    "Personal training and fitness coaching",
-    "Event planning and coordination",
-    "Tutoring and academic coaching",
-    "Meal planning and prep",
-    "Photography and videography",
-    "Graphic design and branding",
-    "Social media management and marketing",
-    "Copywriting and content creation",
-    "Music lessons and instruction",
-    "Language translation and interpretation",
-    "Home renovation and repair services",
-    "Elderly care and companionship",
-    "Business consulting and coaching",
-    "Personal styling and wardrobe consulting",
-    "Tech support and computer repair",
-  ]; */
+  const categories = useSelector((state) => state.categories);
+  const serviceList = useSelector((state) => state.serviceList);
+  const token = localStorage.getItem("token");
 
+  useEffect(() => {
+    dispatch(getCategories());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    name: "",
-    image: "",
+    CategoryId: "", //con un select desde el estado global
     description: "",
+    servicename: "", //con un select desde el estado global
     price: "",
   });
 
   const validate = (form) => {
     let errors = {};
-    if (form.name.length < 2) {
-      errors.name = "-Name must have at least 2 characters";
+    if (!form.CategoryId) {
+      errors.CategoryId = "Select Category";
     }
-    if (form.description.length < 15) {
-      errors.description = "-Description must have at least 15 characters";
+    if (!form.servicename) {
+      errors.servicename = "Select Service";
+    }
+    if (!form.price) {
+      errors.price = "Price is required";
+    } else if (isNaN(form.price)) {
+      errors.price = "Price must be a number";
+    }
+    if (!form.description) {
+      errors.description = "Description is required";
+    } else if (form.description.length < 15) {
+      errors.description = "Description must have at least 15 characters";
     }
 
     return errors;
   };
 
+  function handlerChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+    setErrors(
+      validate({
+        ...form,
+        [e.target.name]: e.target.value,
+      })
+    );
+  }
+
   const error = validate(form);
-
-  const changeHandler = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-
-    setForm({ ...form, [property]: value });
-  };
 
   const submitHandler = (event) => {
     event.preventDefault();
+
     if (Object.values(error).length) {
-      return alert(Object.values(error).join("\n"));
+      return toast.error(Object.values(error).join(", "));
     }
-    axios.post("http://localhost:3001/services", form);
+    axios.post(
+      "https://simpleservice-production.up.railway.app/services",
+      form,
+      { headers: { Authorization: "Bearer " + token } }
+    );
+    toast.success("Service created successfully!");
     navigate("/home");
+  };
+
+  const handleCategory = (e) => {
+    setForm({ ...form, CategoryId: e.target.value });
+    dispatch(getServiceList(e.target.value));
+  };
+
+  const handleServicesList = (e) => {
+    setForm({ ...form, servicename: e.target.value });
   };
 
   return (
     <form onSubmit={submitHandler}>
-      <Link to={"/Catalog"}>
-        <button>Back</button>
-      </Link>
-      <div>
-        <label>Name: </label>
-        <input
-          type="text"
-          value={form.name}
-          onChange={changeHandler}
-          name="name"
-        />
-        <p>{error.name}</p>
-      </div>
+      <NavBar />
+      <div className="formCreate">
+        <Link to={"/Home"}>
+          <button className="backCr">Back</button>
+        </Link>
 
-      <div>
-        <label>Description: </label>
-        <input
-          type="text"
-          value={form.description}
-          onChange={changeHandler}
-          name="description"
-        />
-        <p>{error.description}</p>
-      </div>
+        <div className="containerCreate">
+          <h1 className="titleCre">Create Service</h1>
+          <hr />
+          <span className="circleBoX">
+            <GrCircleAlert />
+            {"  "}Atention
+          </span>
+          <p className="prohPhrase">
+            See{" "}
+            <Link
+              to="/prohibited"
+              className="proLink"
+              style={{ textDecoration: "none" }}
+            >
+              prohibited
+            </Link>{" "}
+            list before posting.
+          </p>
 
-      <div>
-        <label>Img: </label>
-        <input
-          type="text"
-          value={form.img}
-          onChange={changeHandler}
-          name="img"
-        />
-      </div>
+          <span className="spanTitle">Select a category</span>
+          <select className="selCreate" onChange={(e) => handleCategory(e)}>
+            <option value="all">Categories</option>
+            {categories?.map((elem) => (
+              <option key={elem.id} value={elem.id}>
+                {elem.name}
+              </option>
+            ))}
+          </select>
 
-      <button type="submit">SUBMIT</button>
+          <span className="spanTitle">Select a service</span>
+          <select className="selCreate" onChange={(e) => handleServicesList(e)}>
+            <option value="all">Services</option>
+            {serviceList?.map((elem) => (
+              <option key={elem.id} value={elem.name}>
+                {elem.name}
+              </option>
+            ))}
+          </select>
+
+          <div className="priceC">
+          <span className="spanTitle">Set a price</span>
+            <label className="iconCr">
+              <FiDollarSign />
+            </label>
+            <input
+              className="inpCreate"
+              type="text"
+              placeholder="Price"
+              value={form.price}
+              // onChange={changeHandler}
+              name="price"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="valid">{errors.price}</p>
+          </div>
+
+          <div>
+          <span className="spanTitle">Provide a description</span>
+            <label className="iconCr">
+              <MdDescription />
+            </label>
+           
+            <input
+              className="inpCreate"
+              type="text"
+              placeholder="Description"
+              value={form.description}
+              name="description"
+              onChange={(e) => handlerChange(e)}
+            />
+            <p className="valid">{errors.description}</p>
+          </div>
+        </div>
+      </div>
+      <button type="submit" className="subCr">
+        SUBMIT
+      </button>
+      <Footer />
     </form>
   );
 }

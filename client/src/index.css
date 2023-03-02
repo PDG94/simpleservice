@@ -1,11 +1,70 @@
-body {
+@font-face {
+  font-family: rondalBold;
+  src: url("./fonts/RondalBold.otf");
+}
+@font-face {
+  font-family: rondalRegular;
+  src: url("./fonts/RondalRegular.otf");
+}
+@font-face {
+  font-family: rondalSemibold;
+  src: url("./fonts/RondalSemibold.otf");
+}
+@font-face {
+  font-family: airstream;
+  src: url("./fonts/airstream.TTF");
+}
+@font-face {
+  font-family: echelon;
+  src: url("./fonts/echelonit.otf");
+}
+@font-face {
+  font-family: echelonB;
+  src: url("./fonts/echelonrg.otf");
+}
+@font-face {
+  font-family: asusItalic;
+  src: url("./fonts/LTAsus-Italic.ttf");
+}
+@font-face {
+  font-family: asusLightItalic;
+  src: url("./fonts/LTAsus-LightItalic.ttf");
+}
+@font-face {
+  font-family: asusLight;
+  src: url("./fonts/LTAsus-Light.ttf");
+}
+@font-face {
+  font-family: asusRegular;
+  src: url("./fonts/LTAsus-Regular.ttf");
+}
+@font-face {
+  font-family: fair;
+  src: url("./fonts/FairProsper.ttf");
+}
+@font-face {
+  font-family: magnum;
+  src: url("./fonts/magnum.ttf");
+}
+
+* {
   margin: 0;
+  padding: 0;
+
+}
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(248, 240, 246);
+  /* background: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  ); */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+

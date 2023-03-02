@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+.mainhome {
+  margin-bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: #c3cace;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item,
+.imagen {
+  height: 90vh;
+  width: 37vw;
+}
+
+.homeContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.contentHome {
+  justify-content: start;
+}
+.phrase {
+  position: absolute;
+  margin-left: 2%;
+  margin-right: 40%;
+  margin-top: 7%;
+  background-color: #252636d7;
+  backdrop-filter: blur(8px);
+  border-radius: 30px 0 30px 0;
+  padding: 3%;
+}
+.phrasep {
+  font-family: system-ui;
+  font-size: 160%;
+  font-weight: 500;
+  color: #E9EFF2;
+}
+.logoService {
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 2%;
+  margin-left: 26%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imageLogo {
+  height: 115%;
+  width: 115%;
+  position: relative;
+}
+.servicesBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80%;
+  position: absolute;
+  text-decoration: none;
+}
+
+.btnView {
+  font-size: large;
+  font-family: system-ui;
+  background-color: #252636;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 10px 10px 10px;
+  color: #E9EFF2;
+  font-weight: 700;
+  overflow: hidden;
+  transition: color 1s;
+  border-radius: 10px;
+}
+.btnView:hover {
+  background-color: #5EBFB5;
+  font-family: system-ui;
+  font-weight: 700;
+  color: #252636;
+
+}

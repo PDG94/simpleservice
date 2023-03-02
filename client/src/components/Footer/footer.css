@@ -1,0 +1,17 @@
+/* .footer{
+    background-color: #494974;
+    color: #fff;
+    border: 2px solid red;
+    padding: 1em 0;
+    text-align: center;
+    margin-top: auto;
+} */
+
+/* @media (max-width: 900px) 
+.footer {
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 20px;
+} */

@@ -9,59 +9,37 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV4,
         primaryKey: true,
       },
-      username: {
+      servicename: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Please input the user's name",
+            msg: "Please input the service name",
           },
           notEmpty: {
             args: true,
             msg: "Please don't input an empty string",
           },
+          len: {
+            args: [3, 255],
+            msg: "Please use more than two characters",
+          },
         },
       },
-      userimage: {
+      serviceimage: {
         type: DataTypes.TEXT,
-        validate:{
-            notEmpty: {
-                args: true,
-                msg: "Please don't input an empty string",
-              },
-            isUrl:{
-                args: true,
-                msg:"Please input a valid url format"
-            }
-        }
       },
       description: {
         type: DataTypes.TEXT,
       },
-      servicename:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            msg: "Please input the services name",
-          },
-          notEmpty: {
-            args: true,
-            msg: "Please don't input an empty string",
-          },
-        },
-      },
       price: {
         type: DataTypes.FLOAT,
         allowNull: false,
-        validate:{
-            notNull:{
-                msg:"Please input the service price"
-            }
-        }
-      },
-      rating:{
-        type: DataTypes.FLOAT
+        validate: {
+          notNull: {
+            msg: "Please input the service price",
+          },
+        },
       },
       active: {
         type: DataTypes.BOOLEAN,

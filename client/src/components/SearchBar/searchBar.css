@@ -1,11 +1,29 @@
-.submit{
-    margin-left: 2px;
-    height: 24px;
-    width: 60px;
+.search {
+  background-color: #1a1a25;
 }
-.submit:hover{
-    color: #fffdfd;
-    border: 1px solid #fffdfd;
-    border-radius: 5px;
-    background-color: rgba(103, 185, 184, 0.219);
-  }
+.inputSearch {
+  width: 60%;
+  height: 80%;
+  background-color: #e9eff2;
+  border-color: transparent;
+  padding: 0 25px;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+  margin-bottom: 3px;
+}
+.btnSearch {
+  border-radius: 0 10px 10px 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+  height: 40%;
+  width: 40%;
+  background-color: transparent;
+  color: #e9eff2;
+  border-color: #e9eff2;
+}
+
+.btnSearch:hover {
+  backdrop-filter: blur(10px);
+  background-color: transparent;
+  color: #5ebfb5;
+}

@@ -1,29 +1,34 @@
+* {
+  background: none;
+}
 .containerWrapperList {
+  /* display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap; */
+  background: #1a1a25
+}
+
+.containerWrapperList {
+  display: block;
+  /* Esta me las ordena en columna */
+}
+.filterService {
+  width: 20%;
+  height: 100vh;
+  float: left;
+  position: fixed;
+  padding-left: 10px;
+}
+
+.cardContainer {
+  margin: 80px;
+  margin-left: 18%;
+  margin-right: 0;
+  margin-top: 0;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: 20%;
-  border: 5px solid red;
-}
-
-.wrapperList {
-  border-radius: 8px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.637);
-  margin: 20px;
-  text-align: left;
-  margin-bottom: 80px;
-  margin-left: 8%;
-}
-
-.containerWrapperList {
-  display: flex; /* vamos a ordenar las cosas que estan dentro en forma de caja */
-  flex-direction: column; /* Esta me las ordena en columna */
-  margin-left: 200px; /*CON ESTO LOGRE PONER 3 EN CADA FILA*/
-  margin-right: 30px;
-}
-.cardContainer {
-  display: inline-flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  background: #c3cace;
 }

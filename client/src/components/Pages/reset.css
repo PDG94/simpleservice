@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainReset {
+  width: 100%;
+  height: 100vh;
+  background:#c3cace;
+}
+.btnResetBack {
+   position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 7%;
+  font-size: 140%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-family: asusLight;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 10%;
+  color: #5EBFB5;
+  letter-spacing: 3px;
+  border: 1px solid #5EBFB5;
+  border-radius: 10px;
+  background-color: #1a1a25;
+}
+.btnResetBack:hover {
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
+}
+.contImg {
+  border-radius: 0 50px 50px 0;
+  background-color: #252636;
+  width: 32%;
+  height: 710px;
+
+}
+.imgReset {
+  margin-top: 11vh;
+  margin-left: 0;
+  width: 100%;
+}
+.formReset {
+  background-color: #252636;
+  color: #1a1a25;
+ border: 2px solid #252636;
+  border-radius: 40px 0 0 40px;
+  width: 28%;
+  height: 710px;
+
+}
+.containerReset {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+
+}
+.formRes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 120px;
+  padding: 5%;
+}
+.titleReset {
+  font-family: asusRegular;
+  margin-top: 13%;
+  margin-bottom: 4%;
+  font-size: 300%;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #5EBFB5;
+}
+
+
+.pleaseMessage {
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 10%;
+  font-size: 130%;
+  font-weight: 400;
+  font-family: asusRegular;
+  letter-spacing: 2px;
+  color: #E9EFF2;
+}
+.enterReset {
+  margin-bottom: 2%;
+  font-size: 180%;
+  font-weight: 400;
+  font-family: asusRegular;
+  letter-spacing: 2px;
+  color: #E9EFF2;
+}
+.inpReset {
+  margin-top: 6%;
+  width: 140%;
+  background-color: #E9EFF2;
+  margin-right: 0;
+  border: 2px solid #E9EFF2;
+  text-align: center;
+  height: 4vh;
+  font-size: 130%;
+  border-radius: 5px;
+  margin-bottom: 5%;
+}
+
+.submit {
+  margin-top: 10%;
+  margin-bottom: 20%;
+  width: 140%;
+  padding:10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 180%;
+   font-family: asusLight;
+  border-radius: 8px;
+  background-color: #1a1a25;
+  border: 1px solid transparent;
+  color: #5EBFB5;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+.submit:hover {
+ border: 1px solid #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
+}
+
+

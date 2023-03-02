@@ -1,14 +1,17 @@
 require("dotenv").config();
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
 //DB_NAME is the database name
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
-  logging: false, 
-  native: false,
-});
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  {
+    logging: false,
+    native: false,
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -35,23 +38,34 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
+
 const {
-  Category, Service, User, Role, Card
+  Category, User, Role, Card, ServiceList, Fav
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 
-Category.hasMany(Service);
-Service.belongsTo(Category);
+Category.hasMany(Card);
+Card.belongsTo(Category);
 
 Role.hasMany(User);
 User.belongsTo(Role);
 
-User.hasMany(Service);
-Service.belongsTo(User);
 
-Category.hasMany(Card);
-Card.belongsTo(Category);
+User.belongsToMany(Card, { through: "UserCard" });
+Card.belongsToMany(User, { through: "UserCard" });
+
+
+Category.hasMany(ServiceList);
+ServiceList.belongsTo(Category);
+
+//Favourites relations
+
+User.hasMany(Fav);
+Fav.belongsTo(User);
+
+Card.hasMany(Fav);
+Fav.belongsTo(Card);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

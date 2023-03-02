@@ -1,0 +1,114 @@
+.navbarAdmin {
+  background-color:  #252636;
+  width: 260px;
+  margin-top: 45%;
+}
+.userAd {
+  padding: 10px;
+  margin-top: 320px;
+  margin-left: 5px;
+  background-color:  #252636;
+  color: #9f90ea;
+}
+.nameAd {
+  margin-top: 20px;
+  margin-left: 5px;
+  font-size: 30px;
+}
+
+.navAd1 {
+
+  margin-top: 0px;
+  background-color:  #252636;
+}
+.divNavAd {
+  margin-left: 10px;
+  margin-top: 80px;
+  margin-bottom: 300px;
+  background-color:  #252636;
+}
+
+/*lista de nav*/
+.adhome {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.adhome:hover {
+  background-color: #303246;
+  border-radius: 6px;
+  color: #9f90ea;
+}
+.adservices {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.adservices:hover {
+  background-color: #303246;
+  border-radius: 6px;
+  color: #9f90ea;
+}
+.adcategories {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.adcategories:hover {
+  background-color: #303246;
+  border-radius: 6px;
+  color: #9f90ea;
+}
+.adview {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.adview:hover {
+  background-color: #303246;
+  border-radius: 6px;
+  color: #9f90ea;
+}
+.adorders {
+  color: #9f90ea;
+  font-size: 25px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.adorders:hover {
+  background-color: #303246;
+  border-radius: 6px;
+  color: #9f90ea;
+}
+.icNavDash{
+font-size: 30px;
+  margin-left: -15px;
+margin-right: 20px;
+}
+.mainMenu{
+  color: #9f90ea;
+  font-size: 20px;
+  border: 2px solid #9f90ea;
+  padding: 5%;
+  border-radius: 8px;
+margin-right: 8%;
+}
+.mainMenu:hover{
+  color: #E9EFF2;
+  border: 2px solid #9f90ea;
+}
+

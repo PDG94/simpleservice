@@ -1,80 +1,49 @@
-const { Service, User, Card } = require("../../db");
+const { User, Card, Category } = require("../../db");
+
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 const getAllServices = async () => {
-  // return await Service.findAll({
-  //   where: {
-  //     active: true,
-  //   },
-  //   include: {
-  //     model: User,
-  //     attributes: ['fullname', 'name', 'surname']
-  //   }
-  // });
-
   return await Card.findAll({
     where: {
       active: true,
     },
+    attributes: ["id", "servicename", "price", "CategoryId"],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
   });
 };
 
-// const createService = async ({ idUser, name, image, description, price }) => {
-// const serviceUser = await User.findByPk(idUser);
-
-// const newService = await serviceUser.createService({
-//   name,
-//   image,
-//   description,
-//   price,
-// })
-
-//   return newService;
-// };
-
-createService = async ({
-  idUser,
-  username,
-  userimage,
+const createService = async ({
+  CategoryId,
   description,
   servicename,
   price,
-  rating,
+  user_id,
 }) => {
   const newService = await Card.create({
-    username,
-    userimage,
     description,
     servicename,
     price,
-    rating,
   });
+
+  const categories = await Category.findByPk(CategoryId);
+  const user = await User.findByPk(user_id);
+
+  await categories.addCard(newService);
+  await user.addCard(newService);
 
   return newService;
 };
 
 //updateService updates just one instance
-const updateService = async ({
-  id,
-  username,
-  userimage,
-  description,
-  servicename,
-  price,
-  rating,
-}) => {
-  // await Service.update(
-  //   { name, image, description, price },
-  //   {
-  //     where: {
-  //       id: id,
-  //     },
-  //   }
-  // );
 
-  // const serviceUpdated = await Service.findByPk(id);
-
+const updateService = async ({ id, description, servicename, price }) => {
   await Card.update(
-    { username, userimage, description, servicename, price, rating },
+    { description, servicename, price },
     {
       where: {
         id: id,
@@ -88,25 +57,78 @@ const updateService = async ({
 };
 
 const getServiceById = async ({ id }) => {
-  // const serviceById = await Service.findAll({
-  //   where: {
-  //     id: id,
-  //   },
-  //   include: {
-  //     model: User,
-  //   },
-  // });
-
   const serviceById = await Card.findAll({
     where: {
       id: id,
     },
-    // include: {
-    //   model: User,
-    // },
+    include: [
+      {
+        model: User,
+      },
+      { model: Category },
+    ],
   });
 
   return serviceById;
+};
+
+const orderService = async (attributes, direction) => {
+  const order = await Card.findAll({
+    order: [[attributes, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
+  });
+  return order;
+};
+const getServiceByDescription = async (valdescription) => {
+  const serviceByDesc = await Card.findAll({
+    where: {
+      description: {
+        [Op.substring]: valdescription,
+      },
+    },
+    attributes: ["id", "servicename", "description", "price"],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
+  });
+
+  return serviceByDesc;
+};
+
+const getServiceByCategory = async (idCategory) => {
+  const serviceByCategory = await Card.findAll({
+    where: {
+      CategoryId: idCategory,
+    },
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
+  });
+
+  return serviceByCategory;
+};
+
+const filterServices = async (order, direction, categoryId) => {
+  return await Card.findAll({
+    where: {
+      active: true,
+      CategoryId: categoryId,
+    },
+    order: [[order, direction]],
+    include: {
+      model: User,
+      attributes: ["id", "name", "rating", "profilepic"],
+    },
+    raw: true,
+  });
 };
 
 module.exports = {
@@ -114,4 +136,8 @@ module.exports = {
   createService,
   updateService,
   getServiceById,
+  orderService,
+  getServiceByDescription,
+  getServiceByCategory,
+  filterServices,
 };

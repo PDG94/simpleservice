@@ -1,12 +1,13 @@
 import "../Services/services.css";
-import { CardsContainer, NavBar, Filter } from "../index";
+// import "../NavBar/navBar.css";
+import { CardsContainer, NavBar, Footer } from "../index";
 
 const Services = () => {
   return (
     <div className="main">
-      <div className="navBar"><NavBar /></div>
-      <Filter/>
-      <CardsContainer/>    
+      <NavBar /> 
+      <CardsContainer />
+      <Footer />
     </div>
   );
 };

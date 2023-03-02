@@ -1,27 +1,26 @@
-const {User} = require("../../db")
+const {User, Card} = require("../../db")
 
 
 const getAllUsers = async() =>{
     return await User.findAll({
         where:{
             active: true
-        }
+        },
     })
 }
 
-const createUser = async({name, surname,profilepic, email, password}) =>{
+const createUser = async({user_id, name, username,profilepic, email}) =>{
     const newUser = await User.create({
+        id: user_id,
         name,
-        surname,
+        username,
         profilepic,
         email,
-        password
-
     })
     return newUser
 }
 
 module.exports = {
     getAllUsers,
-    createUser
+    createUser,
 }

@@ -1,44 +1,125 @@
-import { Link } from "react-router-dom";
-import '../Filter/filter.css'
-
+import "../Filter/filter.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import {
+  cardsFilter,
+  getCategories,
+  getServices,
+  resedPaged,
+} from "../../redux/actions";
 
 export default function Filter() {
-    return(
-        <div class="filter">
-          <li>
-             <select >
-                 {/*SERVICIOS*/ }
-              <option value="all">Services</option>
-              {/* {categories?.map((elem) => (
-                <Link to={`?filter=${elem.name}`}>
-                <option key={elem} value={elem.name}>
-                  {elem.name}
-                </option>
-                </Link>
-              ))} */}
-            </select>
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
 
-             {/*PRECIO*/ }
-             <select>
-              <option value="all">Price</option>
-              <option value="Mprice">More Price</option>
-              <option value="Lprice">Low Price</option>
-            </select>
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
-            {/*ABC*/ }
-            <select>
-              <option value="all">Order</option>
-              <option value="asc">A-Z</option>
-              <option value="desc">Z-A</option>
-            </select>
+  const [filter, setFilter] = useState({
+    order: "",
+    direction: "",
+    categoryId: "",
+  });
 
-              {/*RATING*/ }
-            <select>
-              <option value='all'>Rating</option>
-              <option value="Mrat">More Rating</option>
-              <option value="Lrat">Low Rating</option>
-            </select>
-            </li>
-        </div>
-    )
+  //Con esta funcion reiniciamos los SELECT
+  const resetFilter = () => {
+    document.getElementById("categoriesSelect").selectedIndex = 0; // Primero se agrega un id al select para identificarlo y luego podemos acceder a el mediante getElementById y despues le decimos en que posicion de las opciones queremos que reinicie el valor del select con selectedIndex = 0
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("alphabetSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
+  };
+
+  const handleCategory = (e) => {
+    setFilter({ ...filter, categoryId: e.target.value });
+  };
+
+  const handlePrice = (e) => {
+    setFilter({ ...filter, order: "price", direction: e.target.value });
+    document.getElementById("alphabetSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
+  };
+
+  const handleName = (e) => {
+    setFilter({ ...filter, order: "servicename", direction: e.target.value });
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
+  };
+
+  const handleRating = (e) => {
+    setFilter({ ...filter, order: "rating", direction: e.target.value });
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("alphabetSelect").selectedIndex = 0;
+  };
+
+  const handleSubmit = () => {
+    dispatch(getServices());
+    dispatch(cardsFilter(filter));
+    dispatch(resedPaged(1));
+    resetFilter();
+  };
+
+  return (
+    <div className="filter">
+      <div>
+        <h1 className="titleFil">Filters & Sorts</h1>
+
+        {/*CATEGORIAS*/}
+        <br />
+        <span className="spanFilter">Select a category</span>
+        <select
+          id="categoriesSelect"
+          className="selectFilter"
+          onChange={(e) => handleCategory(e)}
+        >
+          <option value="all">Categories</option>
+          {categories?.map((elem) => (
+            <option key={elem.id} value={elem.id}>
+              {elem.name}
+            </option>
+          ))}
+        </select>
+
+        {/*PRECIO*/}
+        <span className="spanFilter">Order services by </span>
+        <select
+          id="priceSelect"
+          className="selectFilter"
+          onChange={(e) => handlePrice(e)}
+        >
+          <option value="all">Price</option>
+          <option value="DESC">More Price</option>
+          <option value="ASC">Low Price</option>
+        </select>
+
+        {/*ABC*/}
+        <span className="spanFilter">Order services by </span>
+        <select
+          id="alphabetSelect"
+          className="selectFilter"
+          onChange={(e) => handleName(e)}
+        >
+          <option value="all">Alphabet</option>
+          <option value="ASC">A-Z</option>
+          <option value="DESC">Z-A</option>
+        </select>
+
+        {/*RATING*/}
+        <span className="spanFilter">Order services by </span>
+        <select
+          id="ratingSelect"
+          className="selectFilter"
+          onChange={(e) => handleRating(e)}
+        >
+          <option value="all">Rating</option>
+          <option value="DESC">More Rating</option>
+          <option value="ASC">Low Rating</option>
+        </select>
+
+        <button className="btnFilter" onClick={() => handleSubmit()}>
+          Press to Filter
+        </button>
+      </div>
+    </div>
+  );
 }

@@ -1,50 +1,105 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(58, 138, 135);
-  margin-bottom: 0;
+.mainNavContainer {
+  background-color: #1a1a25;
+  background-position: center;
+  width: 100%;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btns {
+  display: flex;
+  justify-items: flex-start;
+  justify-content: flex-start;
+}
+.btnsUser {
+  display: flex;
+  justify-items: flex-end;
+  justify-content: flex-end;
+}
+.btnNav {
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: rondalSemibold;
+  font-size: 160%;
+  font-weight: 500;
+  color: #E9EFF2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.btnNav:hover {
+  cursor: pointer;
+  color: #E9EFF2;
+  background-color: #252636;
 }
 
-.hr {
-border: 1px rgb(255, 255, 255) solid;
-margin-top: 0px;
-height: 47px;
-width: 50px;
-position: absolute;
-}
-.home{
-  margin-left: 15px;
-}
- .create{
-margin-left: 610px;
- }
-.search{
-  margin-top: 15px;
-  margin-left: 2% ;
-}
-
-span{
-  float:right
-}
-.signUp{
-  margin-right: 30px;
-}
-
-li {
-  float: left;
-}
-
-li a {
+.searchNav {
+  margin-top: 1%;
+  margin-left: 0;
+  margin-right: 0;
   font-family: system-ui;
-  display: block;
-  color: rgb(229, 247, 237);
+  font-size: 100%;
+  font-weight: 500;
+  color: #E9EFF2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.birdy {
+  margin-left: 0.3rem;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  color: #E9EFF2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: rgba(103, 185, 184, 0.39);
+.greet {
+  color: #5EBFB5;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: magnum;
+  letter-spacing: 3px;
+  font-size: 180%;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.circleNav{
+  margin-bottom: 1%;
+}
+.space {
+  margin-top: 4%;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a25;
+  text-align: center;
+  padding: 2px 2px;
+  text-decoration: none;
+}
+.login {
+  margin-top: 2.5%;
+  margin-bottom: 0;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-family: rondalSemibold;
+  font-size: 20px;
+  font-weight: 500;
+  color: #E9EFF2;
+  text-align: center;
+  padding: 14px 12px 8px 12px;
+  text-decoration: none;
+}
+.login:hover {
+  cursor: pointer;
+  color: #E9EFF2;
+  box-shadow: 0 0 4px 6px #1a1a25;
+  border-radius: 6px;
 }

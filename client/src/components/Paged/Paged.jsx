@@ -1,71 +1,71 @@
 import React from "react";
 import "../Paged/paged.css";
+import { useDispatch, useSelector } from "react-redux";
+import { resedPaged } from "../../redux/actions";
 
-export default function Paged({
-  servicesPerPage,
-  allServices,
-  paged,
-  currentPage,
-  setCurrentPage,
-}) {
+export default function Paged({ servicesPerPage, allServices, paged }) {
   const pageNumber = [];
+  const dispatch = useDispatch();
+
+  const currentPage = useSelector((state) => state.currentPage);
+
   for (let i = 0; i < Math.ceil(allServices / servicesPerPage); i++) {
-    pageNumber.push(i+1);
+    pageNumber.push(i + 1);
   }
 
   function handlePrev() {
     if (currentPage === 1) {
-      setCurrentPage(1);
+      dispatch(resedPaged(1));
     } else {
-      setCurrentPage(currentPage - 1);
+      dispatch(resedPaged(currentPage - 1));
     }
   }
 
   function handleNext() {
     if (currentPage === pageNumber[pageNumber.length - 1]) {
-      setCurrentPage(currentPage);
+      dispatch(resedPaged(currentPage));
     } else {
-      setCurrentPage(currentPage + 1);
+      dispatch(resedPaged(currentPage + 1));
     }
   }
 
   return (
     <nav className="paginateContainer">
-      <div className="prev-next">
-        <button
-          className="next-prev-btn"
-          onClick={() => handlePrev()}
-          disabled={allServices < 6}
-        >
-          Prev
-        </button>
-      </div>
       <div className="pages">
+        <div>
+          <p
+            className="buttonPage"
+            onClick={() => handlePrev()}
+            disabled={allServices < 6}
+          >
+            ⪻
+          </p>
+        </div>
         {allServices < 6 ? (
           <div key="pagination">{paged(1)}</div>
         ) : (
           pageNumber &&
           pageNumber.map((n) => (
-            <div className="page">
-              <button
+            <div key={n} className="page">
+              <p
                 className={"page-number" + (n === currentPage ? "active" : "")}
                 key={n}
                 onClick={() => paged(n)}
               >
                 {n}
-              </button>
+              </p>
             </div>
           ))
         )}
-      </div>
-      <div className="prev-next">
-        <button
-          className="next-prev-btn"
-          onClick={() => handleNext()}
-          disabled={allServices < 6}
-        >
-          Next
-        </button>
+        <div>
+          <p
+            className="buttonPage"
+            onClick={() => handleNext()}
+            disabled={allServices < 6}
+          >
+            ⪼
+          </p>
+        </div>
       </div>
     </nav>
   );

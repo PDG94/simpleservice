@@ -1,0 +1,157 @@
+.formUpdate {
+  padding: 2%;
+  margin-bottom: -280px;
+  background: linear-gradient(
+    270deg,
+    #101010 0%,
+    rgba(255, 255, 255, 1) 50%,
+    #101010 100%
+  );
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1050px;
+}
+.containerUpdate {
+  margin-left: 25%;
+  align-items: center;
+  background-color: #ced379;
+  color: #000000;
+  margin-top: 10px;
+  border: 8px solid #d7df23;
+  border-radius: 50px;
+  width: 50%;
+  height: 90%;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.titleUpdate {
+  margin-top: 45px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: system-ui;
+  color: rgb(69, 67, 67);
+  letter-spacing: 1px;
+}
+.iconUpdate {
+  font-size: 25px;
+  margin-right: 5px;
+  color: #141414;
+  position: absolute;
+  padding: 8px 0;
+  margin-left: 10px;
+  padding-right: 5px;
+  border-right: 1px solid #ced379;
+}
+
+.validUpdate {
+  color: rgb(240, 89, 89);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 2vh;
+}
+
+.subUpdate {
+  height: 50px;
+  width: 140px;
+  color: rgb(51, 50, 50);
+  border: 2px solid #b4ab07;
+  font-weight: 600;
+  font-size: 3.5vh;
+  letter-spacing: 2px;
+  font-family: system-ui;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.188);
+  box-shadow: 0 0 10px yellow;
+}
+.subUpdate:hover {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #d7df23;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+}
+.inpUpdate {
+  padding: 12px 2px 15px 48px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 60%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgb(69, 67, 67);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1em;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+}
+
+.iconUpdate {
+  background-color: rgba(128, 128, 128, 0.228);
+}
+
+.proPhraseUpdate {
+  font-size: 120%;
+  font-weight: 500;
+  font-family: system-ui;
+  color: rgb(69, 67, 67);
+  letter-spacing: 1px;
+}
+.circleBoxUpdate {
+  color: rgb(69, 67, 67);
+  font-family: system-ui;
+  font-weight: 500;
+  margin-left: 8px;
+  font-size: 130%;
+}
+.proLinkUpdate {
+  color: rgb(240, 89, 89);
+}
+
+.spantitleUpdate {
+  font-size: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 600;
+  margin-left: 21%;
+  margin-bottom: 1.5%;
+  color: rgb(69, 67, 67);
+}
+
+.selUpdate {
+  background-color: white;
+  margin-left: 0;
+  padding: 12px 2px 15px 48px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  width: 60%;
+  background-color: white;
+  color: rgb(87, 87, 87);
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  font-size: 1em;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transform: 0.5s;
+  outline: none;
+}
+
+.priceUpdate {
+  margin-top: 3.5%;
+}
+
+.navUpdate {
+  background-color: #252636;
+  position: absolute;
+  margin-top: -8%;
+  position: fixed;
+}

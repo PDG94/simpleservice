@@ -1,22 +1,21 @@
 import "../Card/card.css";
-import { Link } from "react-router-dom";
 
-export default function Card({ id, name, image, price, service,rating }) {
+export default function Card({ name, image, service, price, rating }) {
   return (
-    <div class="container">
-      <div className="info">
-        <img class="img " src={image} alt="" />
+    <div className="container">
+      <div>
+        <img src={image} alt="" />
+        <h2 className="name">{name}</h2>
+        <p className="serviceContainer">{service}</p>
       </div>
 
-      <div class="name">
-        <h2>{name}</h2>
+      <div className="card">
+        <p className="price"> Price $ {price}</p>
+        <p className="rating">⭐ {rating}</p>
+        <button className="more">
+          <span>more info...</span>
+        </button>
       </div>
-      <p>Price: ${price}</p>
-      <p>Service: {service}</p>
-      <p>Rating:⭐{rating}</p>
-      <Link to={`/Detail/${id}`}>
-        <button class="button">Get it</button>
-      </Link>
     </div>
   );
 }
