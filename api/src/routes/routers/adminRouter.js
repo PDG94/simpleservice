@@ -19,6 +19,7 @@ const {
   updateServiceHandler,
   deleteServiceHandler,
 } = require("../handlers/adminServicesHandler");
+const { metricsHandler } = require("../handlers/adminMetricsHandler");
 
 const adminRouter = Router();
 
@@ -30,13 +31,15 @@ adminRouter.get("/categories", getAllCategoriesHandler);
 
 adminRouter.get("/services", getServicesHandler);
 
+adminRouter.get("/metrics", metricsHandler); //stats for users and services
+
 adminRouter.post("/categories", createCategoryHandler);
 
 adminRouter.post("/services", createServiceHandler);
 
 adminRouter.put("/users/:id", updateUserHandler);
 
-adminRouter.put("/adminrights/:id", adminUserHandler)
+adminRouter.put("/adminrights/:id", adminUserHandler);
 
 adminRouter.put("/categories/:id", updateCategoryHandler);
 

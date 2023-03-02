@@ -3,10 +3,9 @@
   padding: 0;
 }
 .containerMain {
-  background:#E9EFF2 ;
+  background:#c3cace ;
   width: 100%;
   height: 100vh;
-  /* background-attachment: scroll; */
   margin-bottom: 0;
 }
 
@@ -21,10 +20,6 @@
   border-radius: 50px;
   width: 50%;
   height: 80%;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25,
-    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
-    inset 5px 5px 15px #1a1a25;
 }
 .nameBox {
   display: flex;
@@ -69,11 +64,11 @@
   width: 85%;
   background-color: #E9EFF2;
   border: 1px solid #1a1a25;
+  font-family: asusRegular;
   color: #1a1a25;
-  font-weight: 500;
-  font-size: 80%;
+  font-size: 120%;
   letter-spacing: 1px;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
     5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
@@ -90,7 +85,7 @@
   font-weight: 500;
   font-size: 1em;
   letter-spacing: 1px;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
     5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
@@ -104,7 +99,7 @@
   color: blue;
   font-weight: 500;
   font-size: 100%;
-  font-family: system-ui;
+  font-family: asusLight;
   letter-spacing: 0.5%;
   margin-top: 0;
   margin-bottom: 7%;
@@ -114,33 +109,33 @@
   margin-right: 5%;
 }
 .errP {
-  color: rgb(196, 95, 95);
-  font-size: 95%;
+  color: rgb(239, 145, 145);
+  font-size: 110%;
   font-weight: 500;
-  font-family: system-ui;
-  letter-spacing: 0.2px;
-  width: 95%;
+  font-family: asusLight;
+  letter-spacing: 1px;
+  width: 90%;
 }
 .backRegister {
   position: absolute;
   display: flex;
   flex-direction: column;
   height: 7%;
-  font-size: 3.5vh;
+  font-size: 140%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: system-ui;
-  font-weight: 600;
+  font-family: asusLight;
+  font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
-  width: 7%;
-  color: #E9EFF2;
-  letter-spacing: 1px;
-  border: 1px solid #E9EFF2;
-  border-radius: 15px;
-  background-color: transparent;
+  width: 10%;
+  color: #5EBFB5;
+  letter-spacing: 3px;
+  border: 1px solid #5EBFB5;
+  border-radius: 10px;
+  background-color: #1a1a25;
 }
 .backRegister:hover {
   border: 1px solid #E9EFF2;
@@ -172,49 +167,31 @@
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 1em;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
     5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
-.btnRegister {
-  display: grid;
-  /* flex-direction: column; */
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0;
-  margin-left: 35%;
-  margin-bottom: 2%;
-  height: 50px;
-  width: 30%;
-  border: 2px solid #5EBFB5;
-  border-radius: 15px;
-  background-color: rgba(128, 128, 128, 0.188);
-  box-shadow: 0 0 10px #5EBFB5;
-
-}
-.btnRegister:hover {
-  border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
-  color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
-}
 .submitRegister {
-  border: none;
-  padding-top: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-bottom: 1%;
-  color: #5EBFB5;
-  font-weight: 600;
+ margin-top: 4%;
+  height: 35%;
+  width: 25%;
+  font-weight: 700;
+  font-family: asusLight;
   font-size: 150%;
+  padding: 8px 1px 8px 1px ;
+  color: #5EBFB5!important;
+  border: 1px solid transparent;
   letter-spacing: 2px;
-  font-family: system-ui;
-  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: #1a1a25;
 }
-.submitRegister{
-  color: #1a1a25;
+.submitRegister:hover {
+  border: 1px solid #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
 }
 .iconR {
   font-size: 70px;
@@ -222,7 +199,7 @@
   color: #5EBFB5;
 }
 .titleRegister {
-  font-family: system-ui;
+  font-family: asusRegular;
   font-weight: 500;
   color: #5EBFB5;
   margin-top: 4.5%;

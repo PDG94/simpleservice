@@ -7,18 +7,19 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  height: 50px;
+  height: 7%;
+  font-size: 140%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: system-ui;
-  font-weight: 700;
-  margin-top: 9vh;
-  margin-left: 10vw;
-  width: 150px;
+  font-family: asusLight;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 10%;
   color: #5EBFB5;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   border: 1px solid #5EBFB5;
   border-radius: 10px;
   background-color: #1a1a25;
@@ -34,13 +35,12 @@
   background-color: #252636;
   width: 32%;
   height: 710px;
-  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25,
-  inset -5px -5px 15px #252636, inset 5px 5px 15px #1a1a25;
 
 }
 .imageLog {
-  margin-top: 15vh;
+  margin-top: 11vh;
   margin-left: 0;
+  width: 100%;
 
 }
 .formLog {
@@ -50,8 +50,7 @@
   border-radius: 40px 0 0 40px;
   width: 28%;
   height: 710px;
-  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25,
-  inset -5px -5px 15px #252636, inset 5px 5px 15px #1a1a25;
+
 
 }
 .LogCont {
@@ -66,13 +65,13 @@
   margin: 20px 120px;
   padding: 5%;
 }
-.formLog h2 {
+.titleLogin {
+  font-family: asusRegular;
   margin-left: -25px;
-  font-size: 50px;
+  font-size: 300%;
   margin-top: 90px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-family: system-ui;
+  font-weight: 500;
+  letter-spacing: 2px;
   color: #5EBFB5;
 }
 .iconLog {
@@ -87,9 +86,10 @@
   font-size: 2.5vh;
   width: 150%;
   font-weight: 500;
+  font-family: asusLight;
   margin-top: 5px;
   margin-bottom: 0 !important;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: #E9EFF2;
 }
 .forgot:hover {
@@ -97,18 +97,19 @@
   color: #E9EFF2;
 }
 .account {
-  font-size: 2vh;
+  font-size: 150%;
   margin-top: 5px;
   margin-left: -10px;
   margin-bottom: 0 !important;
-  letter-spacing: 1px;
+  font-family: asusLight;
+  letter-spacing: 1.5px;
   color: #E9EFF2;
   font-weight: 500;
 }
 .symbolsA {
   margin-left: -35px;
   color: #5EBFB5;
-  font-size: 42px;
+  font-size: 270%;
   margin-top: 0;
 }
 .envelope:hover {
@@ -124,20 +125,21 @@
 .symbolsB {
   margin-left: 8px;
   color: #5EBFB5;
-  font-size: 40px;
+  font-size: 240%;
   margin-top: 0;
 }
 
 .continue {
-  margin-left: 20px;
-  margin-top: 18px;
-  margin-bottom: 10px;
-  height: 40px;
+  margin-left: 25%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  height: 60%;
   width: 140px;
   color: #5EBFB5;
   border: 1px solid #1a1a25;
+  font-size: 150%;
   font-weight: 700;
-  font-family: system-ui;
+  font-family: asusLight;
   letter-spacing: 2px;
   border-radius: 10px;
   background-color: #1a1a25;
@@ -149,16 +151,16 @@
   box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .RegLog {
-  margin-left: -30px;
-  margin-top: 15px;
-  height: 40px;
-  width: 100%;
+  margin-top: 7%;
+  height: 35%;
+  width: 90%;
   font-weight: 700;
-  font-family: system-ui;
-  letter-spacing: 1px;
+  font-family: asusLight;
+  font-size: 150%;
   color: #5EBFB5;
   border: 1px solid transparent;
   letter-spacing: 2px;
+  text-decoration: none;
   border-radius: 8px;
   background-color: #1a1a25;
 }

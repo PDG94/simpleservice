@@ -36,14 +36,20 @@ export default function Filter() {
 
   const handlePrice = (e) => {
     setFilter({ ...filter, order: "price", direction: e.target.value });
+    document.getElementById("alphabetSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
   };
 
   const handleName = (e) => {
     setFilter({ ...filter, order: "servicename", direction: e.target.value });
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("ratingSelect").selectedIndex = 0;
   };
 
   const handleRating = (e) => {
     setFilter({ ...filter, order: "rating", direction: e.target.value });
+    document.getElementById("priceSelect").selectedIndex = 0;
+    document.getElementById("alphabetSelect").selectedIndex = 0;
   };
 
   const handleSubmit = () => {

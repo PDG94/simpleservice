@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./updateInfoUsers.css";
@@ -94,7 +94,7 @@ export default function UpdateProfilesUsers() {
       }
     );
     toast.success("User update successfully!");
-    navigate("/home");
+    navigate("/admin/home");
   };
 
   const handleActive = (e) => {
@@ -111,17 +111,15 @@ export default function UpdateProfilesUsers() {
 
   return (
     <form onSubmit={(e) => submitHandler(e, form.id)}>
-      <NavBarAdmin />
-      <div className="form">
-        <Link to={"/profile"}>
-          <button className="back">Back</button>
-        </Link>
+      <div className="navUpdate">
+        <NavBarAdmin />
+      </div>
+      <div className="formUpdate">
+        <div className="containerUpdate">
+          <h1 className="titleUpdate">Update User</h1>
 
-        <div className="containerCreated">
-          <h1 className="titleCr">Update User</h1>
-
-          <span className="spantitle">Select a User</span>
-          <select className="selCreate" onChange={(e) => handleUser(e)}>
+          <span className="spantitleUpdate">Select a User</span>
+          <select className="selUpdate" onChange={(e) => handleUser(e)}>
             <option value="">Users</option>
             {users?.map((elem) => (
               <option key={elem.id} value={elem.id}>
@@ -130,12 +128,12 @@ export default function UpdateProfilesUsers() {
             ))}
           </select>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="priceUpdate">
+            <label className="iconUpdate">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpdate"
               type="text"
               placeholder="Name"
               value={form.name}
@@ -144,12 +142,12 @@ export default function UpdateProfilesUsers() {
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="priceUpdate">
+            <label className="iconUpdate">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpdate"
               type="text"
               placeholder="Username"
               value={form.username}
@@ -158,12 +156,12 @@ export default function UpdateProfilesUsers() {
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="priceUpdate">
+            <label className="iconUpdate">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpdate"
               type="text"
               placeholder="User Bio"
               value={form.userbio}
@@ -172,12 +170,12 @@ export default function UpdateProfilesUsers() {
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="priceUpdate">
+            <label className="iconUpdate">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpdate"
               type="text"
               placeholder="Profile Photo"
               value={form.profilepic}
@@ -186,16 +184,16 @@ export default function UpdateProfilesUsers() {
             />
           </div>
 
-          <span className="spantitle">Active</span>
-          <select className="selCreate" onChange={(e) => handleActive(e)}>
+          <span className="spantitleUpdate">Active</span>
+          <select className="selUpdate" onChange={(e) => handleActive(e)}>
             <option>Default</option>
             {res?.map((elem) => (
               <option value={elem.option}>{elem.option}</option>
             ))}
           </select>
 
-          <span className="spantitle">Admin</span>
-          <select className="selCreate" onChange={(e) => handleIsAdmin(e)}>
+          <span className="spantitleUpdate">Admin</span>
+          <select className="selUpdate" onChange={(e) => handleIsAdmin(e)}>
             <option>Default</option>
             {res?.map((elem) => (
               <option value={elem.option}>{elem.option}</option>
@@ -203,7 +201,7 @@ export default function UpdateProfilesUsers() {
           </select>
         </div>
       </div>
-      <button type="submit" className="sub">
+      <button type="submit" className="subUpdate">
         SUBMIT
       </button>
     </form>

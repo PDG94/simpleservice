@@ -33,6 +33,10 @@ store.subscribe(
       shippingAddress: store.getState().shippingAddress,
       billingAddress: store.getState().billingAddress,
       orderHistory: store.getState().orderHistory,
+      servicePercentage: store.getState().servicePercentage,
+      usersPercentage: store.getState().usersPercentage,
+      totalServices: store.getState().totalServices,
+      totalUsers: store.getState().totalServices,
     });
   }, 1000)
 );
