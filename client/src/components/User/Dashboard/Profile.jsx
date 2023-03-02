@@ -17,7 +17,7 @@ export default function DashboardUser() {
     dispatch(getServiceUser(id, token));
   }, [dispatch, id, token]);
 
-  console.log(profilepic)
+  // console.log(profilepic)
 
   return (
     <div className="fondoProf">
