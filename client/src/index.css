@@ -1,3 +1,31 @@
+@font-face {
+  font-family: rondalBold;
+  src: url("./fonts/RondalBold.otf");
+}
+@font-face {
+  font-family: rondalRegular;
+  src: url("./fonts/RondalRegular.otf");
+}
+@font-face {
+  font-family: rondalSemibold;
+  src: url("./fonts/RondalSemibold.otf");
+}
+@font-face {
+  font-family: airstream;
+  src: url("./fonts/airstream.TTF");
+}
+@font-face {
+  font-family: echelon;
+  src: url("./fonts/echelonit.otf");
+}
+@font-face {
+  font-family: echelonB;
+  src: url("./fonts/echelonrg.otf");
+}
+@font-face {
+  font-family: brimarg;
+  src: url("./fonts/BRIMI___.TTF");
+}
 * {
   margin: 0;
   padding: 0;
@@ -18,3 +46,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+

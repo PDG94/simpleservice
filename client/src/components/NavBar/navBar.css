@@ -1,5 +1,5 @@
 .mainNavContainer {
-  background-color: black;
+  background-color: white;
   background-position: center;
   width: 100%;
   margin: 0 !important;
@@ -20,13 +20,13 @@
 .btnNav {
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: system-ui;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
+  font-family: rondalSemibold;
+  font-size: 190%;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  letter-spacing: 2px;
 }
 .btnNav:hover {
   cursor: pointer;
@@ -38,9 +38,8 @@
   background-color: transparent;
   margin-left: 0;
   margin-right: 0;
-  font-family: system-ui;
+  font-family: rondalRegular;
   font-size: 100%;
-  font-weight: 500;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -58,13 +57,12 @@
 }
 
 .greet {
-  color: #edf125;
+  color: grey;
   margin-top: 1%;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: system-ui;
-  font-size: 20px;
-  font-weight: 500;
+  font-family: brimarg;
+  font-size: 190%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -76,7 +74,7 @@
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: black;
+  color: white;
   text-align: center;
   padding: 2px 2px;
   text-decoration: none;
@@ -86,10 +84,9 @@
   margin-bottom: 0;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: system-ui;
+  font-family: rondalRegular;
   font-size: 20px;
-  font-weight: 500;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 12px 8px 12px;
   text-decoration: none;
@@ -100,17 +97,3 @@
   box-shadow: 0 0 4px 6px #edf125;
   border-radius: 6px;
 }
-
-/* .logout .logoutLink{
-  border: 2px solid red;
-
-  font-family: system-ui;
-  display: block;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  float: left;
-} */
