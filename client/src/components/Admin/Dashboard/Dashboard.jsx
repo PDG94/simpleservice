@@ -12,9 +12,10 @@ export default function Dashboard() {
   const totalServices = useSelector((state) => state.totalServices);
   const usersPercentage = useSelector((state) => state.usersPercentage);
   const totalUsers = useSelector((state) => state.totalUsers);
+  const token = localStorage.getItem("token")
 
   useEffect(() => {
-    dispatch(adminMetrics());
+    dispatch(adminMetrics(token));
   }, [dispatch]);
 
   return (
