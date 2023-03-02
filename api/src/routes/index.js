@@ -9,6 +9,7 @@ const adminRouter = require("./routers/adminRouter");
 const serviceListRouter = require("./routers/serviceListRouter");
 const checkOut = require("./controllers/checkOut.js");
 const shopingCart = require("./routers/shopingCart.routes");
+const favRouter = require("./routers/favRouter");
 
 const router = Router();
 
@@ -29,5 +30,7 @@ router.use("/servicelist", serviceListRouter);
 router.use("/shopingCart", shopingCart);
 
 router.post("/checkout", checkOut);
+
+router.use("/fav", favRouter);
 
 module.exports = router;
