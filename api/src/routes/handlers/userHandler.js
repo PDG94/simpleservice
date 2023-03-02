@@ -2,6 +2,7 @@ const {
   updateUserInfo,
   deleteUser,
   getUserInfo,
+  editService,
 } = require("../controllers/userController");
 
 const getUserHandler = async (req, res) => {
@@ -33,4 +34,29 @@ const deleteUserHandler = async (req, res) => {
   res.status(200).json(userDeleted);
 };
 
-module.exports = { updateUserHandler, deleteUserHandler, getUserHandler };
+const editServiceHandler = async (req, res) => {
+  try {
+    let { servicename, description, price, active } = req.body;
+    if (active === "true") {
+      active = true;
+    }
+    if (active === "false") {
+      active = false;
+    }
+    const params = { servicename, description, price, ...req.params };
+    const updatedService = await editService(params);
+    res.status(200).json({
+      message: "Service updated succesfully",
+      updated: updatedService,
+    });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  updateUserHandler,
+  deleteUserHandler,
+  getUserHandler,
+  editServiceHandler,
+};

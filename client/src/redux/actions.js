@@ -20,9 +20,9 @@ import {
   CALCULATE_SUB_TOTAL,
   CALCULATE_TOTAL_QUANTITY,
   SAVE_URL,
-  SAVE_SHIPPING_ADDRESS,
-  SAVE_BILLING_ADDRESS,
   GET_SERVICE_USER,
+  //ORDER HISTORY
+  STORE_ORDERS,
   // USER_SESSION,
 } from "./actionTypes";
 import { addToCartHelper, calculateSubTotalHelper, clearCartHelper, decreaseCartHelper, removeCartHelper } from "./reduxhelper";
@@ -235,19 +235,6 @@ export const saveUrl = (payload) => {
   };
 };
 
-export const saveShippingAddress = (payload) => {
-  return function (dispatch) {
-    dispatch({ type: SAVE_SHIPPING_ADDRESS, payload });
-  };
-};
-
-export const saveBillingAddress = (payload) => {
-  return function (dispatch) {
-    dispatch({ type: SAVE_BILLING_ADDRESS, payload });
-  };
-};
-
-
 export function getServiceUser(userId, token) {
   return async function (dispatch) {
     const response = await axios.get(
@@ -262,6 +249,12 @@ export function getServiceUser(userId, token) {
     });
   };
 }
+
+export const storeOrders = (payload) => {
+  return function (dispatch) {
+    dispatch({ type: STORE_ORDERS, payload });
+  };
+};
 
 // export function storeSession(user){
 //   return function (dispatch) {

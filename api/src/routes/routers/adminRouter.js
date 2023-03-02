@@ -5,6 +5,7 @@ const {
   updateUserHandler,
   getUserByIdHandler,
   deleteUserHandler,
+  adminUserHandler,
 } = require("../handlers/adminUsersHandler");
 const {
   getAllCategoriesHandler,
@@ -34,6 +35,8 @@ adminRouter.post("/categories", createCategoryHandler);
 adminRouter.post("/services", createServiceHandler);
 
 adminRouter.put("/users/:id", updateUserHandler);
+
+adminRouter.put("/adminrights/:id", adminUserHandler)
 
 adminRouter.put("/categories/:id", updateCategoryHandler);
 

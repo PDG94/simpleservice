@@ -11,8 +11,10 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../../../redux/actions";
+import { clearCart, saveUrl } from "../../../redux/actions";
 import { useNavigate } from "react-router-dom";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { db } from "../../Firebase/config";
 const stripePromise = loadStripe(
   `pk_test_51MeScXEohVMDTuBfkv6jlBnpXq6EN6W0vJs3bFlepyOusbfYEuIAhoOXcsYFGgcDcOqwJLAqYL4qqNegKOdGJOvE00lBepiZlb`
 );
@@ -27,6 +29,10 @@ const CheckOutForm = () => {
   const paraInvocar = () => {
     window.location.reload(true);
   };
+  const cartItems1  = useSelector((state)=>state.cartItems);
+  const userID1 = useSelector((state) => state.userID);
+  const customerEmail  = useSelector((state)=>state.email)
+
   const clearCart1 = () => {
     dispatch(clearCart());
     navigate("/home");
@@ -35,6 +41,29 @@ const CheckOutForm = () => {
 
   const clearAndBack = () => {
     setTimeout(clearCart1, 3000);
+  };
+
+
+  const saveOrder = () => {
+    const today = new Date();
+    const date = today.toDateString();
+    const time = today.toLocaleTimeString();
+    const orderConfig = {
+      userID1,
+      orderDate: date,
+      orderTime: time,
+      orderAmount: cartTotalAmount,
+      cartItems1,
+      orderStatus: " ✓ Order placed... ",
+      createdAt: Timestamp.now().toDate(),
+    };
+    try {
+      addDoc(collection(db, "orders"), orderConfig);
+      dispatch(clearCart());
+      toast.success("Order saved");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -54,14 +83,18 @@ const CheckOutForm = () => {
         const { data } = await axios.post(
           "https://simpleservice-production.up.railway.app/checkout",
           {
-            id,
             amount: totalPayment,
+            id,
+            userID1,
+            userEmail: customerEmail,
+            items: cartItems1,
           }
         );
         console.log(data);
 
         elements.getElement(CardElement).clear();
-        toast.success("Payment Succesfully!");
+        toast.success("Payment Succesful!");
+        saveOrder()
       } catch (error) {
         console.log(error);
       }
@@ -79,7 +112,7 @@ const CheckOutForm = () => {
         <br />
         <br />
         <div>
-          <button className="btn btn-success" onClick={clearAndBack}>
+          <button className="btn btn-success" onClick={clearAndBack} >
             Buy
           </button>
         </div>

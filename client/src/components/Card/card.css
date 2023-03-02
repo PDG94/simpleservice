@@ -10,9 +10,9 @@
   margin: 70px 20px !important;
   padding: 0;
   cursor: pointer;
-  background-color: #101010;
-  border: 1px solid white;
-  box-shadow: 0 0 2px 4px #f5f752ce;
+  background-color: #1C1C26;
+  border: 1px solid #E9EFF2;
+  box-shadow: 0 0 2px 4px #5EBFB5;
   border-radius: 15px;
 }
 .container img {
@@ -24,10 +24,10 @@
   transition: all 0.5s ease-in-out;
   margin-top: 5px;
   object-fit: contain;
-  background-color: #101010;
+  background-color: #1C1C26;
 }
 .serviceContainer {
-  color: yellow;
+  color: #5EBFB5;
   font-weight: 400;
   font-family: system-ui;
   letter-spacing: 2px;
@@ -38,7 +38,7 @@
 
 .card {
   margin: 2rem 0;
-  color: #222;
+  color: #252636;
   overflow: hidden;
   margin-top: -200px;
   opacity: 0;
@@ -47,7 +47,7 @@
 }
 
 .name {
-  color: white;
+  color: #E9EFF2;
   margin: 0.1rem auto;
   text-align: center;
   font-weight: 400;
@@ -58,12 +58,12 @@
 
 .price {
   margin-top: 7px;
-  font-size: 1.1rem;
+  font-size: 2.1rem;
   line-height: 1.8rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-align: center;
-  color: #1e1e32;
+  color: #1a1a25;
   font-family: system-ui;
 }
 
@@ -73,7 +73,7 @@
   line-height: 1.8rem;
   letter-spacing: 2px;
   text-align: center;
-  color: #1e1e32;
+  color: #1a1a25;
   font-family: system-ui;
 }
 
@@ -85,23 +85,23 @@
   text-align: center;
   margin: 0.6rem auto;
   font-size: 1.1rem;
-  color: white;
+  color: #E9EFF2;
   text-decoration: none;
-  background-color: #101010;
+  background-color: #1a1a25;
   border-radius: 10px;
   transition: 0.3s;
   font-family: system-ui;
 }
 
 .more:hover {
-  color: black;
-  background-color: rgb(250, 250, 10);
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.4);
+  color: #252636;
+  background-color: #5EBFB5;
+  box-shadow: 0 0 2px 2px #252636;
 }
 .container:hover img {
   display: flex;
   margin-top: -60px;
-  box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 6px #5EBFB5;
 }
 .container:hover > .card {
   margin-top: 0;

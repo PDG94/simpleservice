@@ -3,6 +3,7 @@ const {
   updateUser,
   getUserById,
   deleteUser,
+  adminUser,
 } = require("../controllers/adminUsersController");
 
 const getUsersHandler = async (req, res) => {
@@ -40,10 +41,29 @@ const updateUserHandler = async (req, res) => {
   }
 };
 
+const adminUserHandler = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let { isAdmin } = req.body;
+    if (isAdmin === "true") {
+      isAdmin = true;
+    }
+    if (isAdmin === "false") {
+      isAdmin = false;
+    }
+    const adminedUser = await adminUser({ id, isAdmin });
+    res
+      .status(200)
+      .json({ message: "User granted admin priviledges", user: adminedUser });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 const deleteUserHandler = async (req, res) => {
   try {
     const active = false;
-    const params = {...req.params, active}
+    const params = { ...req.params, active };
     const deletedUser = await deleteUser(params);
     res.status(200).json(deletedUser);
   } catch (error) {}
@@ -54,4 +74,5 @@ module.exports = {
   updateUserHandler,
   getUserByIdHandler,
   deleteUserHandler,
+  adminUserHandler,
 };

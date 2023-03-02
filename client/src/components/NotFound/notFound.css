@@ -1,13 +1,13 @@
 .bod{
-  background-color: #101010;
+  background-color: #1a1a25;
   width: 100%;
   height: 100vh;
 }
 .containerX h1{
   color: #d7df23;
 font-size: 30em;
-text-shadow: 10px 8px #afb633, -10px 12px #eaf337, -8px -12px #f9fda1, 12px -5px #a8ad42;
-color: #101010;
+text-shadow: 10px 8px #2C2F73, -10px 12px #5dc1b9, -8px -12px #5055a8, 12px -5px #3c5a58;
+color: #1a1a25;
 }
 
 .containerX p{

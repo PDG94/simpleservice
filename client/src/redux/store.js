@@ -32,6 +32,7 @@ store.subscribe(
       cartItems: store.getState().cartItems,
       shippingAddress: store.getState().shippingAddress,
       billingAddress: store.getState().billingAddress,
+      orderHistory: store.getState().orderHistory,
     });
   }, 1000)
 );
