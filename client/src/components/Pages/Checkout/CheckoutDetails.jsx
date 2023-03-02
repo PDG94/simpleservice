@@ -26,9 +26,6 @@ const CheckOutForm = () => {
   const elements = useElements();
   const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
-  const paraInvocar = () => {
-    window.location.reload(true);
-  };
   const cartItems1  = useSelector((state)=>state.cartItems);
   const userID1 = useSelector((state) => state.userID);
   const customerEmail  = useSelector((state)=>state.email)
@@ -36,7 +33,7 @@ const CheckOutForm = () => {
   const clearCart1 = () => {
     dispatch(clearCart());
     navigate("/home");
-    paraInvocar();
+
   };
 
   const clearAndBack = () => {

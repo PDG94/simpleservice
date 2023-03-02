@@ -263,11 +263,9 @@ export default function Register() {
                 <div id="info"></div>
               </div>
             </div>
-            <Link to="/home" className="btnRegister">
               <button type="submit" className="submitRegister">
                 Register
               </button>
-            </Link>
           </form>
         </div>
       </div>
