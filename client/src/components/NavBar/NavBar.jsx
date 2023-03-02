@@ -95,11 +95,11 @@ const NavBar = () => {
         </div>
 
         <Link className="btnNav" to="/">
-          Welcome Page
+          WELCOME PAGE
         </Link>
 
         <Link className="btnNav" to="/home">
-          Home
+          HOME
         </Link>
 
         <Link
@@ -107,12 +107,12 @@ const NavBar = () => {
           to="/Services"
           onClick={(e) => handleRefresh(e)}
         >
-          Services
+          SERVICES
         </Link>
 
         <ShowOnLogin>
           <Link className="btnNav" to="/Create">
-            Create Service
+            CREATE SERVICE
           </Link>
         </ShowOnLogin>
 
@@ -122,7 +122,7 @@ const NavBar = () => {
             to="/Services"
             onClick={(e) => handleRefresh(e)}
           >
-            Refresh
+            REFRESH
           </Link>
         ) : null}
       </div>
@@ -134,7 +134,7 @@ const NavBar = () => {
 
         <ShowOnLogout>
           <Link className="btnNav" to="/login">
-            Login
+            LOGIN
           </Link>
         </ShowOnLogout>
 
@@ -144,28 +144,28 @@ const NavBar = () => {
 
         <AdminOnlyRoute>
           <Link className="btnNav" to="/admin/home">
-            Admin
+            ADMIN
           </Link>
         </AdminOnlyRoute>
 
         <ShowOnLogin>
           <UserOnlyRoute>
             <Link className="btnNav" to="/profile">
-              My Profile
+              MY PROFILE
             </Link>
           </UserOnlyRoute>
         </ShowOnLogin>
 
         <ShowOnLogin>
           <Link className="btnNav" to="/home" onClick={logoutUser}>
-            Logout
+            LOGOUT
           </Link>
         </ShowOnLogin>
 
         <ShowOnLogin>
           {" "}
           <Link className="btnNav" to="/cart">
-            <FaShoppingCart size={26} className="shoppingCart" />
+            <FaShoppingCart size={32} className="shoppingCart" />
             {"  "}
             {cartTotalQuantity}
           </Link>
@@ -173,7 +173,7 @@ const NavBar = () => {
 
         <ShowOnLogin>
           <div className="greet">
-            <FaUserCircle size={16} />
+            <FaUserCircle className="circleNav" size={30} />{"  "}
             Hi, {displayName}
           </div>
         </ShowOnLogin>

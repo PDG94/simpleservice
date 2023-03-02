@@ -147,7 +147,7 @@ export default function Register() {
       <NavBar />
       {isLoading && <Loading />}
       <Link to={"/login"}>
-        <button className="backRegister">Back</button>
+        <button className="backRegister">Back to Login</button>
       </Link>
       <div className="containerRegister">
         <div className="headerRegister">
@@ -263,11 +263,11 @@ export default function Register() {
                 <div id="info"></div>
               </div>
             </div>
-            <div className="btnRegister">
+            <Link to="/home" className="btnRegister">
               <button type="submit" className="submitRegister">
                 Register
               </button>
-            </div>
+            </Link>
           </form>
         </div>
       </div>
