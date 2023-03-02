@@ -44,7 +44,7 @@ export default function Login() {
       .then((userCredential) => {
         const user = userCredential.user;
         user.getIdToken().then((token) => {
-          // dispatch(storeToken(token));
+          localStorage.setItem("token", token);
           userLogin(token);
         });
         setIsloading(false);
