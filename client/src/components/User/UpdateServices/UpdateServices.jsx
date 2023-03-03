@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "./UpdateServices.css";
 import { MdDescription } from "react-icons/md";
 import NavBarUser from "../NavBarUser/NavBarUser";
+import { uploadCardFile } from "../../Firebase/config";
 
 export default function UpdateServices() {
   const navigate = useNavigate();
@@ -15,8 +16,10 @@ export default function UpdateServices() {
   const [form, setForm] = useState({
     description: "",
     price: "",
-    serviceimage: "",
+    filename: "",
   });
+
+  const [file, setFile] = useState("");
 
   function handlerChange(e) {
     setForm({
@@ -33,11 +36,19 @@ export default function UpdateServices() {
     if (form.price.length > 0) {
       finalForm.price = form.price;
     }
-    if (form.serviceimage.length > 0) {
-      finalForm.serviceimage = form.serviceimage;
+    if (!isObjectEmpty(file)) {
+      finalForm.profilepic = await uploadCardFile(file, id)
     }
 
     return finalForm;
+  };
+
+  const isObjectEmpty = (objectName) => {
+    return (
+      objectName &&
+      Object.keys(objectName).length === 0 &&
+      objectName.constructor === Object
+    );
   };
 
   const submitHandler = async (event) => {
@@ -55,6 +66,21 @@ export default function UpdateServices() {
     toast.success("User update successfully!");
     navigate("/profile/my-servicesdetail");
   };
+
+  function changing(e) {
+    try {
+      // var pdrs = document.getElementById("file-upload").files[0].name;
+      // document.getElementById("info").innerHTML = pdrs;
+      setFile(e.target.files[0]);
+      setForm({
+        ...form,
+        filename: e.target.files[0].name,
+      });
+      
+    } catch (error) {
+      //this is just to clean the console when you click the upload file on accident
+    }
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -97,11 +123,10 @@ export default function UpdateServices() {
             </label>
             <input
               className="inpCreate"
-              type="text"
+              type="file" 
               placeholder="Service Image"
-              value={form.serviceimage}
               name="serviceimage"
-              onChange={(e) => handlerChange(e)}
+              onChange={(e) => changing(e)}       //file input
             />
           </div>
         </div>
