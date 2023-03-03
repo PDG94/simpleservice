@@ -4,6 +4,7 @@ import { store } from "./store";
 
 // console.log(store.getState());
 const cartItems = store.getState().cartItems.slice();
+const orderHistory = store.getState().orderHistory.slice();
 // console.log(cartItems)
 
 export const addToCartHelper = (payload) => {
@@ -92,3 +93,16 @@ export const calculateSubTotalQuantityHelper = (payload) => {
   }, 0);
   return totalQuantity;
 };
+
+export const calculateOrdersAmountHelper = (payload) => {
+  const array = [];
+  orderHistory.map((item) => {
+    const { orderAmount } = item;
+    return array.push(orderAmount);
+  });
+  const totalAmount = array.reduce((a, b) => {
+    return a + b;
+  }, 0);
+  return totalAmount;
+};
+
