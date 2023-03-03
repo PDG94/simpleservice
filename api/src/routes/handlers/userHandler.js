@@ -36,7 +36,11 @@ const deleteUserHandler = async (req, res) => {
 
 const editServiceHandler = async (req, res) => {
   try {
-    const updatedService = await editService(...req.body, ...req.params);
+    const params = {...req.body, ...req.params}
+    const updatedService = await editService(params);
+    if(!updatedService){
+      throw new Error("nothing to update")
+    }
     res.status(200).json({
       message: "Service updated succesfully",
       updated: updatedService,

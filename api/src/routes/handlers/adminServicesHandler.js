@@ -30,7 +30,8 @@ const createServiceHandler = async (req, res) => {
 
 const updateServiceHandler = async (req, res) => {
   try {
-    const serviceUpdated = await updateService({ ...req.body, ...req.params });
+    const params = { ...req.body, ...req.params }
+    const serviceUpdated = await updateService(params);
     res.status(200).json({
       message: "Service updated succesfully",
       updated: serviceUpdated,
