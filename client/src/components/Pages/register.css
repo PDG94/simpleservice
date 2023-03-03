@@ -64,7 +64,7 @@
   width: 85%;
   background-color: #E9EFF2;
   border: 1px solid #1a1a25;
-  font-family: asusRegular;
+  font-family: 'Merienda', cursive;
   color: #1a1a25;
   font-size: 120%;
   letter-spacing: 1px;
@@ -81,25 +81,23 @@
   width: 70%;
   background-color: #E9EFF2;
   border: 1px solid #1a1a25;
+  font-family: 'Merienda', cursive;
   color: #1a1a25;
   font-weight: 500;
-  font-size: 1em;
-  letter-spacing: 1px;
+  font-size: 110%;
+  letter-spacing: 2px;
   box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
     5px 5px 15px #1a1a25;
-  transform: 0.5s;
-  outline: none;
 }
 
 .subir:hover {
   color: #5EBFB5;
   background: #1a1a25;
 }
+
 #info {
   color: blue;
   font-weight: 500;
-  font-size: 100%;
-  font-family: asusLight;
   letter-spacing: 0.5%;
   margin-top: 0;
   margin-bottom: 7%;
@@ -110,23 +108,24 @@
 }
 .errP {
   color: rgb(239, 145, 145);
-  font-size: 110%;
-  font-weight: 500;
-  font-family: asusLight;
+  font-size: 120%;
+  font-weight: 300;
+  font-family: 'Merienda', cursive;
   letter-spacing: 1px;
-  width: 90%;
+ margin-left: 7%;
+  width: 82%;
 }
 .backRegister {
   position: absolute;
   display: flex;
   flex-direction: column;
   height: 7%;
-  font-size: 140%;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: asusLight;
+  font-family: 'Merienda', cursive;
   font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
@@ -166,23 +165,24 @@
   color: #615f5f;
   font-weight: 600;
   letter-spacing: 1px;
-  font-size: 1em;
+  font-family: 'Merienda', cursive;
+  font-size: 110%;
   box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
     5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
 .submitRegister {
- margin-top: 4%;
+ margin-top: 2.5%;
   height: 35%;
   width: 25%;
   font-weight: 700;
-  font-family: asusLight;
-  font-size: 150%;
+  font-family: 'Merienda', cursive;
+  font-size: 160%;
   padding: 8px 1px 8px 1px ;
   color: #5EBFB5!important;
   border: 1px solid transparent;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-decoration: none;
   border-radius: 8px;
   background-color: #1a1a25;
@@ -199,9 +199,9 @@
   color: #5EBFB5;
 }
 .titleRegister {
-  font-family: asusRegular;
+  font-family: 'Merienda', cursive;
   font-weight: 500;
   color: #5EBFB5;
   margin-top: 4.5%;
-  font-size: 300%;
+  font-size: 340%;
 }

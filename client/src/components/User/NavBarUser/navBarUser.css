@@ -8,18 +8,21 @@
   justify-content: space-between;
 }
 .greetUser {
-  color: #c7c0eb;
+  color: #b9eee8;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: system-ui;
-  font-size: 20px;
+  font-family: fair;
+  letter-spacing: 3px;
+  font-size: 170%;
   font-weight: 500;
   text-align: center;
   padding: 14px 16px;
+  padding-top: 15px;
+  padding-bottom: 5px;
   text-decoration: none;
 }
 .btnNavUser {
-  color: #9f90ea;
+  color: #5EBFB5;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
   font-family: system-ui;
@@ -31,7 +34,7 @@
 }
 .btnNavUser:hover {
   cursor: pointer;
-  color: #c4bbf0;
+  color: #edf0f0;
   background-color: #42445f;
 }
 .birdyUser {

@@ -108,10 +108,14 @@ const Home = () => {
         </div>
         <div className="contentHome">
           <div className="logoService">
+            <div>
             <img src={ss} alt="carrito" className="imageLogo" />
+            </div>
+            <div>
             <Link className="servicesBtn" to="/Services">
               <button className="btnView">Visit our Services</button>
             </Link>
+            </div>
           </div>
           <div className="phrase">
             <span className="phrasep">

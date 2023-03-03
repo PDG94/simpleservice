@@ -22,7 +22,7 @@ export default function DashboardUser() {
   return (
     <div className="fondoProf">
       <NavBarUser />
-      <div>
+      <div className="boxProfile">
         <span>
           <img src={profilepic} alt={`${userbio}'s profile pic`} width="500px" />
         </span>

@@ -62,16 +62,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 80%;
   position: absolute;
+  width: 70%;
   text-decoration: none;
 }
 
 .btnView {
   font-size: large;
-  font-family: system-ui;
+  margin-top: 35%;
+  font-family: 'Merienda', cursive;
   background-color: #252636;
   text-transform: uppercase;
+  position: absolute;
   letter-spacing: 2px;
   padding: 10px 10px 10px 10px;
   color: #E9EFF2;
