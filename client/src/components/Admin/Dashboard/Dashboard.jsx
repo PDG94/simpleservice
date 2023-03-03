@@ -44,7 +44,7 @@ export default function Dashboard() {
                     <circle cx="48" cy="48" r="36"></circle>
                   </svg>
                   <div className="number">
-                    <p>{servicePercentage}%</p>
+                    <p>{servicePercentage.toFixed(2)}%</p>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default function Dashboard() {
                     <circle cx="48" cy="48" r="36"></circle>
                   </svg>
                   <div className="number">
-                    <p>{usersPercentage}%</p>
+                    <p>{usersPercentage.toFixed(2)}%</p>
                   </div>
                 </div>
               </div>
