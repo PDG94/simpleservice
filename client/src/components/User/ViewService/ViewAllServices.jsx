@@ -1,9 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import NavBarUser from "../NavBarUser/NavBarUser";
-import { AiOutlineEye} from "react-icons/ai";
+import { AiOutlineEye, AiFillDelete} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { getServiceUser } from "../../../redux/actions";
+import Notiflix from "notiflix";
 
 export default function ViewAllServices(){
 
@@ -16,9 +18,37 @@ const token = localStorage.getItem("token");
 const userID = useSelector((state) => state.userID)
 
 
+  const confirmDelete = (id) => {
+    
+    Notiflix.Confirm.show(
+      "Delete Service",
+      "Do you really want to remove this service?",
+      "Delete",
+      "Cancel",
+     async function okCb() {
+        await axios.put(
+          `https://simpleservice-production.up.railway.app/user/service/${id}`,
+          {active: "false"},
+          {
+            headers: { Authorization: "Bearer " + token },
+          }
+        );
+      },
+      function cancelCb() {
+        alert("If you say so...");
+      },
+      {
+        width: "320px",
+        borderRadius: "8px",
+        // textDecoration : "none",
+        // titleColor: "orangered"
+      }
+    );
+  };
+
   useEffect(()=>{
     dispatch(getServiceUser(userID, token))
-  }, [dispatch])
+  }, [dispatch, userID, token])
 
 
 return (
@@ -41,7 +71,7 @@ return (
                   <th className="thView">Service Name</th>
                   <th className="thView">Price</th>
                   <th className="thView">View More</th>
-    
+                  <th className="thView">Delete Service</th>
                 </tr>
               </thead>
               {serviceUser.Cards?.map((service, index) => {
@@ -52,11 +82,21 @@ return (
                       <td className="tdView">{index + 1}</td>
                       <td className="tdView">{service.servicename}</td>
                       <td className="tdView">{service.price}</td>
-                      <td className="">
+                      <td className="tdView">
                       <Link to={`/profile/my-services/${id}`}>
                         <AiOutlineEye/>
                       </Link>
                       </td>
+                      <td className="tdView">
+                      <Link>
+                      <AiFillDelete
+                        onClick={()=>confirmDelete(id)}
+                       />
+                      </Link>
+                      </td>
+                       
+                      
+                      
                     </tr>
                   </tbody>
                 );
