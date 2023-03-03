@@ -110,11 +110,11 @@ const NavBar = () => {
           SERVICES
         </Link>
 
-        <ShowOnLogin>
+        {/* <ShowOnLogin>
           <Link className="btnNav" to="/Create">
             CREATE SERVICE
           </Link>
-        </ShowOnLogin>
+        </ShowOnLogin> */}
 
         {path === pathSearch ? (
           <Link
@@ -125,12 +125,12 @@ const NavBar = () => {
             REFRESH
           </Link>
         ) : null}
-      </div>
-
-      <div className="btnsUser">
         <div className="searchNav">
           {path === pathSearch ? <SearchBar /> : null}
         </div>
+      </div>
+
+      <div className="btnsUser">
 
         <ShowOnLogout>
           <Link className="btnNav" to="/login">

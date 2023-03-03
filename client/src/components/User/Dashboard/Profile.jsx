@@ -28,7 +28,7 @@ export default function DashboardUser() {
         </span>
         <span>
           <div>
-            <div>Name: {name}</div>
+            <div><p className="pProfile">Name: {name}</p></div>
             <div>Username: {username}</div>
             <div>Email: {email}</div>
             <div>Biography: {userbio}</div>

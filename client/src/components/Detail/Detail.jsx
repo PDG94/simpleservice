@@ -16,6 +16,7 @@ import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
 import StarsRating from "react-star-rate";
+import Reviews from "../Imagenes/Reviews.png"
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -64,10 +65,50 @@ export default function Detail() {
         >
           <button className="btnH">Go Back</button>
         </Link>
+        <div className="cardDetailReview">
+          <div>
+            <img className="imgReviews" src={Reviews} alt="logoReview" />
+          </div>
+          <div className="reviewsBox">
+        {filterReviews.length===0 ? 
+              (<div className="emptyReviews">
+                <br/>
+                <p className="pEmptyReview"> There are no reviews for this service yet</p>
+                <br/>
+              </div>
+        ):(
+          <div className="allReviews">
+          {filterReviews.map((item,index)=>{
+            const{rate, review, reviewDate ,userEmail} = item
+            return(
+              <div className="allRevBox">
+                <StarsRating
+                value={rate}/>
+                <p className="sReview">{review}</p>
+                <span className="sReview">
+                  <b >{reviewDate}</b>
+                </span>
+                <br/>
+                <span className="sReview">
+                  <br />
+                  By
+                  <b>{"  "}{userEmail || "Unknown User"}</b>
+                <br/>
+                </span>
+                <br/>
+              </div>
+            )
+          })}
+          </div>
+        )
+            }
+            </div>
+      </div>
         {serviceDetail.length ? (
           serviceDetail.map((service) => {
             return (
               <div className="mainDetail">
+                <div className="boxCardDetail">
                 <div className="left">
                   <div className="infoDetail" key={service.id}>
                     <h1 className="nameDetail">
@@ -134,7 +175,7 @@ export default function Detail() {
                             </button>
                           </div>
                         </div>
-                      </ShowOnLogin>
+                        </ShowOnLogin>
                     </div>
                   </div>
                 </div>
@@ -150,39 +191,13 @@ export default function Detail() {
                   )}
                 </div>
               </div>
+              </div>
             );
           })
         ) : (
           <Loading />
         )}
-      </div>
-      <h3>Service Review</h3>
-      <div>
-        {filterReviews.length===0 ? 
-        (
-          <p> There are no reviews for this service yet.</p>
-        ):(
-          <>
-          {filterReviews.map((item,index)=>{
-            const{rate, review, reviewDate ,userEmail} = item
-            return(
-              <div>
-                <StarsRating
-                value={rate}/>
-                <p>{review}</p>
-                <span>
-                  <b>{reviewDate}</b>
-                </span>
-                <span>
-                  <br/>
-                  <b>By {userEmail} </b>
-                </span>
-              </div>
-            )
-          })}
-          </>
-        )
-        }
+           
       </div>
       <Footer />
     </div>
