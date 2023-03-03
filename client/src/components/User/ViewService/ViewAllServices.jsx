@@ -9,7 +9,7 @@ export default function ViewAllServices(){
 
   
 const serviceUser = useSelector((state)=>state.serviceUser)
-console.log(serviceUser);
+// console.log(serviceUser);
 const length = Object.keys(serviceUser)
 const dispatch= useDispatch()
 const token = localStorage.getItem("token");
@@ -18,7 +18,7 @@ const userID = useSelector((state) => state.userID)
 
   useEffect(()=>{
     dispatch(getServiceUser(userID, token))
-  }, [dispatch])
+  }, [dispatch, userID, token])
 
 
 return (

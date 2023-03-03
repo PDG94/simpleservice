@@ -8,7 +8,7 @@ const getAllServices = async () => {
     where: {
       active: true,
     },
-    attributes: ["id", "servicename", "price", "CategoryId"],
+    attributes: ["id", "servicename", "price", "serviceimage", "CategoryId"],
     include: {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
@@ -22,11 +22,13 @@ const createService = async ({
   description,
   servicename,
   price,
+  serviceimage,
   user_id,
 }) => {
   const newService = await Card.create({
     description,
     servicename,
+    serviceimage,
     price,
   });
 
@@ -41,9 +43,9 @@ const createService = async ({
 
 //updateService updates just one instance
 
-const updateService = async ({ id, description, servicename, price }) => {
+const updateService = async ({ id, description, servicename, price, serviceimage}) => {
   await Card.update(
-    { description, servicename, price },
+    { description, servicename, price, serviceimage },
     {
       where: {
         id: id,
@@ -77,7 +79,7 @@ const orderService = async (attributes, direction) => {
     order: [[attributes, direction]],
     include: {
       model: User,
-      attributes: ["id", "name", "rating", "profilepic"],
+      attributes: ["id", "name", "rating", "serviceimage", "profilepic"],
     },
     raw: true,
   });
@@ -90,7 +92,7 @@ const getServiceByDescription = async (valdescription) => {
         [Op.substring]: valdescription,
       },
     },
-    attributes: ["id", "servicename", "description", "price"],
+    attributes: ["id", "servicename", "serviceimage", "description", "price"],
     include: {
       model: User,
       attributes: ["id", "name", "rating", "profilepic"],
