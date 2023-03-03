@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBarUser from "../NavBarUser/NavBarUser";
 import "../../User/Dashboard/profile.css";
 import { getServiceUser } from "../../../redux/actions";
+import ChartUsers from "./ChartUsers";
 
 export default function DashboardUser() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export default function DashboardUser() {
             <div>Email: {email}</div>
             <div>Biography: {userbio}</div>
           </div>
+          <ChartUsers/>
         </span>
       </div>
     </div>
