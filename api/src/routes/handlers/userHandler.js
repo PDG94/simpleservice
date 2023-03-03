@@ -36,15 +36,7 @@ const deleteUserHandler = async (req, res) => {
 
 const editServiceHandler = async (req, res) => {
   try {
-    let { servicename, description, price, active, serviceimage } = req.body;
-    if (active === "true") {
-      active = true;
-    }
-    if (active === "false") {
-      active = false;
-    }
-    const params = { servicename, description, price, serviceimage, ...req.params };
-    const updatedService = await editService(params);
+    const updatedService = await editService(...req.body, ...req.params);
     res.status(200).json({
       message: "Service updated succesfully",
       updated: updatedService,
