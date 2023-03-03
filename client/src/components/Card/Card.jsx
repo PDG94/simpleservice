@@ -12,7 +12,7 @@ export default function Card({
   return (
     <div className="container">
       <div>
-        <img src={image} alt="" />
+        <img src={serviceimage || image} alt="" />
         <h2 className="name">{name}</h2>
         <p className="serviceContainer">{service}</p>
       </div>
