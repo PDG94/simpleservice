@@ -38,7 +38,7 @@ import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
 import ViewAllServices from "./User/ViewService/ViewAllServices";
 import OrdersDetails from "./User/Orders/OrdersDetails";
 import ReviewService from "./User/Orders/ReviewService";
-
+import UpdateServices from "./User/UpdateServices/UpdateServices";
 
 export {
   Card,
@@ -81,4 +81,5 @@ export {
   CheckoutSuccess,
   OrdersDetails,
   ReviewService,
+  UpdateServices,
 };
