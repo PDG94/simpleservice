@@ -8,8 +8,23 @@ import dogwalker from "../Imagenes/dogwalker.jpg";
 import ss from "../Imagenes/ss.png";
 import { NavBar, Footer } from "../index";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
+  const nam1="pedro"
+  const email1="ranekasd@gmail.com"
+  const mail = async () => {
+    console.log("mmmmmmail")
+    const { data } = await axios.post(
+      "https://simpleservice-production.up.railway.app/alta",
+      {
+        name: nam1,
+        email: email1,
+      }
+    );
+    console.log("maillllllll")
+    console.log(data)
+  }
   return (
     <div className="mainhome">
       <NavBar />
@@ -114,6 +129,7 @@ const Home = () => {
             <div>
             <Link className="servicesBtn" to="/Services">
               <button className="btnView">Visit our Services</button>
+              
             </Link>
             </div>
           </div>

@@ -9,7 +9,12 @@ const adminRouter = require("./routers/adminRouter");
 const serviceListRouter = require("./routers/serviceListRouter");
 const checkOut = require("./controllers/checkOut.js");
 const shopingCart = require("./routers/shopingCart.routes");
+const alta = require("./handlers/altaMail");
+const pago = require("./handlers/pagoMail");
+const data = require("./handlers/updateDataMail");
+const baja = require("./handlers/bajaMail");
 const favRouter = require("./routers/favRouter");
+
 
 const router = Router();
 
@@ -30,6 +35,14 @@ router.use("/servicelist", serviceListRouter);
 router.use("/shopingCart", shopingCart);
 
 router.post("/checkout", checkOut);
+
+router.use('/alta',alta )
+
+router.use('/pago',pago )
+
+router.use('/baja',baja )
+
+router.use('/dato',data )
 
 router.use("/fav", favRouter);
 
