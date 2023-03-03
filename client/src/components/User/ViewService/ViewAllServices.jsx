@@ -28,7 +28,7 @@ const userID = useSelector((state) => state.userID)
      async function okCb() {
         await axios.put(
           `https://simpleservice-production.up.railway.app/user/service/${id}`,
-          {active: "false"},
+          {active: false},
           {
             headers: { Authorization: "Bearer " + token },
           }
