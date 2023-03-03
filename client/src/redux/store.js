@@ -37,6 +37,7 @@ store.subscribe(
       usersPercentage: store.getState().usersPercentage,
       totalServices: store.getState().totalServices,
       totalUsers: store.getState().totalServices,
+      totalOrderAmount: store.getState().totalOrderAmount,
     });
   }, 1000)
 );

@@ -23,6 +23,7 @@ import {
   GET_SERVICE_USER,
   //ORDER HISTORY
   STORE_ORDERS,
+  CALCULATE_ORDER_AMOUNT,
   STORE_API_METRICS,
   // USER_SESSION,
 } from "./actionTypes";
@@ -32,6 +33,8 @@ import {
   clearCartHelper,
   decreaseCartHelper,
   removeCartHelper,
+  calculateOrdersAmountHelper,
+  calculateSubTotalQuantityHelper
 } from "./reduxhelper";
 
 export function getServices() {
@@ -230,7 +233,8 @@ export const calculateSubTotal = () => {
   };
 };
 
-export const calculateTotalQuantity = (payload) => {
+export const calculateTotalQuantity = () => {
+  const payload = calculateSubTotalQuantityHelper();
   return function (dispatch) {
     dispatch({ type: CALCULATE_TOTAL_QUANTITY, payload });
   };
@@ -278,3 +282,12 @@ export const adminMetrics = (token) => {
     });
   };
 };
+
+export const calculateOrdersAmount = () => {
+  const payload = calculateOrdersAmountHelper();
+  return function (dispatch) {
+    dispatch({ type: CALCULATE_ORDER_AMOUNT, payload });
+  };
+};
+
+

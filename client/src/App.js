@@ -33,7 +33,8 @@ import {
   CheckoutSuccess,
   UpdateProfilesUsers,
   ReviewService,
-  OrdersDetails
+  OrdersDetails,
+  UpdateServices,
 } from "./components/index";
 
 function App() {
@@ -153,12 +154,16 @@ function App() {
               </UserOnlyRoute>
             }
           />
-       <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/profile/order-details/:id" element={<OrdersDetails/>} />
-          <Route path="/profile/order-review/:id" element={<ReviewService/>} />
+          <Route
+            path="/profile/order-details/:id"
+            element={<OrdersDetails />}
+          />
+          <Route path="/profile/order-review/:id" element={<ReviewService />} />
+          <Route path="/profile/edit/:id" element={<UpdateServices />} />
         </Routes>
       </div>
     </BrowserRouter>
