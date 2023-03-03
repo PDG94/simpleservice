@@ -1,12 +1,13 @@
 .detail {
   margin: 0;
-  /* width: 100%;
-  height: 100vh; */
+  width: 100%;
+  height: 100vh;
+  background: #c3cace;
 }
 .detailContainer {
   border: 2px solid transparent;
   /* margin-bottom: 2%; */
-  background: #c3cace;
+  /* background: #c3cace; */
 }
 .mainDetail {
   color: #E9EFF2;
@@ -17,10 +18,100 @@
   max-width: 1050px !important;
   border-radius: 20px !important;
   background-color: #1a1a25;
-  box-shadow: 0 0 12px #5EBFB5;
+   box-shadow: 0 0 2px 4px #5EBFB5;
   position: relative;
-  margin-bottom: 10% !important;
+  margin-bottom: 5% !important;
   margin-top: 1% !important;
+}
+
+.cardDetailReview{
+  margin-top: 10%;
+  position: absolute;
+  border-radius: 20px;
+  margin-left: 4%;
+  width: 18%;
+}
+.cardDetailReview .imgReviews{
+   width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+  margin-top: 5px;
+  object-fit: contain;
+   background-color: #1a1a25;
+     box-shadow: 0 0 4px 6px #5EBFB5;
+}
+.reviewsBox{
+    margin: 2rem 0;
+  color: white;
+  overflow: hidden;
+  margin-top: -200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+   box-shadow: 0 0 4px 6px #5EBFB5;
+   border-radius: 0 0 20px 20px;
+}
+.cardDetailReview:hover .imgReviews {
+  display: flex;
+  margin-top: -60px;
+  box-shadow: 0 0 4px 6px #5EBFB5;
+}
+.cardDetailReview:hover > .reviewsBox {
+  margin-top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+@media screen and (max-width: 800px) {
+  .cardDetailReview {
+    flex-wrap: wrap;
+  }
+}
+.emptyReviews{
+    background-color: #2d2d41;
+  border-radius: 0 0 20px 20px;
+ 
+   
+}
+.pEmptyReview{
+   color: #c3cace;
+  font-size: 130%;
+  font-family: echelonit;
+  font-weight: 700;
+   width: 80%;
+  margin-left: 10%;
+  letter-spacing: 1px;
+}
+.allReviews{
+   background-color: #2d2d41;
+  border-radius: 0 0 20px 20px;
+}
+.pReview{
+   color: #c3cace;
+  font-size: 130%;
+  font-family: echelonit;
+  font-weight: 700;
+   width: 85%;
+  margin-left: 10%;
+  letter-spacing: 1.5px;
+}
+.allRevBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sReview{
+   color: #c3cace;
+  font-size: 130%;
+  font-family: echelonit;
+  font-weight: 700;
+   width: 85%;
+  /* margin-left: 10%; */
+  letter-spacing: 1px;
 }
 
 .left {
@@ -36,9 +127,9 @@
 }
 
 .nameDetail {
-  font-size: 220%;
+  font-size: 300%;
   font-weight: 700;
-  font-family: system-ui;
+  font-family: airstream;
   letter-spacing: 2px;
   margin-top: 10px;
   margin-bottom: 0;
@@ -95,7 +186,7 @@
   margin-bottom: 0;
 }
 .iconDetail {
-  color: #5EBFB5;
+  color: #B68d2c;
   margin-left: 8px;
   margin-right: 3px;
 }
@@ -208,4 +299,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.boxCardDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
 }
