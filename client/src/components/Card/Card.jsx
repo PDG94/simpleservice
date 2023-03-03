@@ -1,6 +1,14 @@
 import "../Card/card.css";
 
-export default function Card({ name, image, service, price, rating }) {
+export default function Card({
+  name,
+  image,
+  service,
+  price,
+  rating,
+  serviceimage,
+}) {
+  console.log(serviceimage);
   return (
     <div className="container">
       <div>

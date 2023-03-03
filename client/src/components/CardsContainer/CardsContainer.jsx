@@ -54,6 +54,7 @@ export default function CardsContainer() {
                   price={user?.price}
                   service={user?.servicename}
                   rating={user["Users.rating"]}
+                  serviceimage={user?.serviceimage}
                 />
               </Link>
             );
