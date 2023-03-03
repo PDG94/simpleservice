@@ -65,9 +65,9 @@ module.exports = (sequelize) => {
       },
     },
     {
-      timestamps: true,
-      createdAt: true,
-      updatedAt: false,
+      timestamps: false,
+      // createdAt: true,
+      // updatedAt: false,
     }
   );
 };
