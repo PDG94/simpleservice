@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import './chartAdminServices.css'
 
 const data = [
     {name: "Web Full Stack Developer", user: 10, active: 60},
@@ -14,9 +15,9 @@ const data = [
 
 const ChartAdminServices = () => {
   return (
-    <div>
-        <h3>Number Of Services Chart</h3>
-
+    <div className='border3'>
+        <h1 className='h1CharService'>Number Of Services Chart</h1>
+<hr className='hrServicesAd'/>
     <ResponsiveContainer width="100%" aspect={2}>
         <AreaChart
             width={500}
