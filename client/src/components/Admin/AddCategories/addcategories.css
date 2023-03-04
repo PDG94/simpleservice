@@ -1,13 +1,13 @@
 .fondoAdCat{
     background-color: #1a1a25;
   width: 100%;
-  height: 140%;
+  height: 100%;
   position: absolute;
 }
 .navCat{
   background-color: #252636;
   position: absolute;
-  margin-top: -15%;
+  margin-top: -13%;
   position: fixed;
 }
 .imagencat{
@@ -19,7 +19,7 @@
     .containerAdCat{
         position: absolute;
         width: 30%;
-        height: 50%;
+        height: 70%;
         margin: 8% 25%;
         background-color: #252636;
         color: #9f90ea;

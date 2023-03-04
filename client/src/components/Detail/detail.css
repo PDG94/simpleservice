@@ -1,7 +1,7 @@
-.detail {
+.details {
   margin: 0;
   width: 100%;
-  height: 100vh;
+  height: 130vh;
   background: #c3cace;
 }
 .detailContainer {
@@ -14,7 +14,7 @@
   max-height: 70% !important;
   width: auto !important;
   display: flex !important;
-  margin: 0 auto !important;
+  margin: 0 auto ;
   max-width: 1050px !important;
   border-radius: 20px !important;
   background-color: #1a1a25;
@@ -25,55 +25,29 @@
 }
 
 .cardDetailReview{
-  margin-top: 10%;
+  margin-top: 67%;
   position: absolute;
   border-radius: 20px;
-  margin-left: 4%;
-  width: 18%;
+  margin-left: 0%;
+  width: 100%;
+  box-shadow: 0 0 4px 4px #5EBFB5;
+
 }
-.cardDetailReview .imgReviews{
-   width: 100%;
-  height: 220px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 1000;
-  transition: all 0.5s ease-in-out;
-  margin-top: 5px;
-  object-fit: contain;
-   background-color: #1a1a25;
-     box-shadow: 0 0 4px 6px #5EBFB5;
-}
-.reviewsBox{
-    margin: 2rem 0;
-  color: white;
-  overflow: hidden;
-  margin-top: -200px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
-   box-shadow: 0 0 4px 6px #5EBFB5;
-   border-radius: 0 0 20px 20px;
-}
-.cardDetailReview:hover .imgReviews {
-  display: flex;
-  margin-top: -60px;
-  box-shadow: 0 0 4px 6px #5EBFB5;
-}
-.cardDetailReview:hover > .reviewsBox {
-  margin-top: 0;
-  opacity: 1;
-  visibility: visible;
+.imgReviews{
+   margin-left: -65%;
+  width: 25%;
+  border-radius:0  ;
+  margin-top: -5%;
 }
 @media screen and (max-width: 800px) {
   .cardDetailReview {
     flex-wrap: wrap;
+
   }
 }
 .emptyReviews{
     background-color: #2d2d41;
-  border-radius: 0 0 20px 20px;
- 
-   
+  border-radius:20px;
 }
 .pEmptyReview{
    color: #c3cace;
@@ -83,20 +57,15 @@
    width: 80%;
   margin-left: 10%;
   letter-spacing: 1px;
+ 
 }
 .allReviews{
    background-color: #2d2d41;
-  border-radius: 0 0 20px 20px;
+  border-radius:20px;
+  margin-top: -8%;
+  width: 100%;
 }
-.pReview{
-   color: #c3cace;
-  font-size: 130%;
-  font-family: echelonit;
-  font-weight: 700;
-   width: 85%;
-  margin-left: 10%;
-  letter-spacing: 1.5px;
-}
+
 .allRevBox{
   display: flex;
   flex-direction: column;
@@ -104,13 +73,13 @@
   align-items: center;
   text-align: center;
 }
-.sReview{
+.sReviews{
    color: #c3cace;
   font-size: 130%;
   font-family: echelonit;
   font-weight: 700;
-   width: 85%;
-  /* margin-left: 10%; */
+   width: 95%;
+margin-top: -115%;
   letter-spacing: 1px;
 }
 

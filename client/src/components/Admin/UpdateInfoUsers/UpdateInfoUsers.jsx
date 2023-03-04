@@ -111,7 +111,7 @@ export default function UpdateProfilesUsers() {
 
   return (
     <form onSubmit={(e) => submitHandler(e, form.id)}>
-      <div className="navUpdate">
+      <div className="navUpdat">
         <NavBarAdmin />
       </div>
       <div className="formUpdate">
@@ -198,12 +198,14 @@ export default function UpdateProfilesUsers() {
             {res?.map((elem) => (
               <option value={elem.option}>{elem.option}</option>
             ))}
-          </select>
-        </div>
-      </div>
-      <button type="submit" className="subUpdate">
+          </select> 
+         <button type="submit" className="subUpdate">
         SUBMIT
       </button>
+        </div> 
+        
+      </div>
+     
     </form>
   );
 }

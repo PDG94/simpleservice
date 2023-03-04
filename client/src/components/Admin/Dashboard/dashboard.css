@@ -2,7 +2,7 @@
   background-color: #1a1a25;
   margin-top: -5%;
   width: 100%;
-  height: 150%;
+  height: 160%;
   position: absolute;
 }
 .navDash {
@@ -126,7 +126,7 @@
 }
 .recentOrder {
   margin-top: 20%;
-  margin-left: 3%;
+  margin-left: 1%;
   position: absolute;
 }
 .recentOrder h2 {
