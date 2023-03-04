@@ -7,18 +7,21 @@
 .navView{
   background-color: #252636;
   position: absolute;
-  margin-top: -15%;
+  margin-top: -13%;
   position: fixed;
 }
 .containerView {
   margin-top: 25%;
   margin-left: 20%;
-  width: 70%;
+  width: 75%;
 }
 .h2View{
-  color: #9f90ea;
-  font-size: 300%;
+  color: #E9EFF2;
+  font-size: 500%;
   margin-top: -30%;
+  margin-bottom: 5%;
+  margin-left: -65%;
+  font-weight: 500;
 }
 .tableContainer {
   width: 100%;

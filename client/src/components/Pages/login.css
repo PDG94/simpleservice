@@ -132,7 +132,7 @@
 }
 
 .continue {
-  margin-left: 25%;
+  margin-left: 10%;
   margin-top: 10%;
   margin-bottom: 10%;
   height: 60%;
@@ -148,9 +148,9 @@
 }
 .continue:hover {
   border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
-  color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
 }
 .RegLog {
   margin-top: 7%;

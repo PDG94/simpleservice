@@ -55,6 +55,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
+      isBanned: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
@@ -62,6 +66,8 @@ module.exports = (sequelize) => {
     },
     {
       timestamps: false,
+      // createdAt: true,
+      // updatedAt: false,
     }
   );
 };

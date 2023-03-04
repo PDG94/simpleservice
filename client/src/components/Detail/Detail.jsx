@@ -53,7 +53,7 @@ export default function Detail() {
   };
 
   return (
-    <div className="detail">
+    <div className="details">
       <NavBar />
       <div className="detailContainer">
         <Link
@@ -65,45 +65,7 @@ export default function Detail() {
         >
           <button className="btnH">Go Back</button>
         </Link>
-        <div className="cardDetailReview">
-          <div>
-            <img className="imgReviews" src={Reviews} alt="logoReview" />
-          </div>
-          <div className="reviewsBox">
-        {filterReviews.length===0 ? 
-              (<div className="emptyReviews">
-                <br/>
-                <p className="pEmptyReview"> There are no reviews for this service yet</p>
-                <br/>
-              </div>
-        ):(
-          <div className="allReviews">
-          {filterReviews.map((item,index)=>{
-            const{rate, review, reviewDate ,userEmail} = item
-            return(
-              <div className="allRevBox">
-                <StarsRating
-                value={rate}/>
-                <p className="sReview">{review}</p>
-                <span className="sReview">
-                  <b >{reviewDate}</b>
-                </span>
-                <br/>
-                <span className="sReview">
-                  <br />
-                  By
-                  <b>{"  "}{userEmail || "Unknown User"}</b>
-                <br/>
-                </span>
-                <br/>
-              </div>
-            )
-          })}
-          </div>
-        )
-            }
-            </div>
-      </div>
+       
         {serviceDetail.length ? (
           serviceDetail.map((service) => {
             return (
@@ -177,6 +139,7 @@ export default function Detail() {
                         </div>
                         </ShowOnLogin>
                     </div>
+                    
                   </div>
                 </div>
                 <div className="right">
@@ -188,9 +151,50 @@ export default function Detail() {
                     <div className="description" style={{ marginTop: "25%" }}>
                       {service?.description || "description not available"}
                     </div>
+                    
                   )}
+                  
                 </div>
               </div>
+              <div className="cardDetailReview">
+          <div className="reviewsBox">
+        {filterReviews.length===0 ? 
+              (<div className="emptyReviews">
+                <br/>
+                <p className="pEmptyReview"> There are no reviews for this service yet</p>
+                <br/>
+              </div>
+        ):(
+          <div className="allReviews">
+          {filterReviews.map((item,index)=>{
+            const{rate, review, reviewDate ,userEmail} = item
+            return(
+           
+              <div className="allRevBox">
+                 <StarsRating value={rate}/> 
+                 <img className="imgReviews" src={Reviews} alt="logoReview" />
+            <div> <p className="sReviews">{review}</p>
+                
+                <span className="sReviews">
+                  <b >{reviewDate}</b>
+                </span>
+                <br/>
+                <span className="sReviews">
+                  <br />
+                  By
+                  <b>{"  "}{userEmail || "Unknown User"}</b>
+                <br/>
+                </span>
+                <br/></div>
+               
+              </div>
+            )
+          })}
+          </div>
+        )
+            }
+            </div>
+      </div>
               </div>
             );
           })

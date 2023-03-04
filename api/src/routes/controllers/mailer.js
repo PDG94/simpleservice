@@ -7,6 +7,7 @@ const transport = nodemailer.createTransport({
     user: "16c8f7d8bfcb23",
     pass: "2f714e0001fa3b"
   }
+
 });
 
 const mailActivateAccount = async (name, email) => {
@@ -78,5 +79,5 @@ const baja = async (name, email) => {
   });
 };
 
-
 module.exports = { mailActivateAccount, pago, datos, baja };
+
