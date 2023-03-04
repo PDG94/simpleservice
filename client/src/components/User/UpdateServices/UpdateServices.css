@@ -1,14 +1,18 @@
-.formEdit {
+.form {
   padding: 2%;
   margin-bottom: -280px;
-  background: red;
+  background: linear-gradient(
+    270deg,
+    #101010 0%,
+    rgba(255, 255, 255, 1) 50%,
+    #101010 100%
+  );
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 1050px;
- 
 }
-.containerEdit {
+.containerCreated {
   margin-left: 25%;
   align-items: center;
   background-color: #ced379;
@@ -24,7 +28,7 @@
     inset 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
-.titleEdit {
+.titleCr {
   margin-top: 45px;
   margin-bottom: 30px;
   font-size: 50px;
@@ -33,7 +37,7 @@
   color: rgb(69, 67, 67);
   letter-spacing: 1px;
 }
-.iconEdit {
+.icon {
   font-size: 25px;
   margin-right: 5px;
   color: #141414;
@@ -44,14 +48,41 @@
   border-right: 1px solid #ced379;
 }
 
-.validEdit {
+.valid {
   color: rgb(240, 89, 89);
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 2vh;
 }
-
-.subEdit {
+.back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  font-size: 3.5vh;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-family: system-ui;
+  font-weight: 600;
+  margin-top: 4vh;
+  margin-left: 5vw;
+  width: 100px;
+  color: #fcfcfc;
+  letter-spacing: 1px;
+  border: 1px solid #fdfdfd;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.back:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #d7df23;
+  color: rgb(29, 29, 29);
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+}
+.sub {
   height: 50px;
   width: 140px;
   color: rgb(51, 50, 50);
@@ -64,14 +95,14 @@
   background-color: rgba(128, 128, 128, 0.188);
   box-shadow: 0 0 10px yellow;
 }
-.subEdit:hover {
+.sub:hover {
   border: 1px solid white;
   border-radius: 10px;
   background-color: #d7df23;
   color: rgb(0, 0, 0);
   box-shadow: 0 0 2px 2px rgb(255, 255, 255);
 }
-.inpEdit {
+.inpCreate {
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
@@ -88,29 +119,29 @@
   outline: none;
 }
 
-.iconEdit {
+.icon {
   background-color: rgba(128, 128, 128, 0.228);
 }
 
-.proPhraseEdit {
+.proPhrase {
   font-size: 120%;
   font-weight: 500;
   font-family: system-ui;
   color: rgb(69, 67, 67);
   letter-spacing: 1px;
 }
-.circleBoxEdit {
+.circleBox {
   color: rgb(69, 67, 67);
   font-family: system-ui;
   font-weight: 500;
   margin-left: 8px;
   font-size: 130%;
 }
-.proLinkEdit {
+.proLink {
   color: rgb(240, 89, 89);
 }
 
-.spantitleEdit {
+.spantitle {
   font-size: 140%;
   display: flex;
   flex-direction: column;
@@ -122,7 +153,7 @@
   color: rgb(69, 67, 67);
 }
 
-.selEdit {
+.selCreate {
   background-color: white;
   margin-left: 0;
   padding: 12px 2px 15px 48px;
@@ -141,12 +172,6 @@
   outline: none;
 }
 
-.priceEdit {
+.priceC {
   margin-top: 3.5%;
-}
-.navedit {
-  background-color: #252636;
-  position: absolute;
-  margin-top: -8%;
-  position: fixed;
 }

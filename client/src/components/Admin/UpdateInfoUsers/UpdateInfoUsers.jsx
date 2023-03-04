@@ -81,18 +81,19 @@ export default function UpdateProfilesUsers() {
     return finalForm;
   };
 
-  const submitHandler = (event, id) => {
+  const submitHandler = async (event, id) => {
     event.preventDefault();
 
     const info = updateValidator();
 
-    axios.put(
-      `https://simpleservice-production.up.railway.app/user/${id}`,
+    await axios.put(
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
       }
     );
+
     toast.success("User update successfully!");
     navigate("/admin/home");
   };
@@ -111,7 +112,7 @@ export default function UpdateProfilesUsers() {
 
   return (
     <form onSubmit={(e) => submitHandler(e, form.id)}>
-      <div className="navUpdate">
+      <div className="navUpdat">
         <NavBarAdmin />
       </div>
       <div className="formUpdate">
@@ -198,12 +199,14 @@ export default function UpdateProfilesUsers() {
             {res?.map((elem) => (
               <option value={elem.option}>{elem.option}</option>
             ))}
-          </select>
-        </div>
-      </div>
-      <button type="submit" className="subUpdate">
+          </select> 
+         <button type="submit" className="subUpdate">
         SUBMIT
       </button>
+        </div> 
+        
+      </div>
+     
     </form>
   );
 }
