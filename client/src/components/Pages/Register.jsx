@@ -1,5 +1,5 @@
 import React, { /* useEffect, */ useState } from "react";
-import { useDispatch,  useSelector  } from "react-redux";
+import { /*useDispatch,*/  useSelector  } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
