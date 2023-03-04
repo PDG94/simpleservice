@@ -24,6 +24,7 @@ import {
   GET_SERVICE_USER,
   //ODER HISTORY
   STORE_ORDERS,
+  CALCULATE_ORDER_AMOUNT,
   STORE_API_METRICS,
   // USER_SESSION,
 } from "./actionTypes";
@@ -51,6 +52,7 @@ const initialState = {
   serviceUser: [],
   //ORDERHISTORY
   orderHistory: [],
+  totalOrderAmount : null,
   //API METRICS
   servicePercentage: 0,
   usersPercentage: 0,
@@ -180,6 +182,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         orderHistory: action.payload,
       };
+
+      case CALCULATE_ORDER_AMOUNT:
+        return{
+        ...state,
+        totalOrderAmount: action.payload,
+      }
 
     case STORE_API_METRICS:
       return {

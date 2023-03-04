@@ -1,5 +1,5 @@
 import React, { /* useEffect, */ useState } from "react";
-// import { useDispatch  useSelector  } from "react-redux";
+import { useDispatch,  useSelector  } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -12,6 +12,7 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 import { createdUser /*, storeToken*/ } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { BsCloudArrowUp } from "react-icons/bs";
+import axios from "axios";
 
 export default function Register() {
   // const [email, setEmail] = useState("");
@@ -25,6 +26,8 @@ export default function Register() {
   const [isLoading, setIsloading] = useState(false);
   const [file, setFile] = useState("");
   const navigate = useNavigate();
+  const getName = useSelector((state) => state.useName)
+  const getEmail = useSelector((state) => state.email)
   // const dispatch = useDispatch();
 
   function registerUser(event) {
@@ -46,6 +49,13 @@ export default function Register() {
         createdUser(input.username, input.name, token, profilepic); //dateOfBirth later
 
         setIsloading(false);
+        await axios.post(
+          "https://simpleservice-production.up.railway.app/alta",
+          {
+            name: getName,
+            email: getEmail,
+          }
+        );
         toast.success("Registration Successful!");
         navigate("/home");
       })

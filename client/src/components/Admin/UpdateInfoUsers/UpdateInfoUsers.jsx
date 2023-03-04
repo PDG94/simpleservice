@@ -81,18 +81,19 @@ export default function UpdateProfilesUsers() {
     return finalForm;
   };
 
-  const submitHandler = (event, id) => {
+  const submitHandler = async (event, id) => {
     event.preventDefault();
 
     const info = updateValidator();
 
-    axios.put(
-      `https://simpleservice-production.up.railway.app/user/${id}`,
+    await axios.put(
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
       }
     );
+
     toast.success("User update successfully!");
     navigate("/admin/home");
   };

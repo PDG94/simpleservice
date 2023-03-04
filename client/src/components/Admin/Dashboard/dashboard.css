@@ -1,4 +1,74 @@
-.dashBo {
+.square {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  border-width: 2px 2px 5px;
+  border-color: rgb(144, 139, 139) ;
+  overflow: hidden;
+  padding: 30px;
+  width: 300px;
+  height: 160px;
+  margin-left: 250px;
+  margin-top: 30px;
+}
+.square2 {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  border-width: 2px 2px 5px;
+  border-color: rgb(144, 139, 139) ;
+  overflow: hidden;
+  padding: 30px;
+  width: 300px;
+  height: 160px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+.square3 {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  border-width: 2px 2px 5px;
+  border-color: rgb(144, 139, 139) ;
+  overflow: hidden;
+  padding: 10px;
+  padding-left:  .5rem;
+	padding-right: .5rem;
+	margin-bottom: 3rem;
+  width: 300px;
+  height: 160px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+
+.square4 {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  border-width: 2px 2px 5px;
+  border-color: rgb(144, 139, 139) ;
+  overflow: hidden;
+  padding: 3px;
+  width: 300px;
+  height: 210px;
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .dashBo {
   background-color: #1a1a25;
   margin-top: -5%;
   width: 100%;
@@ -151,4 +221,4 @@
 .ViewOrders {
   margin-left: 620px;
   color: #9f90ea;
-}
+} */

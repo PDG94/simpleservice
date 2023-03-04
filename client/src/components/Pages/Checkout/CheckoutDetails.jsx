@@ -29,7 +29,7 @@ const CheckOutForm = () => {
   const cartItems1  = useSelector((state)=>state.cartItems);
   const userID1 = useSelector((state) => state.userID);
   const customerEmail  = useSelector((state)=>state.email)
-
+ 
   const clearCart1 = () => {
     dispatch(clearCart());
     navigate("/home");
@@ -51,7 +51,7 @@ const CheckOutForm = () => {
       orderTime: time,
       orderAmount: cartTotalAmount,
       cartItems1,
-      orderStatus: " ✓ Order placed... ",
+      orderStatus: " ✓ Order purchased... ",
       createdAt: Timestamp.now().toDate(),
     };
     try {
