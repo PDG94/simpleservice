@@ -26,20 +26,18 @@ const CheckOutForm = () => {
   const elements = useElements();
   const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
-  const cartItems1  = useSelector((state)=>state.cartItems);
+  const cartItems1 = useSelector((state) => state.cartItems);
   const userID1 = useSelector((state) => state.userID);
-  const customerEmail  = useSelector((state)=>state.email)
- 
+  const customerEmail = useSelector((state) => state.email);
+
   const clearCart1 = () => {
     dispatch(clearCart());
     navigate("/home");
-
   };
 
   const clearAndBack = () => {
     setTimeout(clearCart1, 3000);
   };
-
 
   const saveOrder = () => {
     const today = new Date();
@@ -91,7 +89,7 @@ const CheckOutForm = () => {
 
         elements.getElement(CardElement).clear();
         toast.success("Payment Succesful!");
-        saveOrder()
+        saveOrder();
       } catch (error) {
         console.log(error);
       }
@@ -99,22 +97,23 @@ const CheckOutForm = () => {
   };
   return (
     <div className="containerCheckDetail">
-      <form className="formCheckout" onSubmit={handleSubmit}>
-        <h2 className="labelCheck">Introduce tu metodo de pago</h2>
-        <br />
-        <br />
-        <div className="inpuCh">
-          <CardElement className="inputCheck" />
+      <form className="formCheck" onSubmit={handleSubmit}>
+        <h2 className="cardCheck">Enter your payment method</h2>
+        <div className="boxDetInp" style={{height:680}}>
+             <div className="inpuCheck">
+            <CardElement className="inputCheck" />
+          </div>
+          <div className="btnCheck">
+            <button className="btn btn-success" onClick={clearAndBack}>
+              Buy
+            </button>
+          </div>
+        
+         
+          <div className="chSum">
+            <CheckoutSummary />
+          </div>
         </div>
-        <br />
-        <br />
-        <div>
-          <button className="btn btn-success" onClick={clearAndBack} >
-            Buy
-          </button>
-        </div>
-        <div></div>
-        <CheckoutSummary className="chSum" />
       </form>
     </div>
   );
