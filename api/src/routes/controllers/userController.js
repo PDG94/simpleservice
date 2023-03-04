@@ -6,7 +6,12 @@ const getUserInfo = async ({ id }) => {
       id: id,
       active: true,
     },
-    include: Card,
+    include: {
+      model: Card,
+      where: {
+        active: true,
+      },
+    },
   });
 };
 
@@ -47,7 +52,14 @@ const deleteUser = async ({ id, active }) => {
   return userDeleted;
 };
 
-const editService = async ({ id, servicename, serviceimage, description, price, active }) => {
+const editService = async ({
+  id,
+  servicename,
+  serviceimage,
+  description,
+  price,
+  active,
+}) => {
   await Card.update(
     { servicename, serviceimage, description, price, active },
     {
