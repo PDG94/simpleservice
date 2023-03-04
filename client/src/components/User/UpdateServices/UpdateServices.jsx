@@ -37,7 +37,7 @@ export default function UpdateServices() {
       finalForm.price = form.price;
     }
     if (!isObjectEmpty(file)) {
-      finalForm.profilepic = await uploadCardFile(file, id)
+      finalForm.serviceimage = await uploadCardFile(file, id)
     }
 
     return finalForm;

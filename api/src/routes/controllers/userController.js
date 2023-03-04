@@ -4,6 +4,7 @@ const getUserInfo = async ({ id }) => {
   return await User.findOne({
     where: {
       id: id,
+      active: true,
     },
     include: Card,
   });
