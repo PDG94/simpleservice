@@ -66,6 +66,16 @@ export default function NavBarAdmin() {
           <Link
             className="adview"
             style={{ textDecoration: "none" }}
+            to="/admin/all-users"
+          >
+            <MdOutlineVisibility className="icNavDash" />
+            View All Users
+          </Link>
+          <br />
+
+          <Link
+            className="adview"
+            style={{ textDecoration: "none" }}
             to="/admin/update"
           >
             <MdMode className="icNavDash" />

@@ -34,7 +34,8 @@ import {
   UpdateProfilesUsers,
   ReviewService,
   OrdersDetails,
-  UpdateServices,
+  ViewAllUsers,
+  UpdateServices
 } from "./components/index";
 
 function App() {
@@ -94,6 +95,14 @@ function App() {
             element={
               <AdminOnlyRoute>
                 <ViewServices />
+              </AdminOnlyRoute>
+            }
+          />
+          <Route
+            path="/admin/all-users"
+            element={
+              <AdminOnlyRoute>
+                <ViewAllUsers />
               </AdminOnlyRoute>
             }
           />
