@@ -41,7 +41,7 @@ export default function SearchBar() {
           className="inputSearch"
         />
         <button className="btnSearch" onClick={handleSubmit}>
-          Submit
+          SUBMIT
         </button>
       </div>
     </div>

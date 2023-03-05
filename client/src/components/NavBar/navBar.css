@@ -39,11 +39,10 @@
   margin-top: 0.5%;
   margin-left: 0;
   margin-right: 0;
-  font-family: echelonit;
-  font-size: 140%;
-  font-weight: 500;
+  font-size: 120%;
   color: #E9EFF2;
   text-align: center;
+  letter-spacing: 1px;
   padding: 14px 16px;
   text-decoration: none;
 }

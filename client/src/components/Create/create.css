@@ -1,24 +1,31 @@
-.formCreate {
+.boxCreateForm{
+   background: url("../Imagenes/gris.jpg");
+  background-color: rgb(184, 184, 190);
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1080px;
+  position: absolute;
+  margin: none;
+}
+/* .formCreate {
   padding: 2%;
   margin-bottom: -280px;
-  background: #c3cace;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 1050px;
-}
+} */
 .containerCreate {
   margin-left: 25%;
   align-items: center;
   background-color: #252636;
   color: #1a1a25;
+  position: absolute;
   margin-top: 10px;
-  border: 8px solid #252636;
   border-radius: 50px;
   width: 50%;
-  height: 90%;
-  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25,
-    inset -5px -5px 15px #252636, inset 5px 5px 15px #1a1a25;
+  height: 100vh;
+  box-shadow: 0 0 2px 4px #5EBFB5;
 }
 
 .titleCre {
@@ -26,7 +33,7 @@
   margin-bottom: 30px;
   font-size: 70px;
   font-weight: 700;
-  font-family: system-ui;
+  font-family: 'Merienda', cursive;
   color: #5ebfb5;
   letter-spacing: 1px;
 }
@@ -42,6 +49,10 @@
   border-right: 1px solid #1a1a25;
 }
 
+.cirB{
+  color: #5ebfb5!important;
+}
+
 .valid {
   color: rgb(240, 89, 89);
   font-weight: 500;
@@ -49,58 +60,60 @@
   font-size: 2vh;
 }
 .backCr {
-  position: absolute;
+ position: absolute;
   display: flex;
   flex-direction: column;
-  height: 80px;
-  font-size: 3.5vh;
+  height: 8%;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
-  padding-left: 8px;
-  padding-right: 8px;
-  font-family: system-ui;
-  font-weight: 600;
-  margin-top: 4vh;
-  margin-left: 5vw;
-  width: 150px;
-  color: #5ebfb5;
-  letter-spacing: 1px;
-  border: 1px solid #e9eff2;
-  border-radius: 20px;
-  background-color: #252636;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: 'Merienda', cursive;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 10%;
+  color: #5EBFB5;
+  letter-spacing: 3px;
+  border: 1px solid #5EBFB5;
+  border-radius: 10px;
+  background-color: #1a1a25;
 }
 .backCr:hover {
-  border: 1px solid #e9eff2;
-  background-color: #5ebfb5;
-  color: #e9eff2;
-  box-shadow: 0 0 2px 2px #e9eff2;
+  border: 1px solid #E9EFF2;
+  background-color: #5EBFB5;
+  color: #1a1a25;
+  box-shadow: 0 0 2px 2px #E9EFF2;
 }
 .subCr {
   margin-top: 2%;
   height: 50px;
   width: 150px;
   color: #5ebfb5;
-  border: 2px solid #5ebfb5;
+  border: 1px solid #1a1a25;
   font-weight: 600;
-  font-size: 3.5vh;
+  font-size: 150%;
   letter-spacing: 2px;
-  font-family: system-ui;
+  font-family: 'Merienda', cursive;
   border-radius: 10px;
-  background-color: #252636;
-  box-shadow: 0 0 10px #5ebfb5;
+  background-color: #1a1a25;
+  /* box-shadow: 0 0 10px #5ebfb5; */
 }
 .subCr:hover {
-  border: 1px solid #e9eff2;
-  border-radius: 10px;
-  background-color: #5ebfb5;
-  color: #e9eff2;
-  box-shadow: 0 0 2px 2px #252636;
+ border: 1px solid #E9EFF2;
+  background-color: #1a1a25;
+  color: #E9EFF2;
+  box-shadow: 0 0 25px #5EBFB5;
 }
 .inpCreate {
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
   width: 60%;
+  font-family: 'Merienda', cursive;
   background-color: #e9eff2;
   border: 1px solid #1a1a25;
   color: #5ebfb5;
@@ -117,13 +130,13 @@
 .prohPhrase {
   font-size: 120%;
   font-weight: 500;
-  font-family: system-ui;
+  font-family: 'Merienda', cursive;
   color: #5ebfb5;
   letter-spacing: 1px;
 }
 .circleBoX {
   color: #5ebfb5;
-  font-family: system-ui;
+  font-family: 'Merienda', cursive;
   font-weight: 500;
   margin-left: 8px;
   font-size: 130%;
@@ -138,7 +151,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: 'Merienda', cursive;
   margin-left: 21%;
   margin-bottom: 1.5%;
   color: #5ebfb5;
@@ -155,6 +169,7 @@
   color: #1a1a25;
   font-weight: 600;
   letter-spacing: 1px;
+  font-family: 'Merienda', cursive;
   border: none;
   font-size: 1em;
   box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25;
