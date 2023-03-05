@@ -1,6 +1,14 @@
 const nodemailer = require("nodemailer");
 
 const transport = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: "simple.service.pf@gmail.com",
+    pass: "wvsmorpxwlaxrdmk"
+  }
+});
+/*
+const transport = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
   auth: {
@@ -8,10 +16,11 @@ const transport = nodemailer.createTransport({
     pass: "2f714e0001fa3b"
   }
 });
+*/
 
 const mailActivateAccount = async (name, email) => {
   await transport.sendMail({
-    from: "Simple Service <simple.service.pf@gmail.com>",
+    from: "simple.service.pf@gmail.com",
     to: email,
     subject: "Account activated at Simple Service ",
     html: `

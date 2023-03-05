@@ -52,8 +52,8 @@ export default function Register() {
         await axios.post(
           "https://simpleservice-production.up.railway.app/alta",
           {
-            name: getName,
-            email: getEmail,
+            name: input.name,
+            email: input.email,
           }
         );
         toast.success("Registration Successful!");
