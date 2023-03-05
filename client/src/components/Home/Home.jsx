@@ -123,12 +123,15 @@ const Home = () => {
         </div>
         <div className="contentHome">
           <div className="logoService">
+            <div>
             <img src={ss} alt="carrito" className="imageLogo" />
+            </div>
+            <div className="btnServiceHome">
             <Link className="servicesBtn" to="/Services">
               <button className="btnView">Visit our Services</button>
               
             </Link>
-            <button className="btnView" onClick={mail}>mail</button>
+            </div>
           </div>
           <div className="phrase">
             <span className="phrasep">
@@ -140,7 +143,7 @@ const Home = () => {
                 most.
                 <br />
                 I definitely recommend it. <br />
-                Thank you Simple Service" <br /> Rhonda.
+                Thank you Simple Service" <br /><br/> Rhonda.
               </i>
             </span>
           </div>

@@ -98,7 +98,7 @@ export default function Login() {
           <div className="formLog">
             <h1 className="titleLogin">
               <MdLogin className="iconLog" />
-              Login
+              LOGIN
             </h1>
             <form className="Log" onSubmit={loginUser}>
               <input
