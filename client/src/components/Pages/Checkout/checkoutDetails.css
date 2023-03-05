@@ -83,35 +83,33 @@
   margin-left: 30%;
 } */
 
-.containerCheckDetail{
+.containerCheckDetail {
   background: #c3cace;
   width: 100%;
-
 }
-.cardCheck{
+.cardCheck {
   margin-top: 2%;
   margin-left: 25%;
   font-size: 300%;
   margin-bottom: 2%;
-  color: #5EBFB5;
+  color: #5ebfb5;
   background-color: #252636;
   width: 50%;
   padding: 1%;
   border-radius: 30px;
 }
 
-.inpuCheck{
- position: absolute;
-  width:35%;
+.inpuCheck {
+  position: absolute;
+  width: 35%;
   padding: 10px;
   margin-top: 112%;
   margin-left: 30%;
   border: 1px solid #252636;
   border-radius: 5px;
-  
 }
-.btnCheck{
-position: absolute;
+.btnCheck {
+  position: absolute;
   margin-left: 67%;
   margin-top: 112%;
   cursor: pointer;
