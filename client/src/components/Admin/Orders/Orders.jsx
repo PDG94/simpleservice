@@ -7,7 +7,7 @@ import Loading from "../../Loading/Loading";
 import DashboardPaginado from "../Dashboard/DashboardPaginado";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import '../Orders/orders.css'
-
+import { MdOutlineChecklist } from "react-icons/md" ; 
 
 export default function OrderHistory(){
 
@@ -41,18 +41,20 @@ export default function OrderHistory(){
   }
   
   return(
-      <section>
-       <NavBarAdmin />
+      <section className="fondoOrders">
+        <div className="navOrder">
+                 <NavBarAdmin />
+        </div>
         <div>
-          <h2>All orders</h2>
+          <h1 className='h1Orders'>All orders <MdOutlineChecklist/></h1>
           <>
             {isLoading && <Loading/>}
             <div>
               {currentServices.length === 0 ? (
                 <p>No order found</p>
               ) : (
-                <table>
-                  <thead>
+                <table className="tableOrd">
+                  <thead className="thead1">
                     <tr>
                       <th>s/n</th>
                       <th>Date</th>
@@ -61,7 +63,7 @@ export default function OrderHistory(){
                       <th>Order Status</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="tbody1">
                     {currentServices.map((order, index) => {
                       const {
                         id,

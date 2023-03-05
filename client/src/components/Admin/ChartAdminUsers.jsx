@@ -1,5 +1,7 @@
 import React from 'react'
 import { PieChart, ResponsiveContainer, Pie, Tooltip, Cell } from 'recharts'
+import './chartAdminUsers.css'
+
 
 const data = [
     { name: "User A", value: 2400 },
@@ -14,8 +16,9 @@ const COLORS = ['#ce93d8', '#5c6bc0', '#b39ddb', '#4dd0e1', '#f48fb1', '#d500f9'
 
 const ChartAdminUser = () => {
   return (
-    <div style={{ width: '100%', height: 400}}>
-        <h3>Number Of Users Per Month Chart</h3>
+    <div className='border2' style={{ width: '100%',height: 500}}>
+        <h1 className='h1CharAdminUser'>Number Of Users Per Month Chart</h1>
+        <hr className='hrUsersAd'/>
         <ResponsiveContainer>
             <PieChart>
                 <Pie
