@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import "../Dashboard/dashboard.css";
 import { Link } from "react-router-dom";
-import { MdPerson, MdOutlineBorderColor } from "react-icons/md";
+import { MdPerson, MdMiscellaneousServices } from "react-icons/md";
 import useFetchCollection from "../../CustomHooks/UseFetchCollection";
 import { useDispatch, useSelector } from "react-redux";
-import { adminMetrics, calculateOrdersAmount, storeOrders } from "../../../redux/actions";
+import {
+  adminMetrics,
+  calculateOrdersAmount,
+  storeOrders,
+} from "../../../redux/actions";
 import { InfoBox } from "../InfoBox/InfoBox";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { HiShoppingCart } from "react-icons/hi";
 import { FcServices } from "react-icons/fc";
-import ChartAdmin from "../ChartAdmin"
+import ChartAdmin from "../ChartAdmin";
 import ChartAdminUser from "../ChartAdminUsers";
 import ChartAdminServices from "../ChartAdminServices";
-
-
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -22,96 +24,88 @@ export default function Dashboard() {
   const totalServices = useSelector((state) => state.totalServices);
   const usersPercentage = useSelector((state) => state.usersPercentage);
   const totalUsers = useSelector((state) => state.totalUsers);
-  const token = localStorage.getItem("token")
-  const orders = useSelector((state)=>state.orderHistory)
-  const totalOrderA = useSelector((state)=>state.totalOrderAmount)
-  const {data} =  useFetchCollection("orders")
+  const token = localStorage.getItem("token");
+  const orders = useSelector((state) => state.orderHistory);
+  const totalOrderA = useSelector((state) => state.totalOrderAmount);
+  const { data } = useFetchCollection("orders");
   const allServices = useSelector((state) => state.services);
- 
-
 
   useEffect(() => {
     dispatch(adminMetrics(token));
     dispatch(storeOrders(data));
-  dispatch(calculateOrdersAmount(data));
-  }, [dispatch, token,data]);
+    dispatch(calculateOrdersAmount(data));
+  }, [dispatch, token, data]);
 
   //icons
-const earningIcons = <AiFillDollarCircle size={30}
-color= '#006400'/>
-const serviceIcons = <FcServices size={30} />
-const carticons = <HiShoppingCart size={30} color='#1e90ff'/>
-const userIcons = <MdPerson size={30} color='#34445' />
-
+  const earningIcons = <AiFillDollarCircle size={30} color="#006400" />;
+  const serviceIcons = <FcServices size={30} />;
+  const carticons = <HiShoppingCart size={30} color="#1e90ff" />;
+  const userIcons = <MdPerson size={30} color="#34445" />;
 
   return (
     <div className="dashBo">
-      <div className="">
+      <div className="navDash">
         <NavBarAdmin />
       </div>
       <div className="dashboard">
         <h1 className="hi">Hi, Admin!</h1>
         <main className="Menu">
-        <div>
-            <Link
-              className="linkAd"
-              style={{ textDecoration: "none" }}
-              to="/admin/all-services"
-            >
-              <div className="square4">
-                <h2>Services</h2>
-              <div className="">
-                <InfoBox
-                 tittle= "Total Services"
-                count ={totalServices}
-                icon = {serviceIcons}
-                />
-                </div>
-                <div className="progress">
-                  <svg className="circle">
-                    <circle cx="48" cy="48" r="36"></circle>
-                  </svg>
-                  <div className="number">
-                    <p>{servicePercentage.toFixed(2)}%</p>
+          <div className="porcentajes">
+            <div className="insights">
+              <Link
+                className="linkAd"
+                style={{ textDecoration: "none" }}
+                to="/admin/all-services"
+              >
+                <div className="services">
+                  <MdMiscellaneousServices className="icDash2" />
+                  <h2 className="h2Services">Services</h2>
+                  <hr />
+                  <p className="infobox">
+                    <InfoBox tittle="Total Services" count={totalServices} />
+                  </p>
+                  <div className="circle1">
+                    <div className="number1">
+                      <p>{servicePercentage.toFixed(2)}%</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-          {/* ------------------------------------- */}
-          <div className="insights">
-            <Link
-              className="linkAd"
-              style={{ textDecoration: "none" }}
-              to="/admin/all-users"
-            >
-              <div className="square4">
-                <MdPerson className="icDash1" />
-                <h2>Users</h2>
-                <InfoBox
-                tittle= "Total Users"
-                count ={totalUsers}
-                icon={userIcons}
-                />
-             
-                <div className="progress">
-                  <div className="number">
-                    <p>{usersPercentage.toFixed(2)}%</p>
+              </Link>
+
+              <Link
+                className="linkAd"
+                style={{ textDecoration: "none" }}
+                to="/admin/all-users"
+              >
+                <div className="users">
+                  <MdPerson className="icDash1" />
+                  <h2 className="h2Users"> Users</h2>
+                  <hr />
+                  <p className="infobox2">
+                    <InfoBox tittle="Total Users" count={totalUsers} />
+                  </p>
+                  <div className="progress">
+                    <div className="circle2">
+                      <div className="number2">
+                        <p>{usersPercentage.toFixed(2)}%</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
+
           {/* ------------------------------------- */}
-          <div className="insights">
+          {/* <div className="insights">
             <Link
               className="linkAd"
               style={{ textDecoration: "none" }}
               to="/admin/orders"
             >
-              <div className="orders">
+            
                 <MdOutlineBorderColor className="icDash2" />
-                <div className="square">
+                <div className="earning">
                   <h2>Earnings</h2>
         <InfoBox
           tittle={"Total Earnings"}
@@ -119,7 +113,7 @@ const userIcons = <MdPerson size={30} color='#34445' />
           icon={earningIcons}
         />
         </div>
-                <div className="square3">
+                <div className="orders">
                 <h2>Orders</h2>
         <InfoBox
           tittle={"Total Orders"}
@@ -128,20 +122,13 @@ const userIcons = <MdPerson size={30} color='#34445' />
           
         />
         </div>
-                <div className="progress">
-                  <svg className="circle2">
-                    <circle cx="48" cy="48" r="36"></circle>
-                  </svg>
-                  <div className="number">
-                    <p></p>
-                  </div>
-                </div>
-              </div>
             </Link>
+          </div> */}
+          <div className="graficas">
+            <ChartAdmin />
+            <ChartAdminUser />
+            <ChartAdminServices />
           </div>
-          <ChartAdmin/>
-          <ChartAdminUser/>
-          <ChartAdminServices/>
         </main>
       </div>
     </div>

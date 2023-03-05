@@ -5,7 +5,7 @@
 }
 .userAd {
   padding: 10px;
-  margin-top: 320px;
+  margin-top: 350px;
   margin-left: 5px;
   background-color:  #252636;
   color: #9f90ea;
@@ -31,11 +31,11 @@
 /*lista de nav*/
 .adhome {
   color: #9f90ea;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   text-align: left;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .adhome:hover {
   background-color: #303246;
@@ -44,11 +44,11 @@
 }
 .adservices {
   color: #9f90ea;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   text-align: left;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .adservices:hover {
   background-color: #303246;
@@ -57,11 +57,11 @@
 }
 .adcategories {
   color: #9f90ea;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   text-align: left;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .adcategories:hover {
   background-color: #303246;
@@ -70,11 +70,11 @@
 }
 .adview {
   color: #9f90ea;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   text-align: left;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .adview:hover {
   background-color: #303246;
@@ -83,11 +83,11 @@
 }
 .adorders {
   color: #9f90ea;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   text-align: left;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .adorders:hover {
   background-color: #303246;
@@ -95,9 +95,9 @@
   color: #9f90ea;
 }
 .icNavDash{
-font-size: 30px;
-  margin-left: -15px;
-margin-right: 20px;
+font-size: 25px;
+  margin-left: 15px;
+margin-right: 10px;
 }
 .mainMenu{
   color: #9f90ea;

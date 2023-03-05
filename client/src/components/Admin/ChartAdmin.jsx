@@ -10,6 +10,8 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
+import './chartAdmin.css'
+
 
 ChartJS.register(
   CategoryScale,
@@ -96,9 +98,10 @@ const ChartAdmin = () => {
   };
 
   return (
-    <div className=''>
+    <div className='border'>
    
-        <h3>Number Of Orders Per Month Chart</h3>
+        <h1 className="h1CharAdmin">Number Of Orders Per Month Chart</h1>
+        <hr className="hrAdmin"/>
         <Bar options={options} data={data} />
     
     </div>

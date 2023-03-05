@@ -1,0 +1,18 @@
+.boxSumma{
+    position: absolute;
+    margin-left: 10%;
+    background-color: #252636;
+    color: #5EBFB5;
+    width: 80%;
+    padding: 2%;
+    text-align: left;
+    border-radius: 30px;
+    box-shadow: 0 0 15px #252636 ;
+}
+.h2CheckSum{
+    color: aliceblue;
+}
+.subTotalSum{
+    color: rgb(212, 101, 101);
+    
+}
