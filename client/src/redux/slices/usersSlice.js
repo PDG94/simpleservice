@@ -15,14 +15,14 @@ export const userSlice = createSlice({
   reducers: {
     setActiveUser: (state, action) => {
       (state.isLoggedin = true);
-        (state.email = action.payload.email);
-        (state.useName = action.payload.useName);
+      (state.email = action.payload.email);
+      (state.useName = action.payload.useName);
         (state.userID = action.payload.userID);
     },
     removeActiveUser: (state, action) => {
       (state.isLoggedin = false);
-        (state.email = null);
-        (state.useName = null);
+      (state.email = null);
+      (state.useName = null);
         (state.userID = null);
     },
     setUsers: (state, action) => {

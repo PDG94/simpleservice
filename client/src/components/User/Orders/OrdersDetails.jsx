@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom";
 import useFetchDocument from "../../CustomHooks/UseFetchDocuments";
 import Loading from "../../Loading/Loading";
