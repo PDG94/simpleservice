@@ -11,7 +11,8 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, saveUrl } from "../../../redux/actions";
+// import { clearCart, saveUrl } from "../../../redux/actions";
+import { emptyCart } from "../../../redux/actions/cartActions";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../Firebase/config";
@@ -24,22 +25,20 @@ const CheckOutForm = () => {
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
-  const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
+  const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
-  const cartItems1  = useSelector((state)=>state.cartItems);
-  const userID1 = useSelector((state) => state.userID);
-  const customerEmail  = useSelector((state)=>state.email)
- 
-  const clearCart1 = () => {
-    dispatch(clearCart());
-    navigate("/home");
+  const cartItems1 = useSelector((state) => state.cart.cartItems);
+  const userID1 = useSelector((state) => state.users.userID);
+  const customerEmail = useSelector((state) => state.users.email);
 
+  const clearCart1 = () => {
+    dispatch(emptyCart());
+    navigate("/home");
   };
 
   const clearAndBack = () => {
     setTimeout(clearCart1, 3000);
   };
-
 
   const saveOrder = () => {
     const today = new Date();
@@ -56,7 +55,7 @@ const CheckOutForm = () => {
     };
     try {
       addDoc(collection(db, "orders"), orderConfig);
-      dispatch(clearCart());
+      dispatch(emptyCart());
       toast.success("Order saved");
     } catch (error) {
       toast.error(error.message);
@@ -91,7 +90,7 @@ const CheckOutForm = () => {
 
         elements.getElement(CardElement).clear();
         toast.success("Payment Succesful!");
-        saveOrder()
+        saveOrder();
       } catch (error) {
         console.log(error);
       }
@@ -109,7 +108,7 @@ const CheckOutForm = () => {
         <br />
         <br />
         <div>
-          <button className="btn btn-success" onClick={clearAndBack} >
+          <button className="btn btn-success" onClick={clearAndBack}>
             Buy
           </button>
         </div>

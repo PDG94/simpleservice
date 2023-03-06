@@ -1,17 +1,33 @@
-import { applyMiddleware, legacy_createStore as createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk"; //is used to delay the evaluation of an operation(asynchronous actions)
-import rootReducer from "../redux/reducer";
+// import { applyMiddleware, legacy_createStore as createStore } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
+// import thunk from "redux-thunk"; //is used to delay the evaluation of an operation(asynchronous actions)
+// import rootReducer from "../redux/reducer";
+import { configureStore } from "@reduxjs/toolkit";
 import { loadState, saveState } from "../localstorage";
 import throttle from "lodash/throttle";
+import servicesReducer from "./slices/servicesSlice";
+import usersReducer from "./slices/usersSlice";
+import miscReducer from "./slices/miscSlice";
+import cartReducer from "./slices/cartSlice";
+import ordersReducer from "./slices/ordersSlice";
 
 const persistedState = loadState();
 
-export const store = createStore(
-  rootReducer,
-  persistedState,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+export const store = configureStore({
+  reducer: {
+    services: servicesReducer,
+    users: usersReducer,
+    misc: miscReducer,
+    cart: cartReducer,
+    orders: ordersReducer,
+  },
+});
+
+// export const store = createStore(
+//   rootReducer,
+//   persistedState,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
 
 store.subscribe(
   throttle(() => {

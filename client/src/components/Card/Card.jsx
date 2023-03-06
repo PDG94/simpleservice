@@ -8,7 +8,7 @@ export default function Card({
   rating,
   serviceimage,
 }) {
-  console.log(serviceimage);
+  // console.log(serviceimage);
   return (
     <div className="container">
       <div>

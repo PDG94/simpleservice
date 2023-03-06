@@ -9,14 +9,15 @@ import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { GrCircleAlert } from "react-icons/gr";
-import { getCategories, getServiceList } from "../../redux/actions";
+import { getCategories } from "../../redux/actions/miscActions";
+import { getServiceList } from "../../redux/actions/servicesActions";
 
 export default function Create() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const categories = useSelector((state) => state.categories);
-  const serviceList = useSelector((state) => state.serviceList);
+  const categories = useSelector((state) => state.misc.categories);
+  const serviceList = useSelector((state) => state.services.serviceList);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -141,7 +142,7 @@ export default function Create() {
           </select>
 
           <div className="priceC">
-          <span className="spanTitle">Set a price</span>
+            <span className="spanTitle">Set a price</span>
             <label className="iconCr">
               <FiDollarSign />
             </label>
@@ -158,11 +159,11 @@ export default function Create() {
           </div>
 
           <div>
-          <span className="spanTitle">Provide a description</span>
+            <span className="spanTitle">Provide a description</span>
             <label className="iconCr">
               <MdDescription />
             </label>
-           
+
             <input
               className="inpCreate"
               type="text"
