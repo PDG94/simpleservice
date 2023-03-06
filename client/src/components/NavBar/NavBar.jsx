@@ -28,9 +28,6 @@ const NavBar = () => {
     (state) => state.cart.cartTotalQuantity
   );
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const users = useSelector((state) => state.users);
-
-  console.log(users);
 
   useEffect(() => {
     dispatch(subTotalQuant(calculateTotalQuantity()));
