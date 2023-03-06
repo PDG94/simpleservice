@@ -26,8 +26,6 @@ export default function Register() {
   const [isLoading, setIsloading] = useState(false);
   const [file, setFile] = useState("");
   const navigate = useNavigate();
-  const getName = useSelector((state) => state.useName)
-  const getEmail = useSelector((state) => state.email)
   // const dispatch = useDispatch();
 
   function registerUser(event) {

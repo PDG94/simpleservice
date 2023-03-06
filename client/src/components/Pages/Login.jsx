@@ -25,7 +25,7 @@ export default function Login() {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
-  const previousURL1 = useSelector((state) => state.previousURL);
+  const previousURL1 = useSelector((state) => state.cart.previousURL);
   previousURL1 && console.log(previousURL1);
   // localStorage.clear()
 
