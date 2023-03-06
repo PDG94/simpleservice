@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./UpdateServices.css";
 import { MdDescription } from "react-icons/md";
-import NavBarUser from "../NavBarUser/NavBarUser";
+import {NavBarUser, Footer} from "../../index.js";
 import { uploadCardFile } from "../../Firebase/config";
+import { BsCloudArrowUp } from "react-icons/bs";
 
 export default function UpdateServices() {
   const navigate = useNavigate();
@@ -69,8 +70,8 @@ export default function UpdateServices() {
 
   function changing(e) {
     try {
-      // var pdrs = document.getElementById("file-upload").files[0].name;
-      // document.getElementById("info").innerHTML = pdrs;
+      var pdrs = document.getElementById("file-upService").files[0].name;
+      document.getElementById("infoUpService").innerHTML = pdrs;
       setFile(e.target.files[0]);
       setForm({
         ...form,
@@ -83,18 +84,22 @@ export default function UpdateServices() {
   }
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}  className="mainBoxViewServiceUser">
       <NavBarUser />
-      <div className="form">
-        <div className="containerCreated">
-          <h1 className="titleCr">Update Services</h1>
+      <div>
+         <Link to={"/profile/my-servicesdetail"}>
+          <button className="backCr">Back</button>
+        </Link>
+        <div className="boxUpdateService">
+          <h1 className="titleServiceUp">Update Service</h1>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Update Description</span>
+            <label className="iconUpUser">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpUser"
               type="text"
               placeholder="Description"
               value={form.description}
@@ -103,12 +108,13 @@ export default function UpdateServices() {
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Update Price</span>
+            <label className="iconUpUser">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpUser"
               type="text"
               placeholder="Price"
               value={form.price}
@@ -117,23 +123,26 @@ export default function UpdateServices() {
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
-              <MdDescription />
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Add service image</span>
+            <label htmlFor="file-upService" className="subirServiceImage" >
+              <BsCloudArrowUp className="iconCloud" />
+              Upload Image
             </label>
             <input
-              className="inpCreate"
-              type="file" 
-              placeholder="Service Image"
-              name="serviceimage"
+              id="file-upService"
               onChange={(e) => changing(e)}       //file input
+              type="file" 
+              style={{ display: "none" }}
             />
+              <div id="infoUpService"></div>
           </div>
-        </div>
-      </div>
-      <button type="submit" className="sub">
+      <button type="submit" className="subUpService">
         SUBMIT
       </button>
+        </div>
+      </div>
+      <Footer />
     </form>
   );
 }

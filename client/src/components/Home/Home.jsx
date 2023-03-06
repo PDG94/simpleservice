@@ -11,19 +11,19 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
-  const nam1="pedro"
-  const email1="ranekasd@gmail.com"
+  const nam1="Drope"
+  const email1="p.d.g.38411422@gmail.com"
   const mail = async () => {
-    console.log("mmmmmmail")
-    const { data } = await axios.post(
-      "https://simpleservice-production.up.railway.app/alta",
+    console.log("mmmmmmail", nam1, email1)
+    await axios.post(
+      // "http://localhost:3001/alta",
+      "https://simpleservice-production.up.railway.app/pago",
       {
         name: nam1,
         email: email1,
       }
     );
     console.log("maillllllll")
-    console.log(data)
   }
   return (
     <div className="mainhome">
@@ -123,12 +123,15 @@ const Home = () => {
         </div>
         <div className="contentHome">
           <div className="logoService">
+            <div>
             <img src={ss} alt="carrito" className="imageLogo" />
+            </div>
+            <div className="btnServiceHome">
             <Link className="servicesBtn" to="/Services">
               <button className="btnView">Visit our Services</button>
               
             </Link>
-            <button className="btnView" onClick={mail}>mail</button>
+            </div>
           </div>
           <div className="phrase">
             <span className="phrasep">
@@ -140,7 +143,7 @@ const Home = () => {
                 most.
                 <br />
                 I definitely recommend it. <br />
-                Thank you Simple Service" <br /> Rhonda.
+                Thank you Simple Service" <br /><br/> Rhonda.
               </i>
             </span>
           </div>

@@ -4,13 +4,18 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { NavBar, Footer } from "../index";
+import { NavBarUser, Footer } from "../index";
 import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
+<<<<<<< HEAD
 import { GrCircleAlert } from "react-icons/gr";
 import { getCategories } from "../../redux/actions/miscActions";
 import { getServiceList } from "../../redux/actions/servicesActions";
+=======
+import { FiAlertCircle } from "react-icons/fi";
+import { getCategories, getServiceList } from "../../redux/actions";
+>>>>>>> 0cdebd0910deb50866d52293a29c1c8b02695857
 
 export default function Create() {
   const navigate = useNavigate();
@@ -95,19 +100,18 @@ export default function Create() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <NavBar />
+    <form onSubmit={submitHandler} className="boxCreateForm">
+      <NavBarUser />
       <div className="formCreate">
-        <Link to={"/Home"}>
+        <Link to={"/profile"}>
           <button className="backCr">Back</button>
         </Link>
 
         <div className="containerCreate">
           <h1 className="titleCre">Create Service</h1>
-          <hr />
+            <FiAlertCircle size={29} className="cirB"/>
           <span className="circleBoX">
-            <GrCircleAlert />
-            {"  "}Atention
+            {" "}Atention
           </span>
           <p className="prohPhrase">
             See{" "}
@@ -122,20 +126,20 @@ export default function Create() {
           </p>
 
           <span className="spanTitle">Select a category</span>
-          <select className="selCreate" onChange={(e) => handleCategory(e)}>
-            <option value="all">Categories</option>
+          <select className="selCreateUser" onChange={(e) => handleCategory(e)}>
+            <option className="opCreate" value="all">Categories</option>
             {categories?.map((elem) => (
-              <option key={elem.id} value={elem.id}>
+              <option className="opCreate" key={elem.id} value={elem.id}>
                 {elem.name}
               </option>
             ))}
           </select>
 
           <span className="spanTitle">Select a service</span>
-          <select className="selCreate" onChange={(e) => handleServicesList(e)}>
-            <option value="all">Services</option>
+          <select className="selCreateUser" onChange={(e) => handleServicesList(e)}>
+            <option className="opCreate" value="all">Services</option>
             {serviceList?.map((elem) => (
-              <option key={elem.id} value={elem.name}>
+              <option className="opCreate" key={elem.id} value={elem.name}>
                 {elem.name}
               </option>
             ))}
@@ -147,7 +151,7 @@ export default function Create() {
               <FiDollarSign />
             </label>
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Price"
               value={form.price}
@@ -165,7 +169,7 @@ export default function Create() {
             </label>
 
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Description"
               value={form.description}
@@ -174,11 +178,11 @@ export default function Create() {
             />
             <p className="valid">{errors.description}</p>
           </div>
-        </div>
-      </div>
       <button type="submit" className="subCr">
         SUBMIT
       </button>
+        </div>
+      </div>
       <Footer />
     </form>
   );

@@ -1,9 +1,8 @@
-.navOrde{
+.navOrder{
     background-color: #252636;
     position: absolute;
-    margin-top: -19.6%;
+    margin-top: -13%;
     position: fixed;
-   
 }
 .fondoOrders{
     background-color: #1a1a25;
@@ -12,9 +11,31 @@
     position: absolute;
 }
 .h1Orders{
-    margin-top: 55px;
-    width: 30px;
-    margin-left: 50%;
-    color: #9f90ea;
-    font-size: 300%;
+  width: 30%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 20%;
+    color: aliceblue;
+    font-size: 500%;
 }
+.tableOrd {
+    color: aliceblue;
+    margin-bottom: 2%;
+    background-color: #252636;
+    width: 70%;
+    margin-left: 22%;
+    border-radius: 30px;
+    text-align: center;
+  }
+  .thead1 th{
+    padding: 2%;
+  }
+  .tbody1 td {
+    padding: 2%;
+    height: 3.9rem;
+    border-bottom: 1px solid #9f90ea;
+
+  }
+  .tbody1 tr:last-child td {
+    border: none;
+  }

@@ -17,6 +17,7 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import "../Pages/cart.css";
 
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
@@ -118,12 +119,12 @@ const Cart = () => {
       <div className="cartBox">
         {cartItems.length === 0 ? (
           <div className="emptyBox">
-            <h2 className="titleCart">Shopping Cart</h2>
+            <h2 className="titleCart">Shopping Cart 🛒</h2>
             <div className="emptyCart">
               <p className="pEmpty">Your cart is currently empty</p>
               <br />
               <div>
-                <Link className="btnEmpty" to="/services">
+                <Link className="btnEmpty1" to="/services">
                   &larr;{"  "} Continue shopping{"  "}
                 </Link>
               </div>
@@ -132,11 +133,13 @@ const Cart = () => {
         ) : (
           <div className="tableCart">
             <div className="table table-responsive table-dark">
-              <h2 className="titleCart">Shopping Cart</h2>
-              <div>
+              <div className="boxShop">
+                 <h1 className="titleCart1">Shopping Cart 🛒</h1>
+              
                 <Link className="btnEmpty" to="/services">
                   &larr; Continue shopping
                 </Link>
+              
               </div>
               <br />
               <table className="tableBoxCart">
@@ -205,7 +208,7 @@ const Cart = () => {
               </table>
             </div>
             <div className="totalContainer">
-              <div>
+              <div className="clearbtn">
                 <button className="btn btn-danger" onClick={clearCart1}>
                   Clear Cart
                 </button>

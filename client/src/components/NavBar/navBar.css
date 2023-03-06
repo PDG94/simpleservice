@@ -20,12 +20,12 @@
 .btnNav {
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: rondalSemibold;
-  font-size: 160%;
+  font-family: rondalRegular;
+  font-size: 150%;
   font-weight: 500;
   color: #E9EFF2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 10px;
   text-decoration: none;
   letter-spacing: 2px;
 }
@@ -39,11 +39,10 @@
   margin-top: 0.5%;
   margin-left: 0;
   margin-right: 0;
-  font-family: echelonit;
-  font-size: 140%;
-  font-weight: 500;
+  font-size: 120%;
   color: #E9EFF2;
   text-align: center;
+  letter-spacing: 1px;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -64,7 +63,7 @@
   margin-right: 0.2rem;
   font-family: fair;
   letter-spacing: 3px;
-  font-size: 180%;
+  font-size: 170%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;

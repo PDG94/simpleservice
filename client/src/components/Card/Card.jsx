@@ -11,10 +11,11 @@ export default function Card({
   // console.log(serviceimage);
   return (
     <div className="container">
-      <div>
+      <div className="boxCard">
         <img src={serviceimage || image} alt="" />
         <h2 className="name">{name}</h2>
-        <p className="serviceContainer">{service}</p>
+        <h4 className="serviceContainer">{service}</h4>
+        <br/>
       </div>
 
       <div className="card">

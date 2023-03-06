@@ -165,7 +165,7 @@ const NavBar = () => {
         <ShowOnLogin>
           {" "}
           <Link className="btnNav" to="/cart">
-            <FaShoppingCart size={32} className="shoppingCart" />
+            <FaShoppingCart size={30} className="shoppingCart" />
             {"  "}
             {cartTotalQuantity}
           </Link>

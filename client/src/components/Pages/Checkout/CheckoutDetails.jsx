@@ -27,12 +27,21 @@ const CheckOutForm = () => {
   const elements = useElements();
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
+<<<<<<< HEAD
   const cartItems1 = useSelector((state) => state.cart.cartItems);
   const userID1 = useSelector((state) => state.users.userID);
   const customerEmail = useSelector((state) => state.users.email);
 
   const clearCart1 = () => {
     dispatch(emptyCart());
+=======
+  const cartItems1 = useSelector((state) => state.cartItems);
+  const userID1 = useSelector((state) => state.userID);
+  const customerEmail = useSelector((state) => state.email);
+
+  const clearCart1 = () => {
+    dispatch(clearCart());
+>>>>>>> 0cdebd0910deb50866d52293a29c1c8b02695857
     navigate("/home");
   };
 
@@ -98,13 +107,24 @@ const CheckOutForm = () => {
   };
   return (
     <div className="containerCheckDetail">
-      <form className="formCheckout" onSubmit={handleSubmit}>
-        <h2 className="labelCheck">Introduce tu metodo de pago</h2>
-        <br />
-        <br />
-        <div className="inpuCh">
-          <CardElement className="inputCheck" />
+      <form className="formCheck" onSubmit={handleSubmit}>
+        <h2 className="cardCheck">Enter your payment method</h2>
+        <div className="boxDetInp" style={{height:680}}>
+             <div className="inpuCheck">
+            <CardElement className="inputCheck" />
+          </div>
+          <div className="btnCheck">
+            <button className="btn btn-success" onClick={clearAndBack}>
+              Buy
+            </button>
+          </div>
+        
+         
+          <div className="chSum">
+            <CheckoutSummary />
+          </div>
         </div>
+<<<<<<< HEAD
         <br />
         <br />
         <div>
@@ -114,6 +134,8 @@ const CheckOutForm = () => {
         </div>
         <div></div>
         <CheckoutSummary className="chSum" />
+=======
+>>>>>>> 0cdebd0910deb50866d52293a29c1c8b02695857
       </form>
     </div>
   );
