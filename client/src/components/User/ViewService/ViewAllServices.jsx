@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import NavBarUser from "../NavBarUser/NavBarUser";
+import { NavBarUser, Footer } from "../../index.js";
 import { AiOutlineEye, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { getServiceUser } from "../../../redux/actions";
 import Notiflix from "notiflix";
+import "../ViewService/viewAllServices.css";
 
 export default function ViewAllServices() {
   const serviceUser = useSelector((state) => state.serviceUser);
@@ -64,14 +65,18 @@ export default function ViewAllServices() {
   }, [dispatch, userID, token]);
 
   return (
-    <>
+    <div className="viewMainBoxUser">
       <NavBarUser />
-
-      <div className="containerView">
-        <p className="h2">My Services</p>
-        <div className="table table-responsive table-dark">
+      <div>
+        <Link to={"/profile"}>
+          <button className="backCr">Back</button>
+        </Link>
+        <div className="containerViewUsers">
+          <br/>
+        <p className="titleViewUser">My Services</p>
+        <div className="table table-responsive table-info">
           {length.length === 0 ? (
-            <p>No product found</p>
+            <p className="emptyProductP">No product found</p>
           ) : (
             <table className="tableContainer">
               <thead>
@@ -99,23 +104,23 @@ export default function ViewAllServices() {
 
                       <td className="tdView">{service.servicename}</td>
 
-                      <td className="tdView">{service.price}</td>
+                      <td className="tdView">$ {service.price}</td>
 
                       <td className="tdView">
                         <Link to={`/profile/my-services/${id}`}>
-                          <AiOutlineEye />
+                          <AiOutlineEye size={30} />
                         </Link>
                       </td>
 
-                      <td>
+                      <td className="tdView">
                         <Link className="editView">
-                          <AiFillEdit onClick={() => editarAlert(id)} />
+                          <AiFillEdit size={30} onClick={() => editarAlert(id)} />
                         </Link>
                       </td>
 
                       <td className="tdView">
                         <Link>
-                          <AiFillDelete onClick={() => confirmDelete(id)} />
+                          <AiFillDelete size={30} onClick={() => confirmDelete(id)} />
                         </Link>
                       </td>
                     </tr>
@@ -126,6 +131,8 @@ export default function ViewAllServices() {
           )}
         </div>
       </div>
-    </>
+      </div>
+      <Footer/>
+    </div>
   );
 }

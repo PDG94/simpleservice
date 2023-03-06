@@ -55,10 +55,10 @@
   box-shadow: 0 0 5px 1px white;
 }
 .subUpUser:hover {
- border: 1px solid #45b5a4;
+  border: 1px solid #45b5a4;
   background-color: #ffff;
   color: #1a1a25;
- box-shadow: 0 0 10px 4px #6fffe9;
+  box-shadow: 0 0 10px 4px #6fffe9;
 }
 .inpUpUser {
  padding: 12px 2px 15px 48px;
