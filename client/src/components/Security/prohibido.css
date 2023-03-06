@@ -3,29 +3,30 @@
   padding: 0;
 }
 .prohibitedMain{
-  background-color: #42445f;
+  background-color: rgb(184, 184, 190);
   width: 100%;
   height: 120vh;
   margin: 0!important;
   border: 1px solid transparent;
 }
 .prohibitedBox{
-  width: 80%;
+  width: 70%;
   height: 115vh;
   margin-top: 0.5%;
   border: 4px solid #2d2e41;
-  border-radius: 25px;
-  background-color: #2d2e41;
+  border-radius: 80px;
+  box-shadow: 0 0 25px #7de2d1;
+  background-color: #1a1a25;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 15%;
   color:aliceblue;
   margin-bottom: 4%;
 }
 .containerProhibited{
-  width: 100%;
+  width: 80%;
   height: auto;
    display: flex;
   flex-direction: column;
@@ -43,23 +44,30 @@
   margin: 0.8rem;
   border-color: white!important;
   height: 3px;
-  width: 70%
+  width: 80%
+}
+.hProhibited{
+  font-size: large;
+  letter-spacing: 2px;
 }
 .backProhibited{
   border: 2px solid white;
   cursor: pointer;
   color: aliceblue;
   margin-top: 2%;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 180%;
   padding-right: 2%;
+  font-weight: 600;
   padding-left: 2%;
   text-decoration: none;
+   box-shadow: 0 0 25px #7de2d1;
   position: absolute;
+  background-color: #1a1a25;
   margin-left: 41%;
 }
 .backProhibited:hover{
-  background-color: #2d2e41;
-  color: aliceblue;
-  box-shadow: 0 0 6px white;
+  background-color: #7de2d1;
+  color: #1a1a25;
+  box-shadow: 0 0 25px white;
 }

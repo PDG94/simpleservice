@@ -9,23 +9,17 @@
   position: absolute;
   margin: none;
 }
-/* .formCreate {
-  padding: 2%;
-  margin-bottom: -280px;
-  width: 100%;
-  height: 1050px;
-} */
 .containerCreate {
   margin-left: 25%;
   align-items: center;
-  background-color: #252636;
-  color: #1a1a25;
+  background-color: #1a1a25;
   position: absolute;
   margin-top: 10px;
   border-radius: 50px;
   width: 50%;
-  height: 100vh;
-  box-shadow: 0 0 2px 4px #5EBFB5;
+  height: 103vh;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 5px white;
 }
 
 .titleCre {
@@ -34,7 +28,7 @@
   font-size: 70px;
   font-weight: 700;
   font-family: 'Merienda', cursive;
-  color: #5ebfb5;
+  color: #6fffe9;
   letter-spacing: 1px;
 }
 
@@ -50,7 +44,8 @@
 }
 
 .cirB{
-  color: #5ebfb5!important;
+  color: #ffff!important;
+  margin-bottom: 1%;
 }
 
 .valid {
@@ -63,52 +58,52 @@
  position: absolute;
   display: flex;
   flex-direction: column;
-  height: 8%;
-  font-size: 130%;
+  height: 5%;
+  font-size: 160%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   font-family: 'Merienda', cursive;
   font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
-  width: 10%;
-  color: #5EBFB5;
+  width: 7%;
+  color: #6fffe9;
   letter-spacing: 3px;
-  border: 1px solid #5EBFB5;
+  border: 1px solid #6fffe9;
   border-radius: 10px;
   background-color: #1a1a25;
 }
 .backCr:hover {
   border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
+  background-color: #6fffe9;
   color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  box-shadow: 0 0 10px 5px white;
 }
 .subCr {
   margin-top: 2%;
   height: 50px;
   width: 150px;
-  color: #5ebfb5;
-  border: 1px solid #1a1a25;
+  color: #ffff;
+  border: 1px solid #2b2c28;
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
   font-family: 'Merienda', cursive;
   border-radius: 10px;
-  background-color: #1a1a25;
-  /* box-shadow: 0 0 10px #5ebfb5; */
+  border: 1px solid #E9EFF2;
+  box-shadow: 0 0 5px 1px white;
 }
 .subCr:hover {
- border: 1px solid #E9EFF2;
-  background-color: #1a1a25;
-  color: #E9EFF2;
-  box-shadow: 0 0 25px #5EBFB5;
+ border: 1px solid #45b5a4;
+  background-color: #ffff;
+  color: #1a1a25;
+ box-shadow: 0 0 10px 4px #6fffe9;
 }
-.inpCreate {
+.inpCreateUser {
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
@@ -116,11 +111,12 @@
   font-family: 'Merienda', cursive;
   background-color: #e9eff2;
   border: 1px solid #1a1a25;
-  color: #5ebfb5;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25;
+   box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+  color: #1a1a25;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.2em;
   transform: 0.5s;
   outline: none;
 }
@@ -131,11 +127,11 @@
   font-size: 120%;
   font-weight: 500;
   font-family: 'Merienda', cursive;
-  color: #5ebfb5;
+  color: #ffff;
   letter-spacing: 1px;
 }
 .circleBoX {
-  color: #5ebfb5;
+  color: #ffff;
   font-family: 'Merienda', cursive;
   font-weight: 500;
   margin-left: 8px;
@@ -144,6 +140,9 @@
 .proLink {
   color: rgb(240, 89, 89);
 }
+.proLink:hover{
+  color: rgb(234, 11, 11);
+}
 
 .spanTitle {
   font-size: 140%;
@@ -151,32 +150,36 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-weight: 400;
+  font-weight: 500;
   font-family: 'Merienda', cursive;
   margin-left: 21%;
   margin-bottom: 1.5%;
-  color: #5ebfb5;
+  color: #6fffe9;
 }
 
-.selCreate {
+.selCreateUser {
+  cursor: pointer;
   background-color: #e9eff2;
   margin-left: 0;
   padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
   width: 60%;
-  background-color: #e9eff2;
   color: #1a1a25;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   font-family: 'Merienda', cursive;
   border: none;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px #252636, 5px 5px 15px #1a1a25;
+  font-size: 1.2em;
+   box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
 
 .priceC {
   margin-top: 3.5%;
+}
+.opCreate{
+ font-weight: 500;
 }

@@ -11,18 +11,97 @@
   margin: none;
 }
 .pProfile{
-  color: aliceblue ;
+  color: #ffff ;
+  font-size: 150%;
+  font-family: 'Merienda', cursive;
+  letter-spacing: 1.5px;
+}
+.backProf{
+  background-color: #01010157;
+  backdrop-filter: blur(10px);
+  width: 90%;
+  height: 85vh;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 2%;
+  border-radius: 30px;
 }
 .boxProfile{
- margin-left: 25%;
-  align-items: center;
-  background-color: #252636;
-  color: #1a1a25;
-  margin-top: 30px;
-  margin-bottom: 5%;
-  border: 8px solid #252636;
-  border-radius: 50px;
-  width: 50%;
-  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 300px 2fr;
+  grid-template-rows: 400px 300px ;
+  gap: 10px
+}
+.imgProfile{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  width: 75%;
+  height: 97%;
+  margin-top: 2%;
+  border: 2px solid #ffff;
+  box-shadow: 0 0 10px 5px white;
 }
 
+.dInfoPro{
+  background-color: #1a1a25;
+  border-radius: 20px;
+  width: 130%;
+  height: 60vh;
+  margin-top: 15%;
+  margin-left: 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 1px white;
+}
+.chartProf{
+  backdrop-filter: blur(10px);
+  background-color: #1a1a25;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 15%;
+  height: 40vh;
+   grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 1px white;
+}
+.sBoxChart{
+  font-family: 'Merienda', cursive;
+  font-size: 150%;
+  color: #6fffe9;
+  letter-spacing: 3px;
+}
+.imgProfile{
+  border-radius: 50%;
+}
+.bioProfile{
+  background-color: #1a1a25;
+  border-radius: 20px;
+  height: 38.5vh;
+  margin-top: 3%;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin-left: 10%;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 1px white;
+}
+.pProfileBio{
+  color: #ffff ;
+  font-size: 130%;
+  font-family: 'Merienda', cursive;
+  width: 90%;
+  margin-left: 5%;
+}

@@ -1,177 +1,125 @@
-.form {
-  padding: 2%;
-  margin-bottom: -280px;
-  background: linear-gradient(
-    270deg,
-    #101010 0%,
-    rgba(255, 255, 255, 1) 50%,
-    #101010 100%
-  );
-  justify-content: center;
-  align-items: center;
+.upMainBox{
+  background: url("../../Imagenes/gris.jpg")!important;
+  background-color: rgb(184, 184, 190)!important;
+   background-size: cover!important;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
-  height: 1050px;
+  height: 1080px;
+  position: absolute;
+  margin: none!important;
 }
-.containerCreated {
+.containerUpUser {
   margin-left: 25%;
   align-items: center;
-  background-color: #ced379;
-  color: #000000;
+  background-color: #1a1a25;
+  position: absolute;
   margin-top: 10px;
-  border: 8px solid #d7df23;
   border-radius: 50px;
   width: 50%;
-  height: 90%;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+  height: 103vh;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 5px white;
 }
 
-.titleCr {
+.titleUserUp {
   margin-top: 45px;
   margin-bottom: 30px;
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 700;
-  font-family: system-ui;
-  color: rgb(69, 67, 67);
+  font-family: 'Merienda', cursive;
+  color: #6fffe9;
   letter-spacing: 1px;
 }
-.icon {
+.iconUpUser {
   font-size: 25px;
   margin-right: 5px;
-  color: #141414;
+  color: #1a1a25;
   position: absolute;
   padding: 8px 0;
   margin-left: 10px;
   padding-right: 5px;
-  border-right: 1px solid #ced379;
+  border-right: 1px solid #1a1a25;
 }
-
-.valid {
-  color: rgb(240, 89, 89);
-  font-weight: 500;
-  letter-spacing: 1px;
-  font-size: 2vh;
-}
-.back {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  height: 40px;
-  font-size: 3.5vh;
-  align-items: center;
-  justify-content: center;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-family: system-ui;
-  font-weight: 600;
-  margin-top: 4vh;
-  margin-left: 5vw;
-  width: 100px;
-  color: #fcfcfc;
-  letter-spacing: 1px;
-  border: 1px solid #fdfdfd;
-  border-radius: 10px;
-  background-color: transparent;
-}
-.back:hover {
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: #d7df23;
-  color: rgb(29, 29, 29);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
-}
-.sub {
+.subUpUser {
   height: 50px;
-  width: 140px;
-  color: rgb(51, 50, 50);
-  border: 2px solid #b4ab07;
+  width: 150px;
+  color: #ffff;
+  border: 1px solid #2b2c28;
   font-weight: 600;
-  font-size: 3.5vh;
+  font-size: 150%;
   letter-spacing: 2px;
-  font-family: system-ui;
+  font-family: 'Merienda', cursive;
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.188);
-  box-shadow: 0 0 10px yellow;
+  border: 1px solid #E9EFF2;
+  box-shadow: 0 0 5px 1px white;
 }
-.sub:hover {
-  border: 1px solid white;
-  border-radius: 10px;
-  background-color: #d7df23;
-  color: rgb(0, 0, 0);
-  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+.subUpUser:hover {
+ border: 1px solid #45b5a4;
+  background-color: #ffff;
+  color: #1a1a25;
+ box-shadow: 0 0 10px 4px #6fffe9;
 }
-.inpCreate {
-  padding: 12px 2px 15px 48px;
+.inpUpUser {
+ padding: 12px 2px 15px 48px;
   margin-bottom: 12px;
   border-radius: 10px;
   width: 60%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgb(69, 67, 67);
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+  font-family: 'Merienda', cursive;
+  background-color: #e9eff2;
+  border: 1px solid #1a1a25;
+   box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+  color: #1a1a25;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.2em;
   transform: 0.5s;
   outline: none;
 }
-
-.icon {
-  background-color: rgba(128, 128, 128, 0.228);
+.boxInpUserUp {
+  margin-top: 3.5%;
 }
-
-.proPhrase {
-  font-size: 120%;
-  font-weight: 500;
-  font-family: system-ui;
-  color: rgb(69, 67, 67);
-  letter-spacing: 1px;
-}
-.circleBox {
-  color: rgb(69, 67, 67);
-  font-family: system-ui;
-  font-weight: 500;
-  margin-left: 8px;
-  font-size: 130%;
-}
-.proLink {
-  color: rgb(240, 89, 89);
-}
-
-.spantitle {
+.spantitleUp {
   font-size: 140%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  letter-spacing: 1px;
   align-items: flex-start;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Merienda', cursive;
   margin-left: 21%;
   margin-bottom: 1.5%;
-  color: rgb(69, 67, 67);
+  color: #6fffe9;
 }
-
-.selCreate {
-  background-color: white;
-  margin-left: 0;
-  padding: 12px 2px 15px 48px;
-  margin-bottom: 12px;
+.subirUserImage{
+   cursor: pointer;
+  padding: 12px 10px 15px 20px;
+  margin-bottom: 3%;
   border-radius: 10px;
   width: 60%;
-  background-color: white;
-  color: rgb(87, 87, 87);
-  font-weight: 600;
-  letter-spacing: 1px;
-  border: none;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
-  transform: 0.5s;
-  outline: none;
+  background-color: #E9EFF2;
+  border: 1px solid #1a1a25;
+  font-family: 'Merienda', cursive;
+  color: #1a1a25;
+  font-weight: 500;
+  font-size: 110%;
+  letter-spacing: 2px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+    5px 5px 15px #1a1a25;
+}
+.subirUserImage:hover{
+  color: #ffff;
+  background: #1a1a25;
+  box-shadow: 0 0 10px 5px white;
+}
+#infoUp {
+  color: #ffff;
+  font-weight: 500;
+  letter-spacing: 0.5%;
+  margin-top: 0;
+  margin-bottom: 7%;
+  font-family: 'Merienda', cursive;
 }
 
-.priceC {
-  margin-top: 3.5%;
-}

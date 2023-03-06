@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { NavBar, Footer } from "../index";
+import { NavBarUser, Footer } from "../index";
 import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
@@ -95,18 +95,17 @@ export default function Create() {
 
   return (
     <form onSubmit={submitHandler} className="boxCreateForm">
-      <NavBar />
+      <NavBarUser />
       <div className="formCreate">
         <Link to={"/profile"}>
-          <button className="backCr">Back to<br/> My Account</button>
+          <button className="backCr">Back</button>
         </Link>
 
         <div className="containerCreate">
           <h1 className="titleCre">Create Service</h1>
- 
-            <span className="cirB" ><FiAlertCircle size={30} /></span>
+            <FiAlertCircle size={29} className="cirB"/>
           <span className="circleBoX">
-            {"  "}Atention
+            {" "}Atention
           </span>
           <p className="prohPhrase">
             See{" "}
@@ -121,7 +120,7 @@ export default function Create() {
           </p>
 
           <span className="spanTitle">Select a category</span>
-          <select className="selCreate" onChange={(e) => handleCategory(e)}>
+          <select className="selCreateUser" onChange={(e) => handleCategory(e)}>
             <option className="opCreate" value="all">Categories</option>
             {categories?.map((elem) => (
               <option className="opCreate" key={elem.id} value={elem.id}>
@@ -131,7 +130,7 @@ export default function Create() {
           </select>
 
           <span className="spanTitle">Select a service</span>
-          <select className="selCreate" onChange={(e) => handleServicesList(e)}>
+          <select className="selCreateUser" onChange={(e) => handleServicesList(e)}>
             <option className="opCreate" value="all">Services</option>
             {serviceList?.map((elem) => (
               <option className="opCreate" key={elem.id} value={elem.name}>
@@ -146,7 +145,7 @@ export default function Create() {
               <FiDollarSign />
             </label>
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Price"
               value={form.price}
@@ -164,7 +163,7 @@ export default function Create() {
             </label>
            
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Description"
               value={form.description}
