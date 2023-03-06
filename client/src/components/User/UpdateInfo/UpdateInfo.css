@@ -25,7 +25,7 @@
 .titleUserUp {
   margin-top: 45px;
   margin-bottom: 30px;
-  font-size: 70px;
+  font-size: 320%;
   font-weight: 700;
   font-family: 'Merienda', cursive;
   color: #6fffe9;
@@ -78,7 +78,7 @@
   outline: none;
 }
 .boxInpUserUp {
-  margin-top: 3.5%;
+  margin-top: 3%;
 }
 .spantitleUp {
   font-size: 140%;
@@ -96,12 +96,12 @@
 .subirUserImage{
    cursor: pointer;
   padding: 12px 10px 15px 20px;
-  margin-bottom: 3%;
   border-radius: 10px;
-  width: 60%;
+  width: 59%;
   background-color: #E9EFF2;
   border: 1px solid #1a1a25;
   font-family: 'Merienda', cursive;
+  margin-bottom: 2%;
   color: #1a1a25;
   font-weight: 500;
   font-size: 110%;
@@ -117,9 +117,10 @@
 #infoUp {
   color: #ffff;
   font-weight: 500;
+  font-size: 130%;
   letter-spacing: 0.5%;
   margin-top: 0;
-  margin-bottom: 7%;
+  margin-bottom: 4%;
   font-family: 'Merienda', cursive;
 }
 

@@ -59,8 +59,8 @@ export default function UpdateInfoUser() {
   };
 
   function changing(e) {
-    // var pdrs = document.getElementById("file-upload").files[0].name;
-    // document.getElementById("info").innerHTML = pdrs;
+    var pdrs = document.getElementById("file-up").files[0].name;
+    document.getElementById("infoUp").innerHTML = pdrs;
     setFile(e.target.files[0]);
     setForm({
       ...form,
@@ -151,8 +151,8 @@ export default function UpdateInfoUser() {
               type="file"
               style={{ display: "none" }}
             />
-          </div>
           <div id="infoUp"></div>
+          </div>
       <button type="submit" className="subUpUser">
         SUBMIT
       </button>
