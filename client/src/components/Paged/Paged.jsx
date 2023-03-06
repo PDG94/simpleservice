@@ -1,13 +1,13 @@
 import React from "react";
 import "../Paged/paged.css";
 import { useDispatch, useSelector } from "react-redux";
-import { resedPaged } from "../../redux/actions";
+import { resedPaged } from "../../redux/actions/miscActions";
 
 export default function Paged({ servicesPerPage, allServices, paged }) {
   const pageNumber = [];
   const dispatch = useDispatch();
 
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useSelector((state) => state.misc.currentPage);
 
   for (let i = 0; i < Math.ceil(allServices / servicesPerPage); i++) {
     pageNumber.push(i + 1);

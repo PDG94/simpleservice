@@ -10,10 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   activeUsers,
   removeUsers,
-  getServices,
-  /* storeSession,*/
-  calculateTotalQuantity,
-} from "../../redux/actions";
+} from "../../redux/actions/usersActions";
+import { getServices } from "../../redux/actions/servicesActions";
+import { subTotalQuant } from "../../redux/actions/cartActions";  
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
@@ -28,10 +27,11 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
-  const cartTotalQuantity = useSelector((state) => state.cartTotalQuantity);
+  const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
+  const cartItems = useSelector((state)=> state.cart.cartItems)
 
   useEffect(() => {
-    dispatch(calculateTotalQuantity());
+    dispatch(subTotalQuant(calculateTotalQuantity()));
   }, [dispatch]);
 
   //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
@@ -85,6 +85,22 @@ const NavBar = () => {
   }
   const handleRefresh = () => {
     dispatch(getServices());
+  };
+
+  const calculateTotalQuantity = () => {
+    const array1 = [];
+    if (cartItems) {
+      // Agregamos un control de flujo para verificar si "cartItems" existe
+      cartItems.map((item) => {
+        const { cartQuantity } = item;
+        const quantity = cartQuantity;
+        return array1.push(quantity);
+      });
+    }
+    const totalQuantity = array1.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalQuantity;
   };
 
   return (
