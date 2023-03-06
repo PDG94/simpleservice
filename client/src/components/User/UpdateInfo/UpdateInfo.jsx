@@ -2,12 +2,13 @@ import React from "react";
 import { uploadFile } from "../../Firebase/config";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "./UpdateInfo.css";
+import "./updateInfo.css";
 import { MdDescription } from "react-icons/md";
-import NavBarUser from "../NavBarUser/NavBarUser";
+import { NavBarUser, Footer } from "../../index.js";
+import { BsCloudArrowUp } from "react-icons/bs";
 
 export default function UpdateInfoUser() {
   const navigate = useNavigate();
@@ -58,8 +59,8 @@ export default function UpdateInfoUser() {
   };
 
   function changing(e) {
-    // var pdrs = document.getElementById("file-upload").files[0].name;
-    // document.getElementById("info").innerHTML = pdrs;
+    var pdrs = document.getElementById("file-up").files[0].name;
+    document.getElementById("infoUp").innerHTML = pdrs;
     setFile(e.target.files[0]);
     setForm({
       ...form,
@@ -84,79 +85,80 @@ export default function UpdateInfoUser() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <div  className="upMainBox">
       <NavBarUser />
-      <div className="form">
+      <form className="updateFormUser" onSubmit={submitHandler}>
+         <Link to={"/profile"}>
+          <button className="backCr">Back</button>
+        </Link>
+        <div className="containerUpUser">
+          <h1 className="titleUserUp">Update User</h1>
 
-        <div className="containerCreated">
-          <h1 className="titleCr">Update User</h1>
-
-          <div className="priceC">
-            <label className="icon">
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Update name</span>
+            <label className="iconUpUser">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpUser"
               type="text"
-              placeholder="Name"
+              placeholder="New Name"
               value={form.name}
               name="name"
               onChange={(e) => handlerChange(e)}
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Update username</span>
+            <label className="iconUpUser">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpUser"
               type="text"
-              placeholder="Username"
+              placeholder="New Username"
               value={form.username}
               name="username"
               onChange={(e) => handlerChange(e)}
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
+          <div className="boxInpUserUp">
+          <span className="spantitleUp">Add a biography</span>
+            <label className="iconUpUser">
               <MdDescription />
             </label>
             <input
-              className="inpCreate"
+              className="inpUpUser"
               type="text"
-              placeholder="User Bio"
+              placeholder="Add Bio"
               value={form.userbio}
               name="userbio"
               onChange={(e) => handlerChange(e)}
             />
           </div>
 
-          <div className="priceC">
-            <label className="icon">
-              <MdDescription />
+          <div className="boxInpUserUp">
+            <span className="spantitleUp">Update profile image</span>
+            <label htmlFor="file-up" className="subirUserImage">
+              <BsCloudArrowUp className="iconCloud" />
+              Upload New Image
             </label>
-            {/* <input
-              className="inpCreate"
-              type="text"
-              placeholder="Profile Photo"
-              value={form.profilepic}
-              name="profilepic"
-              onChange={(e) => handlerChange(e)}
-            /> */}
             <input
-              // id="file-upload"
+              id="file-up"
               onChange={(e) => changing(e)}
               type="file"
-              // style={{ display: "none" }}
+              style={{ display: "none" }}
             />
+          <div id="infoUp"></div>
           </div>
-        </div>
-      </div>
-      <button type="submit" className="sub">
+      <button type="submit" className="subUpUser">
         SUBMIT
       </button>
-    </form>
+        </div>
+      </form>
+        <Footer />
+    </div>
   );
 }
