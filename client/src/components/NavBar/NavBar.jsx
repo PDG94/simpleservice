@@ -31,7 +31,7 @@ const NavBar = () => {
 
   useEffect(() => {
     dispatch(subTotalQuant(calculateTotalQuantity()));
-  }, [dispatch]);
+  }, [dispatch, cartTotalQuantity]);
 
   //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
   // const fixNavbar = () => {
