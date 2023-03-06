@@ -16,12 +16,12 @@ const data = [
 const ChartAdminServices = () => {
   return (
     <div className='border3'>
-        <h1 className='h1CharService'>Number Of Services Chart</h1>
+        <h2 className='h1CharService'>Number Of Services Chart</h2>
 <hr className='hrServicesAd'/>
-    <ResponsiveContainer width="100%" aspect={2}>
+    <ResponsiveContainer width="100%" aspect={6}>
         <AreaChart
             width={500}
-            height={400}
+            height={500}
             data={data}
             margin={{
                 top:10,
@@ -31,8 +31,8 @@ const ChartAdminServices = () => {
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name" stroke='#fff'/>
+            <YAxis stroke='#fff'/>
             <Tooltip />
             <Area type="monotone" dataKey="user" stackId="1" stroke='#8884d8' fill="#8884d8" />
             <Area type="monotone" dataKey="active" stackId="1" stroke='#82caed' fill="#fad3cf" />

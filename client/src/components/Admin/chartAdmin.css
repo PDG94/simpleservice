@@ -1,12 +1,13 @@
 .h1CharAdmin{
     margin-top: 2%;
-    margin-left: -30%;
 }
 .hrAdmin{
-
     margin-bottom: 8%;
 }
 .border{
+    margin-left: -10%;
+ width: 110%;
     background-color: #252636;
     border-radius: 30px;
+
 }
