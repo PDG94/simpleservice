@@ -6,7 +6,7 @@ import logo from "../../Imagenes/logos.ico";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function NavBarUser() {
-  const name = useSelector((state) => state.useName);
+  const name = useSelector((state) => state.users.useName);
   return (
     <div className="navUserContainer">
       <div className="btnsUserProfile">
