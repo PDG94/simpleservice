@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {NavBarUser, Footer} from "../../index.js";
 import "../../User/Dashboard/profile.css";
-import { getServiceUser } from "../../../redux/actions";
+import { getServiceUser } from "../../../redux/actions/usersActions";
 import ChartUsers from "./ChartUsers";
 
 export default function DashboardUser() {
@@ -10,9 +10,9 @@ export default function DashboardUser() {
 
   const token = localStorage.getItem("token");
 
-  const id = useSelector((state) => state.userID);
+  const id = useSelector((state) => state.users.userID);
   const { /* Cards, active, */ email, name, profilepic, userbio, username } =
-    useSelector((state) => state.serviceUser);
+    useSelector((state) => state.users.serviceUser);
 
   useEffect(() => {
     dispatch(getServiceUser(id, token));

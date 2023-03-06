@@ -21,7 +21,7 @@ export default function ReviewService() {
 
   useEffect(() => {
     dispatch(getServiceDetail(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const submitReview = (e) => {
     e.preventDefault();

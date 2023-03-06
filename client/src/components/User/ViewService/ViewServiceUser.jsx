@@ -8,7 +8,7 @@ import "../ViewService/viewServiceUser.css";
 export default function ViewServiceUser () {
 
   const {id} = useParams();
-  const serviceUser = useSelector((state)=> state.serviceUser)
+  const serviceUser = useSelector((state)=> state.users.serviceUser)
  
 
 

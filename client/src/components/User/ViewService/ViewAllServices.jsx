@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavBarUser, Footer } from "../../index.js";
 import { AiOutlineEye, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import { getServiceUser } from "../../../redux/actions";
+import { getServiceUser } from "../../../redux/actions/usersActions";
 import Notiflix from "notiflix";
 import "../ViewService/viewAllServices.css";
 
 export default function ViewAllServices() {
-  const serviceUser = useSelector((state) => state.serviceUser);
+  const serviceUser = useSelector((state) => state.users.serviceUser);
   const length = Object.keys(serviceUser);
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  const userID = useSelector((state) => state.userID);
+  const userID = useSelector((state) => state.users.userID);
   const navigate = useNavigate();
 
   const editarAlert = (id) => {
