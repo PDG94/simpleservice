@@ -9,7 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import "../Pages/register.css";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { createdUser /*, storeToken*/ } from "../../redux/actions";
+import { createdUser /*, storeToken*/ } from "../../redux/actions/usersActions";
 import { Link } from "react-router-dom";
 import { BsCloudArrowUp } from "react-icons/bs";
 import axios from "axios";

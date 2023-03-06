@@ -16,7 +16,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions";
+import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions/usersActions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
