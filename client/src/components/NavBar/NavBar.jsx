@@ -7,12 +7,9 @@ import logos from "../Imagenes/logos.ico";
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  activeUsers,
-  removeUsers,
-} from "../../redux/actions/usersActions";
+import { activeUsers, removeUsers } from "../../redux/actions/usersActions";
 import { getServices } from "../../redux/actions/servicesActions";
-import { subTotalQuant } from "../../redux/actions/cartActions";  
+import { subTotalQuant } from "../../redux/actions/cartActions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
@@ -27,8 +24,10 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
-  const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
-  const cartItems = useSelector((state)=> state.cart.cartItems)
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     dispatch(subTotalQuant(calculateTotalQuantity()));
@@ -147,7 +146,6 @@ const NavBar = () => {
       </div>
 
       <div className="btnsUser">
-
         <ShowOnLogout>
           <Link className="btnNav" to="/login">
             LOGIN
@@ -189,7 +187,8 @@ const NavBar = () => {
 
         <ShowOnLogin>
           <div className="greet">
-            <FaUserCircle className="circleNav" size={30} />{"  "}
+            <FaUserCircle className="circleNav" size={30} />
+            {"  "}
             Hi, {displayName}
           </div>
         </ShowOnLogin>
