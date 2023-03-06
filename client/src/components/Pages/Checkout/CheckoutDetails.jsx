@@ -27,21 +27,12 @@ const CheckOutForm = () => {
   const elements = useElements();
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
-<<<<<<< HEAD
   const cartItems1 = useSelector((state) => state.cart.cartItems);
   const userID1 = useSelector((state) => state.users.userID);
   const customerEmail = useSelector((state) => state.users.email);
 
   const clearCart1 = () => {
     dispatch(emptyCart());
-=======
-  const cartItems1 = useSelector((state) => state.cartItems);
-  const userID1 = useSelector((state) => state.userID);
-  const customerEmail = useSelector((state) => state.email);
-
-  const clearCart1 = () => {
-    dispatch(clearCart());
->>>>>>> 0cdebd0910deb50866d52293a29c1c8b02695857
     navigate("/home");
   };
 
@@ -109,8 +100,8 @@ const CheckOutForm = () => {
     <div className="containerCheckDetail">
       <form className="formCheck" onSubmit={handleSubmit}>
         <h2 className="cardCheck">Enter your payment method</h2>
-        <div className="boxDetInp" style={{height:680}}>
-             <div className="inpuCheck">
+        <div className="boxDetInp" style={{ height: 680 }}>
+          <div className="inpuCheck">
             <CardElement className="inputCheck" />
           </div>
           <div className="btnCheck">
@@ -118,24 +109,11 @@ const CheckOutForm = () => {
               Buy
             </button>
           </div>
-        
-         
+
           <div className="chSum">
             <CheckoutSummary />
           </div>
         </div>
-<<<<<<< HEAD
-        <br />
-        <br />
-        <div>
-          <button className="btn btn-success" onClick={clearAndBack}>
-            Buy
-          </button>
-        </div>
-        <div></div>
-        <CheckoutSummary className="chSum" />
-=======
->>>>>>> 0cdebd0910deb50866d52293a29c1c8b02695857
       </form>
     </div>
   );
