@@ -1,41 +1,70 @@
-import { useEffect, /* useState */ } from "react";
+import { useEffect /* useState */ } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  addToCart,
-  decreaseCart,
-  removeCart,
-  clearCart,
-  calculateSubTotal,
-  calculateTotalQuantity,
-  cleanState,
+  addToExinstingCart,
+  addNewCart,
+  reduceCartQuantity,
+  removeCard,
+  emptyCart,
+  subTotalCalc,
+  subTotalQuant,
   saveUrl,
-} from "../../redux/actions";
+} from "../../redux/actions/cartActions";
+import { cleanState } from "../../redux/actions/servicesActions";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import "../Pages/cart.css";
 
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cartItems);
-  const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
-  const cartTotalQuantity = useSelector((state) => state.cartTotalQuantity);
-  const isLoggedIn1 = useSelector((state) => state.isLoggedIn);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
+  const isLoggedIn1 = useSelector((state) => state.users.isLoggedIn);
   console.log(isLoggedIn1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const url = window.location.href;
-  // console.log(cartItems)
-  // const [, setAmount] = useState(0);
-  // localStorage.clear();
+
+  const calculateSubTotal = () => {
+    const array = [];
+    cartItems.map((item) => {
+      const { price, cartQuantity } = item;
+      const cartItemAmount = price * cartQuantity;
+      return array.push(cartItemAmount);
+    });
+    const totalAmount = array.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalAmount;
+  };
+
+  const calculateTotalQuantity = () => {
+    const array1 = [];
+    if (cartItems) {
+      // Agregamos un control de flujo para verificar si "cartItems" existe
+      cartItems.map((item) => {
+        const { cartQuantity } = item;
+        const quantity = cartQuantity;
+        return array1.push(quantity);
+      });
+    }
+    const totalQuantity = array1.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalQuantity;
+  };
 
   useEffect(() => {
-    dispatch(calculateSubTotal());
-    dispatch(calculateTotalQuantity());
+    dispatch(subTotalCalc(calculateSubTotal()));
+    dispatch(subTotalQuant(calculateTotalQuantity()));
     dispatch(saveUrl(""));
     return () => {
-      dispatch(cleanState());
+      dispatch(cleanState()); //revisar este
     };
   }, [cartItems, dispatch]);
 
@@ -48,24 +77,40 @@ const Cart = () => {
     }
   };
 
-  const increaseCart = (cart) => {
-    // console.log(cart.cartQuantity)
-    dispatch(calculateTotalQuantity())
-    dispatch(addToCart(cart));
-    // setAmount(cart.cartQuantity)
-    dispatch(calculateSubTotal());
+  // const getCardIndex = (payload) => {
+  //   return cartItems.findIndex((item) => item.id === payload.id);
+  // };
+
+  const increaseCart = (cart, index) => {
+    // const productIndex = getCardIndex();
+    if (index >= 0) {
+      dispatch(addToExinstingCart(cart, index));
+    } else {
+      dispatch(addNewCart(cart));
+    }
+    dispatch(subTotalQuant(calculateTotalQuantity()));
+    dispatch(subTotalCalc(calculateSubTotal()));
   };
 
-  const decreaseCart1 = (cart) => {
-    dispatch(calculateTotalQuantity())
-    dispatch(calculateSubTotal());
-    dispatch(decreaseCart(cart));
+  const decreaseCart1 = (cart, index) => {
+    // const productIndex = getCardIndex();
+    if (cartItems[index].cartQuantity > 1) {
+      dispatch(reduceCartQuantity(cart, index));
+    } else {
+      dispatch(removeCard(cart));
+    }
+    dispatch(subTotalQuant(calculateTotalQuantity()));
+    dispatch(subTotalCalc(calculateSubTotal()));
   };
+
   const removeFromCart = (cart) => {
-    dispatch(removeCart(cart));
+    dispatch(removeCard(cart));
+    dispatch(subTotalCalc(calculateSubTotal()));
   };
+
   const clearCart1 = () => {
-    dispatch(clearCart());
+    dispatch(emptyCart());
+    dispatch(subTotalCalc(calculateSubTotal()));
   };
 
   return (
@@ -130,7 +175,7 @@ const Cart = () => {
                           <div className="quantCart">
                             <button
                               className="btnDecr"
-                              onClick={() => decreaseCart1(cart)}
+                              onClick={() => decreaseCart1(cart, index)}
                             >
                               -
                             </button>
@@ -139,7 +184,7 @@ const Cart = () => {
                             </p>
                             <button
                               className="btnIncr"
-                              onClick={() => increaseCart(cart)}
+                              onClick={() => increaseCart(cart, index)}
                             >
                               +
                             </button>

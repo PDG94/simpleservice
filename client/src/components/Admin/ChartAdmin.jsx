@@ -10,8 +10,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
-import './chartAdmin.css'
-
+import "./chartAdmin.css";
 
 ChartJS.register(
   CategoryScale,
@@ -36,25 +35,23 @@ export const options = {
 };
 
 const ChartAdmin = () => {
-  const orders = useSelector((state)=>state.orderHistory);
-  const ordeers1 = useSelector((state)=>state.totalOrderPerMonthAmount)
+  const orders = useSelector((state) => state.orders.orderHistory);
+  const ordeers1 = useSelector(
+    (state) => state.orders.totalOrderPerMonthAmount
+  );
   console.log(ordeers1);
 
   // Create a new array of order status
   const array = [];
   orders.map((item) => {
-    const { orderDate
-    } = item;
-    const arraymodificado = orderDate.slice(3,7)
-    return array.push(arraymodificado
-        );
+    const { orderDate } = item;
+    const arraymodificado = orderDate.slice(3, 7);
+    return array.push(arraymodificado);
   });
 
   const getOrderCount = (arr, value) => {
     return arr.filter((n) => n === value).length;
   };
-
-
 
   const [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12] = [
     " Jan",
@@ -84,14 +81,38 @@ const ChartAdmin = () => {
   const November = getOrderCount(array, q11);
   const December = getOrderCount(array, q12);
 
-
-
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"],
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
     datasets: [
       {
         label: "Order count",
-        data: [January, February, March, April, May, June, July, August, September, October, November, December],
+        data: [
+          January,
+          February,
+          March,
+          April,
+          May,
+          June,
+          July,
+          August,
+          September,
+          October,
+          November,
+          December,
+        ],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       
       },
@@ -104,6 +125,7 @@ const ChartAdmin = () => {
         <hr className="hrAdmin"/>
         <Bar options={options} data={data}/>
     
+
     </div>
   );
 };

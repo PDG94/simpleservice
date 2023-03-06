@@ -14,7 +14,7 @@ export default function UpdateInfoUser() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
-  const userID = useSelector((state) => state.userID);
+  const userID = useSelector((state) => state.users.userID);
   // console.log(userID)
 
   const [form, setForm] = useState({

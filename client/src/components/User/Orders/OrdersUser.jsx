@@ -1,34 +1,31 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { storeOrders } from "../../../redux/actions";
+import { storeOrders } from "../../../redux/actions/ordersActions";
 import useFetchCollection from "../../CustomHooks/UseFetchCollection";
 import Loading from "../../Loading/Loading";
 import NavBarUser from "../NavBarUser/NavBarUser";
 
-export default function OrderHistory(){
+export default function OrderHistory() {
+  const userID1 = useSelector((state) => state.users.userID);
+  const orders = useSelector((state) => state.orders.orderHistory);
+  const { data, isLoading } = useFetchCollection("orders");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-const userID1 = useSelector((state) => state.userID);
-const orders = useSelector((state)=>state.orderHistory)
-const { data, isLoading } = useFetchCollection("orders");
-const dispatch = useDispatch();
-const navigate = useNavigate()
-
-
-useEffect(() => {
+  useEffect(() => {
     dispatch(storeOrders(data));
   }, [dispatch, data]);
 
   const filteredOrders = orders.filter((order) => order.userID1 === userID1);
 
+  const handleClick = (id) => {
+    navigate(`/profile/order-details/${id}`);
+  };
 
-const handleClick = (id) =>{
-navigate(`/profile/order-details/${id}`)
-}
-
-return(
+  return (
     <section>
-        <NavBarUser/>
+      <NavBarUser />
       <div>
         <h2>Your Order History</h2>
         <p>
@@ -72,9 +69,7 @@ return(
                           {orderAmount}
                         </td>
                         <td>
-                          <p>
-                            {orderStatus}
-                          </p>
+                          <p>{orderStatus}</p>
                         </td>
                       </tr>
                     );
@@ -87,4 +82,4 @@ return(
       </div>
     </section>
   );
-};
+}
