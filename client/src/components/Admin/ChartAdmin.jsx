@@ -114,15 +114,18 @@ const ChartAdmin = () => {
           December,
         ],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+      
       },
     ],
   };
 
   return (
-    <div className="border">
-      <h1 className="h1CharAdmin">Number Of Orders Per Month Chart</h1>
-      <hr className="hrAdmin" />
-      <Bar options={options} data={data} />
+    <div className='border'>
+        <h2 className="h1CharAdmin">Number Of Orders Per Month Chart</h2>
+        <hr className="hrAdmin"/>
+        <Bar options={options} data={data}/>
+    
+
     </div>
   );
 };

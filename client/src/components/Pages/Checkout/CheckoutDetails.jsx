@@ -98,23 +98,26 @@ const CheckOutForm = () => {
   };
   return (
     <div className="containerCheckDetail">
-      <form className="formCheck" onSubmit={handleSubmit}>
+      <div className="contFor">
+        <form className="formCheck" onSubmit={handleSubmit}>
         <h2 className="cardCheck">Enter your payment method</h2>
-        <div className="boxDetInp" style={{ height: 680 }}>
-          <div className="inpuCheck">
+         <div className="chSum">
+            <CheckoutSummary />
+          </div>
+        <div className="boxDetInp" style={{height:300}}>
+             <div className="inpuCheck">
+
             <CardElement className="inputCheck" />
           </div>
           <div className="btnCheck">
             <button className="btn btn-success" onClick={clearAndBack}>
               Buy
             </button>
-          </div>
-
-          <div className="chSum">
-            <CheckoutSummary />
-          </div>
+          </div> 
         </div>
       </form>
+      </div>
+      
     </div>
   );
 };
