@@ -100,8 +100,8 @@ const CheckOutForm = () => {
     <div className="containerCheckDetail">
       <form className="formCheck" onSubmit={handleSubmit}>
         <h2 className="cardCheck">Enter your payment method</h2>
-        <div className="boxDetInp" style={{height:680}}>
-             <div className="inpuCheck">
+        <div className="boxDetInp" style={{ height: 680 }}>
+          <div className="inpuCheck">
             <CardElement className="inputCheck" />
           </div>
           <div className="btnCheck">
@@ -109,8 +109,7 @@ const CheckOutForm = () => {
               Buy
             </button>
           </div>
-        
-         
+
           <div className="chSum">
             <CheckoutSummary />
           </div>
