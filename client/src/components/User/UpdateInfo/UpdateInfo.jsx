@@ -5,7 +5,7 @@ import { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "./updateInfo.css";
+import "./UpdateInfo.css";
 import { MdDescription } from "react-icons/md";
 import { NavBarUser, Footer } from "../../index.js";
 import { BsCloudArrowUp } from "react-icons/bs";

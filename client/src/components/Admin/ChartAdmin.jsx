@@ -93,16 +93,16 @@ const ChartAdmin = () => {
         label: "Order count",
         data: [January, February, March, April, May, June, July, August, September, October, November, December],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+      
       },
     ],
   };
 
   return (
     <div className='border'>
-   
-        <h1 className="h1CharAdmin">Number Of Orders Per Month Chart</h1>
+        <h2 className="h1CharAdmin">Number Of Orders Per Month Chart</h2>
         <hr className="hrAdmin"/>
-        <Bar options={options} data={data} />
+        <Bar options={options} data={data}/>
     
     </div>
   );
