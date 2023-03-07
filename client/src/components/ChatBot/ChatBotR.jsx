@@ -5,7 +5,6 @@ import { Segment } from "semantic-ui-react";
 export default function ChatBotR() {
   
   const [opened,setOpened] = useState(false);
-
   const toggleFloating =({opened})=>{
     setOpened(opened)
   }
