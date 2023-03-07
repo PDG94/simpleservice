@@ -27,7 +27,7 @@ export default function ChatBotR() {
     },
     {
       id: "Name",
-      message: "Hi {previousValue}, Please select your issue",
+      message: "Hi {previousValue}, Please select your consult",
       trigger: "Questions",
     },
     {
@@ -133,12 +133,12 @@ export default function ChatBotR() {
       options: [
         {
           value: 1,
-          label: "How can I make a payment??",
+          label: "How can I make a payment?",
           trigger: "answer7",
         },
         {
           value: 2,
-          label: "How can I view a history of my payments??",
+          label: "How can I view a history of my payments?",
           trigger: "answer8",
         },
         {
