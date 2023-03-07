@@ -23,6 +23,7 @@
   border: 1px solid #5EBFB5;
   border-radius: 10px;
   background-color: #1a1a25;
+  
 }
 .backLog:hover {
   border: 1px solid #E9EFF2;
@@ -50,8 +51,7 @@
   border-radius: 40px 0 0 40px;
   width: 28%;
   height: 710px;
-
-
+  margin-bottom: 3%;
 }
 .LogCont {
   margin-top: 2%;

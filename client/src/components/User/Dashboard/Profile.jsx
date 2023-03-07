@@ -25,14 +25,11 @@ export default function DashboardUser() {
   return (
     <div className="fondoProf">
       <NavBarUser />
-      <div className="backProf">
-        <div className="boxProfile">
-          <div className="imgBoxProfile">
-            <img
-              className="imgProfile"
-              src={profilepic}
-              alt={`${userbio}'s profile pic`}
-            />
+   
+      <div className="boxProfile">
+        
+        <div className="imgBoxProfile">
+          <img  className="imgProfile" src={profilepic} alt={`${userbio}'s profile pic`} />
           </div>
 
           <div className="dInfoPro">
@@ -79,8 +76,8 @@ export default function DashboardUser() {
           <div></div>
           <div></div>
         </div>
-      </div>
-      <Footer />
+       
+      <Footer/>
     </div>
   );
 }
