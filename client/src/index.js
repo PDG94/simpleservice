@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root")); // 'ReactDOM:
 root.render(
   // 'Actualiza el interfaz del usuario'
   <Provider store={store}>
-    <React.StrictMode>
+ 
       <App />
-    </React.StrictMode>
+  
   </Provider>
 );
 
