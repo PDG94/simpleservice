@@ -30,8 +30,23 @@ const NavBar = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
+    const calculateTotalQuantity = () => {
+      const array1 = [];
+      if (cartItems) {
+        // Agregamos un control de flujo para verificar si "cartItems" existe
+        cartItems.map((item) => {
+          const { cartQuantity } = item;
+          const quantity = cartQuantity;
+          return array1.push(quantity);
+        });
+      }
+      const totalQuantity = array1.reduce((a, b) => {
+        return a + b;
+      }, 0);
+      return totalQuantity;
+    };
     dispatch(subTotalQuant(calculateTotalQuantity()));
-  }, [dispatch, cartTotalQuantity]);
+  }, [dispatch, cartItems]);
 
   //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
   // const fixNavbar = () => {
@@ -86,31 +101,29 @@ const NavBar = () => {
     dispatch(getServices());
   };
 
-  const calculateTotalQuantity = () => {
-    const array1 = [];
-    if (cartItems) {
-      // Agregamos un control de flujo para verificar si "cartItems" existe
-      cartItems.map((item) => {
-        const { cartQuantity } = item;
-        const quantity = cartQuantity;
-        return array1.push(quantity);
-      });
-    }
-    const totalQuantity = array1.reduce((a, b) => {
-      return a + b;
-    }, 0);
-    return totalQuantity;
-  };
+  // const calculateTotalQuantity = () => {
+  //   const array1 = [];
+  //   if (cartItems) {
+  //     // Agregamos un control de flujo para verificar si "cartItems" existe
+  //     cartItems.map((item) => {
+  //       const { cartQuantity } = item;
+  //       const quantity = cartQuantity;
+  //       return array1.push(quantity);
+  //     });
+  //   }
+  //   const totalQuantity = array1.reduce((a, b) => {
+  //     return a + b;
+  //   }, 0);
+  //   return totalQuantity;
+  // };
 
   return (
     <nav className="mainNavContainer">
       <div className="btns">
-        <div className="birdy">
-          <img src={logos} alt="birdIcon" width="30" />
-        </div>
-
         <Link className="btnNav" to="/">
-          WELCOME PAGE
+          <div className="birdy">
+            <img src={logos} alt="birdIcon" width="30" />
+          </div>
         </Link>
 
         <Link className="btnNav" to="/home">
