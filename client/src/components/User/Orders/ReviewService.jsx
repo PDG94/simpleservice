@@ -16,6 +16,7 @@ export default function ReviewService() {
   const service = useSelector((state) => state.services.serviceDetail);
   const userID = useSelector((state) => state.users.userID);
   const userEmail = useSelector((state) => state.users.email);
+  const userEmail1= userEmail.slice(0,-10)
   const [rate, setRate] = useState(0);
   const [review, setReview] = useState("");
 
@@ -29,8 +30,8 @@ export default function ReviewService() {
     const date = today.toDateString();
     const reviewConfig = {
       userID,
-      userEmail,
-      serviceID: id,
+      userEmail1,
+      productID: id,
       rate,
       review,
       reviewDate: date,
