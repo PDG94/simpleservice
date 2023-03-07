@@ -1,280 +1,410 @@
 import React from "react";
-import ChatBot from "react-simple-chatbot"
-import {Segment} from "semantic-ui-react"
+import ChatBot from "react-simple-chatbot";
+import { Segment } from "semantic-ui-react";
 
-
-
-
-export default function ChatBotR(){
-     const steps = [
+export default function ChatBotR() {
+  const steps = [
+    {
+      id: "Greet",
+      message: "Hello, Welcome to Simple Service",
+      trigger: "ask Name",
+    },
+    {
+      id: "ask Name",
+      message: "Please enter your name",
+      trigger: "waiting",
+    },
+    {
+      id: "waiting",
+      user: true,
+      trigger: "Name",
+    },
+    {
+      id: "Name",
+      message: "Hi {previousValue}, Please select your issue",
+      trigger: "Questions",
+    },
+    {
+      id: "Volver a preguntar",
+      message: "You want to know something more",
+      trigger: "Questions10",
+    },
+    {
+      id: "Questions",
+      options: [
         {
+          value: 1,
+          label: "Account",
+          trigger: "Account",
+        },
+        {
+          value: 2,
+          label: "Payments",
+          trigger: "Payments",
+        },
+        {
+          value: 3,
+          label: "Reviews",
+          trigger: "Reviews",
+        },
+        {
+          value: 4,
+          label: "Refunds",
+          trigger: "Refunds",
+        },
+        {
+          value: 5,
+          label: "Services",
+          trigger: "Services",
+        },
+      ],
+    },
 
-            id: "Greet",
-      
-            message: "Hello, Welcome to Simple Service",
-      
-            trigger: "ask Name",
-      
-          },
-      
-          {
-      
-            id: "ask Name",
-      
-            message: "Please enter your name",
-      
-            trigger: "waiting",
-      
-          },
-      
-          {
-      
-            id: "waiting",
-      
-            user: true,
-      
-            trigger: "Name",
-      
-          },
-      
-          {
-      
-            id: "Name",
-      
-            message: "Hi {previousValue}, Please select your issue",
-      
-            trigger: "issues",
-      
-          },
-      
-          {
-      
-            id: "issues",
-      
-            options: [
-      
-              {
-      
-                value: "¿Cómo puedo registrarme en la aplicación?",
-      
-                label: "¿Cómo puedo registrarme en la aplicación?",
-      
-                trigger: "¿Cómo puedo registrarme en la aplicación?",
-      
-              },
-      
-              { value: "¿Cómo puedo buscar servicios en la aplicación?", label: "¿Cómo puedo buscar servicios en la aplicación?", trigger: "¿Cómo puedo buscar servicios en la aplicación?"},
-              { value: "¿Cómo puedo contratar a alguien para un servicio?", label: "¿Cómo puedo contratar a alguien para un servicio?", trigger: "¿Cómo puedo contratar a alguien para un servicio?"},
-              { value: "¿Cómo puedo crear un perfil para ofrecer mis servicios?", label: "¿Cómo puedo crear un perfil para ofrecer mis servicios?", trigger:"¿Cómo puedo crear un perfil para ofrecer mis servicios?"},
-              { value: "¿Cómo puedo buscar servicios disponibles en la plataforma?", label: "¿Cómo puedo buscar servicios disponibles en la plataforma?", trigger:"¿Cómo puedo buscar servicios disponibles en la plataforma?"},
-              { value: "¿Cómo puedo pagar por un servicio?", label: "¿Cómo puedo pagar por un servicio?", trigger:"¿Cómo puedo pagar por un servicio?"},
-              { value: "¿Cómo puedo calificar a un proveedor de servicios después de haber recibido el servicio?", label: "¿Cómo puedo calificar a un proveedor de servicios después de haber recibido el servicio?", trigger:"¿Cómo puedo calificar a un proveedor de servicios después de haber recibido el servicio?"},
-              { value: "Mas", label: "Mas", trigger:"Mas"},
-            ],
-      
-          },
-      
-          {
-      
-            id: "¿Cómo puedo registrarme en la aplicación?",
-      
-            component: (
-              <div color="red"> This is an example component </div>
-            ),
-      
-            end: true,
-      
-          },
-      
-          {
-      
-            id: "¿Cómo puedo buscar servicios en la aplicación?",
-      
-            message:
-      
-              "Puedes buscar servicios en la aplicación utilizando la barra de búsqueda en la pantalla principal. También puedes filtrar los resultados por categoría, ubicación y otros criterios.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo contratar a alguien para un servicio?",
-      
-            message:
-      
-              "Para contratar a alguien para un servicio, selecciona el perfil del proveedor de servicios que deseas contratar y sigue las instrucciones para hacer una solicitud de servicio. También puedes enviar un mensaje directamente al proveedor para obtener más información.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo crear un perfil para ofrecer mis servicios?",
-      
-            message:
-      
-              "Para crear tu perfil, simplemente haz clic en la opción `${Regístrate}` en la página de inicio y sigue las instrucciones para crear tu cuenta. ",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo buscar servicios disponibles en la plataforma?",
-      
-            message:
-      
-              "Puedes buscar servicios disponibles en la plataforma utilizando el cuadro de búsqueda en la página de inicio o navegando por las categorías en la sección de `Servicios`.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo pagar por un servicio?",
-      
-            message:
-      
-              "Puedes pagar por un servicio usando los métodos de pago disponibles en la plataforma, que pueden incluir tarjeta de crédito, transferencia bancaria o pago en efectivo. Una vez que hayas seleccionado un servicio, podrás elegir el método de pago que prefieras.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo calificar a un proveedor de servicios después de haber recibido el servicio?",
-      
-            message:
-      
-              "Para cancelar un servicio que ya has reservado, ve a la página del servicio y haz clic en `Cancelar reserva`.Ten en cuenta que es posible que se apliquen cargos por cancelación según las políticas del proveedor de servicios.",
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo calificar a un proveedor de servicios después de haber recibido el servicio?",
-      
-            message:
-      
-              "Después de haber recibido el servicio, puedes calificar al proveedor y dejar un comentario sobre tu experiencia. Para hacerlo, simplemente ve a la página del servicio y haz clic en  `Calificar y comentar`",
-            end: true,
-      
-          },
-          {
-      
-            id: "Mas",
-      
-            options: [
-      
-              {
-      
-                value: "¿Cómo puedo cancelar un servicio que ya he reservado?",
-      
-                label: "¿Cómo puedo cancelar un servicio que ya he reservado?",
-      
-                trigger: "¿Cómo puedo cancelar un servicio que ya he reservado?",
-      
-              },
-      
-              { value: "¿Cómo puedo ponerme en contacto con un proveedor de servicios antes de reservar su servicio?", label: "¿Cómo puedo ponerme en contacto con un proveedor de servicios antes de reservar su servicio?", trigger: "¿Cómo puedo ponerme en contacto con un proveedor de servicios antes de reservar su servicio?"},
-              { value: "¿Cómo puedo recibir ayuda si tengo algún problema o pregunta sobre la plataforma?", label: "¿Cómo puedo recibir ayuda si tengo algún problema o pregunta sobre la plataforma?", trigger: "¿Cómo puedo recibir ayuda si tengo algún problema o pregunta sobre la plataforma?"},
-              { value: "¿Cómo puedo verificar la reputación de un proveedor de servicios antes de reservar su servicio?", label: "¿Cómo puedo verificar la reputación de un proveedor de servicios antes de reservar su servicio?", trigger:"¿Cómo puedo verificar la reputación de un proveedor de servicios antes de reservar su servicio?"},
-              { value: "¿Cómo puedo promocionar mis servicios en la plataforma?", label: "¿Cómo puedo promocionar mis servicios en la plataforma?", trigger:"¿Cómo puedo promocionar mis servicios en la plataforma?"},
-              { value: "¿Cómo puedo obtener ayuda para crear mi perfil y establecer mis servicios en la plataforma?", label: "¿Cómo puedo obtener ayuda para crear mi perfil y establecer mis servicios en la plataforma?", trigger:"¿Cómo puedo obtener ayuda para crear mi perfil y establecer mis servicios en la plataforma?"},
-              { value: "Volver", label: "Volver", trigger:"Volver"},
-            ],
-          },
-      
-          {
-      
-            id: "¿Cómo puedo cancelar un servicio que ya he reservado?",
-      
-            message:
-      
-              "Para cancelar un servicio que ya has reservado, ve a la página del servicio y haz clic en `Cancelar reserva`. Ten en cuenta que es posible que se apliquen cargos por cancelación según las políticas del proveedor de servicios.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo ponerme en contacto con un proveedor de servicios antes de reservar su servicio?",
-      
-            message:
-      
-            "Puedes poner en contacto con un proveedor de servicios antes de reservar su servicio utilizando la función de mensajería en la plataforma. Simplemente ve a la página del servicio y haz clic en `Enviar mensaje al proveedor`.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo recibir ayuda si tengo algún problema o pregunta sobre la plataforma?",
-      
-            message:
-      
-            "Si tienes algún problema o pregunta sobre la plataforma, puedes contactar al equipo de soporte a través de la sección `Ayuda` en la página de inicio o enviando un correo electrónico a la dirección de soporte proporcionada en la página de contacto.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo verificar la reputación de un proveedor de servicios antes de reservar su servicio?",
-      
-            message:
-      
-            "Puedes verificar la reputación de un proveedor de servicios viendo su perfil, donde encontrarás información sobre su historial de servicios y las calificaciones y comentarios de otros usuarios que han reservado sus servicios.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo promocionar mis servicios en la plataforma?",
-      
-            message:
-      
-            "Para promocionar tus servicios en la plataforma, asegúrate de tener un perfil completo y atractivo con información detallada sobre tus servicios y experiencia. También puedes ofrecer promociones y descuentos para atraer a más usuarios a reservar tus servicios.",
-      
-            end: true,
-      
-          },
-          {
-      
-            id: "¿Cómo puedo obtener ayuda para crear mi perfil y establecer mis servicios en la plataforma?",
-      
-            message:
-      
-            "Si necesitas ayuda para crear tu perfil y establecer tus servicios en la plataforma, puedes contactar al equipo de soporte para obtener asistencia personalizada y orientación paso a paso.",
-      
-            end: true,
-          },
-          
-         {
-          id: "Volver",
+    {
+      id: "Account",
+      options: [
+        {
+          value: 1,
+          label: "How can I register for the app?",
+          trigger: "answer1",
+        },
+        {
+          value: 2,
+          label: "How to delete my account?",
+          trigger: "answer2",
+        },
+        {
+          value: 3,
+          label: "How can I recover my account if I forgot my password?",
+          trigger: "answer3",
+        },
+        {
+          value: 4,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+        {
+          value: 5,
+          label: "Next",
+          trigger: "Account1",
+        },
+      ],
+    },
 
-          message:
-            "Issues",
+    {
+      id: "Account1",
+      options: [
+        {
+          value: 1,
+          label: "How to change profile picture?",
+          trigger: "answer4",
+        },
+        {
+          value: 2,
+          label: "How to change username?",
+          trigger: "answer5",
+        },
+        {
+          value: 3,
+          label: "How do I change my biography?",
+          trigger: "answer6",
+        },
+        {
+          value: 4,
+          label: "Previous",
+          trigger: "Account",
+        },
+        {
+          value: 5,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+      ],
+    },
 
-          trigger: "issues",
-         }
-        ]; 
+    {
+      id: "Payments",
+      options: [
+        {
+          value: 1,
+          label: "How can I make a payment??",
+          trigger: "answer7",
+        },
+        {
+          value: 2,
+          label: "How can I view a history of my payments??",
+          trigger: "answer8",
+        },
+        {
+          value: 4,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+      ],
+    },
 
+    {
+      id: "Reviews",
+      options: [
+        {
+          value: 1,
+          label: "What is a review and what is it for?",
+          trigger: "answer9",
+        },
+        {
+          value: 2,
+          label: "Who can write reviews on Simple services?",
+          trigger: "answer10",
+        },
+        {
+          value: 4,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+      ],
+    },
 
-    return(
-       <>
- 
-<div>
- 
-  <Segment>
-  <ChatBot steps={steps}/>
+    {
+      id: "Refunds",
+      options: [
+        {
+          value: 1,
+          label: "How do refunds work in simpleservice?",
+          trigger: "answer11",
+        },
+        {
+          value: 2,
+          label: "How long does the refund take?",
+          trigger: "answer12",
+        },
+        {
+          value: 4,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+      ],
+    },
 
-  </Segment>
-</div>
-       </>
-    )
+    {
+      id: "Services",
+      options: [
+        {
+          value: 1,
+          label: "How can I search for services in the app?",
+          trigger: "answer13",
+        },
+        {
+          value: 2,
+          label: "How can I hire someone for a service?",
+          trigger: "answer14",
+        },
+        {
+          value: 4,
+          label: "Main Menu",
+          trigger: "Questions",
+        },
+      ],
+    },
+
+    {
+      id: "Questions10",
+      options: [
+        {
+          value: 1,
+          label: "Yes",
+          trigger: "Questions",
+        },
+        {
+          value: 2,
+          label: "No",
+          trigger: "end",
+        },
+      ],
+    },
+
+    {
+      id: "answer1",
+      message: `As long as you log in to SimpleService, you can access your account by clicking "Login". Enter your email and password or, if you prefer, connect with us through Google+.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer2",
+      message:
+        "If you wish to delete your account, please contact us at contacto@simpleservice.com. We'll help you delete it.Do not forget that once we delete your account, you will not be able to recover your information again, as everything will be removed from our system.",
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer3",
+      component: (
+        <div>
+          <p>
+            If you forgot your password, you can reset it by following these
+            steps:
+          </p>
+          <ul>
+            <li>
+              Go to the login page and click on the "Forgot your password?"
+              link.
+            </li>
+            <li>
+              Enter the email address associated with your account and click
+              "Submit".
+            </li>
+            <li>
+              Check your email to find a message from us with a link to reset
+              your password.
+            </li>
+            <li>
+              Click on the link and follow the instructions to create a new
+              strong password.
+            </li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer4",
+      component: (
+        <div>
+          <p>
+            If you want to change your profile picture, you can do so by
+            following these steps:
+          </p>
+          <ul>
+            <li>Go to My Profile.</li>
+            <li>Enter to update my info</li>
+            <li>Upload a new image</li>
+            <li>Click the submit button</li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer5",
+      component: (
+        <div>
+          <p>
+            If you want to change your username, you can do so by following
+            these steps:
+          </p>
+          <ul>
+            <li>Go to My Profile.</li>
+            <li>Enter to update my info</li>
+            <li>Enter a new username</li>
+            <li>Click the submit button</li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer6",
+      component: (
+        <div>
+          <p>
+            If you want to change your bio, you can do so by following these
+            steps:
+          </p>
+          <ul>
+            <li>Go to My Profile.</li>
+            <li>Enter to update my info</li>
+            <li>Enter a new Bio</li>
+            <li>Click the submit button</li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer7",
+      component: (
+        <div>
+          <p>To make a payment in our app, follow these steps:</p>
+          <ul>
+            <li>Sign in to your account.</li>
+            <li>Click on the service you want to buy.</li>
+            <li>Click add to cart</li>
+            <li>Verify your purchase and click on checkout</li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer8",
+      component: (
+        <div>
+          <p>To view payment history in our app, follow these steps:</p>
+          <ul>
+            <li>Sign in to your account.</li>
+            <li>Click on my profile.</li>
+            <li>Click on my orders</li>
+            <li>Check purchase history</li>
+          </ul>
+        </div>
+      ),
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer9",
+      message: `They are comments that our users have made about the products they have bought and the sellers of them. They are totally reliable, since each user freely expresses their shopping experience on SimpleService. Rating the service of our sellers and the quality of the products allows us to have an effective feedback. At SimpleService we invite you to read the comments that other users have written before making a purchase and, when you are the one who buys a product, help us in the same way: by writing your own review.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer10",
+      message: `You can write your own reviews if you are already registered with SimpleService and have made at least one purchase with us. Please remember that you can only post one review per product and seller.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer11",
+      message: `Once your order is cancelled, either by your own will or canceled by the provider or SimpleService due to an error in the order; A Coupon will be generated immediately, which will be sent to you via email.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer12",
+      message: `In any payment method, your refund request will be dealt with within 48 business hours.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer13",
+      message: `You can search for services in the app using the search bar on the main screen. You can also filter the results by category and other criteria.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "answer14",
+      message: `To hire someone for a service, select the profile of the service provider you wish to hire and follow the instructions to make a service request.`,
+      end: false,
+      trigger: "Volver a preguntar",
+    },
+    {
+      id: "end",
+      message: "It was a pleasure to help you",
+      end: true,
+    },
+  ];
+
+  return (
+    <>
+      <div>
+        <Segment>
+          <ChatBot steps={steps} />
+        </Segment>
+      </div>
+    </>
+  );
 }
-
-
