@@ -12,20 +12,19 @@ export default function DashboardUser() {
 
   const id = useSelector((state) => state.users.userID);
   const {
-    /* Cards, active, */ email,
+
+email,
     name,
     profilepic,
     userbio,
     username,
   } = useSelector((state) => state.users.serviceUser);
 
-  // const temp = useSelector((state) => state.users.serviceUser);
 
   useEffect(() => {
     dispatch(getServiceUser(id, token));
   }, [dispatch, id, token]);
 
-  // console.log(profilepic)
 
   return (
     <div className="fondoProf">

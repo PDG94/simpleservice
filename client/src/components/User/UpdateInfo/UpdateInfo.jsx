@@ -15,7 +15,6 @@ export default function UpdateInfoUser() {
 
   const token = localStorage.getItem("token");
   const userID = useSelector((state) => state.users.userID);
-  // console.log(userID)
 
   const [form, setForm] = useState({
     name: "",
@@ -49,7 +48,6 @@ export default function UpdateInfoUser() {
     return finalForm;
   };
 
-  // const userId = auth.currentUser.uid;
   const isObjectEmpty = (objectName) => {
     return (
       objectName &&
@@ -73,7 +71,7 @@ export default function UpdateInfoUser() {
 
     const info = await updateValidator();
 
-    /* const response = */ await axios.put(
+    await axios.put(
       `https://simpleservice-production.up.railway.app/user/${userID}`,
       info,
       {

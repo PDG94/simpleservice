@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearName, getServicesByName } from "../../redux/actions/servicesActions";
-import {resedPaged} from "../../redux/actions/miscActions"
+import {
+  clearName,
+  getServicesByName,
+} from "../../redux/actions/servicesActions";
+import { resedPaged } from "../../redux/actions/miscActions";
 import "../SearchBar/searchBar.css";
 
 export default function SearchBar() {

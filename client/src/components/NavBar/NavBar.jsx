@@ -20,7 +20,6 @@ import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 const NavBar = () => {
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState("");
-  // const [scrollPage, setScrollPage] = useState(false);
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
@@ -47,16 +46,6 @@ const NavBar = () => {
     };
     dispatch(subTotalQuant(calculateTotalQuantity()));
   }, [dispatch, cartItems]);
-
-  //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
-  // const fixNavbar = () => {
-  //   if (window.scrollY > 50) {
-  //     setScrollPage(true);
-  //   } else {
-  //     setScrollPage(false);
-  //   }
-  // };
-  // window.addEventListener("scroll", fixNavbar);
 
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
@@ -88,9 +77,10 @@ const NavBar = () => {
   function logoutUser() {
     signOut(auth)
       .then(() => {
-        // dispatch(storeSession(auth.currentUser));
         localStorage.setItem("token", "");
-        toast.success("Logout successfully.");
+        toast.success("Logout successfully.",{
+          position:'top-center'
+        })
         navigate("/home");
       })
       .catch((error) => {
@@ -100,22 +90,6 @@ const NavBar = () => {
   const handleRefresh = () => {
     dispatch(getServices());
   };
-
-  // const calculateTotalQuantity = () => {
-  //   const array1 = [];
-  //   if (cartItems) {
-  //     // Agregamos un control de flujo para verificar si "cartItems" existe
-  //     cartItems.map((item) => {
-  //       const { cartQuantity } = item;
-  //       const quantity = cartQuantity;
-  //       return array1.push(quantity);
-  //     });
-  //   }
-  //   const totalQuantity = array1.reduce((a, b) => {
-  //     return a + b;
-  //   }, 0);
-  //   return totalQuantity;
-  // };
 
   return (
     <nav className="mainNavContainer">
@@ -137,12 +111,6 @@ const NavBar = () => {
         >
           SERVICES
         </Link>
-
-        {/* <ShowOnLogin>
-          <Link className="btnNav" to="/Create">
-            CREATE SERVICE
-          </Link>
-        </ShowOnLogin> */}
 
         {path === pathSearch ? (
           <Link

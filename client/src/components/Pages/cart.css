@@ -1,7 +1,6 @@
 .containerCart {
   width: 100%;
   background-color: #c3cace;
-
 }
 .emptyCart {
   display: flex;
@@ -9,7 +8,7 @@
   align-items: center;
   justify-content: center;
 }
-.boxShop{
+.boxShop {
   margin-left: 10%;
   display: flex;
   flex-direction: column;
@@ -18,8 +17,9 @@
   background-color: #252636;
   color: #1a1a25;
   margin-top: 1%;
+  margin-bottom: -2%;
   border: 8px solid #252636;
-  border-radius: 50px;
+  border-radius: 20px 20px 0 0;
   width: 80%;
   box-shadow: 0 0 55px #303246;
 }
@@ -30,7 +30,7 @@
   font-size: 350%;
   font-weight: 700;
   font-family: system-ui;
-  color: #5EBFB5;
+  color: #5ebfb5;
   letter-spacing: 1px;
   background-color: #252636;
   width: 40%;
@@ -43,13 +43,12 @@
   font-size: 300%;
   font-weight: 700;
   font-family: system-ui;
-  color: #5EBFB5;
+  color: #5ebfb5;
   letter-spacing: 1px;
   background-color: #252636;
   width: 40%;
   padding: 1%;
   border-radius: 30px;
- 
 }
 .emptyBox {
   margin-left: 25%;
@@ -75,9 +74,9 @@
   letter-spacing: 1px;
   font-size: 150%;
 }
-.btnEmpty1{
+.btnEmpty1 {
   text-decoration: none;
-  color: #5EBFB5;
+  color: #5ebfb5;
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
@@ -90,10 +89,10 @@
 
 .btnEmpty {
   position: absolute;
-  margin-top:8%;
+  margin-top: 8%;
   margin-left: 2%;
   text-decoration: none;
-  color: #5EBFB5;
+  color: #5ebfb5;
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
@@ -105,24 +104,20 @@
 }
 .cartBox {
   width: 100%;
-  height: 100vh;
-
-  /* background: linear-gradient(
-    270deg,
-    #101010 0%,
-    rgba(255, 255, 255, 1) 50%,
-    #101010 100%
-  ); */
+margin-bottom: 5%;
 }
 .tableBoxCart {
+  background-color: #252636;
   width: 80%;
   margin-left: 10%;
 }
 .thCart {
+ background-color:#12121a;
   font-size: 180%;
   text-align: center;
 }
 .tdCart {
+   background-color: #fff;
   font-size: 130%;
 }
 .imgCart {
@@ -175,37 +170,45 @@
   font-weight: 600;
   color: red;
   background-color: white;
-  box-shadow: 0 0 2px 4px red;
+  box-shadow: 0 0 2px 4px rgb(212, 101, 101);
 }
 .pCartItems {
-  color: #1a1a25;
+  color: #c3cace;
   font-size: 150%;
   margin-top: 5%;
 }
 
 .totalContainer {
+  margin-top: -1%;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  background-color: #252636;
+  width: 80%;
+  height: 35vh;
+  border-radius: 0 0 20px 20px;
 }
 .h4Total {
-  color: rgb(69, 67, 67);
+  color: rgb(212, 101, 101);
+  margin-bottom: -2%;
   font-size: 180%;
 }
 .amount {
-  color: rgb(242, 32, 32);
-  font-size: 180%;
-  text-shadow: 0 0 10px rgb(196, 192, 192);
+  margin-top: 5%;
+  color: rgb(212, 101, 101);
+  font-size: 250%;
 }
 .binCart:hover {
   size: 35px;
   cursor: pointer;
 }
-.clearbtn{
-  margin-left: 70%;
+.clearbtn {
+  margin-left: 90%;
+  margin-top: 2%;
 }
-.totalInfo{
-position: absolute;
-margin-top: -1%;
-padding-bottom: 5%;
+.totalInfo {
+  position: absolute;
+  margin-top: -1%;
+  padding-bottom: 5%;
 }

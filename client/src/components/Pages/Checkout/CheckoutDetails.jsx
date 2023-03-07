@@ -8,12 +8,15 @@ import {
   CardElement,
   useStripe,
   useElements,
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// import { clearCart, saveUrl } from "../../../redux/actions";
+import cardis from "../../Imagenes/cards.png";
 import { emptyCart } from "../../../redux/actions/cartActions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 const stripePromise = loadStripe(
@@ -68,7 +71,7 @@ const CheckOutForm = () => {
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       // esto es para configurar el recuadro donde se pone la tarjeta de credito y los datos
       type: "card",
-      card: elements.getElement(CardElement),
+      card: elements.getElement(CardNumberElement),
     });
 
     if (!error) {
@@ -88,7 +91,7 @@ const CheckOutForm = () => {
         );
         console.log(data);
 
-        elements.getElement(CardElement).clear();
+        elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
         saveOrder();
       } catch (error) {
@@ -100,24 +103,46 @@ const CheckOutForm = () => {
     <div className="containerCheckDetail">
       <div className="contFor">
         <form className="formCheck" onSubmit={handleSubmit}>
-        <h2 className="cardCheck">Enter your payment method</h2>
-         <div className="chSum">
+          <Link
+            className="linkCheck"
+            to="/cart"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <button className="btnCheck">Go Back</button>
+          </Link>
+          <h2 className="cardCheck">Enter your payment method</h2>
+
+          <div className="chSum">
             <CheckoutSummary />
           </div>
-        <div className="boxDetInp" style={{height:300}}>
-             <div className="inpuCheck">
-
-            <CardElement className="inputCheck" />
+          <div className="boxDetInp" style={{ height: 550 }}>
+            <img src={cardis} className="cardis" />
+            <div className="Check">
+              <span>Number Card</span>
+              <div className="inputCheck">
+                <CardNumberElement />
+              </div>
+              <hr />
+              <span>Expiry</span>
+              <div className="inputExp">
+                <CardExpiryElement />
+              </div>
+              <hr />
+              <span>CVC</span>
+              <div className="inputCvc">
+                <CardCvcElement />
+              </div>
+            </div>
+            <div className="btnPay">
+              <button className="btn btn-success" onClick={clearAndBack} style={{width:'400px',height:'55px',}}>
+                Pay
+              </button>
+            </div>
           </div>
-          <div className="btnCheck">
-            <button className="btn btn-success" onClick={clearAndBack}>
-              Buy
-            </button>
-          </div> 
-        </div>
-      </form>
+        </form>
       </div>
-      
     </div>
   );
 };

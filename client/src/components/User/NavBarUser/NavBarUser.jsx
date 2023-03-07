@@ -53,8 +53,8 @@ export default function NavBarUser() {
           MY ORDERS
         </Link>
         <Link className="btnNavUser" to="/Create">
-            CREATE SERVICE
-          </Link>
+          CREATE SERVICE
+        </Link>
       </div>
       <div className="otherButton">
         <Link className="btnNavUser" to="/home">
