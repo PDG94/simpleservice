@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../Loading/Loading";
 import PaginationUsers from "./PaginationViewAllUsers";
-import { getUsers, resedPaged } from "../../../redux/actions";
+import { getUsers } from "../../../redux/actions/usersActions";
+import { resedPaged } from "../../../redux/actions/miscActions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-
 
 export default function ViewAllUsers() {
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.users);
+  const allUsers = useSelector((state) => state.users.users);
   const [isloading] = useState(false);
-
 
   useEffect(() => {
     dispatch(getUsers());
@@ -30,7 +29,6 @@ export default function ViewAllUsers() {
   const paged = (currentPage) => {
     dispatch(resedPaged(currentPage));
   };
-
 
   return (
     <>
@@ -56,7 +54,6 @@ export default function ViewAllUsers() {
                     <th className="thView">Image</th>
                     <th className="thView">Name</th>
                     <th className="thView">Email</th>
-
                   </tr>
                 </thead>
                 {currentServices.map((service, index) => {
@@ -74,7 +71,6 @@ export default function ViewAllUsers() {
                         </td>
                         <td className="tdView">{service.name}</td>
                         <td className="tdView">{service?.email}</td>
-                        
                       </tr>
                     </tbody>
                   );

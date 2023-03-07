@@ -8,7 +8,7 @@ import { Footer } from "../../index";
 import "../Edit/edit.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
-import { getServiceList } from "../../../redux/actions";
+import { getServiceList } from "../../../redux/actions/servicesActions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 export default function Create() {
@@ -16,7 +16,7 @@ export default function Create() {
   const dispatch = useDispatch();
   const { CategoryId, id } = useParams();
 
-  const serviceList = useSelector((state) => state.serviceList);
+  const serviceList = useSelector((state) => state.services.serviceList);
   const token = localStorage.getItem("token");
 
   useEffect(() => {

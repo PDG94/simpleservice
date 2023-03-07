@@ -116,6 +116,7 @@
 }
 .envelope:hover {
   color: red;
+  cursor: pointer;
 }
 .facebook {
   border-radius: 7px;
@@ -123,6 +124,7 @@
 .facebook:hover {
   color: blue;
   border-radius: 7px;
+  cursor: pointer;
 }
 .symbolsB {
   margin-left: 8px;

@@ -2,7 +2,7 @@
   background-color: #1a1a25;
   margin-top: -5%;
   width: 100%;
-  height: 325%;
+  height: 180%;
   position: absolute;
 }
 .navDash {
@@ -16,7 +16,7 @@
 }
 .hi {
   font-size: 500%;
-  margin-top: 20%;
+  margin-top: 15%;
   margin-bottom: 5%;
   margin-left: -70%;
 }
@@ -32,25 +32,13 @@
   background-color: #252636;
   margin-left: 25%;
 }
+
 .earning {
   margin-top: 50%;
 }
 
-.users {
-  position: absolute;
-
-  padding: 4%;
-  width: 25%;
-  background-color: #252636;
-  border-radius: 30px;
-  margin-left: 20%;
-  display: block;
-  columns: 2;
-  gap: 1.6rem;
-}
 .services {
   position: absolute;
-
   padding: 4%;
   width: 30%;
   background-color: #252636;
@@ -59,6 +47,7 @@
   columns: 2;
   color: aliceblue;
 }
+
 .users {
   position: absolute;
 
@@ -70,6 +59,7 @@
   columns: 2;
   color: aliceblue;
 }
+
 .porcentajes {
   margin-left: 25%;
 }
@@ -110,7 +100,7 @@
   margin-top: 20%;
   margin-left: -5%;
   position: absolute;
-  width: 60%;
+  width: 30%;
 }
 .icDash1 {
   background: #ff69b4;

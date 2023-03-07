@@ -9,14 +9,15 @@ import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { FiAlertCircle } from "react-icons/fi";
-import { getCategories, getServiceList } from "../../redux/actions";
+import { getCategories } from "../../redux/actions/miscActions";
+import { getServiceList } from "../../redux/actions/servicesActions";
 
 export default function Create() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const categories = useSelector((state) => state.categories);
-  const serviceList = useSelector((state) => state.serviceList);
+  const categories = useSelector((state) => state.misc.categories);
+  const serviceList = useSelector((state) => state.services.serviceList);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -103,10 +104,8 @@ export default function Create() {
 
         <div className="containerCreate">
           <h1 className="titleCre">Create Service</h1>
-            <FiAlertCircle size={29} className="cirB"/>
-          <span className="circleBoX">
-            {" "}Atention
-          </span>
+          <FiAlertCircle size={29} className="cirB" />
+          <span className="circleBoX"> Atention</span>
           <p className="prohPhrase">
             See{" "}
             <Link
@@ -121,7 +120,9 @@ export default function Create() {
 
           <span className="spanTitle">Select a category</span>
           <select className="selCreateUser" onChange={(e) => handleCategory(e)}>
-            <option className="opCreate" value="all">Categories</option>
+            <option className="opCreate" value="all">
+              Categories
+            </option>
             {categories?.map((elem) => (
               <option className="opCreate" key={elem.id} value={elem.id}>
                 {elem.name}
@@ -130,8 +131,13 @@ export default function Create() {
           </select>
 
           <span className="spanTitle">Select a service</span>
-          <select className="selCreateUser" onChange={(e) => handleServicesList(e)}>
-            <option className="opCreate" value="all">Services</option>
+          <select
+            className="selCreateUser"
+            onChange={(e) => handleServicesList(e)}
+          >
+            <option className="opCreate" value="all">
+              Services
+            </option>
             {serviceList?.map((elem) => (
               <option className="opCreate" key={elem.id} value={elem.name}>
                 {elem.name}
@@ -140,7 +146,7 @@ export default function Create() {
           </select>
 
           <div className="priceC">
-          <span className="spanTitle">Set a price</span>
+            <span className="spanTitle">Set a price</span>
             <label className="iconCr">
               <FiDollarSign />
             </label>
@@ -157,11 +163,11 @@ export default function Create() {
           </div>
 
           <div>
-          <span className="spanTitle">Provide a description</span>
+            <span className="spanTitle">Provide a description</span>
             <label className="iconCr">
               <MdDescription />
             </label>
-           
+
             <input
               className="inpCreateUser"
               type="text"
@@ -172,9 +178,9 @@ export default function Create() {
             />
             <p className="valid">{errors.description}</p>
           </div>
-      <button type="submit" className="subCr">
-        SUBMIT
-      </button>
+          <button type="submit" className="subCr">
+            SUBMIT
+          </button>
         </div>
       </div>
       <Footer />

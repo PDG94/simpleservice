@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "./updateInfoUsers.css";
 import { MdDescription } from "react-icons/md";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-import { getUsers } from "../../../redux/actions";
+import { getUsers } from "../../../redux/actions/usersActions";
 
 export default function UpdateProfilesUsers() {
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ export default function UpdateProfilesUsers() {
     },
   ];
 
-  const token = useSelector((state) => state.token);
-  const users = useSelector((state) => state.users);
+  const token = localStorage.getItem("token");
+  const users = useSelector((state) => state.users.users);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -199,14 +199,12 @@ export default function UpdateProfilesUsers() {
             {res?.map((elem) => (
               <option value={elem.option}>{elem.option}</option>
             ))}
-          </select> 
-         <button type="submit" className="subUpdate">
-        SUBMIT
-      </button>
-        </div> 
-        
+          </select>
+          <button type="submit" className="subUpdate">
+            SUBMIT
+          </button>
+        </div>
       </div>
-     
     </form>
   );
 }
