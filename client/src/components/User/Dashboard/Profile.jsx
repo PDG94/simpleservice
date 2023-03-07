@@ -23,7 +23,7 @@ export default function DashboardUser() {
   return (
     <div className="fondoProf">
       <NavBarUser />
-      <div className="backProf">
+   
       <div className="boxProfile">
         
         <div className="imgBoxProfile">
@@ -59,7 +59,7 @@ export default function DashboardUser() {
         
       
         </div>
-        </div>
+       
       <Footer/>
     </div>
   );
