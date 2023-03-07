@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
 import { Segment } from "semantic-ui-react";
 
 export default function ChatBotR() {
+  
+  const [opened,setOpened] = useState(false);
+
+  const toggleFloating =({opened})=>{
+    setOpened(opened)
+  }
+
   const steps = [
     {
       id: "Greet",
@@ -402,7 +409,11 @@ export default function ChatBotR() {
     <>
       <div>
         <Segment>
-          <ChatBot steps={steps} />
+          <ChatBot steps={steps}
+          floating={true}
+          opened={opened}
+          toggleFloating={toggleFloating}
+           />
         </Segment>
       </div>
     </>
