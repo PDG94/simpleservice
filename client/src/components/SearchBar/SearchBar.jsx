@@ -39,7 +39,7 @@ export default function SearchBar() {
             handleInputChange(e);
           }}
           type="text"
-          placeholder="🔍Search Service..."
+          placeholder="🔍  Search Service..."
           value={name}
           onKeyDown={(e) => handleOnKeyPress(e)}
           className="inputSearch"

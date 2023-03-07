@@ -48,7 +48,9 @@ export default function Login() {
           userLogin(token);
         });
         setIsloading(false);
-        toast.success("Login Successful...");
+        toast.success("Login Successful...",{
+          position:'top-center'
+        });
         redirectUser();
       })
       .catch((error) => {
@@ -67,7 +69,9 @@ export default function Login() {
           localStorage.setItem("token", token);
           userLogin(token);
         });
-        toast.success("Login Successfuly!");
+        toast.success("Login Successfuly!",{
+          position:'top-center'
+        });
         redirectUser();
       })
       .catch((error) => {
