@@ -28,18 +28,18 @@ export default function Detail() {
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
-  const [readMore,setReadmore]= useState(false)
+  const [readMore, setReadmore] = useState(false);
   const userEmail = useSelector((state) => state.users.email);
-  const userEmail1= userEmail.slice(0,-10)
+  const userEmail1 = userEmail && userEmail.slice(0, -10);
 
   const filterReviews = data.filter((data) => data.productID === id);
-  console.log(filterReviews);
+  // console.log(filterReviews);
 
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
-  console.log(isCartAdded);
+  // console.log(isCartAdded);
 
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
 
@@ -180,12 +180,18 @@ export default function Detail() {
                     </div>
                   </div>
                   <div className="right">
-                {service?.description || "description not available"}
-                  {readMore?service.description:`${service.description.substring(0,100)}...`}
+                    {service?.description || "description not available"}
+                    {readMore
+                      ? service.description
+                      : `${service.description.substring(0, 100)}...`}
                     <div className="description" style={{ marginTop: "5%" }}>
-                    <button onClick={()=>setReadmore(!readMore)}>{readMore ? 'show less' : 'show more'} </button>
-                    <div className="description" style={{ marginTop: "25%" }}>
-                    </div>
+                      <button onClick={() => setReadmore(!readMore)}>
+                        {readMore ? "show less" : "show more"}{" "}
+                      </button>
+                      <div
+                        className="description"
+                        style={{ marginTop: "25%" }}
+                      ></div>
                     </div>
                   </div>
                 </div>
