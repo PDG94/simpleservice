@@ -12,7 +12,7 @@ import {
 } from "../../redux/actions/cartActions";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Detail/detail.css";
 import ser from "../Imagenes/ser.png";
@@ -28,6 +28,7 @@ export default function Detail() {
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
+  const [readMore,setReadmore]= useState(false)
 
   const filterReviews = data.filter((data) => data.productID === id);
   console.log(filterReviews);
@@ -177,15 +178,13 @@ export default function Detail() {
                     </div>
                   </div>
                   <div className="right">
-                    {service.description.length > 200 ? (
-                      <div className="description" style={{ marginTop: "5%" }}>
-                        {service?.description || "description not available"}
-                      </div>
-                    ) : (
-                      <div className="description" style={{ marginTop: "25%" }}>
-                        {service?.description || "description not available"}
-                      </div>
-                    )}
+                {service?.description || "description not available"}
+                  {readMore?service.description:`${service.description.substring(0,100)}...`}
+                    <div className="description" style={{ marginTop: "5%" }}>
+                    <button onClick={()=>setReadmore(!readMore)}>{readMore ? 'show less' : 'show more'} </button>
+                    <div className="description" style={{ marginTop: "25%" }}>
+                    </div>
+                    </div>
                   </div>
                 </div>
                 <div className="cardDetailReview">

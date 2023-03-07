@@ -257,7 +257,7 @@ export default function ChatBotR(){
 
           message:
             "Issues",
-            
+
           trigger: "issues",
          }
         ]; 
@@ -267,7 +267,7 @@ export default function ChatBotR(){
        <>
  
 <div>
-  <h1>Chat</h1>
+ 
   <Segment>
   <ChatBot steps={steps}/>
 
