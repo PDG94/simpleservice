@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
 import { Segment } from "semantic-ui-react";
 
 export default function ChatBotR() {
+  
+  const [opened,setOpened] = useState(false);
+  const toggleFloating =({opened})=>{
+    setOpened(opened)
+  }
+
   const steps = [
     {
       id: "Greet",
@@ -21,7 +27,7 @@ export default function ChatBotR() {
     },
     {
       id: "Name",
-      message: "Hi {previousValue}, Please select your issue",
+      message: "Hi {previousValue}, Please select your consult",
       trigger: "Questions",
     },
     {
@@ -127,12 +133,12 @@ export default function ChatBotR() {
       options: [
         {
           value: 1,
-          label: "How can I make a payment??",
+          label: "How can I make a payment?",
           trigger: "answer7",
         },
         {
           value: 2,
-          label: "How can I view a history of my payments??",
+          label: "How can I view a history of my payments?",
           trigger: "answer8",
         },
         {
@@ -402,7 +408,11 @@ export default function ChatBotR() {
     <>
       <div>
         <Segment>
-          <ChatBot steps={steps} />
+          <ChatBot steps={steps}
+          floating={true}
+          opened={opened}
+          toggleFloating={toggleFloating}
+           />
         </Segment>
       </div>
     </>
