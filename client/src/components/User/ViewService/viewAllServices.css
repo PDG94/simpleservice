@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 1080px;
-  position: absolute;
+  /* position: absolute; */
   margin: none;
 }
 .containerViewUsers{
@@ -17,6 +17,7 @@
   background-color: #1a1a25;
   border-radius: 50px;
   box-shadow: 0 0 10px 5px white;
+  margin-bottom: 2%;
 }
 .titleViewUser{
   margin-top: 2%;

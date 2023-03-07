@@ -59,8 +59,8 @@ export default function Filter() {
   };
 
   return (
-    <div className="filter">
-      <div>
+    <div className="filterBox">
+      <div className="filter">
         <h1 className="titleFil">Filters & Sorts</h1>
 
         {/*CATEGORIAS*/}
