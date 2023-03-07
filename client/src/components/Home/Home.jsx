@@ -9,6 +9,7 @@ import ss from "../Imagenes/ss.png";
 import { NavBar, Footer } from "../index";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ChatBotR from "../ChatBot/ChatBotR";
 
 const Home = () => {
   const nam1="Drope"
@@ -131,6 +132,7 @@ const Home = () => {
               <button className="btnView">Visit our Services</button>
               
             </Link>
+            <ChatBotR/>
             </div>
           </div>
           <div className="phrase">
@@ -148,7 +150,9 @@ const Home = () => {
             </span>
           </div>
         </div>
+      
       </div>
+ 
       <Footer />
     </div>
   );
