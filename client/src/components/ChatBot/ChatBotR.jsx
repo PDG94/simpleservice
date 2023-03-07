@@ -253,14 +253,13 @@ export default function ChatBotR(){
           },
           
          {
-          
           id: "Volver",
+
           message:
-      
             "Issues",
+            
           trigger: "issues",
          }
-      
         ]; 
 
 
