@@ -24,7 +24,7 @@ export default function ViewServices() {
   }, [dispatch]);
 
   //PAGINATION
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useSelector((state) => state.misc.currentPage);
   const [servicesPerPage] = useState(5);
 
   const indexOfLastService = currentPage * servicesPerPage;
