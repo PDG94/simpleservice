@@ -2,7 +2,12 @@ const admin = require("../config/firebase-config");
 const { User } = require("../db");
 
 const bringUser = async (id) => {
-  return await User.findByPk(id);
+  return await User.findOne({
+    where: {
+      id: id,
+      isAdmin: true,
+    },
+  });
 };
 
 class Middleware {
@@ -28,6 +33,7 @@ class Middleware {
     try {
       const { user_id } = req.user;
       const userHere = await bringUser(user_id);
+      console.log(userHere);
       if (userHere === null) {
         throw new Error("Not Found");
       }
@@ -35,6 +41,7 @@ class Middleware {
       if (!userHere.isAdmin) {
         throw new Error("Not allowed");
       }
+      req.admin = userHere;
       return next();
     } catch (error) {
       res.status(400).json({ error: error.message });
