@@ -7,18 +7,10 @@
     position:fixed;
 } */
 
-/* .filterService{
-    float: left;
-    position: fixed;
-    padding-left: 10px;
-} */
+
 * {
   background: none;
 }
 .main {
   background-color: #c3cace;
 }
-/* 
-.navSearch{
-    flex-wrap: wrap;
-} */

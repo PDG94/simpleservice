@@ -45,7 +45,7 @@ export default function ViewAllServices() {
         await axios.put(
           `https://simpleservice-production.up.railway.app/user/service/${id}`,
 
-          {active: false},
+          { active: false },
 
           {
             headers: { Authorization: "Bearer " + token },
@@ -72,67 +72,73 @@ export default function ViewAllServices() {
           <button className="backCr">Back</button>
         </Link>
         <div className="containerViewUsers">
-          <br/>
-        <p className="titleViewUser">My Services</p>
-        <div className="table table-responsive table-info">
-          {length.length === 0 ? (
-            <p className="emptyProductP">No product found</p>
-          ) : (
-            <table className="tableContainer">
-              <thead>
-                <tr>
-                  <th className="thView">s/n</th>
+          <br />
+          <p className="titleViewUser">My Services</p>
+          <div className="table table-responsive table-info">
+            {length.length === 0 ? (
+              <p className="emptyProductP">No product found</p>
+            ) : (
+              <table className="tableContainer">
+                <thead>
+                  <tr>
+                    <th className="thView">s/n</th>
 
-                  <th className="thView">Service Name</th>
+                    <th className="thView">Service Name</th>
 
-                  <th className="thView">Price</th>
+                    <th className="thView">Price</th>
 
-                  <th className="thView">View More</th>
+                    <th className="thView">View More</th>
 
-                  <th className="thView">Edit Service</th>
+                    <th className="thView">Edit Service</th>
 
-                  <th className="thView">Delete Service</th>
-                </tr>
-              </thead>
+                    <th className="thView">Delete Service</th>
+                  </tr>
+                </thead>
 
-              {serviceUser.Cards?.map((service, index) => {
-                const { id } = service;
-                return (
-                  <tbody>
-                    <tr key={id} className="table-secondary">
-                      <td className="tdView">{index + 1}</td>
+                {serviceUser.Cards?.map((service, index) => {
+                  const { id } = service;
+                  return (
+                    <tbody>
+                      <tr key={id} className="table-secondary">
+                        <td className="tdView">{index + 1}</td>
 
-                      <td className="tdView">{service.servicename}</td>
+                        <td className="tdView">{service.servicename}</td>
 
-                      <td className="tdView">$ {service.price}</td>
+                        <td className="tdView">$ {service.price}</td>
 
-                      <td className="tdView">
-                        <Link to={`/profile/my-services/${id}`}>
-                          <AiOutlineEye size={30} />
-                        </Link>
-                      </td>
+                        <td className="tdView">
+                          <Link to={`/profile/my-services/${id}`}>
+                            <AiOutlineEye size={30} />
+                          </Link>
+                        </td>
 
-                      <td className="tdView">
-                        <Link className="editView">
-                          <AiFillEdit size={30} onClick={() => editarAlert(id)} />
-                        </Link>
-                      </td>
+                        <td className="tdView">
+                          <Link className="editView">
+                            <AiFillEdit
+                              size={30}
+                              onClick={() => editarAlert(id)}
+                            />
+                          </Link>
+                        </td>
 
-                      <td className="tdView">
-                        <Link>
-                          <AiFillDelete size={30} onClick={() => confirmDelete(id)} />
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </table>
-          )}
+                        <td className="tdView">
+                          <Link>
+                            <AiFillDelete
+                              size={30}
+                              onClick={() => confirmDelete(id)}
+                            />
+                          </Link>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+            )}
+          </div>
         </div>
       </div>
-      </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

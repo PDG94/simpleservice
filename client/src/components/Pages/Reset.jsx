@@ -29,12 +29,9 @@ export function Reset() {
   return (
     <div className="mainReset">
       <NavBar />
-        <Link
-                  to="/login"
-                  style={{ textDecoration: "none" }}
-                >
-                  <button className="btnResetBack">Back To Login</button>
-                </Link>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <button className="btnResetBack">Back To Login</button>
+      </Link>
       <div>
         <section className="containerReset">
           <div className="formReset">
@@ -58,9 +55,9 @@ export function Reset() {
               </button>
             </form>
           </div>
-        <div className="contImg">
-          <img src={forgot} alt="forgot" className="imgReset" />
-        </div>
+          <div className="contImg">
+            <img src={forgot} alt="forgot" className="imgReset" />
+          </div>
         </section>
       </div>
       <Footer />

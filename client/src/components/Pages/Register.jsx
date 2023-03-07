@@ -1,5 +1,5 @@
 import React, { /* useEffect, */ useState } from "react";
-import { /*useDispatch,*/  useSelector  } from "react-redux";
+import { /*useDispatch,*/ useSelector } from "react-redux";
 import { auth, uploadFile } from "../../components/Firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Loading from "../Loading/Loading";
@@ -15,18 +15,10 @@ import { BsCloudArrowUp } from "react-icons/bs";
 import axios from "axios";
 
 export default function Register() {
-  // const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  // const [password, setPassword] = useState("");
-  // const [cPassword, setcPassword] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [name, setName] = useState("");
-  // const [dateOfBirth, setDateOfBirth] = useState("");
-  // const [image, setImage] = useState(""); //parece que esto no se está usando, lo comento por ahora
   const [isLoading, setIsloading] = useState(false);
   const [file, setFile] = useState("");
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
   function registerUser(event) {
     event.preventDefault();
@@ -40,7 +32,6 @@ export default function Register() {
         const user = userCredential.user;
         const token = await user.getIdToken();
         localStorage.setItem("token", token);
-        // dispatch(storeToken(token));
 
         const userId = auth.currentUser.uid;
         const profilepic = await uploadFile(file, userId);
@@ -73,10 +64,8 @@ export default function Register() {
     filename: "",
   });
 
-  let regExpPassword =
-    /^(?=(?:.*\d))(?=.*[A-Z])(?=.*[a-z])(?=.*[.,*!?¿¡/#$%&])\S{8,64}$/;
-  let regExpEmail =
-    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  let regExpPassword = /^(?=(?:.*\d))(?=.*[A-Z])(?=.*[a-z])(?=.*[.,*!?¿¡/#$%&])\S{8,64}$/;
+  let regExpEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   let regExpName = /^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/;
   let regExpUsername = /^[a-zA-Z0-9-() .]+$/;
   let validFile = /.(?:jpg|jpeg|png|gif)/;
@@ -142,14 +131,6 @@ export default function Register() {
     });
   }
 
-  // const session = useSelector((state) => state.session)
-
-  // useEffect(() => {
-  //   if(session){
-  //     navigate("/home");
-  //   }
-  // })
-
   return (
     <div className="containerMain">
       <NavBar />
@@ -173,7 +154,6 @@ export default function Register() {
                   required
                   value={input.username}
                   name="username"
-                  // onChange={(event) => setUsername(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -188,7 +168,6 @@ export default function Register() {
                   required
                   value={input.name}
                   name="name"
-                  // onChange={(event) => setName(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -205,7 +184,6 @@ export default function Register() {
                   required
                   value={input.email}
                   name="email"
-                  // onChange={(event) => setEmail(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -219,7 +197,6 @@ export default function Register() {
                   required
                   value={input.dateOfBirth}
                   name="dateOfBirth"
-                  // onChange={(event) => setDateOfBirth(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -234,7 +211,6 @@ export default function Register() {
                   required
                   value={input.password}
                   name="password"
-                  // onChange={(event) => setPassword(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -247,7 +223,6 @@ export default function Register() {
                   required
                   value={input.cPassword}
                   name="cPassword"
-                  // onChange={(event) => setcPassword(event.target.value)}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -271,9 +246,9 @@ export default function Register() {
                 <div id="info"></div>
               </div>
             </div>
-              <button type="submit" className="submitRegister">
-                Register
-              </button>
+            <button type="submit" className="submitRegister">
+              Register
+            </button>
           </form>
         </div>
       </div>

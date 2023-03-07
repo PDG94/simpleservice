@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import {Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./UpdateServices.css";
 import { MdDescription } from "react-icons/md";
-import {NavBarUser, Footer} from "../../index.js";
+import { NavBarUser, Footer } from "../../index.js";
 import { uploadCardFile } from "../../Firebase/config";
 import { BsCloudArrowUp } from "react-icons/bs";
 
@@ -38,7 +38,7 @@ export default function UpdateServices() {
       finalForm.price = form.price;
     }
     if (!isObjectEmpty(file)) {
-      finalForm.serviceimage = await uploadCardFile(file, id)
+      finalForm.serviceimage = await uploadCardFile(file, id);
     }
 
     return finalForm;
@@ -77,17 +77,16 @@ export default function UpdateServices() {
         ...form,
         filename: e.target.files[0].name,
       });
-      
     } catch (error) {
       //this is just to clean the console when you click the upload file on accident
     }
   }
 
   return (
-    <form onSubmit={submitHandler}  className="mainBoxViewServiceUser">
+    <form onSubmit={submitHandler} className="mainBoxViewServiceUser">
       <NavBarUser />
       <div>
-         <Link to={"/profile/my-servicesdetail"}>
+        <Link to={"/profile/my-servicesdetail"}>
           <button className="backCr">Back</button>
         </Link>
         <div className="boxUpdateService">
@@ -125,21 +124,21 @@ export default function UpdateServices() {
 
           <div className="boxInpUserUp">
             <span className="spantitleUp">Add service image</span>
-            <label htmlFor="file-upService" className="subirServiceImage" >
+            <label htmlFor="file-upService" className="subirServiceImage">
               <BsCloudArrowUp className="iconCloud" />
               Upload Image
             </label>
             <input
               id="file-upService"
-              onChange={(e) => changing(e)}       //file input
-              type="file" 
+              onChange={(e) => changing(e)} //file input
+              type="file"
               style={{ display: "none" }}
             />
-              <div id="infoUpService"></div>
+            <div id="infoUpService"></div>
           </div>
-      <button type="submit" className="subUpService">
-        SUBMIT
-      </button>
+          <button type="submit" className="subUpService">
+            SUBMIT
+          </button>
         </div>
       </div>
       <Footer />

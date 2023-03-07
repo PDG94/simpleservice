@@ -15,16 +15,13 @@ const Home = () => {
   const nam1="Drope"
   const email1="p.d.g.38411422@gmail.com"
   const mail = async () => {
-    console.log("mmmmmmail", nam1, email1)
     await axios.post(
-      // "http://localhost:3001/alta",
       "https://simpleservice-production.up.railway.app/pago",
       {
         name: nam1,
         email: email1,
       }
     );
-    console.log("maillllllll")
   }
   return (
     <div className="mainhome">

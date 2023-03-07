@@ -16,18 +16,18 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions/usersActions";
+import {
+  /* storeSession, storeToken, */ userLogin,
+} from "../../redux/actions/usersActions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
   const previousURL1 = useSelector((state) => state.cart.previousURL);
   previousURL1 && console.log(previousURL1);
-  // localStorage.clear()
 
   const redirectUser = () => {
     if (previousURL1 && previousURL1.includes("cart")) {
@@ -63,7 +63,6 @@ export default function Login() {
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const user = result.user;
-        // console.log(result);
         user.getIdToken().then((token) => {
           localStorage.setItem("token", token);
           userLogin(token);
@@ -75,15 +74,6 @@ export default function Login() {
         toast.error(error.message);
       });
   }
-
-  // const session = useSelector((state) => state.session);
-  // console.log(session)
-
-  // useEffect(() => {
-  //   if (session) {
-  //     navigate("/home");
-  //   }
-  // });
 
   return (
     <div className="containerLog">

@@ -1,4 +1,4 @@
-.boxUpdateService{
+.boxUpdateService {
   margin-left: 25%;
   align-items: center;
   background-color: #1a1a25;
@@ -10,12 +10,12 @@
   box-shadow: 0 0 10px 5px white;
   margin-bottom: 2%;
 }
-.titleServiceUp{
+.titleServiceUp {
   margin-top: 45px;
   margin-bottom: 30px;
   font-size: 320%;
   font-weight: 700;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   color: #6fffe9;
   letter-spacing: 1px;
 }
@@ -29,23 +29,22 @@
   padding-right: 5px;
   border-right: 1px solid #1a1a25;
 }
-.subirServiceImage{
-   cursor: pointer;
+.subirServiceImage {
+  cursor: pointer;
   padding: 12px 10px 15px 20px;
   border-radius: 10px;
   width: 59%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   border: 1px solid #1a1a25;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   margin-bottom: 2%;
   color: #1a1a25;
   font-weight: 500;
   font-size: 110%;
   letter-spacing: 2px;
-  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3), 5px 5px 15px #1a1a25;
 }
-.subirServiceImage:hover{
+.subirServiceImage:hover {
   color: #ffff;
   background: #1a1a25;
   box-shadow: 0 0 10px 5px white;
@@ -57,9 +56,9 @@
   letter-spacing: 0.5%;
   margin-top: 0;
   margin-bottom: 4%;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
 }
-.subUpService{
+.subUpService {
   height: 50px;
   width: 150px;
   color: #ffff;
@@ -67,12 +66,12 @@
   font-weight: 600;
   font-size: 150%;
   letter-spacing: 2px;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   border-radius: 10px;
-  border: 1px solid #E9EFF2;
+  border: 1px solid #e9eff2;
   box-shadow: 0 0 5px 1px white;
 }
-.subUpService:hover{
+.subUpService:hover {
   border: 1px solid #45b5a4;
   background-color: #ffff;
   color: #1a1a25;
