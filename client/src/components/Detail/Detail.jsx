@@ -29,6 +29,8 @@ export default function Detail() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
   const [readMore,setReadmore]= useState(false)
+  const userEmail = useSelector((state) => state.users.email);
+  const userEmail1= userEmail.slice(0,-10)
 
   const filterReviews = data.filter((data) => data.productID === id);
   console.log(filterReviews);
@@ -222,7 +224,7 @@ export default function Detail() {
                                   By
                                   <b>
                                     {"  "}
-                                    {userEmail || "Unknown User"}
+                                    {userEmail1 || "Unknown User"}
                                   </b>
                                   <br />
                                 </span>
