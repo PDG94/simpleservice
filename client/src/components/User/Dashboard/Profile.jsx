@@ -12,7 +12,8 @@ export default function DashboardUser() {
 
   const id = useSelector((state) => state.users.userID);
   const {
-    email,
+
+email,
     name,
     profilepic,
     userbio,
