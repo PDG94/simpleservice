@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { MdPerson, MdMiscellaneousServices } from "react-icons/md";
 import useFetchCollection from "../../CustomHooks/UseFetchCollection";
 import { useDispatch, useSelector } from "react-redux";
+import { adminMetrics } from "../../../redux/actions/miscActions";
 import {
-  adminMetrics,
-  calculateOrdersAmount,
+  calcOrdersAmount,
   storeOrders,
-} from "../../../redux/actions";
+} from "../../../redux/actions/ordersActions";
 import { InfoBox } from "../InfoBox/InfoBox";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { HiShoppingCart } from "react-icons/hi";
@@ -20,20 +20,34 @@ import ChartAdminServices from "../ChartAdminServices";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const servicePercentage = useSelector((state) => state.servicePercentage);
-  const totalServices = useSelector((state) => state.totalServices);
-  const usersPercentage = useSelector((state) => state.usersPercentage);
-  const totalUsers = useSelector((state) => state.totalUsers);
+  const servicePercentage = useSelector(
+    (state) => state.misc.servicePercentage
+  );
+  const totalServices = useSelector((state) => state.misc.totalServices);
+  const usersPercentage = useSelector((state) => state.misc.usersPercentage);
+  const totalUsers = useSelector((state) => state.misc.totalUsers);
   const token = localStorage.getItem("token");
-  const orders = useSelector((state) => state.orderHistory);
-  const totalOrderA = useSelector((state) => state.totalOrderAmount);
+  const orders = useSelector((state) => state.orders.orderHistory);
+  const totalOrderA = useSelector((state) => state.orders.totalOrderAmount);
   const { data } = useFetchCollection("orders");
-  const allServices = useSelector((state) => state.services);
+  // const allServices = useSelector((state) => state.services.services);
+
+  const calculateOrdersAmount = () => {
+    const array = [];
+    orders.map((item) => {
+      const { orderAmount } = item;
+      return array.push(orderAmount);
+    });
+    const totalAmount = array.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalAmount;
+  };
 
   useEffect(() => {
     dispatch(adminMetrics(token));
     dispatch(storeOrders(data));
-    dispatch(calculateOrdersAmount(data));
+    dispatch(calcOrdersAmount(calculateOrdersAmount()));
   }, [dispatch, token, data]);
 
   //icons

@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import "../CheckoutSummary/checkoutSummary.css";
 
 const CheckoutSummary = () => {
-  const cartItems = useSelector((state) => state.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   console.log(cartItems);
-  const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
-  const cartTotalQuantity = useSelector((state) => state.cartTotalQuantity);
+  const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
 
   return (
     <div className="boxSumma">
@@ -30,19 +32,19 @@ const CheckoutSummary = () => {
               const { id, servicename, price, cartQuantity } = item;
               return (
                 <div key={index}>
-                  <hr/>
+                  <hr />
                   <h4>Service: "{servicename}"</h4>
                   <p>Quantity: {cartQuantity}</p>
                   <p>Unit price: ${price}</p>
                   <p>Set price: ${price * cartQuantity}</p>
-                  <hr/>
+                  <hr />
                 </div>
               );
             })}
           </div>
         )}
       </div>
-      <hr/>
+      <hr />
       <div className="subTotalSum">
         <h3> Subtotal:</h3>
         <h1>${cartTotalAmount.toFixed(2)}</h1>

@@ -2,7 +2,7 @@ import React from "react";
 import { uploadFile } from "../../Firebase/config";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./UpdateInfo.css";
@@ -14,7 +14,7 @@ export default function UpdateInfoUser() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
-  const userID = useSelector((state) => state.userID);
+  const userID = useSelector((state) => state.users.userID);
   // console.log(userID)
 
   const [form, setForm] = useState({
@@ -43,7 +43,7 @@ export default function UpdateInfoUser() {
     if (form.userbio.length > 0) {
       finalForm.userbio = form.userbio;
     }
-    if (!isObjectEmpty(file)) {
+    if (file && !isObjectEmpty(file)) {
       finalForm.profilepic = await uploadFile(file, userID);
     }
     return finalForm;
@@ -85,10 +85,10 @@ export default function UpdateInfoUser() {
   };
 
   return (
-    <div  className="upMainBox">
+    <div className="upMainBox">
       <NavBarUser />
       <form className="updateFormUser" onSubmit={submitHandler}>
-         <Link to={"/profile"}>
+        <Link to={"/profile"}>
           <button className="backCr">Back</button>
         </Link>
         <div className="containerUpUser">
@@ -125,7 +125,7 @@ export default function UpdateInfoUser() {
           </div>
 
           <div className="boxInpUserUp">
-          <span className="spantitleUp">Add a biography</span>
+            <span className="spantitleUp">Add a biography</span>
             <label className="iconUpUser">
               <MdDescription />
             </label>
@@ -151,14 +151,14 @@ export default function UpdateInfoUser() {
               type="file"
               style={{ display: "none" }}
             />
-          <div id="infoUp"></div>
+            <div id="infoUp"></div>
           </div>
-      <button type="submit" className="subUpUser">
-        SUBMIT
-      </button>
+          <button type="submit" className="subUpUser">
+            SUBMIT
+          </button>
         </div>
       </form>
-        <Footer />
+      <Footer />
     </div>
   );
 }

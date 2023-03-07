@@ -16,7 +16,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions";
+import { /* storeSession, storeToken, */ userLogin } from "../../redux/actions/usersActions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export default function Login() {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
-  const previousURL1 = useSelector((state) => state.previousURL);
+  const previousURL1 = useSelector((state) => state.cart.previousURL);
   previousURL1 && console.log(previousURL1);
   // localStorage.clear()
 

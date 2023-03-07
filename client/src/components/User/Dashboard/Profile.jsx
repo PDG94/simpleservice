@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {NavBarUser, Footer} from "../../index.js";
+import { NavBarUser, Footer } from "../../index.js";
 import "../../User/Dashboard/profile.css";
-import { getServiceUser } from "../../../redux/actions";
+import { getServiceUser } from "../../../redux/actions/usersActions";
 import ChartUsers from "./ChartUsers";
 
 export default function DashboardUser() {
@@ -10,9 +10,11 @@ export default function DashboardUser() {
 
   const token = localStorage.getItem("token");
 
-  const id = useSelector((state) => state.userID);
+  const id = useSelector((state) => state.users.userID);
   const { /* Cards, active, */ email, name, profilepic, userbio, username } =
-    useSelector((state) => state.serviceUser);
+    useSelector((state) => state.users.serviceUser);
+
+  // const temp = useSelector((state) => state.users.serviceUser);
 
   useEffect(() => {
     dispatch(getServiceUser(id, token));
@@ -24,43 +26,61 @@ export default function DashboardUser() {
     <div className="fondoProf">
       <NavBarUser />
       <div className="backProf">
-      <div className="boxProfile">
-        
-        <div className="imgBoxProfile">
-          <img  className="imgProfile" src={profilepic} alt={`${userbio}'s profile pic`} />
+        <div className="boxProfile">
+          <div className="imgBoxProfile">
+            <img
+              className="imgProfile"
+              src={profilepic}
+              alt={`${userbio}'s profile pic`}
+            />
           </div>
-       
-        
+
           <div className="dInfoPro">
-            <span className="sBoxChart"><b>My Info</b></span>
+            <span className="sBoxChart">
+              <b>My Info</b>
+            </span>
             <br />
-             <br/>
-            <p className="pProfile">Name<br/> <b>{name}</b><hr /> </p>
-            
-            <p className="pProfile">Username<br/> <b>{username} <hr/></b> </p>
-           <p className="pProfile">E-mail<br/> <b>{email}</b></p>
+            <br />
+            <p className="pProfile">
+              Name
+              <br /> <b>{name}</b>
+              <hr />{" "}
+            </p>
+
+            <p className="pProfile">
+              Username
+              <br />{" "}
+              <b>
+                {username} <hr />
+              </b>{" "}
+            </p>
+            <p className="pProfile">
+              E-mail
+              <br /> <b>{email}</b>
+            </p>
           </div>
-          
-  
+
           <div className="chartProf">
-            <span className="sBoxChart"><b>Services</b></span>
-            <br/>
-          <ChartUsers className="chBProfile" width="50px"/>
-        </div>
-          <div className="bioProfile">
-            <br/>
-            <span className="sBoxChart"><b>About Me</b></span>
+            <span className="sBoxChart">
+              <b>Services</b>
+            </span>
             <br />
-            <br/>
+            <ChartUsers className="chBProfile" width="50px" />
+          </div>
+          <div className="bioProfile">
+            <br />
+            <span className="sBoxChart">
+              <b>About Me</b>
+            </span>
+            <br />
+            <br />
             <p className="pProfileBio">{userbio}</p>
-        </div>
+          </div>
           <div></div>
           <div></div>
-        
-      
         </div>
-        </div>
-      <Footer/>
+      </div>
+      <Footer />
     </div>
   );
 }
