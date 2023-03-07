@@ -53,7 +53,7 @@ export default function Footer() {
             <a className="ia" href="https://github.com/Larva-Soup">
               <BsGithub className="i" size={45}/>
             </a>
-            <a className="ia" href="https://www.linkedin.com/">
+            <a className="ia" href="https://www.linkedin.com/in/christian-rosero-052068269">
                 <BsLinkedin className="i" size={45} /></a>
               </div>
           </div >
@@ -74,10 +74,10 @@ export default function Footer() {
             <h5 className="h5Foot">Jason Valderrama</h5>
             <p className="devFoot">Web Developer</p>
             <div className="iconsFoot">
-            <a className="ia" href="https://github.com/Edwards0307">
+            <a className="ia" href="https://github.com/Jasoonn02">
               <BsGithub className="i" size={45}/>
             </a>
-            <a className="ia" href="https://www.linkedin.com/in/edwards-alexis-ardila-martinez-042980149/">
+            <a className="ia" href="https://www.linkedin.com/in/jason-valderrama-b50587221">
                 <BsLinkedin className="i" size={45} /></a>
               </div>
           </div >

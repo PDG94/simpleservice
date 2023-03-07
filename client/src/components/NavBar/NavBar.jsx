@@ -105,12 +105,11 @@ const NavBar = () => {
   return (
     <nav className="mainNavContainer">
       <div className="btns">
+
+        <Link className="btnNav" to="/">
         <div className="birdy">
           <img src={logos} alt="birdIcon" width="30" />
         </div>
-
-        <Link className="btnNav" to="/">
-          WELCOME PAGE
         </Link>
 
         <Link className="btnNav" to="/home">
