@@ -102,8 +102,7 @@ const CheckOutForm = () => {
             items: items,
           }
         );
-
-        elements.getElement(CardNumberElement).clear();
+        // elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
         saveOrder();
       } catch (error) {
