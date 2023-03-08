@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import "../ViewService/viewServiceUser.css";
 
 export default function ViewServiceUser() {
@@ -65,7 +65,6 @@ export default function ViewServiceUser() {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -16,6 +16,7 @@ import { cleanState } from "../../redux/actions/servicesActions";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import "../Pages/cart.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -116,8 +117,11 @@ const Cart = () => {
       <NavBar />
       <div className="cartBox">
         {cartItems.length === 0 ? (
-          <div className="emptyBox">
-            <h2 className="titleCart">Shopping Cart 🛒</h2>
+          <div className="emptyBoxC">
+            <h2 className="titleCart">Shopping Cart </h2>
+            <div>
+              <FaShoppingCart size={90} className="shoppingCart2" />
+              </div>
             <div className="emptyCart">
               <p className="pEmpty">Your cart is currently empty</p>
               <br />
@@ -132,7 +136,7 @@ const Cart = () => {
           <div className="tableCart">
             <div className="table table-responsive table-dark">
               <div className="boxShop">
-                <h1 className="titleCart1">Shopping Cart 🛒</h1>
+                  <h1 className="titleCart1">Shopping Cart  <FaShoppingCart className="shoppingCart3" /></h1>
 
                 <Link className="btnEmpty" to="/services">
                   &larr; Continue shopping
@@ -168,7 +172,7 @@ const Cart = () => {
                             className="imgCart"
                           />
                         </td>
-                        <td className="tdCart">{price}</td>
+                        <td className="tdCart">$ {price}</td>
                         <td className="tdCart">
                           <div className="quantCart">
                             <button
@@ -189,7 +193,7 @@ const Cart = () => {
                           </div>
                         </td>
                         <td className="tdCart">
-                          {(price * cartQuantity).toFixed(2)}
+                          $ {(price * cartQuantity).toFixed(2)}
                         </td>
                         <td className="tdCart">
                           <FaTrashAlt
@@ -209,7 +213,7 @@ const Cart = () => {
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
-                <button className="btn btn-danger" onClick={clearCart1}>
+                <button className="btnRED btn btn-danger" onClick={clearCart1}>
                   Clear Cart
                 </button>
               </div>
@@ -221,9 +225,9 @@ const Cart = () => {
                   <h4 className="h4Total">Subtotal:</h4>
                   <h3 className="amount">{`$${cartTotalAmount.toFixed(2)}`}</h3>
                 </div>
-                <p style={{color:'#c3cace'}}>Tax an shipping calculated at checkout</p>
+                <p style={{color:'#c3cace', fontFamily: 'Merienda', letterSpacing: "1px"}}>Tax an shipping calculated at checkout</p>
                 <button
-                  className="btn btn-primary btn-block" style={{width:'500px',height:'50px'}}
+                  className="btn btn-primary btn-block" style={{width:'500px',height:'50px', fontFamily: 'Merienda', letterSpacing: "1px", fontSize: "24px"}}
                   onClick={checkout}
                 >
                   Checkout
