@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Detail/detail.css";
 import ser from "../Imagenes/ser.png";
-import { MdStar } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
@@ -28,6 +27,13 @@ export default function Detail() {
   const { data } = useFetchCollection("reviews");
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
+
+  useEffect(() => {
+    dispatch(getServiceDetail(id));
+    return () => {
+      dispatch(clearName());
+    };
+  }, [dispatch, id]);
 
   const isObjectEmpty = (objectName) => {
     return (
@@ -46,18 +52,19 @@ export default function Detail() {
 
 
   const filterReviews = data.filter((data) => data.productID === id);
+  const array =[]
+ for(let i = 0; i < filterReviews.length; i ++){
+ array.push(filterReviews[i].rate);
+}
+const promedio = array.length ? array.reduce((total, review) => total + review) / array.length : 0
+const slice3 =  promedio.toString().slice(0,3)
 
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
 
-  useEffect(() => {
-    dispatch(getServiceDetail(id));
-    return () => {
-      dispatch(clearName());
-    };
-  }, [dispatch, id]);
+
 
   const calculateTotalQuantity = () => {
     const array1 = [];
@@ -140,7 +147,13 @@ export default function Detail() {
                           </p>
                           <div className="ratingDetail">
                             <label className="iconDetail">
-                              <MdStar />
+                              <hr/>
+                            <b className="bPromedio">{slice3}</b>
+                            <br/>
+                            <StarsRating value={promedio}/>
+                            <br/>
+                            <h5>{array.length} reviews </h5>
+                            <hr/>
                             </label>{" "}
                             <p className="rat">{service?.rating}</p>
                           </div>
@@ -263,6 +276,9 @@ export default function Detail() {
                     )}
                   </div>
                 </div>
+                <div>
+                    
+                    </div>
               </div>
             );
           })
