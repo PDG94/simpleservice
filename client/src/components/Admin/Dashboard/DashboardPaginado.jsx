@@ -6,14 +6,12 @@ import "../PaginationAdmin/paginationAdmin.css";
 export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
   const currentPage = useSelector((state) => state.misc.currentPage); // 1
   const pageNumbers = orders / servicesPerPage;
-  console.log(orders);
   const dispatch = useDispatch();
 
   //Limit the page numbers shown
 
-  const [pageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+  const [maxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit] = useState(0);
 
   let pageNumber = [];
   for (let i = 1; i <= Math.ceil(orders / servicesPerPage); i++) {
@@ -57,6 +55,8 @@ export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
                 {number}
               </div>
             );
+          } else {
+            return null; // agregar una instrucción `return` con un valor predeterminado
           }
         })}
 

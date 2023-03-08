@@ -1,11 +1,8 @@
 import "../Filter/filter.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  cardsFilter,
-  getServices,
-} from "../../redux/actions/servicesActions";
-import {resedPaged, getCategories} from "../../redux/actions/miscActions"
+import { cardsFilter, getServices } from "../../redux/actions/servicesActions";
+import { resedPaged, getCategories } from "../../redux/actions/miscActions";
 
 export default function Filter() {
   const dispatch = useDispatch();

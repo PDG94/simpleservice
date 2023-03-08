@@ -1,4 +1,4 @@
-import { useEffect /* useState */ } from "react";
+import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -92,6 +92,7 @@ const Cart = () => {
     return () => {
       dispatch(cleanState()); //revisar este
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartItems, dispatch]);
 
   const checkout = () => {
@@ -103,12 +104,7 @@ const Cart = () => {
     }
   };
 
-  // const getCardIndex = (payload) => {
-  //   return cartItems.findIndex((item) => item.id === payload.id);
-  // };
-
   const increaseCart = (cart, index) => {
-    // const productIndex = getCardIndex();
     if (index >= 0) {
       dispatch(addToExinstingCart(cart, index));
     } else {
@@ -119,7 +115,6 @@ const Cart = () => {
   };
 
   const decreaseCart1 = (cart, index) => {
-    // const productIndex = getCardIndex();
     if (cartItems[index].cartQuantity > 1) {
       dispatch(reduceCartQuantity(cart, index));
     } else {
@@ -154,7 +149,7 @@ const Cart = () => {
               <br />
               <div>
                 <Link className="btnEmpty1" to="/services">
-                  &larr;{"  "} Continue shopping{"  "}
+                  &larr;Continue shopping
                 </Link>
               </div>
             </div>
@@ -201,7 +196,7 @@ const Cart = () => {
                               className="imgCart"
                             />
                           </td>
-                          <td className="tdCart">$ {price}</td>
+                          <td className="tdCart">{price}</td>
                           <td className="tdCart">
                             <div className="quantCart">
                               <button
@@ -222,7 +217,7 @@ const Cart = () => {
                             </div>
                           </td>
                           <td className="tdCart">
-                            $ {(price * cartQuantity).toFixed(2)}
+                            {(price * cartQuantity).toFixed(2)}
                           </td>
                           <td className="tdCart">
                             <FaTrashAlt
@@ -253,24 +248,12 @@ const Cart = () => {
                   <h4 className="h4Total">Subtotal:</h4>
                   <h3 className="amount">{`$${cartTotalAmount.toFixed(2)}`}</h3>
                 </div>
-                <p
-                  style={{
-                    color: "#c3cace",
-                    fontFamily: "Merienda",
-                    letterSpacing: "1px",
-                  }}
-                >
+                <p style={{ color: "#c3cace" }}>
                   Tax an shipping calculated at checkout
                 </p>
                 <button
                   className="btn btn-primary btn-block"
-                  style={{
-                    width: "500px",
-                    height: "50px",
-                    fontFamily: "Merienda",
-                    letterSpacing: "1px",
-                    fontSize: "24px",
-                  }}
+                  style={{ width: "500px", height: "50px" }}
                   onClick={checkout}
                 >
                   Checkout

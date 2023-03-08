@@ -42,18 +42,18 @@ export default function DashboardUser() {
           <p className="pProfile">
             Name
             <br /> <b>{name}</b>
+            <hr />
           </p>
-          <br/>
-          
+          <br />
 
           <p className="pProfile">
             Username
-            <br />{" "}
+            <br />
             <b>
-              {username}
-            </b>{" "}
+              {username} <hr />
+            </b>
           </p>
-          <br/>
+          <br />
           <p className="pProfile">
             E-mail
             <br /> <b>{email}</b>

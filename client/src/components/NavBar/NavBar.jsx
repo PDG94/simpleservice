@@ -83,7 +83,6 @@ const NavBar = () => {
     signOut(auth)
       .then(() => {
         localStorage.setItem("token", "");
-        // localStorage.setItem("isAdmin", JSON.stringify(false));
         toast.success("Logout successfully.", {
           position: "top-center",
         });
@@ -164,10 +163,9 @@ const NavBar = () => {
         </ShowOnLogin>
 
         <ShowOnLogin>
-          {" "}
           <Link className="btnNav" to="/cart">
             <FaShoppingCart size={30} className="shoppingCart" />
-            {"  "}
+
             {cartTotalQuantity}
           </Link>
         </ShowOnLogin>
@@ -175,7 +173,6 @@ const NavBar = () => {
         <ShowOnLogin>
           <div className="greet">
             <FaUserCircle className="circleNav" size={30} />
-            {"  "}
             Hi, {displayName}
           </div>
         </ShowOnLogin>

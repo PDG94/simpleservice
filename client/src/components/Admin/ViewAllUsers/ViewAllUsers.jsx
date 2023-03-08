@@ -47,10 +47,7 @@ export default function ViewAllUsers() {
               <table className="tableContainer">
                 <thead>
                   <tr>
-                    <th className="thView">
-                      {"  "}
-                      s/n
-                    </th>
+                    <th className="thView">s/n</th>
                     <th className="thView">Image</th>
                     <th className="thView">Name</th>
                     <th className="thView">Email</th>
