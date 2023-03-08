@@ -13,8 +13,7 @@ export default function DashboardUser() {
 
   const id = useSelector((state) => state.users.userID);
   const {
-
-email,
+    email,
     name,
     profilepic,
     userbio,
@@ -82,6 +81,7 @@ email,
             <br />
             <ChartUsers className="chBProfile" width="50px" />
           </div>
+        
           <div className="bioProfile">
             <br />
             <span className="sBoxChart">
@@ -93,11 +93,8 @@ email,
           </div>
          
           <div></div>
+          <div></div>
         </div>
-        <div></div>
-        <div></div>
-      </div>
-
       <Footer />
     </div>
   );
