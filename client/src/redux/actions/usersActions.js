@@ -4,7 +4,10 @@ import {
   removeActiveUser,
   setUsers,
   setServiceUser,
+  setAllUsers,
 } from "../slices/usersSlice";
+
+const token = localStorage.getItem("token");
 
 export const activeUsers = (payload) => (dispatch) => {
   try {
@@ -42,6 +45,20 @@ export const getServiceUser = (userId, token) => async (dispatch) => {
       }
     );
     return dispatch(setServiceUser(response.data));
+  } catch (e) {
+    console.log(e.message || e);
+  }
+};
+
+export const getAllUsers = () => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      `https://simpleservice-production.up.railway.app/admin/users`,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    return dispatch(setAllUsers(response.data));
   } catch (e) {
     console.log(e.message || e);
   }

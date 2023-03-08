@@ -59,6 +59,33 @@ const Cart = () => {
   };
 
   useEffect(() => {
+    const calculateTotalQuantity = () => {
+      const array1 = [];
+      if (cartItems) {
+        // Agregamos un control de flujo para verificar si "cartItems" existe
+        cartItems.map((item) => {
+          const { cartQuantity } = item;
+          const quantity = cartQuantity;
+          return array1.push(quantity);
+        });
+      }
+      const totalQuantity = array1.reduce((a, b) => {
+        return a + b;
+      }, 0);
+      return totalQuantity;
+    };
+    const calculateSubTotal = () => {
+      const array = [];
+      cartItems.map((item) => {
+        const { price, cartQuantity } = item;
+        const cartItemAmount = price * cartQuantity;
+        return array.push(cartItemAmount);
+      });
+      const totalAmount = array.reduce((a, b) => {
+        return a + b;
+      }, 0);
+      return totalAmount;
+    };
     dispatch(subTotalCalc(calculateSubTotal()));
     dispatch(subTotalQuant(calculateTotalQuantity()));
     dispatch(saveUrl(""));
