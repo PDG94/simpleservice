@@ -18,7 +18,7 @@ const ChartAdminServices = () => {
     <div className='border3'>
         <h2 className='h1CharService'>Number Of Services Chart</h2>
 <hr className='hrServicesAd'/>
-    <ResponsiveContainer width="100%" aspect={6}>
+    <ResponsiveContainer width="98%" aspect={6}>
         <AreaChart
             width={500}
             height={500}
