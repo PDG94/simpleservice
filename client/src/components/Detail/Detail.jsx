@@ -99,12 +99,12 @@ export default function Detail() {
             textDecoration: "none",
           }}
         >
-          <button className="btnH">Go Back</button>
+          <button className="btnH">Back</button>
         </Link>
-
         {serviceDetail.length ? (
           serviceDetail.map((service) => {
             return (
+              <div className="supremeBox">
               <div className="mainDetail">
                 <div className="boxCardDetail">
                   <div className="left">
@@ -178,21 +178,22 @@ export default function Detail() {
                     </div>
                   </div>
                   <div className="right">
-                    {service?.description || "description not available"}
+                     <div
+                        className="description"
+                        style={{ marginTop: "10%" }}
+                      >
                     {readMore
-                      ? service.description
-                      : `${service.description.substring(0, 100)}...`}
-                    <div className="description" style={{ marginTop: "5%" }}>
-                      <button onClick={() => setReadmore(!readMore)}>
+                      ? service?.description || "description not available"
+                      : `${service.description.substring(0, 450)}...`}
+                    <div className="description" style={{ marginTop: "5%" }}>         
+                      <button className="btnMoreDetail"  onClick={() => setReadmore(!readMore)}>
                         {readMore ? "show less" : "show more"}{" "}
                       </button>
-                      <div
-                        className="description"
-                        style={{ marginTop: "25%" }}
-                      ></div>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
                 <div className="cardDetailReview">
                   <div className="reviewsBox">
                     {filterReviews.length === 0 ? (
@@ -210,13 +211,17 @@ export default function Detail() {
                           const { rate, review, reviewDate, userEmail } = item;
                           return (
                             <div className="allRevBox">
+                              <div>
+                              <br/>
                               <StarsRating value={rate} />
-                              <img
+                                </div>
+                              {/* <img
                                 className="imgReviews"
                                 src={Reviews}
                                 alt="logoReview"
-                              />
-                              <div>
+                              /> */}
+                              <div className="infoReviewDetail">
+                                <br/>
                                 {" "}
                                 <p className="sReviews">{review}</p>
                                 <span className="sReviews">
@@ -237,16 +242,17 @@ export default function Detail() {
                             </div>
                           );
                         })}
+                        <br/>
                       </div>
                     )}
                   </div>
                 </div>
-              </div>
+          </div>
             );
           })
         ) : (
           <Loading />
-        )}
+          )}
       </div>
       <Footer />
     </div>
