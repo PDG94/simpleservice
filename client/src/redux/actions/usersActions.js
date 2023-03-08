@@ -75,11 +75,15 @@ export function deleteUser() {
 }
 
 export const adminCheck = (token) => async (dispatch) => {
-  const response = await axios.get(
-    "https://simpleservice-production.up.railway.app/admin/check",
-    {
-      headers: { Authorization: "Bearer " + token },
-    }
-  );
-  return dispatch(getAdmin(response.data.isAdmin));
+  try {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/admin/check",
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    return dispatch(getAdmin(response.data.isAdmin));
+  } catch (error) {
+    return null;
+  }
 };
