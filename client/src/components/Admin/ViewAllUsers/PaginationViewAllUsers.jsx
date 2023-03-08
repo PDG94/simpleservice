@@ -10,10 +10,8 @@ export default function PaginationUsers({ paged, allUsers, servicesPerPage }) {
   const dispatch = useDispatch();
 
   //Limit the page numbers shown
-
-  const [pageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+  const [maxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit] = useState(0);
 
   let pageNumber = [];
   for (let i = 1; i <= Math.ceil(allUsers / servicesPerPage); i++) {
@@ -57,6 +55,8 @@ export default function PaginationUsers({ paged, allUsers, servicesPerPage }) {
                 {number}
               </div>
             );
+          } else {
+            return null; // agregar una instrucción `return` con un valor predeterminado
           }
         })}
 

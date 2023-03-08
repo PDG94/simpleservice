@@ -95,10 +95,10 @@ export default function ViewAllServices() {
                   </tr>
                 </thead>
 
-                {serviceUser.Cards?.map((service, index) => {
-                  const { id } = service;
-                  return (
-                    <tbody>
+                <tbody>
+                  {serviceUser.Cards?.map((service, index) => {
+                    const { id } = service;
+                    return (
                       <tr key={id} className="table-secondary">
                         <td className="tdView">{index + 1}</td>
 
@@ -130,9 +130,9 @@ export default function ViewAllServices() {
                           </Link>
                         </td>
                       </tr>
-                    </tbody>
-                  );
-                })}
+                    );
+                  })}
+                </tbody>
               </table>
             )}
           </div>

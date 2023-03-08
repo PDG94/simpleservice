@@ -12,17 +12,14 @@ import axios from "axios";
 import ChatBotR from "../ChatBot/ChatBotR";
 
 const Home = () => {
-  const nam1="Drope"
-  const email1="p.d.g.38411422@gmail.com"
+  const nam1 = "Drope";
+  const email1 = "p.d.g.38411422@gmail.com";
   const mail = async () => {
-    await axios.post(
-      "https://simpleservice-production.up.railway.app/pago",
-      {
-        name: nam1,
-        email: email1,
-      }
-    );
-  }
+    await axios.post("https://simpleservice-production.up.railway.app/pago", {
+      name: nam1,
+      email: email1,
+    });
+  };
   return (
     <div className="mainhome">
       <NavBar />
@@ -122,13 +119,13 @@ const Home = () => {
         <div className="contentHome">
           <div className="logoService">
             <div>
-            <img src={ss} alt="carrito" className="imageLogo" />
+              <img src={ss} alt="carrito" className="imageLogo" />
             </div>
             <div className="btnServiceHome">
-            <Link className="servicesBtn" to="/Services">
-              <button className="btnView">Visit our Services</button>
-            </Link>
-            <ChatBotR/>
+              <Link className="servicesBtn" to="/Services">
+                <button className="btnView">Visit our Services</button>
+              </Link>
+              <ChatBotR />
             </div>
           </div>
           <div className="phrase">
@@ -141,14 +138,14 @@ const Home = () => {
                 most.
                 <br />
                 I definitely recommend it. <br />
-                Thank you Simple Service" <br /><br/> Rhonda.
+                Thank you Simple Service" <br />
+                <br /> Rhonda.
               </i>
             </span>
           </div>
         </div>
-      
       </div>
- 
+
       <Footer />
     </div>
   );

@@ -1,5 +1,4 @@
 import "../Card/card.css";
-
 export default function Card({
   name,
   image,
@@ -8,14 +7,13 @@ export default function Card({
   rating,
   serviceimage,
 }) {
-  // console.log(serviceimage);
   return (
     <div className="container">
       <div className="boxCard">
         <img src={serviceimage || image} alt="" />
         <h2 className="name">{name}</h2>
         <h4 className="serviceContainer">{service}</h4>
-        <br/>
+        <br />
       </div>
 
       <div className="card">

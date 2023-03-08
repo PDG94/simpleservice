@@ -10,7 +10,6 @@ import {
   removeCard,
   subTotalQuant,
 } from "../../redux/actions/cartActions";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -207,7 +206,7 @@ export default function Detail() {
                     ) : (
                       <div className="allReviews">
                         {filterReviews.map((item, index) => {
-                          const { rate, review, reviewDate, userEmail } = item;
+                          const { rate, review, reviewDate } = item;
                           return (
                             <div className="allRevBox">
                               <StarsRating value={rate} />
