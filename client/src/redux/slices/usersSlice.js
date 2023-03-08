@@ -30,12 +30,18 @@ const persistentServUser =
     ? JSON.parse(localStorage.getItem("serviceUser"))
     : {};
 
+const persistentAllUsers =
+  localStorage.getItem("allUsers") !== null
+    ? JSON.parse(localStorage.getItem("allUsers"))
+    : [];
+
 const initialState = {
   isLoggedIn: persistentLogin,
   email: persistentEmail,
   useName: persistentUseName,
   userID: persistentId,
   users: persistentUsers,
+  allUsers: persistentAllUsers,
   serviceUser: persistentServUser,
 };
 
@@ -76,6 +82,10 @@ export const userSlice = createSlice({
       state.serviceUser = action.payload;
       localStorage.setItem("serviceUser", JSON.stringify(state.serviceUser));
     },
+    setAllUsers: (state, action) => {
+      state.allUsers = action.payload;
+      localStorage.setItem("allUsers", JSON.stringify(state.allUsers));
+    },
   },
 });
 
@@ -84,6 +94,7 @@ export const {
   removeActiveUser,
   setUsers,
   setServiceUser,
+  setAllUsers,
 } = userSlice.actions;
 
 export default userSlice.reducer;

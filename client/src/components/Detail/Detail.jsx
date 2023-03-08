@@ -10,7 +10,6 @@ import {
   removeCard,
   subTotalQuant,
 } from "../../redux/actions/cartActions";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -21,16 +20,16 @@ import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
 import StarsRating from "react-star-rate";
-import Reviews from "../Imagenes/Reviews.png";
+
 
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
+  const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
-  const userEmail = useSelector((state) => state.users.email);
-  const userEmail1 = userEmail && userEmail.slice(0, -10);
+  const numeroDePalabras = serviceDetail[0].description.split(" ").length;
 
   const filterReviews = data.filter((data) => data.productID === id);
 
@@ -39,7 +38,6 @@ export default function Detail() {
     return cart.id === id;
   });
 
-  const serviceDetail = useSelector((state) => state.services.serviceDetail);
 
   useEffect(() => {
     dispatch(getServiceDetail(id));
@@ -99,97 +97,102 @@ export default function Detail() {
             textDecoration: "none",
           }}
         >
-          <button className="btnH">Go Back</button>
+          <button className="btnH">Back</button>
         </Link>
-
         {serviceDetail.length ? (
           serviceDetail.map((service) => {
             return (
-              <div className="mainDetail">
-                <div className="boxCardDetail">
-                  <div className="left">
-                    <div className="infoDetail" key={service.id}>
-                      <h1 className="nameDetail">
-                        {service?.Users.map((element) => element.name) ||
-                          "name not found"}
-                      </h1>
-                      <div className="imgBoxDet">
-                        <img
-                          className="imgDet"
-                          src={service?.Users.map(
-                            (element) => element.profilepic
-                          )}
-                          alt=""
-                        />
-                      </div>
-                      <div className="moreDetail">
-                        <p className="serviceDetail">
-                          <img className="imgDetail" src={ser} alt="" />
-                          {service?.servicename}
-                        </p>
-                        <div className="ratingDetail">
-                          <label className="iconDetail">
-                            <MdStar />
-                          </label>{" "}
-                          <p className="rat">{service?.rating}</p>
+              <div className="supremeBox">
+                <div className="mainDetail">
+                  <div className="boxCardDetail">
+                    <div className="left">
+                      <div className="infoDetail" key={service.id}>
+                        <h1 className="nameDetail">
+                          {service?.Users.map((element) => element.name) ||
+                            "name not found"}
+                        </h1>
+                        <div className="imgBoxDet">
+                          <img
+                            className="imgDet"
+                            src={service?.Users.map(
+                              (element) => element.profilepic
+                            )}
+                            alt=""
+                          />
                         </div>
-                        <p className="priceDetail">
-                          {" "}
-                          Price
-                          <label className="iconDetail">
-                            {"   "}
-                            <FiDollarSign />
-                          </label>
-                          {service?.price}
-                        </p>
+                        <div className="moreDetail">
+                          <p className="serviceDetail">
+                            <img className="imgDetail" src={ser} alt="" />
+                            {service?.servicename}
+                          </p>
+                          <div className="ratingDetail">
+                            <label className="iconDetail">
+                              <MdStar />
+                            </label>{" "}
+                            <p className="rat">{service?.rating}</p>
+                          </div>
+                          <p className="priceDetail">
+                            {" "}
+                            Price
+                            <label className="iconDetail">
+                              {"   "}
+                              <FiDollarSign />
+                            </label>
+                            {service?.price}
+                          </p>
 
-                        <ShowOnLogin>
-                          <div className="addBox">
-                            {isCartAdded < 0 ? null : (
-                              <div className="cantBox">
+                          <ShowOnLogin>
+                            <div className="addBox">
+                              {isCartAdded < 0 ? null : (
+                                <div className="cantBox">
+                                  <button
+                                    className="--btn"
+                                    onClick={() => decreaseCart1(service)}
+                                  >
+                                    -
+                                  </button>
+                                  <p className="pqDet">
+                                    <b>{cart.cartQuantity}</b>
+                                  </p>
+                                  <button
+                                    className="--btnplus"
+                                    onClick={() => addToCart1(service)}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              )}
+                              <div className="pBox">
                                 <button
-                                  className="--btn"
-                                  onClick={() => decreaseCart1(service)}
-                                >
-                                  -
-                                </button>
-                                <p className="pqDet">
-                                  <b>{cart.cartQuantity}</b>
-                                </p>
-                                <button
-                                  className="--btnplus"
+                                  className="btnAdd"
                                   onClick={() => addToCart1(service)}
                                 >
-                                  +
+                                  ADD TO CART
                                 </button>
                               </div>
-                            )}
-                            <div className="pBox">
-                              <button
-                                className="btnAdd"
-                                onClick={() => addToCart1(service)}
-                              >
-                                ADD TO CART
-                              </button>
                             </div>
-                          </div>
-                        </ShowOnLogin>
+                          </ShowOnLogin>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div className="right">
-                    {service?.description || "description not available"}
-                    {readMore
-                      ? service.description
-                      : `${service.description.substring(0, 100)}...`}
-                    <div className="description" style={{ marginTop: "5%" }}>
-                      <button onClick={() => setReadmore(!readMore)}>
-                        {readMore ? "show less" : "show more"}{" "}
-                      </button>
-                      <div
+                     <div
                         className="description"
-                        style={{ marginTop: "25%" }}
-                      ></div>
+                        style={{ marginTop: "10%" }}
+                      >
+                    {numeroDePalabras < 100
+                    ? service?.description || "description not available"
+                    : readMore
+                    ? service?.description || "description not available"
+                    : `${service.description.substring(0, 450)}...`}
+                   {numeroDePalabras >= 100 &&
+        <div className="description" style={{ marginTop: "5%" }}>
+          <button className="btnMoreDetail" onClick={() => setReadmore(!readMore)}>
+            {readMore ? "show less" : "show more"}
+          </button>
+                      </div>
+          }
                     </div>
                   </div>
                 </div>
@@ -207,18 +210,20 @@ export default function Detail() {
                     ) : (
                       <div className="allReviews">
                         {filterReviews.map((item, index) => {
-                          const { rate, review, reviewDate, userEmail } = item;
+                          const { rate, review, reviewDate, userEmail1 } = item;
                           return (
                             <div className="allRevBox">
-                              <StarsRating value={rate} />
-                              <img
+                              <div>
+                                <br />
+                                <StarsRating value={rate} />
+                              </div>
+                              {/* <img
                                 className="imgReviews"
                                 src={Reviews}
                                 alt="logoReview"
-                              />
-                              <div>
-                                {" "}
-                                <p className="sReviews">{review}</p>
+                              /> */}
+                              <div className="infoReviewDetail">
+                                <br /> <p className="sReviews">{review}</p>
                                 <span className="sReviews">
                                   <b>{reviewDate}</b>
                                 </span>
@@ -237,6 +242,7 @@ export default function Detail() {
                             </div>
                           );
                         })}
+                        <br />
                       </div>
                     )}
                   </div>

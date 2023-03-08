@@ -36,10 +36,6 @@ export const options = {
 
 const ChartAdmin = () => {
   const orders = useSelector((state) => state.orders.orderHistory);
-  const ordeers1 = useSelector(
-    (state) => state.orders.totalOrderPerMonthAmount
-  );
-  console.log(ordeers1);
 
   // Create a new array of order status
   const array = [];
@@ -114,18 +110,15 @@ const ChartAdmin = () => {
           December,
         ],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-      
       },
     ],
   };
 
   return (
-    <div className='border'>
-        <h2 className="h1CharAdmin">Number Of Orders Per Month Chart</h2>
-        <hr className="hrAdmin"/>
-        <Bar options={options} data={data}/>
-    
-
+    <div className="border">
+      <h2 className="h1CharAdmin">Number Of Orders Per Month Chart</h2>
+      <hr className="hrAdmin" />
+      <Bar options={options} data={data} />
     </div>
   );
 };

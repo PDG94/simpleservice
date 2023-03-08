@@ -8,6 +8,7 @@ import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 import { toast } from "react-toastify";
 import { getServiceDetail } from "../../../redux/actions/servicesActions";
+import { NavBarUser } from "../../index.js";
 
 export default function ReviewService() {
   const { id } = useParams();
@@ -48,16 +49,21 @@ export default function ReviewService() {
   };
 
   return (
-    <section>
+    <div className="bgOrders">
+      <NavBarUser />
       <div className={""}>
-        <h2>Review Products</h2>
+         <Link to={`/profile/orders`}>
+              <button>Back</button>
+        </Link>
+        <div className="MainBoxUserOrder">
+        <br/>
+          <h2 className="h2OrderUser">Review Products</h2>
+          <br />
         {service === null ? (
           <Loading />
         ) : (
-          <>
-            <Link to={`/profile/orders`}>
-              <button>Back</button>
-            </Link>
+              <div className="boxReviewSerOr" style={{
+                width: "70%", backgroundColor: "black"}}>
             <p>
               <b>Product name:</b> {service.servicename}
             </p>
@@ -66,7 +72,7 @@ export default function ReviewService() {
               alt={service.name}
               style={{ width: "200px" }}
             />
-          </>
+          </div>
         )}
         <form onSubmit={(e) => submitReview(e)}>
           <label>Rating:</label>
@@ -88,7 +94,8 @@ export default function ReviewService() {
             Submit Review
           </button>
         </form>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

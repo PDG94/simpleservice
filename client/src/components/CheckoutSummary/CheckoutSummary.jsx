@@ -28,7 +28,7 @@ const CheckoutSummary = () => {
               <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
             </p>
             {cartItems.map((item, index) => {
-              const { id, servicename, price, cartQuantity } = item;
+              const { servicename, price, cartQuantity } = item;
               return (
                 <div key={index}>
                   <hr />

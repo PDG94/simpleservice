@@ -58,8 +58,6 @@ export default function ViewServices() {
       {
         width: "320px",
         borderRadius: "8px",
-        // textDecoration : "none",
-        // titleColor: "orangered"
       }
     );
   };
@@ -79,8 +77,6 @@ export default function ViewServices() {
       {
         width: "320px",
         borderRadius: "8px",
-        // textDecoration : "none",
-        // titleColor: "orangered"
       }
     );
   };
