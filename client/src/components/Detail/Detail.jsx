@@ -29,10 +29,7 @@ export default function Detail() {
   const { data } = useFetchCollection("reviews");
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
-
   const numeroDePalabras = serviceDetail[0].description.split(" ").length;
-
-
 
   const filterReviews = data.filter((data) => data.productID === id);
 
@@ -40,7 +37,6 @@ export default function Detail() {
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
-
 
 
   useEffect(() => {
@@ -179,7 +175,6 @@ export default function Detail() {
                         </div>
                       </div>
                     </div>
-
                   </div>
                   <div className="right">
                      <div
@@ -196,24 +191,6 @@ export default function Detail() {
           <button className="btnMoreDetail" onClick={() => setReadmore(!readMore)}>
             {readMore ? "show less" : "show more"}
           </button>
-
-                    <div className="right">
-                      <div className="description" style={{ marginTop: "10%" }}>
-                        {readMore
-                          ? service?.description || "description not available"
-                          : `${service.description.substring(0, 450)}...`}
-                        <div
-                          className="description"
-                          style={{ marginTop: "5%" }}
-                        >
-                          <button
-                            className="btnMoreDetail"
-                            onClick={() => setReadmore(!readMore)}
-                          >
-                            {readMore ? "show less" : "show more"}{" "}
-                          </button>
-                        </div>
-
                       </div>
           }
                     </div>
