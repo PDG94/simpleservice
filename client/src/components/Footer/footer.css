@@ -2,10 +2,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #1a1a25;
+    background: #111;
     height: auto;
     width: 100%;
-    /* margin-top: 2%; */
     padding-top: 40px;
     color: #fff;
 }
@@ -18,7 +17,7 @@
 }
 
 .h1footer {
-   font-size: 2.1rem;
+    font-size: 2.1rem;
     font-weight: 500;
     text-transform: capitalize;
     line-height: 3rem;
@@ -39,7 +38,7 @@
     margin-top: 1rem;
     margin-bottom: 3rem;
 }
-.socials a{
+.ia{
     text-decoration: none;
     color: #fff;
     padding: 10px;
@@ -49,7 +48,7 @@
     transition: color .4s ease;
 }
 .ia .i:hover {
-    color: #5EBFB5;
+    color: aqua;
 }
 .boxFooter{
   display: flex;
@@ -70,7 +69,7 @@
   letter-spacing: 2px;
 }
 .footer-bottom{
-    background: #2d2d41;
+    background: #000;;
     width: 100%;
     padding: 20px;
     padding-bottom: 20px;
@@ -89,7 +88,6 @@
   font-size: 18px;
   text-decoration: none;
   letter-spacing: 1px;
- 
 }
 .footer-menu{
   float: right;
@@ -100,8 +98,8 @@
 }
 
 .f-menuli{
-padding-right: 20px;
-display: block;
+  padding-right: 20px;
+  display: block;
 }
 
 .aFooterBottom{

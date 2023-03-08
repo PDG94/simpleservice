@@ -21,77 +21,74 @@ export default function DashboardUser() {
   }, [dispatch, id, token]);
 
   return (
-    <div>
-      <div className="fondoProf">
-        <NavBarUser />
+    <div className="fondoProf">
+      <NavBarUser />
 
-        <div className="boxProfile">
-          <div className="imgBoxProfile">
-            <img
-              className="imgProfile"
-              src={profilepic}
-              alt={`${userbio}'s profile pic`}
-            />
-          </div>
-
-          <div className="dInfoPro">
-            <span className="sBoxChart">
-              <b>My Info</b>
-            </span>
-            <br />
-            <br />
-            <p className="pProfile">
-              Name
-              <br /> <b>{name}</b>
-              <hr />{" "}
-            </p>
-
-            <p className="pProfile">
-              Username
-              <br />{" "}
-              <b>
-                {username} <hr />
-              </b>{" "}
-            </p>
-            <p className="pProfile">
-              E-mail
-              <br /> <b>{email}</b>
-            </p>
-          </div>
-
-          <div className="chartWaves">
-            <br />
-            <span className="sBoxChartWaves">
-              <b>Number of Services</b>
-            </span>
-            <br />
-            <ChartUserOther className="chartWavessize" width="70px" />
-          </div>
-
-          <div className="chartProf">
-            <br />
-            <span className="sBoxChart">
-              <b>Services</b>
-            </span>
-            <br />
-            <ChartUsers className="chBProfile" width="50px" />
-          </div>
-          <div className="bioProfile">
-            <br />
-            <span className="sBoxChart">
-              <b>About Me</b>
-            </span>
-            <br />
-            <br />
-            <p className="pProfileBio">{userbio}</p>
-          </div>
-
-          <div></div>
+      <div className="boxProfile">
+        <div className="imgBoxProfile">
+          <img
+            className="imgProfile"
+            src={profilepic}
+            alt={`${userbio}'s profile pic`}
+          />
         </div>
+
+        <div className="dInfoPro">
+          <span className="sBoxChart">
+            <b>My Info</b>
+          </span>
+          <br />
+          <br />
+          <p className="pProfile">
+            Name
+            <br /> <b>{name}</b>
+            <hr />{" "}
+          </p>
+
+          <p className="pProfile">
+            Username
+            <br />{" "}
+            <b>
+              {username} <hr />
+            </b>{" "}
+          </p>
+          <p className="pProfile">
+            E-mail
+            <br /> <b>{email}</b>
+          </p>
+        </div>
+
+        <div className="chartWaves">
+          <br />
+          <span className="sBoxChartWaves">
+            <b>Number of Services</b>
+          </span>
+          <br />
+          <ChartUserOther className="chartWavessize" width="70px" />
+        </div>
+
+        <div className="chartProf">
+          <br />
+          <span className="sBoxChart">
+            <b>Services</b>
+          </span>
+          <br />
+          <ChartUsers className="chBProfile" width="50px" />
+        </div>
+
+        <div className="bioProfile">
+          <br />
+          <span className="sBoxChart">
+            <b>About Me</b>
+          </span>
+          <br />
+          <br />
+          <p className="pProfileBio">{userbio}</p>
+        </div>
+
         <div></div>
         <div></div>
       </div>
-
       <Footer />
     </div>
   );
