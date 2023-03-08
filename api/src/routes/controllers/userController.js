@@ -13,13 +13,7 @@ const getUserInfo = async (id) => {
   return response;
 };
 
-const updateUserInfo = async ({
-  name,
-  username,
-  userbio,
-  profilepic,
-  user_id,
-}) => {
+const updateUserInfo = async ({ name, username, userbio, profilepic, id }) => {
   await User.update(
     {
       name,
@@ -29,7 +23,7 @@ const updateUserInfo = async ({
     },
     {
       where: {
-        id: user_id,
+        id: id,
       },
     }
   );
