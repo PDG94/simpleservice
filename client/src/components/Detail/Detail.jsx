@@ -28,11 +28,9 @@ export default function Detail() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
   const [readMore, setReadmore] = useState(false);
-  const userEmail = useSelector((state) => state.users.email);
-  const userEmail1 = userEmail && userEmail.slice(0, -10);
-
+  
   const filterReviews = data.filter((data) => data.productID === id);
-
+  
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
@@ -207,7 +205,11 @@ export default function Detail() {
                     ) : (
                       <div className="allReviews">
                         {filterReviews.map((item, index) => {
+
+                          const { rate, review, reviewDate, userEmail1 } = item;
+
                           const { rate, review, reviewDate } = item;
+
                           return (
                             <div className="allRevBox">
                               <div>
