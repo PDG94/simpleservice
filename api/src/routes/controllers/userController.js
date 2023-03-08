@@ -1,18 +1,16 @@
 const { User, Card } = require("../../db");
 
 const getUserInfo = async ({ id }) => {
-  return await User.findOne({
+  const response = await User.findOne({
     where: {
       id: id,
       active: true,
     },
     include: {
       model: Card,
-      where: {
-        active: true,
-      },
     },
   });
+  return response;
 };
 
 const updateUserInfo = async ({ id, name, username, userbio, profilepic }) => {

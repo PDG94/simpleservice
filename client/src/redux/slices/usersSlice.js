@@ -37,7 +37,6 @@ const initialState = {
   userID: persistentId,
   users: persistentUsers,
   serviceUser: persistentServUser,
-  isAdmin: false,
 };
 
 export const userSlice = createSlice({
@@ -77,9 +76,6 @@ export const userSlice = createSlice({
       state.serviceUser = action.payload;
       localStorage.setItem("serviceUser", JSON.stringify(state.serviceUser));
     },
-    getAdmin: (state, action) => {
-      state.isAdmin = action.payload;
-    },
   },
 });
 
@@ -88,7 +84,6 @@ export const {
   removeActiveUser,
   setUsers,
   setServiceUser,
-  getAdmin,
 } = userSlice.actions;
 
 export default userSlice.reducer;
