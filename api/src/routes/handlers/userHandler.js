@@ -21,7 +21,7 @@ const getUserHandler = async (req, res) => {
 const updateUserHandler = async (req, res) => {
   try {
     const { user_id } = req.user;
-    const params = { ...req.body, user_id };
+    const params = { ...req.body, id: user_id };
     const userUpdated = await updateUserInfo(params);
     res.status(200).json({
       message: "User updated succesfully",
