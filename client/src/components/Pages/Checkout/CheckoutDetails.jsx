@@ -32,6 +32,7 @@ const CheckOutForm = () => {
   const cartItems1 = useSelector((state) => state.cart.cartItems);
   const userID1 = useSelector((state) => state.users.userID);
   const customerEmail = useSelector((state) => state.users.email);
+  const customerName = useSelector((state) => state.users.useName);
 
   const clearCart1 = () => {
     dispatch(emptyCart());
@@ -88,6 +89,18 @@ const CheckOutForm = () => {
             items: cartItems1,
           }
         );
+        
+        const items = cartItems1.map(element =>element.servicename)
+                
+        await axios.post(
+          "https://simpleservice-production.up.railway.app/pago",
+          {
+            name: customerName,
+            email: customerEmail,
+            amount: (totalPayment)/100,
+            items: items,
+          }
+        );
 
         elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
@@ -101,6 +114,7 @@ const CheckOutForm = () => {
     <div className="containerCheckDetail">
       <div className="contFor">
         <form className="formCheck" onSubmit={handleSubmit}>
+        
           <Link
             className="linkCheck"
             to="/cart"
@@ -110,6 +124,7 @@ const CheckOutForm = () => {
           >
             <button className="btnCheck">Go Back</button>
           </Link>
+          
           <h2 className="cardCheck">Enter your payment method</h2>
 
           <div className="chSum">
@@ -140,7 +155,7 @@ const CheckOutForm = () => {
                 style={{ width: "400px", height: "55px" }}
               >
                 Pay
-              </button>
+              </button>              
             </div>
           </div>
         </form>
