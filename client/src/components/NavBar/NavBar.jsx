@@ -7,7 +7,11 @@ import logos from "../Imagenes/logos.ico";
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { activeUsers, removeUsers } from "../../redux/actions/usersActions";
+import {
+  activeUsers,
+  removeUsers,
+  getServiceUser,
+} from "../../redux/actions/usersActions";
 import { getServices } from "../../redux/actions/servicesActions";
 import { subTotalQuant } from "../../redux/actions/cartActions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
@@ -27,6 +31,7 @@ const NavBar = () => {
     (state) => state.cart.cartTotalQuantity
   );
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const calculateTotalQuantity = () => {
@@ -46,7 +51,6 @@ const NavBar = () => {
     };
     dispatch(subTotalQuant(calculateTotalQuantity()));
   }, [dispatch, cartItems]);
-
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -67,12 +71,13 @@ const NavBar = () => {
             isRegistered: true,
           })
         );
+        dispatch(getServiceUser(user.uid, token));
       } else {
         setDisplayName("");
         dispatch(removeUsers());
       }
     });
-  }, [dispatch, displayName]);
+  }, [dispatch, displayName, token]);
 
   function logoutUser() {
     signOut(auth)
