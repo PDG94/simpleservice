@@ -83,6 +83,26 @@
   letter-spacing: 3px;
   margin-top: 1.5%;
 }
+.sBoxChart{
+  font-family: 'Merienda', cursive;
+  font-size: 150%;
+  color: #6fffe9;
+  letter-spacing: 3px;
+}
+.chartProf {
+ backdrop-filter: blur(10px);
+  background-color: #1a1a25;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 15%;
+  height: 40vh;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 1px white;
+}
 .imgProfile{
   border-radius: 50%;
 }
