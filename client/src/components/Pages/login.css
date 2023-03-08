@@ -8,50 +8,47 @@
   display: flex;
   flex-direction: column;
   height: 7%;
-  font-size: 140%;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
   width: 10%;
-  color: #5EBFB5;
+  color: #5ebfb5;
   letter-spacing: 3px;
-  border: 1px solid #5EBFB5;
+  border: 1px solid #5ebfb5;
   border-radius: 10px;
   background-color: #1a1a25;
 }
 .backLog:hover {
-  border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
+  border: 1px solid #e9eff2;
+  background-color: #5ebfb5;
   color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  box-shadow: 0 0 2px 2px #e9eff2;
 }
 .imgLog {
   border-radius: 0 50px 50px 0;
   background-color: #252636;
   width: 32%;
   height: 710px;
-
 }
 .imageLog {
   margin-top: 11vh;
   margin-left: 0;
   width: 100%;
-
 }
 .formLog {
   background-color: #252636;
   color: #1a1a25;
- border: 2px solid #252636;
+  border: 2px solid #252636;
   border-radius: 40px 0 0 40px;
   width: 28%;
   height: 710px;
-
-
+  margin-bottom: 3%;
 }
 .LogCont {
   margin-top: 2%;
@@ -63,16 +60,17 @@
 .Log {
   display: grid;
   margin: 20px 120px;
+  font-family: "Merienda", cursive;
   padding: 5%;
 }
 .titleLogin {
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   margin-left: -25px;
-  font-size: 300%;
+  font-size: 340%;
   margin-top: 90px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: #5EBFB5;
+  color: #5ebfb5;
 }
 .iconLog {
   margin-right: 40px;
@@ -83,37 +81,39 @@
   justify-content: center;
 }
 .forgot {
-  font-size: 2.5vh;
+  font-size: 120%;
   width: 150%;
   font-weight: 500;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   margin-top: 5px;
   margin-bottom: 0 !important;
   letter-spacing: 1.5px;
-  color: #E9EFF2;
+  color: #e9eff2;
+  text-shadow: 0 0 8px white;
 }
 .forgot:hover {
   text-shadow: 0 2px 15px #1a1a25;
-  color: #E9EFF2;
+  color: #e9eff2;
 }
 .account {
-  font-size: 150%;
+  font-size: 120%;
   margin-top: 5px;
   margin-left: -10px;
   margin-bottom: 0 !important;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   letter-spacing: 1.5px;
-  color: #E9EFF2;
+  color: #e9eff2;
   font-weight: 500;
 }
 .symbolsA {
   margin-left: -35px;
-  color: #5EBFB5;
+  color: #5ebfb5;
   font-size: 270%;
   margin-top: 0;
 }
 .envelope:hover {
   color: red;
+  cursor: pointer;
 }
 .facebook {
   border-radius: 7px;
@@ -121,43 +121,44 @@
 .facebook:hover {
   color: blue;
   border-radius: 7px;
+  cursor: pointer;
 }
 .symbolsB {
   margin-left: 8px;
-  color: #5EBFB5;
+  color: #5ebfb5;
   font-size: 240%;
   margin-top: 0;
 }
 
 .continue {
-  margin-left: 25%;
+  margin-left: 23%;
   margin-top: 10%;
   margin-bottom: 10%;
   height: 60%;
   width: 140px;
-  color: #5EBFB5;
+  color: #5ebfb5;
   border: 1px solid #1a1a25;
-  font-size: 150%;
+  font-size: 130%;
   font-weight: 700;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   letter-spacing: 2px;
   border-radius: 10px;
   background-color: #1a1a25;
 }
 .continue:hover {
-  border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
-  color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  border: 1px solid #e9eff2;
+  background-color: #1a1a25;
+  color: #e9eff2;
+  box-shadow: 0 0 25px #5ebfb5;
 }
 .RegLog {
   margin-top: 7%;
   height: 35%;
   width: 90%;
   font-weight: 700;
-  font-family: asusLight;
-  font-size: 150%;
-  color: #5EBFB5;
+  font-family: "Merienda", cursive;
+  font-size: 140%;
+  color: #5ebfb5;
   border: 1px solid transparent;
   letter-spacing: 2px;
   text-decoration: none;
@@ -165,29 +166,26 @@
   background-color: #1a1a25;
 }
 .RegLog:hover {
-  border: 1px solid #E9EFF2;
+  border: 1px solid #e9eff2;
   background-color: #1a1a25;
-  color: #E9EFF2;
-  box-shadow: 0 0 25px #5EBFB5;
+  color: #e9eff2;
+  box-shadow: 0 0 25px #5ebfb5;
 }
 .inputlog {
+  font-family: "Merienda", cursive;
   margin-top: 5px;
   padding: 5px 4px;
   margin-bottom: 12px;
   margin-left: -40px;
   border-radius: 10px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 1px;
   width: 150%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   border: 1px solid #1a1a25;
   color: #1a1a25;
-  font-weight: 25px;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25;
-  transform: 0.5s;
-  outline: none;
+  font-size: large;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.3), 5px 5px 15px #1a1a25;
 }
 .forgotPhrase {
   display: flex;

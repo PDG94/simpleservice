@@ -2,15 +2,15 @@ import { Card, Filter, Paged } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import "../CardsContainer/cardsContainer.css";
-import { getServices, resedPaged } from "../../redux/actions";
+import { getServices } from "../../redux/actions/servicesActions";
+import { resedPaged } from "../../redux/actions/miscActions";
 import { Link } from "react-router-dom";
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
-  const allServices = useSelector((state) => state.services);
+  const allServices = useSelector((state) => state.services.services);
 
-  const currentPage = useSelector((state) => state.currentPage);
-  /*  const [currentPage, setCurrentPage] = useState(1); */ // seteo la pagina para que empiece en 1
+  const currentPage = useSelector((state) => state.misc.currentPage);
   const [servicesPerPage] = useState(6); // servicios por pagina
   const indexOfLastService = currentPage * servicesPerPage; // 6
   const indexOfFirstService = indexOfLastService - servicesPerPage; // 6-6 = 0
@@ -54,6 +54,7 @@ export default function CardsContainer() {
                   price={user?.price}
                   service={user?.servicename}
                   rating={user["Users.rating"]}
+                  serviceimage={user?.serviceimage}
                 />
               </Link>
             );

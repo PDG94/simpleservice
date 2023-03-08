@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearName, getServicesByName, resedPaged } from "../../redux/actions";
+import {
+  clearName,
+  getServicesByName,
+} from "../../redux/actions/servicesActions";
+import { resedPaged } from "../../redux/actions/miscActions";
 import "../SearchBar/searchBar.css";
 
 export default function SearchBar() {
@@ -35,13 +39,13 @@ export default function SearchBar() {
             handleInputChange(e);
           }}
           type="text"
-          placeholder="🔍Search Service..."
+          placeholder="🔍  Search Service..."
           value={name}
           onKeyDown={(e) => handleOnKeyPress(e)}
           className="inputSearch"
         />
         <button className="btnSearch" onClick={handleSubmit}>
-          Submit
+          SUBMIT
         </button>
       </div>
     </div>

@@ -15,9 +15,10 @@ const updateUser = async ({
   userbio,
   profilepic,
   active,
+  isAdmin
 }) => {
   await User.update(
-    { name, username, userbio, profilepic, active },
+    { name, username, userbio, profilepic, active, isAdmin },
     { where: { id: id } }
   );
 

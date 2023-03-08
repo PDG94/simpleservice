@@ -6,14 +6,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 import Notiflix from "notiflix";
 import PaginationAdmin from "../PaginationAdmin/PaginationAdmin";
-import { getServices, removeUsers, resedPaged } from "../../../redux/actions";
+import { getServices } from "../../../redux/actions/servicesActions";
+import { removeUsers } from "../../../redux/actions/usersActions";
+import { resedPaged } from "../../../redux/actions/miscActions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import "./viewService.css";
 
 export default function ViewServices() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const allServices = useSelector((state) => state.services);
+  const allServices = useSelector((state) => state.services.services);
   const [isloading] = useState(false);
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ export default function ViewServices() {
   }, [dispatch]);
 
   //PAGINATION
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useSelector((state) => state.misc.currentPage);
   const [servicesPerPage] = useState(5);
 
   const indexOfLastService = currentPage * servicesPerPage;
@@ -56,8 +58,6 @@ export default function ViewServices() {
       {
         width: "320px",
         borderRadius: "8px",
-        // textDecoration : "none",
-        // titleColor: "orangered"
       }
     );
   };
@@ -77,8 +77,6 @@ export default function ViewServices() {
       {
         width: "320px",
         borderRadius: "8px",
-        // textDecoration : "none",
-        // titleColor: "orangered"
       }
     );
   };

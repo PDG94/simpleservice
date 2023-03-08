@@ -1,9 +1,3 @@
-
-
-
-
-const CheckoutSucess = () => {
-}
-
+const CheckoutSucess = () => {};
 
 export default CheckoutSucess;

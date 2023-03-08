@@ -7,7 +7,11 @@ const {
 
 const getUserHandler = async (req, res) => {
   try {
-    const userInfo = await getUserInfo(req.params);
+    const { user_id } = req.user;
+    const userInfo = await getUserInfo({ id: user_id });
+    if (userInfo === null) {
+      throw new Error("No user found");
+    }
     res.status(200).json(userInfo);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -16,7 +20,8 @@ const getUserHandler = async (req, res) => {
 
 const updateUserHandler = async (req, res) => {
   try {
-    const params = { ...req.body, ...req.params };
+    const { user_id } = req.user;
+    const params = { ...req.body, id: user_id };
     const userUpdated = await updateUserInfo(params);
     res.status(200).json({
       message: "User updated succesfully",
@@ -29,22 +34,19 @@ const updateUserHandler = async (req, res) => {
 
 const deleteUserHandler = async (req, res) => {
   const active = false;
-  const params = { ...req.params, active };
+  const { user_id } = req.user;
+  const params = { id: user_id, active };
   const userDeleted = await deleteUser(params);
   res.status(200).json(userDeleted);
 };
 
 const editServiceHandler = async (req, res) => {
   try {
-    let { servicename, description, price, active } = req.body;
-    if (active === "true") {
-      active = true;
-    }
-    if (active === "false") {
-      active = false;
-    }
-    const params = { servicename, description, price, ...req.params };
+    const params = { ...req.body, ...req.params };
     const updatedService = await editService(params);
+    if (!updatedService) {
+      throw new Error("nothing to update");
+    }
     res.status(200).json({
       message: "Service updated succesfully",
       updated: updatedService,

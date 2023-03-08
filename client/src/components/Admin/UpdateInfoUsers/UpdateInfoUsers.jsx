@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "./updateInfoUsers.css";
 import { MdDescription } from "react-icons/md";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-import { getUsers } from "../../../redux/actions";
+import { getAllUsers } from "../../../redux/actions/usersActions";
 
 export default function UpdateProfilesUsers() {
   const navigate = useNavigate();
@@ -22,11 +22,11 @@ export default function UpdateProfilesUsers() {
     },
   ];
 
-  const token = useSelector((state) => state.token);
-  const users = useSelector((state) => state.users);
+  const token = localStorage.getItem("token");
+  const users = useSelector((state) => state.users.allUsers);
 
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getAllUsers());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -81,24 +81,51 @@ export default function UpdateProfilesUsers() {
     return finalForm;
   };
 
-  const submitHandler = (event, id) => {
+  const submitHandler = async (event, id) => {
     event.preventDefault();
 
     const info = updateValidator();
 
-    axios.put(
-      `https://simpleservice-production.up.railway.app/user/${id}`,
+    const userSelected = await axios.get(
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );  
+
+    await axios.put(
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
       }
-    );
+    );   
+
+    if(userSelected.data.active===true && info.active===false){
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/baja",
+        {
+          name: userSelected.data.name,
+          email: userSelected.data.email,
+        }
+      );
+    }
+
+    if(userSelected.data.active===false && info.active===true){
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/active",
+        {
+          name: userSelected.data.name,
+          email: userSelected.data.email,
+        }
+      );
+    }
     toast.success("User update successfully!");
     navigate("/admin/home");
   };
 
   const handleActive = (e) => {
-    setForm({ ...form, active: e.target.value });
+    setForm({ ...form, active: e.target.value });    
   };
 
   const handleIsAdmin = (e) => {
@@ -110,11 +137,11 @@ export default function UpdateProfilesUsers() {
   };
 
   return (
-    <form onSubmit={(e) => submitHandler(e, form.id)}>
-      <div className="navUpdate">
+    <form className="formUpdate" onSubmit={(e) => submitHandler(e, form.id)}>
+      <div className="navUpdat">
         <NavBarAdmin />
       </div>
-      <div className="formUpdate">
+      <div>
         <div className="containerUpdate">
           <h1 className="titleUpdate">Update User</h1>
 
@@ -199,11 +226,11 @@ export default function UpdateProfilesUsers() {
               <option value={elem.option}>{elem.option}</option>
             ))}
           </select>
+          <button type="submit" className="subUpdate">
+            SUBMIT
+          </button>
         </div>
       </div>
-      <button type="submit" className="subUpdate">
-        SUBMIT
-      </button>
     </form>
   );
 }

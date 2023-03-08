@@ -1,29 +1,26 @@
-.search {
-  background-color: #1a1a25;
-}
 .inputSearch {
-  width: 60%;
-  height: 80%;
+  width: 70%;
   background-color: #e9eff2;
   border-color: transparent;
   padding: 0 25px;
   border-radius: 10px 0 0 10px;
   position: relative;
+  font-family: "Merienda", cursive;
   margin-bottom: 3px;
 }
 .btnSearch {
   border-radius: 0 10px 10px 0;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: 2px;
-  height: 40%;
-  width: 40%;
+  width: 30%;
   background-color: transparent;
+  font-family: rondalRegular;
   color: #e9eff2;
   border-color: #e9eff2;
 }
 
 .btnSearch:hover {
-  backdrop-filter: blur(10px);
-  background-color: transparent;
   color: #5ebfb5;
+  cursor: pointer;
+  background-color: #252636;
 }

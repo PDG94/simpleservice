@@ -3,7 +3,7 @@
   padding: 0;
 }
 .containerMain {
-  background:#c3cace ;
+  background: #c3cace;
   width: 100%;
   height: 100vh;
   margin-bottom: 0;
@@ -62,14 +62,13 @@
   margin-bottom: 1%;
   border-radius: 10px;
   width: 85%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   border: 1px solid #1a1a25;
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   color: #1a1a25;
   font-size: 120%;
   letter-spacing: 1px;
-  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3), 5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
@@ -79,27 +78,24 @@
   margin-bottom: 3%;
   border-radius: 10px;
   width: 70%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   border: 1px solid #1a1a25;
+  font-family: "Merienda", cursive;
   color: #1a1a25;
   font-weight: 500;
-  font-size: 1em;
-  letter-spacing: 1px;
-  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25;
-  transform: 0.5s;
-  outline: none;
+  font-size: 110%;
+  letter-spacing: 2px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3), 5px 5px 15px #1a1a25;
 }
 
 .subir:hover {
-  color: #5EBFB5;
+  color: #5ebfb5;
   background: #1a1a25;
 }
+
 #info {
   color: blue;
   font-weight: 500;
-  font-size: 100%;
-  font-family: asusLight;
   letter-spacing: 0.5%;
   margin-top: 0;
   margin-bottom: 7%;
@@ -110,38 +106,39 @@
 }
 .errP {
   color: rgb(239, 145, 145);
-  font-size: 110%;
-  font-weight: 500;
-  font-family: asusLight;
+  font-size: 120%;
+  font-weight: 300;
+  font-family: "Merienda", cursive;
   letter-spacing: 1px;
-  width: 90%;
+  margin-left: 7%;
+  width: 82%;
 }
 .backRegister {
   position: absolute;
   display: flex;
   flex-direction: column;
   height: 7%;
-  font-size: 140%;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
   width: 10%;
-  color: #5EBFB5;
+  color: #5ebfb5;
   letter-spacing: 3px;
-  border: 1px solid #5EBFB5;
+  border: 1px solid #5ebfb5;
   border-radius: 10px;
   background-color: #1a1a25;
 }
 .backRegister:hover {
-  border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
+  border: 1px solid #e9eff2;
+  background-color: #5ebfb5;
   color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  box-shadow: 0 0 2px 2px #e9eff2;
 }
 .formRegister {
   margin-top: 3%;
@@ -161,47 +158,47 @@
   margin-bottom: 12px;
   border-radius: 10px;
   width: 86%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   border: 1px solid #1a1a25;
   color: #615f5f;
   font-weight: 600;
   letter-spacing: 1px;
-  font-size: 1em;
-  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
-    5px 5px 15px #1a1a25;
+  font-family: "Merienda", cursive;
+  font-size: 110%;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3), 5px 5px 15px #1a1a25;
   transform: 0.5s;
   outline: none;
 }
 .submitRegister {
- margin-top: 4%;
+  margin-top: 2.5%;
   height: 35%;
   width: 25%;
   font-weight: 700;
-  font-family: asusLight;
-  font-size: 150%;
-  padding: 8px 1px 8px 1px ;
-  color: #5EBFB5!important;
+  font-family: "Merienda", cursive;
+  font-size: 160%;
+  padding: 8px 1px 8px 1px;
+  color: #5ebfb5 !important;
   border: 1px solid transparent;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-decoration: none;
   border-radius: 8px;
   background-color: #1a1a25;
 }
 .submitRegister:hover {
-  border: 1px solid #E9EFF2;
+  border: 1px solid #e9eff2;
   background-color: #1a1a25;
-  color: #E9EFF2;
-  box-shadow: 0 0 25px #5EBFB5;
+  color: #e9eff2;
+  box-shadow: 0 0 25px #5ebfb5;
 }
 .iconR {
   font-size: 70px;
   margin-top: 4%;
-  color: #5EBFB5;
+  color: #5ebfb5;
 }
 .titleRegister {
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   font-weight: 500;
-  color: #5EBFB5;
+  color: #5ebfb5;
   margin-top: 4.5%;
-  font-size: 300%;
+  font-size: 340%;
 }

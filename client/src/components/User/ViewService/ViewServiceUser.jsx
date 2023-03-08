@@ -1,38 +1,70 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import NavBarUser from "../NavBarUser/NavBarUser";
+import { NavBarUser } from "../../index.js";
+import "../ViewService/viewServiceUser.css";
 
+export default function ViewServiceUser() {
+  const { id } = useParams();
+  const serviceUser = useSelector((state) => state.users.serviceUser);
 
-export default function ViewServiceUser () {
-
-  const {id} = useParams();
-  const serviceUser = useSelector((state)=> state.serviceUser)
- 
-
-
-
-  function filterById(id){
+  function filterById(id) {
     return serviceUser.Cards.findIndex((item) => item.id === id);
-  };
+  }
 
-  const index = filterById(id)
-  
+  const index = filterById(id);
 
   return (
-    <form>
+    <div className="mainBoxViewServiceUser">
       <NavBarUser />
-      <div className="form">
+      <div className="">
+        <Link to={"/profile/my-servicesdetail"}>
+          <button className="backCr">Back</button>
+        </Link>
+        <div className="containerServiceViewUser">
+          <h1 className="titleServiceView">My Service Info</h1>
+          <span className="spanTitle">Service Name</span>
+          <p className="pviewSer"> {serviceUser.Cards[index].servicename}</p>
+          <hr
+            style={{
+              color: "#ffff",
+              height: "3px",
+              width: "60%",
+              marginLeft: "20%",
+            }}
+          />
 
-        <div className="containerCreated">
-          <h1 className="titleCr">View My Services</h1>
-          <h5>Service Name: {serviceUser.Cards[index].servicename}</h5>
-          <h5>Price: $ {serviceUser.Cards[index].price}</h5>
-          <h5>Description: {serviceUser.Cards[index].description}</h5>
-         
+          <span className="spanTitle">Price</span>
+          <p className="pviewSer"> $ {serviceUser.Cards[index].price}</p>
+          <hr
+            style={{
+              color: "#ffff",
+              height: "3px",
+              width: "60%",
+              marginLeft: "20%",
+            }}
+          />
+
+          <span className="spanTitle">Description</span>
+          <p className="pviewSer"> {serviceUser.Cards[index].description}</p>
+          <hr
+            style={{
+              color: "#ffff",
+              height: "3px",
+              width: "60%",
+              marginLeft: "20%",
+            }}
+          />
+          <hr
+            style={{
+              color: "#ffff",
+              height: "3px",
+              width: "60%",
+              marginLeft: "20%",
+            }}
+          />
         </div>
       </div>
-      
-    </form>
+    </div>
   );
 }

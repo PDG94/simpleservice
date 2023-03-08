@@ -1,16 +1,12 @@
 import "../Filter/filter.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  cardsFilter,
-  getCategories,
-  getServices,
-  resedPaged,
-} from "../../redux/actions";
+import { cardsFilter, getServices } from "../../redux/actions/servicesActions";
+import { resedPaged, getCategories } from "../../redux/actions/miscActions";
 
 export default function Filter() {
   const dispatch = useDispatch();
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.misc.categories);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -60,8 +56,8 @@ export default function Filter() {
   };
 
   return (
-    <div className="filter">
-      <div>
+    <div className="filterBox">
+      <div className="filter">
         <h1 className="titleFil">Filters & Sorts</h1>
 
         {/*CATEGORIAS*/}

@@ -1,22 +1,18 @@
 import { useSelector } from "react-redux";
 
 const AdminOnlyRoute = ({ children }) => {
-  const userEmail = useSelector((state) => state.email);
+  const userEmail = useSelector((state) => state.users.email);
+  const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
+  const { isAdmin } = useSelector((state) => state.users.serviceUser);
+
   //no esta llenando el estado en esta ruta
-  if (userEmail === "simpleservice@gmail.com") {
-    return children;
+
+  if (isLoggedIn) {
+    if (isAdmin || userEmail === "simpleservice@gmail.com") {
+      return children;
+    }
   }
   return null;
 };
-
-// export const AdminOnlyLink = ({ children }) => {
-//   const userEmail = useSelector((state)=>state.email);
-//   console.log(userEmail);
-
-//   if (userEmail === "simpleservice@gmail.com") {
-//     return children;
-//   }
-//   return null;
-// };
 
 export default AdminOnlyRoute;

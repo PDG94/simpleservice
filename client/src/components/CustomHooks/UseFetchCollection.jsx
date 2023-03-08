@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { db } from "../Firebase/config";
 
-
 const useFetchCollection = (collectionName) => {
   const [data, setData] = useState([]);
 
@@ -15,12 +14,10 @@ const useFetchCollection = (collectionName) => {
       const docRef = collection(db, collectionName);
       const q = query(docRef, orderBy("createdAt", "desc"));
       onSnapshot(q, (snapshot) => {
-        // console.log(snapshot.docs);
         const allData = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        // console.log(allData);
         setData(allData);
         setIsLoading(false);
       });
@@ -32,6 +29,7 @@ const useFetchCollection = (collectionName) => {
 
   useEffect(() => {
     getCollection();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, isLoading };

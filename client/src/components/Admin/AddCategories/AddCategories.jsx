@@ -52,14 +52,14 @@ export default function AddCategories() {
         <div className="navCat">
           <NavBarAdmin />
         </div>
-        <img className="imagencat" src={imagenCat} width="700px" />
+        <img className="imagencat" alt="imagen" src={imagenCat} width="700px" />
         <div className="containerAdCat">
           <h1>Create Categories</h1>
           <hr />
-          <div >
-            <p className="pCat">Categorie name</p>
+          <div>
+            <p className="pCat">Add a New Category</p>
             <input
-            className="inpAdCat"
+              className="inpAdCat"
               type="text"
               placeholder=" "
               value={form.name}
@@ -72,7 +72,7 @@ export default function AddCategories() {
           <div>
             <p className="pCat">Description</p>
             <input
-             className="inpAdCat"
+              className="inpAdCat"
               type="text"
               placeholder=" "
               value={form.description}

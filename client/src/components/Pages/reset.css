@@ -6,41 +6,41 @@
 .mainReset {
   width: 100%;
   height: 100vh;
-  background:#c3cace;
+  background: #c3cace;
 }
 .btnResetBack {
-   position: absolute;
+  position: absolute;
   display: flex;
   flex-direction: column;
   height: 7%;
-  font-size: 140%;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: asusLight;
+  font-family: "Merienda", cursive;
   font-weight: 900;
   margin-top: 2%;
   margin-left: 5%;
   width: 10%;
-  color: #5EBFB5;
+  color: #5ebfb5;
   letter-spacing: 3px;
-  border: 1px solid #5EBFB5;
+  border: 1px solid #5ebfb5;
   border-radius: 10px;
   background-color: #1a1a25;
 }
 .btnResetBack:hover {
-  border: 1px solid #E9EFF2;
-  background-color: #5EBFB5;
+  border: 1px solid #e9eff2;
+  background-color: #5ebfb5;
   color: #1a1a25;
-  box-shadow: 0 0 2px 2px #E9EFF2;
+  box-shadow: 0 0 2px 2px #e9eff2;
 }
 .contImg {
   border-radius: 0 50px 50px 0;
   background-color: #252636;
   width: 32%;
   height: 710px;
-
+  margin-bottom: 3%;
 }
 .imgReset {
   margin-top: 11vh;
@@ -50,11 +50,10 @@
 .formReset {
   background-color: #252636;
   color: #1a1a25;
- border: 2px solid #252636;
+  border: 2px solid #252636;
   border-radius: 40px 0 0 40px;
   width: 28%;
   height: 710px;
-
 }
 .containerReset {
   margin-top: 2%;
@@ -62,7 +61,6 @@
   flex-direction: row;
   justify-content: center;
   align-content: center;
-
 }
 .formRes {
   display: flex;
@@ -73,42 +71,45 @@
   padding: 5%;
 }
 .titleReset {
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   margin-top: 13%;
   margin-bottom: 4%;
-  font-size: 300%;
+  font-size: 250%;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #5EBFB5;
+  color: #5ebfb5;
 }
-
 
 .pleaseMessage {
   margin-bottom: 2%;
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 10%;
-  font-size: 130%;
+  margin-top: 18%;
+  font-size: 110%;
   font-weight: 400;
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   letter-spacing: 2px;
-  color: #E9EFF2;
+  color: #e9eff2;
 }
 .enterReset {
   margin-bottom: 2%;
-  font-size: 180%;
+  margin-top: 15%;
+  font-size: 130%;
+  width: 130%;
   font-weight: 400;
-  font-family: asusRegular;
+  font-family: "Merienda", cursive;
   letter-spacing: 2px;
-  color: #E9EFF2;
+  color: #e9eff2;
 }
 .inpReset {
   margin-top: 6%;
   width: 140%;
-  background-color: #E9EFF2;
+  background-color: #e9eff2;
   margin-right: 0;
-  border: 2px solid #E9EFF2;
+  border: 2px solid #e9eff2;
   text-align: center;
+  font-family: "Merienda", cursive;
+  letter-spacing: 1px;
   height: 4vh;
   font-size: 130%;
   border-radius: 5px;
@@ -119,23 +120,21 @@
   margin-top: 10%;
   margin-bottom: 20%;
   width: 140%;
-  padding:10px;
+  padding: 10px;
   cursor: pointer;
   text-align: center;
-  font-size: 180%;
-   font-family: asusLight;
+  font-size: 160%;
+  font-family: "Merienda", cursive;
   border-radius: 8px;
   background-color: #1a1a25;
   border: 1px solid transparent;
-  color: #5EBFB5;
+  color: #5ebfb5;
   font-weight: 700;
   letter-spacing: 3px;
 }
 .submit:hover {
- border: 1px solid #E9EFF2;
+  border: 1px solid #e9eff2;
   background-color: #1a1a25;
-  color: #E9EFF2;
-  box-shadow: 0 0 25px #5EBFB5;
+  color: #e9eff2;
+  box-shadow: 0 0 25px #5ebfb5;
 }
-
-

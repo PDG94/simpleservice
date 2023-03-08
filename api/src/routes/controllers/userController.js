@@ -1,15 +1,19 @@
 const { User, Card } = require("../../db");
 
 const getUserInfo = async ({ id }) => {
-  return await User.findOne({
+  const response = await User.findOne({
     where: {
       id: id,
+      active: true,
     },
-    include: Card,
+    include: {
+      model: Card,
+    },
   });
+  return response;
 };
 
-const updateUserInfo = async ({ id, name, username, userbio, profilepic }) => {
+const updateUserInfo = async ({ name, username, userbio, profilepic, id }) => {
   await User.update(
     {
       name,
@@ -41,14 +45,21 @@ const deleteUser = async ({ id, active }) => {
     }
   );
 
-  const userDeleted = await User.findByPk(id);
+  const userDeleted = await User.findByPk(user_id);
 
   return userDeleted;
 };
 
-const editService = async ({ id, servicename, description, price, active }) => {
+const editService = async ({
+  id,
+  servicename,
+  serviceimage,
+  description,
+  price,
+  active,
+}) => {
   await Card.update(
-    { servicename, /* serviceimage, */ description, price, active },
+    { servicename, serviceimage, description, price, active },
     {
       where: {
         id: id,

@@ -1,86 +1,99 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom";
 import useFetchDocument from "../../CustomHooks/UseFetchDocuments";
 import Loading from "../../Loading/Loading";
+import { NavBarUser } from "../../index.js";
+import '../Orders/orderDetails.css'
 
-export default function OrdersDetail(){
-    const [order, setOrder] = useState(null);
-    const { id } = useParams();
-    const { document } = useFetchDocument("orders", id);
-  
-    useEffect(() => {
-      setOrder(document);
-    }, [document]);
+export default function OrdersDetail() {
+  const [order, setOrder] = useState(null);
+  const { id } = useParams();
+  const { document } = useFetchDocument("orders", id);
 
-    return  <section>
-    <div className={""}>
-      <h2>Order Details</h2>
-      <div>
-        <Link to="/profile/orders">&larr; Back To Orders</Link>
+  useEffect(() => {
+    setOrder(document);
+  }, [document]);
+
+  return (
+    <div className="bgOrders">
+      <NavBarUser />
+      <div className='orderDetail'>
+       
+          <Link to="/profile/orders">
+            <button className="backCr">Back</button>
+        </Link>
+        <div className="MainBoxUserOrder">
+        <h2 className="h2OrderUser">Order Details</h2>
+       
+        
+        {order === null ? (
+          <Loading />
+        ) : (
+          < div className="tabletable-responsive table-info">
+            <div className="psOrder">
+            <p >
+              <b>Order ID:</b> {order.id}
+            </p>
+            <p>
+              <b>Order Amount:</b> ${order.orderAmount}
+            </p>
+            <p>
+              <b>Order Status:</b> {order.orderStatus}
+            </p>
+            </div>
+            
+            <table className="tableContainerDetail">
+              <thead>
+                <tr>
+                  <th className="thOrderDetail">s/n</th>
+                  <th className="thOrderDetail">Product</th>
+                  <th className="thOrderDetail">Price</th>
+                  <th className="thOrderDetail">Quantity</th>
+                  <th className="thOrderDetail">Total</th>
+                  <th className="thOrderDetail">Action</th>
+                </tr>
+              </thead>
+                {order.cartItems1.map((cart, index) => {
+                  const { id, servicename, price, cartQuantity } = cart;
+                  return (
+                    <tbody>
+                    <tr className="table-secondary" key={id}>
+                      <td className="tdOrderUsers2">
+                        <b>{index + 1}</b>
+                      </td>
+                      <td className="tdOrderUsers2">
+                        <p>
+                          <b>{servicename}</b>
+                        </p>
+                        <img
+                          src={cart.Users[0].profilepic}
+                          alt={"img"}
+                          style={{ width: "100px" }}
+                        />
+                      </td>
+                      <td className="tdOrderUsers2">
+                        {"$"}
+                        {price}
+                      </td>
+                      <td className="tdOrderUsers2">{cartQuantity}</td>
+                      <td className="tdOrderUsers2">
+                        {"$"}
+                        {(price * cartQuantity).toFixed(2)}
+                      </td>
+                      
+                        <Link to={`/profile/order-review/${id}`}>
+                          <button className="btnOrderUser">Review Product</button>
+                        </Link>
+                      
+                    </tr>
+                 </tbody>
+                  );
+                })}
+            </table>
+          </div>
+          )}
+          </div>
       </div>
-      <br />
-      {order === null ? (
-        <Loading/>
-      ) : (
-        <>
-          <p>
-            <b>Order ID:</b> {order.id}
-          </p>
-          <p>
-            <b>Order Amount:</b> ${order.orderAmount}
-          </p>
-          <p>
-            <b>Order Status:</b> {order.orderStatus}
-          </p>
-          <br />
-          <table>
-            <thead>
-              <tr>
-                <th>s/n</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {order.cartItems1.map((cart, index) => {
-                const { id, servicename, price, cartQuantity } = cart;
-                return (
-                  <tr key={id}>
-                    <td>
-                      <b>{index + 1}</b>
-                    </td>
-                    <td>
-                      <p>
-                        <b>{servicename}</b>
-                      </p>
-                      <img
-                        src={cart.Users[0].profilepic}
-                        alt={"img"}
-                        style={{ width: "100px" }}
-                      />
-                    </td>
-                    <td>{"$"}{price}</td>
-                    <td>{cartQuantity}</td>
-                    <td>{"$"}{(price * cartQuantity).toFixed(2)}</td>
-                    <td className="">
-                      <Link to={`/profile/order-review/${id}`}>
-                        <button className="">
-                          Review Product
-                        </button>
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </>
-      )}
     </div>
-  </section>
-};
-
+  );
+}

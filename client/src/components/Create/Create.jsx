@@ -4,19 +4,20 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { NavBar, Footer } from "../index";
+import { NavBarUser } from "../index";
 import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
-import { GrCircleAlert } from "react-icons/gr";
-import { getCategories, getServiceList } from "../../redux/actions";
+import { FiAlertCircle } from "react-icons/fi";
+import { getCategories } from "../../redux/actions/miscActions";
+import { getServiceList } from "../../redux/actions/servicesActions";
 
 export default function Create() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const categories = useSelector((state) => state.categories);
-  const serviceList = useSelector((state) => state.serviceList);
+  const categories = useSelector((state) => state.misc.categories);
+  const serviceList = useSelector((state) => state.services.serviceList);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -94,20 +95,17 @@ export default function Create() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <NavBar />
+    <form onSubmit={submitHandler} className="boxCreateForm">
+      <NavBarUser />
       <div className="formCreate">
-        <Link to={"/Home"}>
+        <Link to={"/profile"}>
           <button className="backCr">Back</button>
         </Link>
 
         <div className="containerCreate">
           <h1 className="titleCre">Create Service</h1>
-          <hr />
-          <span className="circleBoX">
-            <GrCircleAlert />
-            {"  "}Atention
-          </span>
+          <FiAlertCircle size={29} className="cirB" />
+          <span className="circleBoX"> Atention</span>
           <p className="prohPhrase">
             See{" "}
             <Link
@@ -121,32 +119,39 @@ export default function Create() {
           </p>
 
           <span className="spanTitle">Select a category</span>
-          <select className="selCreate" onChange={(e) => handleCategory(e)}>
-            <option value="all">Categories</option>
+          <select className="selCreateUser" onChange={(e) => handleCategory(e)}>
+            <option className="opCreate" value="all">
+              Categories
+            </option>
             {categories?.map((elem) => (
-              <option key={elem.id} value={elem.id}>
+              <option className="opCreate" key={elem.id} value={elem.id}>
                 {elem.name}
               </option>
             ))}
           </select>
 
           <span className="spanTitle">Select a service</span>
-          <select className="selCreate" onChange={(e) => handleServicesList(e)}>
-            <option value="all">Services</option>
+          <select
+            className="selCreateUser"
+            onChange={(e) => handleServicesList(e)}
+          >
+            <option className="opCreate" value="all">
+              Services
+            </option>
             {serviceList?.map((elem) => (
-              <option key={elem.id} value={elem.name}>
+              <option className="opCreate" key={elem.id} value={elem.name}>
                 {elem.name}
               </option>
             ))}
           </select>
 
           <div className="priceC">
-          <span className="spanTitle">Set a price</span>
+            <span className="spanTitle">Set a price</span>
             <label className="iconCr">
               <FiDollarSign />
             </label>
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Price"
               value={form.price}
@@ -158,13 +163,13 @@ export default function Create() {
           </div>
 
           <div>
-          <span className="spanTitle">Provide a description</span>
+            <span className="spanTitle">Provide a description</span>
             <label className="iconCr">
               <MdDescription />
             </label>
-           
+
             <input
-              className="inpCreate"
+              className="inpCreateUser"
               type="text"
               placeholder="Description"
               value={form.description}
@@ -173,12 +178,11 @@ export default function Create() {
             />
             <p className="valid">{errors.description}</p>
           </div>
+          <button type="submit" className="subCr">
+            SUBMIT
+          </button>
         </div>
       </div>
-      <button type="submit" className="subCr">
-        SUBMIT
-      </button>
-      <Footer />
     </form>
   );
 }

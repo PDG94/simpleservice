@@ -1,71 +1,103 @@
 .dashBo {
   background-color: #1a1a25;
-  margin-top: -5%;
   width: 100%;
-  height: 150%;
-  position: absolute;
+  height: 180vh;
 }
 .navDash {
   background-color: #252636;
   position: absolute;
-  margin-top: -8%;
+  margin-top: -10%;
   position: fixed;
+}
+.dashNew {
+  margin-left: 20%;
 }
 .hi {
   font-size: 500%;
-  margin-top: 10%;
   margin-bottom: 5%;
-  margin-left: -35%;
+  margin-left: -70%;
 }
 .dashboard {
+  width: 50%;
+  margin-left: 30%;
   background-color: #1a1a25;
   color: aliceblue;
 }
-
-.Menu {
-  display: flex;
-  margin-left: 18%;
+.progress {
+  width: 150px;
+  height: 100%;
+  background-color: #252636;
+  margin-left: 25%;
 }
 
-.insights {
+.earning {
+  margin-top: 50%;
+}
+
+.services {
+  position: absolute;
   padding: 4%;
+  width: 30%;
   background-color: #252636;
   border-radius: 30px;
-  margin-left: 1%;
-  display: grid;
-  columns: 3;
-  gap: 1.6rem;
-}
-.linkAd {
+  margin-left: -17%;
+  columns: 2;
   color: aliceblue;
 }
-.linkAd:hover {
-  color: rgba(240, 248, 255, 0.562);
-}
-.middle {
-  margin-left: 12%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.insights h3 {
-  margin-right: 10%;
-  margin-top: -20%;
-  font-size: 1rem;
-}
-.insights h1 {
-  margin-top: 20%;
-  margin-left: -45%;
-  position: relative;
+
+.users {
+  position: absolute;
+
+  padding: 4%;
+  width: 30%;
+  background-color: #252636;
+  border-radius: 30px;
+  margin-left: 17%;
+  columns: 2;
+  color: aliceblue;
 }
 
-.icDash {
-  background: #9f90ea;
-  padding: 0.5rem;
+.porcentajes {
+  margin-left: 25%;
+}
+
+.number1 {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 6%;
+  margin-left: 2%;
+  justify-content: center;
+  align-items: center;
+}
+.circle1 {
+  border: 8px solid #5dc1b9;
   border-radius: 50%;
-  font-size: 3rem;
-  display: grid;
-  margin-top: -10%;
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 0px;
+}
+.number2 {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 6%;
+  margin-left: 2%;
+  justify-content: center;
+  align-items: center;
+}
+.circle2 {
+  border: 8px solid #ff69b4;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 30px;
+  margin-top: 0px;
+}
+.graficas {
+  margin-top: 20%;
+  margin-left: -5%;
+  position: absolute;
+  width: 30%;
 }
 .icDash1 {
   background: #ff69b4;
@@ -74,6 +106,21 @@
   font-size: 3rem;
   display: grid;
   margin-top: -10%;
+  margin-left: -10%;
+}
+.h2Users {
+  margin-top: -25%;
+  margin-left: 15%;
+}
+.h2Services {
+  margin-top: -25%;
+  margin-left: 15%;
+}
+.infobox2 {
+  margin-left: 17%;
+}
+.infobox {
+  margin-left: 15%;
 }
 .icDash2 {
   background: #5dc1b9;
@@ -82,73 +129,8 @@
   font-size: 3rem;
   display: grid;
   margin-top: -10%;
-}
-.progress {
-  width: 150px;
-  height: 0%;
-  background-color: #252636;
-  margin-left: 25%;
-}
-.circle {
-  fill: none;
-  stroke: #9f90ea;
-  stroke-width: 14;
-  stroke-linecap: round;
-  transform: translate(5px, 5px);
-  stroke-dasharray: 110;
-  stroke-dashoffset: 92;
-}
-.circle1 {
-  fill: none;
-  stroke: #9f90ea;
-  stroke-width: 14;
-  stroke-linecap: round;
-  transform: translate(5px, 5px);
-  stroke-dashoffset: -30;
-  stroke-dasharray: 200;
-}
-.circle2 {
-  fill: none;
-  stroke: #9f90ea;
-  stroke-width: 14;
-  stroke-linecap: round;
-  transform: translate(5px, 5px);
-  stroke-dashoffset: 20;
-  stroke-dasharray: 80;
-}
-.number {
-  position: absolute;
-  margin-top: 2.6%;
-  margin-left: 2.4%;
-  height: 20%;
-  justify-content: center;
-  align-items: center;
-}
-.recentOrder {
-  margin-top: 20%;
-  margin-left: 3%;
-  position: absolute;
-}
-.recentOrder h2 {
-  margin-right: 60%;
-  margin-top: 5%;
-  margin-bottom: 7%;
-}
-.tableOrd {
-  margin-bottom: 2%;
-  background-color: #252636;
-  width: 188%;
-  border-radius: 30px;
+  margin-left: -10%;
+  color: aliceblue;
 }
 
-.tbody td {
-  height: 2.9rem;
-  border-bottom: 1px solid #9f90ea;
-}
-.tbody tr:last-child td {
-  border: none;
-}
-.ViewOrders {
-  margin-left: 620px;
-  color: #9f90ea;
-}
+

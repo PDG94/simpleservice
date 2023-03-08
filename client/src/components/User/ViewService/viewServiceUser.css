@@ -1,0 +1,58 @@
+.mainBoxViewServiceUser {
+  background: url("../../Imagenes/gris.jpg");
+  background-color: rgb(184, 184, 190);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1080px;
+  position: absolute;
+  margin: none;
+}
+.containerServiceViewUser {
+  margin-left: 25%;
+  align-items: center;
+  background-color: #1a1a25;
+  border-radius: 50px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 50%;
+  height: 80vh;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 5px white;
+}
+.titleServiceView {
+  margin-top: 45px;
+  margin-bottom: 30px;
+  font-size: 320%;
+  font-weight: 700;
+  font-family: "Merienda", cursive;
+  color: #6fffe9;
+  letter-spacing: 1px;
+}
+.spanTitle {
+  font-size: 130%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 500;
+  font-family: "Merienda", cursive;
+  margin-left: 21%;
+  margin-bottom: 1.5%;
+  color: #6fffe9;
+}
+.pviewSer {
+  font-size: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: 60%;
+  font-family: "Merienda", cursive;
+  margin-left: 21%;
+  margin-bottom: 1.5%;
+  color: #ffff;
+}

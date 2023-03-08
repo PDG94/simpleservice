@@ -1,22 +1,28 @@
+.filterBox{
+   position: fixed;
+   width: 18%;
+}
 .filter {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: -10%;
-  margin-top: 10%;
+  margin-left: 5%;
+  margin-top: 2%;
+  
+ 
 }
 
 .selectFilter {
   margin: 15px 1px;
   border: 2px #E9EFF2 solid;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 500;
   color: #1a1a25;
   display: grid;
   width: 90%;
-  font-family: system-ui;
-  font-size: 16px;
+  font-family: 'Merienda', cursive;
+  font-size: 120%;
   background-color: #5EBFB5;
   padding: 8px 21px;
   text-decoration: none;
@@ -36,7 +42,9 @@
   padding: 1.5% 2%;
   height: 100%;
   width: 70%;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Merienda', cursive;
+  letter-spacing: 1.5px;
   color: #E9EFF2;
   border: 1px solid #E9EFF2;
   border-radius: 10px;
@@ -51,22 +59,21 @@
 }
 .titleFil {
   color: #E9EFF2;
-  font-weight: 600;
-  font-family: ronalSemibold;
-  letter-spacing: 2px;
-  font-size: 160%;
+  font-weight: 500;
+  font-family: 'Merienda', cursive;
+  letter-spacing: 2.5px;
+  font-size: 190%;
   margin-top: 15%;
   margin-bottom: 7%;
 }
 
 .spanFilter {
   color: #E9EFF2 !important;
-  font-family: system-ui;
-  font-weight: 500;
+  font-family: 'Merienda', cursive;
+  font-weight: 400;
   letter-spacing: 2px;
-  font-size: 120% !important;
+  font-size: 130% !important;
   margin-top: 4%;
-  /* border: 2px solid red; */
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

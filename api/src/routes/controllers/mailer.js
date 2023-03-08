@@ -25,14 +25,14 @@ const mailActivateAccount = async (name, email) => {
   });
 };
 
-const pago = async (name, email) => {
+const pago = async (name, email, amount, items) => {
   await transport.sendMail({
     from: "Simple Service <simple.service.pf@gmail.com>",
     to: email,
     subject: "Succesful Payment",
     html: `
             <h2>Hi! ${name}</h2>
-            <h1>Thank you for your purchase.</h1>
+            <h1>Thank you for your purchase of ${items} worth $${amount}.</h1>
             <hr />            
             <div>                        
               <p>Cordialy</p>
@@ -49,7 +49,7 @@ const datos = async (name, email) => {
     subject: "Information Updated",
     html: `
             <h2>Hi! ${name}</h2>
-            <h1>Your info has been updated.</h1>
+            <h1>Your user info has been updated.</h1>
             <hr />            
             <div>                        
               <p>Cordialy</p>
@@ -66,7 +66,7 @@ const baja = async (name, email) => {
     to: email,
     subject: "Account Cancelled",
     html: `
-            <h2>Hi! ${name}</h2>
+            <h2>Hi! ${name}, we are sad to see you go.</h2>
             <h1>Your account has been successfully cancelled.</h1>
             <hr />            
             <div>                        
@@ -77,5 +77,22 @@ const baja = async (name, email) => {
   });
 };
 
+const active = async (name, email) => {
+  await transport.sendMail({
+    from: "Simple Service <simple.service.pf@gmail.com>",
+    to: email,
+    subject: "Account Activated",
+    html: `
+            <h2>Hi! ${name}, we are glad to see you back.</h2>
+            <h1>Your account has been successfully activated.</h1>
+            <hr />            
+            <div>                        
+              <p>Cordialy</p>
+              <p>Your friends at Simple Service</p>
+            </div>        
+         `,
+  });
+};
 
-module.exports = { mailActivateAccount, pago, datos, baja };
+module.exports = { mailActivateAccount, pago, datos, baja, active };
+

@@ -1,0 +1,16 @@
+.h1CharAdminUser{
+    margin-top: -9%;
+}
+.hrUsersAd{
+    margin-bottom: 8%;
+}
+
+.border2{
+    position: absolute;
+padding: 10%;
+    margin-top: -77%;
+    margin-left: 120%;
+    border: 1px solid aliceblue;
+    background-color: #252636;
+    border-radius: 30px;
+}

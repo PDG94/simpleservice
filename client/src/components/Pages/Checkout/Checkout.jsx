@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
 import {
-  calculateSubTotal,
-  calculateTotalQuantity,
-} from "../../../redux/actions";
+  subTotalCalc,
+  subTotalQuant,
+} from "../../../redux/actions/cartActions";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
@@ -16,17 +16,49 @@ const Checkout = () => {
   const [message, setMessage] = useState("Initializing checkout...");
   const [clientSecret, setClientSecret] = useState("");
 
-  const cartItems = useSelector((state) => state.cartItems);
-  const totalAmount = useSelector((state) => state.cartTotalAmount);
-  const customerEmail = useSelector((state) => state.email);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalAmount = useSelector((state) => state.cart.cartTotalAmount);
+  const customerEmail = useSelector((state) => state.users.email);
 
-  const shippingAddress = useSelector((state) => state.shippingAddress);
-  const billingAddress = useSelector((state) => state.selectBillingAddress);
+  const shippingAddress = useSelector((state) => state.orders.shippingAddress);
+  const billingAddress = useSelector(
+    (state) => state.orders.selectBillingAddress
+  );
+
+  const calculateSubTotal = () => {
+    const array = [];
+    cartItems.map((item) => {
+      const { price, cartQuantity } = item;
+      const cartItemAmount = price * cartQuantity;
+      return array.push(cartItemAmount);
+    });
+    const totalAmount = array.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalAmount;
+  };
+
+  const calculateTotalQuantity = () => {
+    const array1 = [];
+    if (cartItems) {
+      // Agregamos un control de flujo para verificar si "cartItems" existe
+      cartItems.map((item) => {
+        const { cartQuantity } = item;
+        const quantity = cartQuantity;
+        return array1.push(quantity);
+      });
+    }
+    const totalQuantity = array1.reduce((a, b) => {
+      return a + b;
+    }, 0);
+    return totalQuantity;
+  };
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(calculateSubTotal());
-    dispatch(calculateTotalQuantity());
+    dispatch(subTotalCalc(calculateSubTotal()));
+    dispatch(subTotalQuant(calculateTotalQuantity()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, cartItems]);
 
   const description = `Simple Service payment: email: ${customerEmail}, Amount: ${totalAmount}`;

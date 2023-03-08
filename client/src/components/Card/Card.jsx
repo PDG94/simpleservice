@@ -1,12 +1,19 @@
 import "../Card/card.css";
-
-export default function Card({ name, image, service, price, rating }) {
+export default function Card({
+  name,
+  image,
+  service,
+  price,
+  rating,
+  serviceimage,
+}) {
   return (
     <div className="container">
-      <div>
-        <img src={image} alt="" />
+      <div className="boxCard">
+        <img src={serviceimage || image} alt="" />
         <h2 className="name">{name}</h2>
-        <p className="serviceContainer">{service}</p>
+        <h4 className="serviceContainer">{service}</h4>
+        <br />
       </div>
 
       <div className="card">

@@ -10,10 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   activeUsers,
   removeUsers,
-  getServices,
-  /* storeSession,*/
-  calculateTotalQuantity,
-} from "../../redux/actions";
+  getServiceUser,
+} from "../../redux/actions/usersActions";
+import { getServices } from "../../redux/actions/servicesActions";
+import { subTotalQuant } from "../../redux/actions/cartActions";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import AdminOnlyRoute from "../AdminOnlyRoutes/AdminOnlyRoute";
@@ -24,26 +24,33 @@ import UserOnlyRoute from "../AdminOnlyRoutes/UsersOnlyRoutes";
 const NavBar = () => {
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState("");
-  // const [scrollPage, setScrollPage] = useState(false);
   const dispatch = useDispatch();
   const path = window.location.pathname;
   const pathSearch = "/Services";
-  const cartTotalQuantity = useSelector((state) => state.cartTotalQuantity);
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    dispatch(calculateTotalQuantity());
-  }, [dispatch]);
-
-  //CODE PARA QUE TE SIGA EL CARRITO CUANDO HACED SCROLLDOWN
-  // const fixNavbar = () => {
-  //   if (window.scrollY > 50) {
-  //     setScrollPage(true);
-  //   } else {
-  //     setScrollPage(false);
-  //   }
-  // };
-  // window.addEventListener("scroll", fixNavbar);
-
+    const calculateTotalQuantity = () => {
+      const array1 = [];
+      if (cartItems) {
+        // Agregamos un control de flujo para verificar si "cartItems" existe
+        cartItems.map((item) => {
+          const { cartQuantity } = item;
+          const quantity = cartQuantity;
+          return array1.push(quantity);
+        });
+      }
+      const totalQuantity = array1.reduce((a, b) => {
+        return a + b;
+      }, 0);
+      return totalQuantity;
+    };
+    dispatch(subTotalQuant(calculateTotalQuantity()));
+  }, [dispatch, cartItems]);
   //  monitores si estas logueado y muestra el nombre del usuario en la barra de nav
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -64,19 +71,21 @@ const NavBar = () => {
             isRegistered: true,
           })
         );
+        dispatch(getServiceUser(user.uid, token));
       } else {
         setDisplayName("");
         dispatch(removeUsers());
       }
     });
-  }, [dispatch, displayName]);
+  }, [dispatch, displayName, token]);
 
   function logoutUser() {
     signOut(auth)
       .then(() => {
-        // dispatch(storeSession(auth.currentUser));
         localStorage.setItem("token", "");
-        toast.success("Logout successfully.");
+        toast.success("Logout successfully.", {
+          position: "top-center",
+        });
         navigate("/home");
       })
       .catch((error) => {
@@ -90,12 +99,10 @@ const NavBar = () => {
   return (
     <nav className="mainNavContainer">
       <div className="btns">
-        <div className="birdy">
-          <img src={logos} alt="birdIcon" width="30" />
-        </div>
-
         <Link className="btnNav" to="/">
-          WELCOME PAGE
+          <div className="birdy">
+            <img src={logos} alt="birdIcon" width="30" />
+          </div>
         </Link>
 
         <Link className="btnNav" to="/home">
@@ -110,12 +117,6 @@ const NavBar = () => {
           SERVICES
         </Link>
 
-        <ShowOnLogin>
-          <Link className="btnNav" to="/Create">
-            CREATE SERVICE
-          </Link>
-        </ShowOnLogin>
-
         {path === pathSearch ? (
           <Link
             className="btnNav"
@@ -125,13 +126,12 @@ const NavBar = () => {
             REFRESH
           </Link>
         ) : null}
-      </div>
-
-      <div className="btnsUser">
         <div className="searchNav">
           {path === pathSearch ? <SearchBar /> : null}
         </div>
+      </div>
 
+      <div className="btnsUser">
         <ShowOnLogout>
           <Link className="btnNav" to="/login">
             LOGIN
@@ -163,17 +163,16 @@ const NavBar = () => {
         </ShowOnLogin>
 
         <ShowOnLogin>
-          {" "}
           <Link className="btnNav" to="/cart">
-            <FaShoppingCart size={32} className="shoppingCart" />
-            {"  "}
+            <FaShoppingCart size={30} className="shoppingCart" />
+
             {cartTotalQuantity}
           </Link>
         </ShowOnLogin>
 
         <ShowOnLogin>
           <div className="greet">
-            <FaUserCircle className="circleNav" size={30} />{"  "}
+            <FaUserCircle className="circleNav" size={30} />
             Hi, {displayName}
           </div>
         </ShowOnLogin>

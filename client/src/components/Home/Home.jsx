@@ -8,23 +8,9 @@ import dogwalker from "../Imagenes/dogwalker.jpg";
 import ss from "../Imagenes/ss.png";
 import { NavBar, Footer } from "../index";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import ChatBotR from "../ChatBot/ChatBotR";
 
 const Home = () => {
-  const nam1="pedro"
-  const email1="ranekasd@gmail.com"
-  const mail = async () => {
-    console.log("mmmmmmail")
-    const { data } = await axios.post(
-      "https://simpleservice-production.up.railway.app/alta",
-      {
-        name: nam1,
-        email: email1,
-      }
-    );
-    console.log("maillllllll")
-    console.log(data)
-  }
   return (
     <div className="mainhome">
       <NavBar />
@@ -35,12 +21,12 @@ const Home = () => {
           data-bs-ride="carousel"
           data-interval="200"
         >
-          <div class="carousel-indicators">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#carouselExampleIndicators"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -103,32 +89,35 @@ const Home = () => {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
         <div className="contentHome">
           <div className="logoService">
-            <img src={ss} alt="carrito" className="imageLogo" />
-            <Link className="servicesBtn" to="/Services">
-              <button className="btnView">Visit our Services</button>
-              
-            </Link>
-            <button className="btnView" onClick={mail}>mail</button>
+            <div>
+              <img src={ss} alt="carrito" className="imageLogo" />
+            </div>
+            <div className="btnServiceHome">
+              <Link className="servicesBtn" to="/Services">
+                <button className="btnView">Visit our Services</button>
+              </Link>
+              <ChatBotR />
+            </div>
           </div>
           <div className="phrase">
             <span className="phrasep">
@@ -140,12 +129,14 @@ const Home = () => {
                 most.
                 <br />
                 I definitely recommend it. <br />
-                Thank you Simple Service" <br /> Rhonda.
+                Thank you Simple Service" <br />
+                <br /> Rhonda.
               </i>
             </span>
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );

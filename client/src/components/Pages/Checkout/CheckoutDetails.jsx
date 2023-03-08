@@ -5,14 +5,17 @@ import "../Checkout/checkoutDetails.css";
 import CheckoutSummary from "../../CheckoutSummary/CheckoutSummary";
 import {
   Elements,
-  CardElement,
   useStripe,
   useElements,
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, saveUrl } from "../../../redux/actions";
-import { useNavigate } from "react-router-dom";
+import cardis from "../../Imagenes/cards.png";
+import { emptyCart } from "../../../redux/actions/cartActions";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 const stripePromise = loadStripe(
@@ -24,25 +27,21 @@ const CheckOutForm = () => {
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
-  const cartTotalAmount = useSelector((state) => state.cartTotalAmount);
+  const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const totalPayment = parseFloat(cartTotalAmount.toFixed(2), 0) * 100;
-  const paraInvocar = () => {
-    window.location.reload(true);
-  };
-  const cartItems1  = useSelector((state)=>state.cartItems);
-  const userID1 = useSelector((state) => state.userID);
-  const customerEmail  = useSelector((state)=>state.email)
+  const cartItems1 = useSelector((state) => state.cart.cartItems);
+  const userID1 = useSelector((state) => state.users.userID);
+  const customerEmail = useSelector((state) => state.users.email);
+  const customerName = useSelector((state) => state.users.useName);
 
   const clearCart1 = () => {
-    dispatch(clearCart());
+    dispatch(emptyCart());
     navigate("/home");
-    paraInvocar();
   };
 
   const clearAndBack = () => {
     setTimeout(clearCart1, 3000);
   };
-
 
   const saveOrder = () => {
     const today = new Date();
@@ -54,12 +53,12 @@ const CheckOutForm = () => {
       orderTime: time,
       orderAmount: cartTotalAmount,
       cartItems1,
-      orderStatus: " ✓ Order placed... ",
+      orderStatus: " ✓ Order purchased... ",
       createdAt: Timestamp.now().toDate(),
     };
     try {
       addDoc(collection(db, "orders"), orderConfig);
-      dispatch(clearCart());
+      dispatch(emptyCart());
       toast.success("Order saved");
     } catch (error) {
       toast.error(error.message);
@@ -72,15 +71,17 @@ const CheckOutForm = () => {
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       // esto es para configurar el recuadro donde se pone la tarjeta de credito y los datos
       type: "card",
-      card: elements.getElement(CardElement),
+      card: elements.getElement(CardNumberElement),
     });
 
     if (!error) {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
 
+      const items = cartItems1.map(element =>element.servicename)
+      const itemsDesc = JSON.stringify(items)
       try {
-        const { data } = await axios.post(
+        await axios.post(
           "https://simpleservice-production.up.railway.app/checkout",
           {
             amount: totalPayment,
@@ -88,13 +89,23 @@ const CheckOutForm = () => {
             userID1,
             userEmail: customerEmail,
             items: cartItems1,
+            desc: itemsDesc,
           }
         );
-        console.log(data);
+                
+        await axios.post(
+          "https://simpleservice-production.up.railway.app/pago",
+          {
+            name: customerName,
+            email: customerEmail,
+            amount: (totalPayment)/100,
+            items: items,
+          }
+        );
 
-        elements.getElement(CardElement).clear();
+        elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
-        saveOrder()
+        saveOrder();
       } catch (error) {
         console.log(error);
       }
@@ -102,23 +113,54 @@ const CheckOutForm = () => {
   };
   return (
     <div className="containerCheckDetail">
-      <form className="formCheckout" onSubmit={handleSubmit}>
-        <h2 className="labelCheck">Introduce tu metodo de pago</h2>
-        <br />
-        <br />
-        <div className="inpuCh">
-          <CardElement className="inputCheck" />
-        </div>
-        <br />
-        <br />
-        <div>
-          <button className="btn btn-success" onClick={clearAndBack} >
-            Buy
-          </button>
-        </div>
-        <div></div>
-        <CheckoutSummary className="chSum" />
-      </form>
+      <div className="contFor">
+        <form className="formCheck" onSubmit={handleSubmit}>
+        
+          <Link
+            className="linkCheck"
+            to="/cart"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <button className="btnCheck">Go Back</button>
+          </Link>
+          
+          <h2 className="cardCheck">Enter your payment method</h2>
+
+          <div className="chSum">
+            <CheckoutSummary />
+          </div>
+          <div className="boxDetInp" style={{ height: 550 }}>
+            <img src={cardis} alt="cardis" className="cardis" />
+            <div className="Check">
+              <span>Number Card</span>
+              <div className="inputCheck">
+                <CardNumberElement />
+              </div>
+              <hr />
+              <span>Expiry</span>
+              <div className="inputExp">
+                <CardExpiryElement />
+              </div>
+              <hr />
+              <span>CVC</span>
+              <div className="inputCvc">
+                <CardCvcElement />
+              </div>
+            </div>
+            <div className="btnPay">
+              <button
+                className="btn btn-success"
+                onClick={clearAndBack}
+                style={{ width: "400px", height: "55px" }}
+              >
+                Pay
+              </button>              
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

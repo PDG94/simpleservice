@@ -20,56 +20,56 @@
 .btnNav {
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: rondalSemibold;
-  font-size: 160%;
+  font-family: rondalRegular;
+  font-size: 150%;
   font-weight: 500;
-  color: #E9EFF2;
+  color: #e9eff2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 10px;
   text-decoration: none;
   letter-spacing: 2px;
 }
 .btnNav:hover {
   cursor: pointer;
-  color: #E9EFF2;
+  color: #5ebfb5;
   background-color: #252636;
 }
 
 .searchNav {
-  margin-top: 1%;
+  margin-top: 0.5%;
   margin-left: 0;
   margin-right: 0;
-  font-family: system-ui;
-  font-size: 100%;
-  font-weight: 500;
-  color: #E9EFF2;
+  font-size: 120%;
+  color: #e9eff2;
   text-align: center;
+  letter-spacing: 1px;
   padding: 14px 16px;
   text-decoration: none;
 }
 .birdy {
   margin-left: 0.3rem;
+  margin-top: -20%;
   font-family: system-ui;
   font-size: 20px;
   font-weight: 500;
-  color: #E9EFF2;
+  color: #e9eff2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 .greet {
-  color: #5EBFB5;
+  color: #5ebfb5;
   margin-left: 0.3rem;
   margin-right: 0.2rem;
-  font-family: magnum;
+  font-family: fair;
   letter-spacing: 3px;
-  font-size: 180%;
+  font-size: 170%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-.circleNav{
+.circleNav {
   margin-bottom: 1%;
 }
 .space {
@@ -83,23 +83,4 @@
   text-align: center;
   padding: 2px 2px;
   text-decoration: none;
-}
-.login {
-  margin-top: 2.5%;
-  margin-bottom: 0;
-  margin-left: 0.3rem;
-  margin-right: 0.2rem;
-  font-family: rondalSemibold;
-  font-size: 20px;
-  font-weight: 500;
-  color: #E9EFF2;
-  text-align: center;
-  padding: 14px 12px 8px 12px;
-  text-decoration: none;
-}
-.login:hover {
-  cursor: pointer;
-  color: #E9EFF2;
-  box-shadow: 0 0 4px 6px #1a1a25;
-  border-radius: 6px;
 }

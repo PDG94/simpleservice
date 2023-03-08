@@ -26,6 +26,7 @@ import AddCategories from "./Admin/AddCategories/AddCategories";
 import Prohibido from "./Security/Prohibido";
 import Edit from "./Admin/Edit/Edit";
 import Profile from "./User/Dashboard/Profile";
+import NavBarUser from "./User/NavBarUser/NavBarUser";
 import OrdersUser from "./User/Orders/OrdersUser";
 import ViewServiceUser from "./User/ViewService/ViewServiceUser";
 import DashboardUser from "./User/Dashboard/Profile";
@@ -38,7 +39,8 @@ import UpdateProfilesUsers from "./Admin/UpdateInfoUsers/UpdateInfoUsers";
 import ViewAllServices from "./User/ViewService/ViewAllServices";
 import OrdersDetails from "./User/Orders/OrdersDetails";
 import ReviewService from "./User/Orders/ReviewService";
-
+import ViewAllUsers from "./Admin/ViewAllUsers/ViewAllUsers";
+import UpdateServices from "./User/UpdateServices/UpdateServices";
 
 export {
   Card,
@@ -69,6 +71,7 @@ export {
   Prohibido,
   Edit,
   Profile,
+  NavBarUser,
   OrdersUser,
   ViewServiceUser,
   ViewAllServices,
@@ -81,4 +84,6 @@ export {
   CheckoutSuccess,
   OrdersDetails,
   ReviewService,
+  ViewAllUsers,
+  UpdateServices,
 };
