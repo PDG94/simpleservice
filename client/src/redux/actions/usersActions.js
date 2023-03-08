@@ -78,10 +78,19 @@ export const createdUser = (username, name, token, profilepic) => {
 };
 
 //LOGIN REQUEST
-export const userLogin = (token) => {
-  axios.get("https://simpleservice-production.up.railway.app/login", {
+export const userLogin = async (token) => {
+  const userResponseLogin = await axios.get("https://simpleservice-production.up.railway.app/login", {
     headers: { Authorization: "Bearer " + token },
   });
+  if(userResponseLogin.data.message!=="User succesfully logged in"){
+    await axios.post(
+      "https://simpleservice-production.up.railway.app/alta",
+      {
+        name: userResponseLogin.data.user.name,
+        email: userResponseLogin.data.user.email,
+      }
+    );
+  }
 };
 
 export function deleteUser() {

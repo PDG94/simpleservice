@@ -86,20 +86,46 @@ export default function UpdateProfilesUsers() {
 
     const info = updateValidator();
 
+    const userSelected = await axios.get(
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );  
+
     await axios.put(
       `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
       }
-    );
+    );   
 
+    if(userSelected.data.active===true && info.active===false){
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/baja",
+        {
+          name: userSelected.data.name,
+          email: userSelected.data.email,
+        }
+      );
+    }
+
+    if(userSelected.data.active===false && info.active===true){
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/activate",
+        {
+          name: userSelected.data.name,
+          email: userSelected.data.email,
+        }
+      );
+    }
     toast.success("User update successfully!");
     navigate("/admin/home");
   };
 
   const handleActive = (e) => {
-    setForm({ ...form, active: e.target.value });
+    setForm({ ...form, active: e.target.value });    
   };
 
   const handleIsAdmin = (e) => {

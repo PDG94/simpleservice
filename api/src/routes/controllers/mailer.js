@@ -77,5 +77,22 @@ const baja = async (name, email) => {
   });
 };
 
-module.exports = { mailActivateAccount, pago, datos, baja };
+const active = async (name, email) => {
+  await transport.sendMail({
+    from: "Simple Service <simple.service.pf@gmail.com>",
+    to: email,
+    subject: "Account Activated",
+    html: `
+            <h2>Hi! ${name}, we are glad to see you back.</h2>
+            <h1>Your account has been successfully activated.</h1>
+            <hr />            
+            <div>                        
+              <p>Cordialy</p>
+              <p>Your friends at Simple Service</p>
+            </div>        
+         `,
+  });
+};
+
+module.exports = { mailActivateAccount, pago, datos, baja, active };
 
