@@ -4,10 +4,10 @@ import { CardsContainer, NavBar } from "../index";
 const Services = () => {
   return (
     <div className="main">
-      <NavBar /> 
+      <NavBar />
       <div>
         <CardsContainer />
-        </div>
+      </div>
     </div>
   );
 };

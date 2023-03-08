@@ -1,4 +1,4 @@
-import { useEffect /* useState */ } from "react";
+import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -64,6 +64,7 @@ const Cart = () => {
     return () => {
       dispatch(cleanState()); //revisar este
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartItems, dispatch]);
 
   const checkout = () => {
@@ -75,12 +76,7 @@ const Cart = () => {
     }
   };
 
-  // const getCardIndex = (payload) => {
-  //   return cartItems.findIndex((item) => item.id === payload.id);
-  // };
-
   const increaseCart = (cart, index) => {
-    // const productIndex = getCardIndex();
     if (index >= 0) {
       dispatch(addToExinstingCart(cart, index));
     } else {
@@ -91,7 +87,6 @@ const Cart = () => {
   };
 
   const decreaseCart1 = (cart, index) => {
-    // const productIndex = getCardIndex();
     if (cartItems[index].cartQuantity > 1) {
       dispatch(reduceCartQuantity(cart, index));
     } else {
@@ -123,7 +118,7 @@ const Cart = () => {
               <br />
               <div>
                 <Link className="btnEmpty1" to="/services">
-                  &larr;{"  "} Continue shopping{"  "}
+                  &larr;Continue shopping
                 </Link>
               </div>
             </div>
@@ -140,72 +135,71 @@ const Cart = () => {
               </div>
               <br />
               <div className="tableBox">
-                 <table className="tableBoxCart">
-                <thead>
-                  <tr>
-                    <th className="thCart">s/n</th>
-                    <th className="thCart">Service</th>
-                    <th className="thCart">Price</th>
-                    <th className="thCart">Quantity</th>
-                    <th className="thCart">Total</th>
-                    <th className="thCart">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.map((cart, index) => {
-                    const { id, servicename, price, cartQuantity } = cart;
-                    return (
-                      <tr key={id} className="table-secondary">
-                        <td className="tdCart">{index + 1}</td>
-                        <td className="tdCart">
-                          <p>
-                            <b>{servicename}</b>
-                          </p>
-                          <img
-                            src={cart.Users[0].profilepic}
-                            alt="img"
-                            style={{ width: "100px" }}
-                            className="imgCart"
-                          />
-                        </td>
-                        <td className="tdCart">{price}</td>
-                        <td className="tdCart">
-                          <div className="quantCart">
-                            <button
-                              className="btnDecr"
-                              onClick={() => decreaseCart1(cart, index)}
-                            >
-                              -
-                            </button>
-                            <p className="pQuant">
-                              <b>{cartQuantity}</b>
+                <table className="tableBoxCart">
+                  <thead>
+                    <tr>
+                      <th className="thCart">s/n</th>
+                      <th className="thCart">Service</th>
+                      <th className="thCart">Price</th>
+                      <th className="thCart">Quantity</th>
+                      <th className="thCart">Total</th>
+                      <th className="thCart">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cartItems.map((cart, index) => {
+                      const { id, servicename, price, cartQuantity } = cart;
+                      return (
+                        <tr key={id} className="table-secondary">
+                          <td className="tdCart">{index + 1}</td>
+                          <td className="tdCart">
+                            <p>
+                              <b>{servicename}</b>
                             </p>
-                            <button
-                              className="btnIncr"
-                              onClick={() => increaseCart(cart, index)}
-                            >
-                              +
-                            </button>
-                          </div>
-                        </td>
-                        <td className="tdCart">
-                          {(price * cartQuantity).toFixed(2)}
-                        </td>
-                        <td className="tdCart">
-                          <FaTrashAlt
-                            className="binCart"
-                            size={26}
-                            color="red"
-                            onClick={() => removeFromCart(cart)}
-                          />
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                            <img
+                              src={cart.Users[0].profilepic}
+                              alt="img"
+                              style={{ width: "100px" }}
+                              className="imgCart"
+                            />
+                          </td>
+                          <td className="tdCart">{price}</td>
+                          <td className="tdCart">
+                            <div className="quantCart">
+                              <button
+                                className="btnDecr"
+                                onClick={() => decreaseCart1(cart, index)}
+                              >
+                                -
+                              </button>
+                              <p className="pQuant">
+                                <b>{cartQuantity}</b>
+                              </p>
+                              <button
+                                className="btnIncr"
+                                onClick={() => increaseCart(cart, index)}
+                              >
+                                +
+                              </button>
+                            </div>
+                          </td>
+                          <td className="tdCart">
+                            {(price * cartQuantity).toFixed(2)}
+                          </td>
+                          <td className="tdCart">
+                            <FaTrashAlt
+                              className="binCart"
+                              size={26}
+                              color="red"
+                              onClick={() => removeFromCart(cart)}
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
-             
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
@@ -221,9 +215,12 @@ const Cart = () => {
                   <h4 className="h4Total">Subtotal:</h4>
                   <h3 className="amount">{`$${cartTotalAmount.toFixed(2)}`}</h3>
                 </div>
-                <p style={{color:'#c3cace'}}>Tax an shipping calculated at checkout</p>
+                <p style={{ color: "#c3cace" }}>
+                  Tax an shipping calculated at checkout
+                </p>
                 <button
-                  className="btn btn-primary btn-block" style={{width:'500px',height:'50px'}}
+                  className="btn btn-primary btn-block"
+                  style={{ width: "500px", height: "50px" }}
                   onClick={checkout}
                 >
                   Checkout

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import "../Dashboard/dashboard.css";
 import { Link } from "react-router-dom";
@@ -28,9 +28,7 @@ export default function Dashboard() {
   const totalUsers = useSelector((state) => state.misc.totalUsers);
   const token = localStorage.getItem("token");
   const orders = useSelector((state) => state.orders.orderHistory);
-  const totalOrderA = useSelector((state) => state.orders.totalOrderAmount);
   const { data } = useFetchCollection("orders");
-  // const allServices = useSelector((state) => state.services.services);
 
   const calculateOrdersAmount = () => {
     const array = [];
@@ -48,13 +46,14 @@ export default function Dashboard() {
     dispatch(adminMetrics(token));
     dispatch(storeOrders(data));
     dispatch(calcOrdersAmount(calculateOrdersAmount()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, token, data]);
 
   //icons
-  const earningIcons = <AiFillDollarCircle size={30} color="#006400" />;
-  const serviceIcons = <FcServices size={30} />;
-  const carticons = <HiShoppingCart size={30} color="#1e90ff" />;
-  const userIcons = <MdPerson size={30} color="#34445" />;
+  <AiFillDollarCircle size={30} color="#006400" />;
+  <FcServices size={30} />;
+  <HiShoppingCart size={30} color="#1e90ff" />;
+  <MdPerson size={30} color="#34445" />;
 
   return (
     <div className="dashBo">
@@ -109,35 +108,6 @@ export default function Dashboard() {
               </Link>
             </div>
           </div>
-
-          {/* ------------------------------------- */}
-          {/* <div className="insights">
-            <Link
-              className="linkAd"
-              style={{ textDecoration: "none" }}
-              to="/admin/orders"
-            >
-            
-                <MdOutlineBorderColor className="icDash2" />
-                <div className="earning">
-                  <h2>Earnings</h2>
-        <InfoBox
-          tittle={"Total Earnings"}
-          count={`$${totalOrderA}`}
-          icon={earningIcons}
-        />
-        </div>
-                <div className="orders">
-                <h2>Orders</h2>
-        <InfoBox
-          tittle={"Total Orders"}
-          count={orders.length}
-          icon={carticons}
-          
-        />
-        </div>
-            </Link>
-          </div> */}
           <div className="graficas">
             <ChartAdmin />
             <ChartAdminUser />

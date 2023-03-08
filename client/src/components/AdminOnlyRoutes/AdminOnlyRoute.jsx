@@ -22,14 +22,4 @@ const AdminOnlyRoute = ({ children }) => {
   return null;
 };
 
-// export const AdminOnlyLink = ({ children }) => {
-//   const userEmail = useSelector((state)=>state.email);
-//   console.log(userEmail);
-
-//   if (userEmail === "simpleservice@gmail.com") {
-//     return children;
-//   }
-//   return null;
-// };
-
 export default AdminOnlyRoute;

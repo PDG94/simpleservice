@@ -73,7 +73,12 @@ export default function AddService() {
           <NavBarAdmin />
         </div>
         <div>
-          <img className="imagenad" src={adservice} width="700px" />
+          <img
+            className="imagenad"
+            alt="adservice"
+            src={adservice}
+            width="700px"
+          />
           <div className="containerAdSer">
             <h1>Add Service</h1>
             <hr />

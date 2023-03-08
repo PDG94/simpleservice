@@ -23,14 +23,13 @@ const ChartUsers = () => {
     <ResponsiveContainer width="77%" aspect={2}>
       <BarChart
         data={data}
-
-            width={500}
-            height={300}
-            margin={{
-                top:5,
-                right:5,
-                left:5,
-                bottom:10
+        width={500}
+        height={300}
+        margin={{
+          top: 5,
+          right: 5,
+          left: 5,
+          bottom: 10,
         }}
         style={{
           borderRadius: "20px 0 20px 0",
