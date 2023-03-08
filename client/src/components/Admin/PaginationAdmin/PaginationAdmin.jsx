@@ -1,30 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import "../PaginationAdmin/paginationAdmin.css";
 import { useDispatch, useSelector } from "react-redux";
 import { resedPaged } from "../../../redux/actions/miscActions";
-import "../PaginationAdmin/paginationAdmin.css";
 
-export default function PaginationAdmin({
-  paged,
-  allServices,
-  servicesPerPage,
-}) {
-  const currentPage = useSelector((state) => state.misc.currentPage); // 1
-  const pageNumbers = allServices / servicesPerPage;
-
+export default function PaginationAdmin({ servicesPerPage, allServices, paged }) {
+  const pageNumber = [];
   const dispatch = useDispatch();
 
-  //Limit the page numbers shown
+  const currentPage = useSelector((state) => state.misc.currentPage);
 
-  const [pageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
-
-  let pageNumber = [];
-  for (let i = 1; i <= Math.ceil(allServices / servicesPerPage); i++) {
-    pageNumber.push(i);
+  for (let i = 0; i < Math.ceil(allServices / servicesPerPage); i++) {
+    pageNumber.push(i + 1);
   }
 
-  function prev() {
+  function handlePrev() {
     if (currentPage === 1) {
       dispatch(resedPaged(1));
     } else {
@@ -32,7 +21,7 @@ export default function PaginationAdmin({
     }
   }
 
-  function nextPage() {
+  function handleNext() {
     if (currentPage === pageNumber[pageNumber.length - 1]) {
       dispatch(resedPaged(currentPage));
     } else {
@@ -41,44 +30,44 @@ export default function PaginationAdmin({
   }
 
   return (
-    <nav className="page">
-      <div className="pagesAd">
-        <div
-          onClick={prev}
-          className={currentPage === pageNumber[0] ? `hidden` : null}
-        >
-          &laquo;
+    <nav className="paginateContainer1">
+      <div className="pages1">
+        <div>
+          <p
+            className="buttonPage1"
+            onClick={() => handlePrev()}
+            disabled={allServices < 6}
+          >
+            ⪻
+          </p>
         </div>
-
-        {pageNumber.map((number) => {
-          if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-            return (
-              <div
-                key={number}
-                onClick={() => paged(number)}
-                className={currentPage === number ? "active" : ""}
+        {allServices < 6 ? (
+          <div key="pagination">{paged(1)}</div>
+        ) : (
+          pageNumber &&
+          pageNumber.map((n) => (
+            <div key={n} className="page1">
+              <p
+                className={"page-number1" + (n === currentPage ? "active" : "")}
+                key={n}
+                onClick={() => paged(n)}
               >
-                {number}
-              </div>
-            );
-          }
-        })}
-
-        <li
-          onClick={nextPage}
-          className={
-            currentPage === pageNumber[pageNumber.length - 1] ? "hidden" : ""
-          }
-        >
-          &raquo;
-        </li>
-        <p className="pAdPage">
-          <b className="Page">{`Page
-            ${currentPage}`}</b>
-          <span>{` of `}</span>
-          <b>{`${Math.ceil(pageNumbers)}`}</b>
-        </p>
+                {n}
+              </p>
+            </div>
+          ))
+        )}
+        <div>
+          <p
+            className="buttonPage1"
+            onClick={() => handleNext()}
+            disabled={allServices < 6}
+          >
+            ⪼
+          </p>
+        </div>
       </div>
     </nav>
   );
 }
+
