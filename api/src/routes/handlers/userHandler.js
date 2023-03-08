@@ -8,6 +8,9 @@ const {
 const getUserHandler = async (req, res) => {
   try {
     const userInfo = await getUserInfo(req.params);
+    if (userInfo === null) {
+      throw new Error("No user found");
+    }
     res.status(200).json(userInfo);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -36,10 +39,10 @@ const deleteUserHandler = async (req, res) => {
 
 const editServiceHandler = async (req, res) => {
   try {
-    const params = {...req.body, ...req.params}
+    const params = { ...req.body, ...req.params };
     const updatedService = await editService(params);
-    if(!updatedService){
-      throw new Error("nothing to update")
+    if (!updatedService) {
+      throw new Error("nothing to update");
     }
     res.status(200).json({
       message: "Service updated succesfully",
