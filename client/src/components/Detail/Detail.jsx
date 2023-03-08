@@ -21,7 +21,6 @@ import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
 import StarsRating from "react-star-rate";
 
-
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -29,7 +28,21 @@ export default function Detail() {
   const { data } = useFetchCollection("reviews");
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
-  const numeroDePalabras = serviceDetail[0].description.split(" ").length;
+
+  const isObjectEmpty = (objectName) => {
+    return (
+      objectName &&
+      Object.keys(objectName).length === 0 &&
+      objectName.constructor === Object
+    );
+  };
+
+  // if (serviceDetail && !isObjectEmpty(serviceDetail)) {
+  // }
+  const numeroDePalabras =
+    serviceDetail && !isObjectEmpty(serviceDetail)
+      ? serviceDetail[0].description.split(" ").length
+      : "";
 
   const filterReviews = data.filter((data) => data.productID === id);
 
@@ -37,7 +50,6 @@ export default function Detail() {
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
-
 
   useEffect(() => {
     dispatch(getServiceDetail(id));
@@ -100,7 +112,7 @@ export default function Detail() {
           <button className="btnH">Back</button>
         </Link>
         {serviceDetail.length ? (
-          serviceDetail.map((service) => {
+          serviceDetail?.map((service) => {
             return (
               <div className="supremeBox">
                 <div className="mainDetail">
@@ -177,22 +189,25 @@ export default function Detail() {
                     </div>
                   </div>
                   <div className="right">
-                     <div
-                        className="description"
-                        style={{ marginTop: "10%" }}
-                      >
-                    {numeroDePalabras < 100
-                    ? service?.description || "description not available"
-                    : readMore
-                    ? service?.description || "description not available"
-                    : `${service.description.substring(0, 450)}...`}
-                   {numeroDePalabras >= 100 &&
-        <div className="description" style={{ marginTop: "5%" }}>
-          <button className="btnMoreDetail" onClick={() => setReadmore(!readMore)}>
-            {readMore ? "show less" : "show more"}
-          </button>
-                      </div>
-          }
+                    <div className="description" style={{ marginTop: "10%" }}>
+                      {numeroDePalabras < 100
+                        ? service?.description || "description not available"
+                        : readMore
+                        ? service?.description || "description not available"
+                        : `${service.description.substring(0, 450)}...`}
+                      {numeroDePalabras >= 100 && (
+                        <div
+                          className="description"
+                          style={{ marginTop: "5%" }}
+                        >
+                          <button
+                            className="btnMoreDetail"
+                            onClick={() => setReadmore(!readMore)}
+                          >
+                            {readMore ? "show less" : "show more"}
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
