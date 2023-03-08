@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import "../../User/Dashboard/profile.css";
 import { getServiceUser } from "../../../redux/actions/usersActions";
 import ChartUsers from "./ChartUsers";
@@ -42,16 +42,18 @@ export default function DashboardUser() {
           <p className="pProfile">
             Name
             <br /> <b>{name}</b>
-            <hr />{" "}
           </p>
+          <br/>
+          
 
           <p className="pProfile">
             Username
             <br />{" "}
             <b>
-              {username} <hr />
+              {username}
             </b>{" "}
           </p>
+          <br/>
           <p className="pProfile">
             E-mail
             <br /> <b>{email}</b>
@@ -89,7 +91,6 @@ export default function DashboardUser() {
         <div></div>
         <div></div>
       </div>
-      <Footer />
     </div>
   );
 }

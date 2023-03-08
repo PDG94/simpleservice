@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { NavBarUser, Footer } from "../index";
+import { NavBarUser } from "../index";
 import "../Create/create.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
@@ -183,7 +183,6 @@ export default function Create() {
           </button>
         </div>
       </div>
-      <Footer />
     </form>
   );
 }
