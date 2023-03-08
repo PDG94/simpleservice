@@ -1,7 +1,7 @@
 import { NavBar, Footer, Loading } from "../index";
 import {
   getServiceDetail,
-  cleanState,
+  clearName,
 } from "../../redux/actions/servicesActions";
 import {
   addToExinstingCart,
@@ -42,7 +42,8 @@ export default function Detail() {
   const numeroDePalabras =
     serviceDetail && !isObjectEmpty(serviceDetail)
       ? serviceDetail[0].description.split(" ").length
-      : "";
+      : 0;
+
 
   const filterReviews = data.filter((data) => data.productID === id);
 
@@ -54,7 +55,7 @@ export default function Detail() {
   useEffect(() => {
     dispatch(getServiceDetail(id));
     return () => {
-      dispatch(cleanState());
+      dispatch(clearName());
     };
   }, [dispatch, id]);
 
