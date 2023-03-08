@@ -79,7 +79,7 @@ const CheckOutForm = () => {
       const { id } = paymentMethod;
 
       const items = cartItems1.map(element =>element.servicename)
-
+      const itemsDesc = JSON.stringify(items)
       try {
         await axios.post(
           "https://simpleservice-production.up.railway.app/checkout",
@@ -89,7 +89,7 @@ const CheckOutForm = () => {
             userID1,
             userEmail: customerEmail,
             items: cartItems1,
-            desc: items,
+            desc: itemsDesc,
           }
         );
                 
