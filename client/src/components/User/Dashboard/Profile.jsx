@@ -12,70 +12,64 @@ export default function DashboardUser() {
   const token = localStorage.getItem("token");
 
   const id = useSelector((state) => state.users.userID);
-  const {
-
-email,
-    name,
-    profilepic,
-    userbio,
-    username,
-  } = useSelector((state) => state.users.serviceUser);
-
+  const { email, name, profilepic, userbio, username } = useSelector(
+    (state) => state.users.serviceUser
+  );
 
   useEffect(() => {
     dispatch(getServiceUser(id, token));
   }, [dispatch, id, token]);
 
-
   return (
-    <div className="fondoProf">
-      <NavBarUser />
+    <div>
+      <div className="fondoProf">
+        <NavBarUser />
 
-      <div className="boxProfile">
-        <div className="imgBoxProfile">
-          <img
-            className="imgProfile"
-            src={profilepic}
-            alt={`${userbio}'s profile pic`}
-          />
-        </div>
+        <div className="boxProfile">
+          <div className="imgBoxProfile">
+            <img
+              className="imgProfile"
+              src={profilepic}
+              alt={`${userbio}'s profile pic`}
+            />
+          </div>
 
-        <div className="dInfoPro">
-          <span className="sBoxChart">
-            <b>My Info</b>
-          </span>
-          <br />
-          <br />
-          <p className="pProfile">
-            Name
-            <br /> <b>{name}</b>
-            <hr />{" "}
-          </p>
+          <div className="dInfoPro">
+            <span className="sBoxChart">
+              <b>My Info</b>
+            </span>
+            <br />
+            <br />
+            <p className="pProfile">
+              Name
+              <br /> <b>{name}</b>
+              <hr />{" "}
+            </p>
 
-          <p className="pProfile">
-            Username
-            <br />{" "}
-            <b>
-              {username} <hr />
-            </b>{" "}
-          </p>
-          <p className="pProfile">
-            E-mail
-            <br /> <b>{email}</b>
-          </p>
-        </div>
+            <p className="pProfile">
+              Username
+              <br />{" "}
+              <b>
+                {username} <hr />
+              </b>{" "}
+            </p>
+            <p className="pProfile">
+              E-mail
+              <br /> <b>{email}</b>
+            </p>
+          </div>
 
-        <div className="chartWaves">
-          <br/>
-          <span className="sBoxChartWaves">
+          <div className="chartWaves">
+            <br />
+            <span className="sBoxChartWaves">
               <b>Number of Services</b>
             </span>
             <br />
-          <ChartUserOther className="chartWavessize" width="70px"/>
-           </div>
+            <ChartUserOther className="chartWavessize" width="70px" />
+          </div>
 
-        <div className="chartProf">
-          <br/>
+          <div className="chartProf">
+            <br />
             <span className="sBoxChart">
               <b>Services</b>
             </span>
@@ -91,7 +85,7 @@ email,
             <br />
             <p className="pProfileBio">{userbio}</p>
           </div>
-         
+
           <div></div>
         </div>
         <div></div>
