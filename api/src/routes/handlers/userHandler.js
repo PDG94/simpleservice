@@ -8,7 +8,7 @@ const {
 const getUserHandler = async (req, res) => {
   try {
     const { user_id } = req.user;
-    const userInfo = await getUserInfo(user_id);
+    const userInfo = await getUserInfo({ id: user_id });
     if (userInfo === null) {
       throw new Error("No user found");
     }
@@ -35,8 +35,8 @@ const updateUserHandler = async (req, res) => {
 const deleteUserHandler = async (req, res) => {
   const active = false;
   const { user_id } = req.user;
-  // const params = { ...req.params, active };
-  const userDeleted = await deleteUser(user_id, active);
+  const params = { id: user_id, active };
+  const userDeleted = await deleteUser(params);
   res.status(200).json(userDeleted);
 };
 
