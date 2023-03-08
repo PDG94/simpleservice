@@ -113,7 +113,7 @@ export default function UpdateProfilesUsers() {
 
     if(userSelected.data.active===false && info.active===true){
       await axios.post(
-        "https://simpleservice-production.up.railway.app/activate",
+        "https://simpleservice-production.up.railway.app/active",
         {
           name: userSelected.data.name,
           email: userSelected.data.email,
