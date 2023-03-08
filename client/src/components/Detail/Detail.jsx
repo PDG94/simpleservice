@@ -33,13 +33,11 @@ export default function Detail() {
   const userEmail1 = userEmail && userEmail.slice(0, -10);
 
   const filterReviews = data.filter((data) => data.productID === id);
-  // console.log(filterReviews);
 
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
-  // console.log(isCartAdded);
 
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
 

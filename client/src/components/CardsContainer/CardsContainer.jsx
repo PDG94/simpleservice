@@ -11,7 +11,6 @@ export default function CardsContainer() {
   const allServices = useSelector((state) => state.services.services);
 
   const currentPage = useSelector((state) => state.misc.currentPage);
-  /*  const [currentPage, setCurrentPage] = useState(1); */ // seteo la pagina para que empiece en 1
   const [servicesPerPage] = useState(6); // servicios por pagina
   const indexOfLastService = currentPage * servicesPerPage; // 6
   const indexOfFirstService = indexOfLastService - servicesPerPage; // 6-6 = 0

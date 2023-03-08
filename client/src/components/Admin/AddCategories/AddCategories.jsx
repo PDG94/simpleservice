@@ -55,9 +55,9 @@ export default function AddCategories() {
         <img className="imagencat" src={imagenCat} width="700px" />
         <div className="containerAdCat">
           <h1>Create Categories</h1>
-          <hr />
+          <hr/>
           <div >
-            <p className="pCat">Categorie name</p>
+            <p className="pCat">Add a New Category</p>
             <input
             className="inpAdCat"
               type="text"

@@ -4,6 +4,7 @@ import {
   removeActiveUser,
   setUsers,
   setServiceUser,
+  getAdmin,
 } from "../slices/usersSlice";
 
 const errorlog = (e) => console.log(e.message || e);
@@ -72,3 +73,17 @@ export const userLogin = (token) => {
 export function deleteUser() {
   //esta función se esta importando en ViewServices pero no existe
 }
+
+export const adminCheck = (token) => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      "https://simpleservice-production.up.railway.app/admin/check",
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    return dispatch(getAdmin(response.data.isAdmin));
+  } catch (error) {
+    return null;
+  }
+};

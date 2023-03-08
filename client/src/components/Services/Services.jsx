@@ -1,5 +1,4 @@
 import "../Services/services.css";
-// import "../NavBar/navBar.css";
 import { CardsContainer, NavBar } from "../index";
 
 const Services = () => {

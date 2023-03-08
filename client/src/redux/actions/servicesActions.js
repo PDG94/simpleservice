@@ -71,29 +71,29 @@ export const getServicesByName = (name) => async (dispatch) => {
   }
 };
 
-export const cardsFilter =
-  ({ order, direction, categoryId }) =>
-  async (dispatch) => {
-    try {
-      if (order && direction && categoryId) {
-        const response = await axios.get(
-          `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}&categoryId=${categoryId}`
-        );
-        return dispatch(filterServices(response.data));
-      }
-      if (order && direction) {
-        const response = await axios.get(
-          `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}`
-        );
-        return dispatch(filterServices(response.data));
-      }
-      if (categoryId) {
-        const response = await axios.get(
-          `https://simpleservice-production.up.railway.app/services?categoryId=${categoryId}`
-        );
-        return dispatch(filterServices(response.data));
-      }
-    } catch (error) {
-      errorlog(error);
+export const cardsFilter = ({ order, direction, categoryId }) => async (
+  dispatch
+) => {
+  try {
+    if (order && direction && categoryId) {
+      const response = await axios.get(
+        `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}&categoryId=${categoryId}`
+      );
+      return dispatch(filterServices(response.data));
     }
-  };
+    if (order && direction) {
+      const response = await axios.get(
+        `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}`
+      );
+      return dispatch(filterServices(response.data));
+    }
+    if (categoryId) {
+      const response = await axios.get(
+        `https://simpleservice-production.up.railway.app/services?categoryId=${categoryId}`
+      );
+      return dispatch(filterServices(response.data));
+    }
+  } catch (error) {
+    errorlog(error);
+  }
+};

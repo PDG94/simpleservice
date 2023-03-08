@@ -1,5 +1,5 @@
 const { Router } = require("express");
-// const {isThisAdmin} = require("../../middleware");
+const middleware = require("../../middleware");
 const {
   getUsersHandler,
   updateUserHandler,
@@ -50,5 +50,18 @@ adminRouter.delete("/users/:id", deleteUserHandler);
 adminRouter.delete("/categories/:id", deleteCategoryHandler);
 
 adminRouter.delete("/services/:id", deleteServiceHandler);
+
+adminRouter.get(
+  "/check",
+  middleware.decodeToken,
+  middleware.isThisAdmin,
+  (req, res) => {
+    try {
+      res.status(200).json(req.admin);
+    } catch (error) {
+      res.status(400).json({ message: "Not authorized" });
+    }
+  }
+);
 
 module.exports = adminRouter;
