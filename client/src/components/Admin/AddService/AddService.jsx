@@ -43,7 +43,6 @@ export default function AddService() {
   };
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     setForm({
       ...form,
       [event.target.name]: event.target.value,

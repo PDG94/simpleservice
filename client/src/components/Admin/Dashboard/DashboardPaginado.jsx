@@ -6,7 +6,6 @@ import "../PaginationAdmin/paginationAdmin.css";
 export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
   const currentPage = useSelector((state) => state.misc.currentPage); // 1
   const pageNumbers = orders / servicesPerPage;
-  console.log(orders);
   const dispatch = useDispatch();
 
   //Limit the page numbers shown
