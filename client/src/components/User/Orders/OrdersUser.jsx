@@ -38,58 +38,58 @@ export default function OrderHistory() {
             Open an order to leave a <b>Product Review</b>
           </p>
           <br />
+          <div className="mainOrd">
+            {isLoading && <Loading />}
+            <div className="tabletable-responsive table-info">
+              {filteredOrders.length === 0 ? (
+                <p className="emptyP2">No order found</p>
+              ) : (
+                <table className="tableContainer">
+                  <thead>
+                    <tr>
+                      <th className="thOrderUsers">s/n</th>
+                      <th className="thOrderUsers">Date</th>
+                      <th className="thOrderUsers">Order ID</th>
+                      <th className="thOrderUsers">Order Amount</th>
+                      <th className="thOrderUsers">Order Status</th>
+                    </tr>
+                    
+                  </thead>
 
-          {isLoading && <Loading />}
-          <div className="tabletable-responsive table-info">
-            {filteredOrders.length === 0 ? (
-              <p className="emptyP2">No order found</p>
-            ) : (
-              <table className="tableContainer">
-                <thead>
-                  <tr>
-                    <th className="thOrderUsers">s/n</th>
-                    <th className="thOrderUsers">Date</th>
-                    <th className="thOrderUsers">Order ID</th>
-                    <th className="thOrderUsers">Order Amount</th>
-                    <th className="thOrderUsers">Order Status</th>
-                  </tr>
-                </thead>
-
-                {filteredOrders.map((order, index) => {
-                  const {
-                    id,
-                    orderDate,
-                    orderTime,
-                    orderAmount,
-                    orderStatus,
-                  } = order;
-                  return (
-                    <tbody className="tbodyUser">
-                      <tr
-                        className="table-secondary"
-                        key={id}
-                        onClick={() => handleClick(id)}
-                      >
-                        <td className="tdOrderUsers">{index + 1}</td>
-                        <td className="tdOrderUsers">
-                          {orderDate} at {orderTime}
-                        </td>
-                        <td className="tdOrderUsers">{id}</td>
-                        <td className="tdOrderUsers">
-                          {"$"}
-                          {orderAmount}
-                        </td>
-                        <td className="tdOrderUsers">
-                          <p>{orderStatus}</p>
-                          
-                        </td>
-                        
-                      </tr>
-                    </tbody>
-                  );
-                })}
-              </table>
-            )}
+                  {filteredOrders.map((order, index) => {
+                    const {
+                      id,
+                      orderDate,
+                      orderTime,
+                      orderAmount,
+                      orderStatus,
+                    } = order;
+                    return (
+                      <tbody className="tbodyUser">
+                        <tr
+                          className="table-secondary"
+                          key={id}
+                          onClick={() => handleClick(id)}
+                        >
+                          <td className="tdOrderUsers">{index + 1}</td>
+                          <td className="tdOrderUsers">
+                            {orderDate} at {orderTime}
+                          </td>
+                          <td className="tdOrderUsers">{id}</td>
+                          <td className="tdOrderUsers">
+                            {"$"}
+                            {orderAmount}
+                          </td>
+                          <td className="tdOrderUsers">
+                            <p>{orderStatus}</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
+                </table>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -18,6 +18,11 @@
   box-shadow: 0 0 10px 5px white;
   margin-bottom: 2%;
 }
+.mainOrd{
+  width: 98%;
+  height: 60%;
+   overflow-y: scroll;
+}
 .h2OrderUser {
   margin-top: 2%;
   margin-bottom: 30px;
@@ -44,9 +49,11 @@
 .tableContainerOrder {
   width: 90%;
   margin-left: 5%;
+
 }
 .tableContainer {
   color: #91c2bb;
+
 }
 .tdOrderUsers {
   font-family: "Merienda", cursive;
