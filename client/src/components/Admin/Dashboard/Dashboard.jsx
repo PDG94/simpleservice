@@ -62,6 +62,7 @@ export default function Dashboard() {
         <NavBarAdmin />
       </div>
       <div className="dashboard">
+        <br/>
         <h1 className="hi">Hi, Admin!</h1>
         <main className="Menu">
           <div className="porcentajes">

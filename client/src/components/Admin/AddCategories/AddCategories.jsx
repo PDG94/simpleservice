@@ -52,7 +52,7 @@ export default function AddCategories() {
         <div className="navCat">
           <NavBarAdmin />
         </div>
-        <img className="imagencat" src={imagenCat} width="700px" />
+        <img className="imagencat" src={imagenCat} alt="" width="700px" />
         <div className="containerAdCat">
           <h1>Create Categories</h1>
           <hr/>

@@ -29,8 +29,8 @@ const ChartUserOther = () => {
             <XAxis dataKey="name" stroke='#fff'/>
             <YAxis stroke='#fff'/>
             <Tooltip />
-            <Area type="monotone" dataKey="user" stackId="1" stroke='#8884d8' fill="#f86fff" />
-            <Area type="monotone" dataKey="active" stackId="1" stroke='#82caed' fill="#6fffe9" />
+            <Area type="monotone" dataKey="user" stackId="1" stroke='ffff' fill="#f86fff" />
+            <Area type="monotone" dataKey="active" stackId="1" stroke='#ffff' fill="#6fffe9" />
         </AreaChart>
     </ResponsiveContainer>
   )
