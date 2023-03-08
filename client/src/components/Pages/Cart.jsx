@@ -17,7 +17,6 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import "../Pages/cart.css";
 
-
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
@@ -25,7 +24,6 @@ const Cart = () => {
     (state) => state.cart.cartTotalQuantity
   );
   const isLoggedIn1 = useSelector((state) => state.users.isLoggedIn);
-  console.log(isLoggedIn1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const url = window.location.href;
@@ -134,15 +132,15 @@ const Cart = () => {
           <div className="tableCart">
             <div className="table table-responsive table-dark">
               <div className="boxShop">
-                 <h1 className="titleCart1">Shopping Cart 🛒</h1>
-              
+                <h1 className="titleCart1">Shopping Cart 🛒</h1>
+
                 <Link className="btnEmpty" to="/services">
                   &larr; Continue shopping
                 </Link>
-              
               </div>
               <br />
-              <table className="tableBoxCart">
+              <div className="tableBox">
+                 <table className="tableBoxCart">
                 <thead>
                   <tr>
                     <th className="thCart">s/n</th>
@@ -206,6 +204,8 @@ const Cart = () => {
                   })}
                 </tbody>
               </table>
+              </div>
+             
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
@@ -221,9 +221,9 @@ const Cart = () => {
                   <h4 className="h4Total">Subtotal:</h4>
                   <h3 className="amount">{`$${cartTotalAmount.toFixed(2)}`}</h3>
                 </div>
-                <p>Tax an shipping calculated at checkout</p>
+                <p style={{color:'#c3cace'}}>Tax an shipping calculated at checkout</p>
                 <button
-                  className="btn btn-primary btn-block"
+                  className="btn btn-primary btn-block" style={{width:'500px',height:'50px'}}
                   onClick={checkout}
                 >
                   Checkout

@@ -1,4 +1,3 @@
-
 .inputSearch {
   width: 70%;
   background-color: #e9eff2;
@@ -6,9 +5,8 @@
   padding: 0 25px;
   border-radius: 10px 0 0 10px;
   position: relative;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   margin-bottom: 3px;
-
 }
 .btnSearch {
   border-radius: 0 10px 10px 0;
@@ -23,6 +21,6 @@
 
 .btnSearch:hover {
   color: #5ebfb5;
-   cursor: pointer;
-   background-color: #252636;
+  cursor: pointer;
+  background-color: #252636;
 }

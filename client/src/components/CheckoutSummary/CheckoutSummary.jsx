@@ -5,7 +5,6 @@ import "../CheckoutSummary/checkoutSummary.css";
 
 const CheckoutSummary = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems);
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const cartTotalQuantity = useSelector(
     (state) => state.cart.cartTotalQuantity
@@ -15,7 +14,7 @@ const CheckoutSummary = () => {
     <div className="boxSumma">
       <h2 className="h2CheckSum">Checkout Summary</h2>
       <hr />
-      <div>
+      <div className="detailsSumm">
         {cartItems.lenght === 0 ? (
           <>
             <p>No item in your cart.</p>
