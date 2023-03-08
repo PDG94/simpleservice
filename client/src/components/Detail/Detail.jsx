@@ -44,6 +44,7 @@ export default function Detail() {
       ? serviceDetail[0].description.split(" ").length
       : 0;
 
+
   const filterReviews = data.filter((data) => data.productID === id);
 
   const cart = cartItems.find((cart) => cart.id === id);
