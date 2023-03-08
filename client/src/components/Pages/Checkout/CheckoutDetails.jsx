@@ -78,6 +78,8 @@ const CheckOutForm = () => {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
 
+      const items = cartItems1.map(element =>element.servicename)
+
       try {
         await axios.post(
           "https://simpleservice-production.up.railway.app/checkout",
@@ -87,10 +89,9 @@ const CheckOutForm = () => {
             userID1,
             userEmail: customerEmail,
             items: cartItems1,
+            desc: items,
           }
         );
-        
-        const items = cartItems1.map(element =>element.servicename)
                 
         await axios.post(
           "https://simpleservice-production.up.railway.app/pago",
