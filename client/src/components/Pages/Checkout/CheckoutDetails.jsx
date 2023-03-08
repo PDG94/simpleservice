@@ -5,7 +5,6 @@ import "../Checkout/checkoutDetails.css";
 import CheckoutSummary from "../../CheckoutSummary/CheckoutSummary";
 import {
   Elements,
-  CardElement,
   useStripe,
   useElements,
   CardNumberElement,
@@ -92,9 +91,7 @@ const CheckOutForm = () => {
         );
         
         const items = cartItems1.map(element =>element.servicename)
-
-        
-        
+                
         await axios.post(
           "https://simpleservice-production.up.railway.app/pago",
           {
@@ -134,7 +131,7 @@ const CheckOutForm = () => {
             <CheckoutSummary />
           </div>
           <div className="boxDetInp" style={{ height: 550 }}>
-            <img src={cardis} className="cardis" />
+            <img src={cardis} alt="cardis" className="cardis" />
             <div className="Check">
               <span>Number Card</span>
               <div className="inputCheck">
@@ -152,7 +149,11 @@ const CheckOutForm = () => {
               </div>
             </div>
             <div className="btnPay">
-              <button className="btn btn-success" onClick={clearAndBack} style={{width:'400px',height:'55px',}}>
+              <button
+                className="btn btn-success"
+                onClick={clearAndBack}
+                style={{ width: "400px", height: "55px" }}
+              >
                 Pay
               </button>              
             </div>

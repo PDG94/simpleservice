@@ -11,8 +11,6 @@ const userHandler = Router();
 
 userHandler.get("/:id", getUserHandler);
 
-// userHandler.post("/", )
-
 userHandler.put("/:id", updateUserHandler);
 
 userHandler.delete("/:id", deleteUserHandler);

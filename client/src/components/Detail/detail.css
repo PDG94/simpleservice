@@ -1,11 +1,16 @@
 .details {
-  margin: 0;
   width: 100%;
-  height: 130vh;
+  height: 130vh!important;
   background: #c3cace;
 }
 .detailContainer {
   border: 2px solid transparent;
+}
+.supremeBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .mainDetail {
   color: #E9EFF2;
@@ -13,72 +18,56 @@
   width: auto !important;
   display: flex !important;
   margin: 0 auto ;
-  max-width: 1050px !important;
+  max-width: 65% !important;
   border-radius: 20px !important;
   background-color: #1a1a25;
-   box-shadow: 0 0 2px 4px #5EBFB5;
-  position: relative;
-  margin-bottom: 5% !important;
+  box-shadow: 0 0 2px 4px #5EBFB5;
+  margin-bottom: 2% !important;
   margin-top: 1% !important;
 }
-
 .cardDetailReview{
-  margin-top: 67%;
-  position: absolute;
-  border-radius: 20px;
-  margin-left: 0%;
-  width: 100%;
-  box-shadow: 0 0 4px 4px #5EBFB5;
+  width: 65%;
+  border-radius: 20px !important;
+  background-color: #1a1a25;
+  box-shadow: 0 0 2px 4px #5EBFB5;
+  margin-bottom: 2% !important;
+}
 
-}
-.imgReviews{
-   margin-left: -65%;
-  width: 25%;
-  border-radius:0  ;
-  margin-top: -5%;
-}
-@media screen and (max-width: 800px) {
-  .cardDetailReview {
-    flex-wrap: wrap;
-
-  }
-}
 .emptyReviews{
-    background-color: #2d2d41;
+  background-color: #1a1a25;
   border-radius:20px;
 }
 .pEmptyReview{
-   color: #c3cace;
+  color: #c3cace;
   font-size: 130%;
-  font-family: echelonit;
-  font-weight: 700;
-   width: 80%;
+  font-family: 'Merienda';
+  font-weight: 500;
+  width: 80%;
   margin-left: 10%;
   letter-spacing: 1px;
  
 }
 .allReviews{
-   background-color: #2d2d41;
   border-radius:20px;
-  margin-top: -8%;
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .allRevBox{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 2px solid white;
 }
 .sReviews{
-   color: #c3cace;
+  color: #c3cace;
   font-size: 130%;
-  font-family: echelonit;
-  font-weight: 700;
-   width: 95%;
-margin-top: -115%;
-  letter-spacing: 1px;
+  font-family: 'Merienda';
+  letter-spacing: 1.5px;  
+  font-weight: 500;
+}
+.infoReviewDetail{
+  width: 60%;
 }
 
 .left {
@@ -95,9 +84,9 @@ margin-top: -115%;
 
 .nameDetail {
   font-size: 300%;
-  font-weight: 700;
-  font-family: airstream;
-  letter-spacing: 2px;
+  font-weight: 500;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
   margin-top: 10px;
   margin-bottom: 0;
   color: #5EBFB5;
@@ -116,14 +105,15 @@ margin-top: -115%;
 }
 .description {
   width: 95%;
-  font-weight: 70;
-  line-height: 3vh;
-  font-size: 3vh;
+  font-weight: 200;
+  line-height: 4vh;
+  font-size: 150%;
   margin-top: 5%;
   margin-bottom: 5%;
   text-align: center;
   padding: 0 0;
-  letter-spacing: 0.5px;
+   font-family: 'Merienda';
+  letter-spacing: 1px;
 }
 
 .moreDetail {
@@ -151,6 +141,8 @@ margin-top: -115%;
 }
 .rat {
   margin-bottom: 0;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
 }
 .iconDetail {
   color: #B68d2c;
@@ -158,13 +150,15 @@ margin-top: -115%;
   margin-right: 3px;
 }
 .priceDetail {
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1px;
   font-size: 3vh;
   margin-top: 10px;
   text-align: center;
   padding: 0 5px;
   letter-spacing: 1px;
+  font-family: 'Merienda';
+  letter-spacing: 2.5px;
 }
 
 .serviceDetail {
@@ -175,7 +169,8 @@ margin-top: -115%;
   margin-bottom: 0;
   text-align: center;
   padding: 0 5px;
-  letter-spacing: 2px;
+  font-family: 'Merienda';
+  letter-spacing: 1.5px;
 }
 .imgDetail {
   width: 4vw;
@@ -189,10 +184,11 @@ margin-top: -115%;
   padding: 0.1%;
   display: grid;
   justify-content: center;
-  width: 8%;
+  width: 7%;
   position: absolute;
-  font-size: 125%;
-  font-family: system-ui;
+  font-size: 150%;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
   padding: 10px 2px 10px 2px;
   margin-top: 2%;
   margin-left: 4%;
@@ -225,6 +221,7 @@ margin-top: -115%;
   border-radius: 10px;
   margin-right: 10%;
   cursor: pointer;
+ 
 }
 .--btn:hover {
   cursor: pointer;
@@ -240,6 +237,7 @@ margin-top: -115%;
   margin-right: 30%;
   cursor: pointer;
   margin-left: 10%;
+
 }
 .--btnplus:hover {
   cursor: pointer;
@@ -248,6 +246,8 @@ margin-top: -115%;
 }
 .pqDet {
   font-size: large;
+   font-family: 'Merienda';
+  letter-spacing: 1px;
 }
 .btnAdd {
   color: #E9EFF2;
@@ -256,6 +256,8 @@ margin-top: -115%;
   border: 2px solid #E9EFF2;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
 }
 .btnAdd:hover {
   cursor: pointer;
@@ -266,9 +268,27 @@ margin-top: -115%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-family: 'Merienda';
 }
 .boxCardDetail{
   display: flex;
   flex-direction: row;
   justify-content: baseline;
+ 
+}
+.btnMoreDetail {
+  color: #E9EFF2;
+  cursor: pointer;
+  width: 28%;
+  border: 2px solid #E9EFF2;
+  border-radius: 10px;
+  padding: 7px 10px 7px 10px;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
+  font-size: 60%;
+}
+.btnMoreDetail:hover {
+  cursor: pointer;
+  color: #5EBFB5;
+  box-shadow: 0 0 2px 4px #5EBFB5;
 }

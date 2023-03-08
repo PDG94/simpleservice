@@ -1,6 +1,5 @@
-// import "../Pages/auth.css";
-import React, { /* useEffect, */ useState } from "react";
-import { /* useDispatch,*/ useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../../components/Firebase/config";
@@ -16,9 +15,7 @@ import Footer from "../Footer/Footer";
 import "../Pages/login.css";
 import { MdLogin } from "react-icons/md";
 import Loading from "../Loading/Loading";
-import {
-  /* storeSession, storeToken, */ userLogin,
-} from "../../redux/actions/usersActions";
+import { userLogin } from "../../redux/actions/usersActions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -48,8 +45,8 @@ export default function Login() {
           userLogin(token);
         });
         setIsloading(false);
-        toast.success("Login Successful...",{
-          position:'top-center'
+        toast.success("Login Successful...", {
+          position: "top-center",
         });
         redirectUser();
       })
@@ -69,8 +66,8 @@ export default function Login() {
           localStorage.setItem("token", token);
           userLogin(token);
         });
-        toast.success("Login Successfuly!",{
-          position:'top-center'
+        toast.success("Login Successfuly!", {
+          position: "top-center",
         });
         redirectUser();
       })

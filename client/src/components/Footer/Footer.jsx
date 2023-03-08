@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="containerpadre">
       <div className="footer-content">
         <h1 className="h1footer animate__animated animate__bounceIn animate__slower animate__infinite">
-          Simple Service{" "}
+          Simple Service
         </h1>
         <p className="footerP">
           Simple Service is a project developed by advanced Henry'students. It
@@ -134,21 +134,34 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="pFooterBottom" >copyright &copy;{year} <a className="aCopyright" href="deployAcá">SimpleService</a>  </p>
+          <p className="pFooterBottom">
+            copyright &copy;{year}
+            <a className="aCopyright" href="deployAcá">
+              SimpleService
+            </a>
+          </p>
 
           <div className="footer-menu">
             <div className="f-menu">
               <div className="f-menuli">
-                <a className="aFooterBottom" href="/home">Home</a>
+                <a className="aFooterBottom" href="/home">
+                  Home
+                </a>
               </div>
               <div className="f-menuli">
-                <a className="aFooterBottom" href="/register">Register</a>
+                <a className="aFooterBottom" href="/register">
+                  Register
+                </a>
               </div>
               <div className="f-menuli">
-                <a className="aFooterBottom" href="/login">Login</a>
+                <a className="aFooterBottom" href="/login">
+                  Login
+                </a>
               </div>
               <div className="f-menuli">
-                <a className="aFooterBottom" href="/Services">Services</a>
+                <a className="aFooterBottom" href="/Services">
+                  Services
+                </a>
               </div>
             </div>
           </div>
@@ -157,4 +170,3 @@ export default function Footer() {
     </footer>
   );
 }
-

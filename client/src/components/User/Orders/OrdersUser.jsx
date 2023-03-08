@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { storeOrders } from "../../../redux/actions/ordersActions";
 import useFetchCollection from "../../CustomHooks/UseFetchCollection";
 import Loading from "../../Loading/Loading";
-import NavBarUser from "../NavBarUser/NavBarUser";
+import "./ordersUser.css";
+import { NavBarUser } from "../../index.js";
 
 export default function OrderHistory() {
   const userID1 = useSelector((state) => state.users.userID);
@@ -24,31 +25,36 @@ export default function OrderHistory() {
   };
 
   return (
-    <section>
+    <div className="bgOrders">
       <NavBarUser />
       <div>
-        <h2>Your Order History</h2>
-        <p>
+      <Link to={"/profile"}>
+          <button className="backCr">Back</button>
+        </Link>
+      <div className="MainBoxUserOrder">
+        <br/>
+        <p className="h2OrderUser">Your Order History</p>
+        <p className="emptyP1">
           Open an order to leave a <b>Product Review</b>
         </p>
         <br />
-        <>
+        
           {isLoading && <Loading />}
-          <div>
+          <div className="tabletable-responsive table-info">
             {filteredOrders.length === 0 ? (
-              <p>No order found</p>
+              <p className="emptyP2">No order found</p>
             ) : (
-              <table>
+              <table className="tableContainer">
                 <thead>
                   <tr>
-                    <th>s/n</th>
-                    <th>Date</th>
-                    <th>Order ID</th>
-                    <th>Order Amount</th>
-                    <th>Order Status</th>
+                    <th className="thOrderUsers">s/n</th>
+                    <th className="thOrderUsers">Date</th>
+                    <th className="thOrderUsers">Order ID</th>
+                    <th className="thOrderUsers">Order Amount</th>
+                    <th className="thOrderUsers">Order Status</th>
                   </tr>
                 </thead>
-                <tbody>
+                
                   {filteredOrders.map((order, index) => {
                     const {
                       id,
@@ -58,28 +64,29 @@ export default function OrderHistory() {
                       orderStatus,
                     } = order;
                     return (
-                      <tr key={id} onClick={() => handleClick(id)}>
-                        <td>{index + 1}</td>
-                        <td>
+                      <tbody>
+                        <tr className="table-secondary" key={id} onClick={() => handleClick(id)} >
+                        <td className="tdOrderUsers">{index + 1}</td>
+                        <td className="tdOrderUsers">
                           {orderDate} at {orderTime}
                         </td>
-                        <td>{id}</td>
-                        <td>
+                        <td className="tdOrderUsers">{id}</td>
+                        <td className="tdOrderUsers">
                           {"$"}
                           {orderAmount}
                         </td>
-                        <td>
+                        <td className="tdOrderUsers">
                           <p>{orderStatus}</p>
                         </td>
                       </tr>
-                    );
-                  })}
-                </tbody>
+                    </tbody>
+                  );
+                })}
               </table>
             )}
           </div>
-        </>
-      </div>
-    </section>
+        </div>
+        </div>
+    </div>
   );
 }

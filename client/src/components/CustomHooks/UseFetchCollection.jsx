@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { db } from "../Firebase/config";
 
-
 const useFetchCollection = (collectionName) => {
   const [data, setData] = useState([]);
 
@@ -30,6 +29,7 @@ const useFetchCollection = (collectionName) => {
 
   useEffect(() => {
     getCollection();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, isLoading };

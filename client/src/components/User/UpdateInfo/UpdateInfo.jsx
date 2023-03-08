@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "./UpdateInfo.css";
 import { MdDescription } from "react-icons/md";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import { BsCloudArrowUp } from "react-icons/bs";
 
 export default function UpdateInfoUser() {
@@ -171,7 +171,6 @@ export default function UpdateInfoUser() {
           </button>
         </div>
       </form>
-      <Footer />
     </div>
   );
 }

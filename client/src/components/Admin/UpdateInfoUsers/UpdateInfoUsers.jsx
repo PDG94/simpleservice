@@ -111,11 +111,11 @@ export default function UpdateProfilesUsers() {
   };
 
   return (
-    <form onSubmit={(e) => submitHandler(e, form.id)}>
+    <form className="formUpdate" onSubmit={(e) => submitHandler(e, form.id)}>
       <div className="navUpdat">
         <NavBarAdmin />
       </div>
-      <div className="formUpdate">
+      <div >
         <div className="containerUpdate">
           <h1 className="titleUpdate">Update User</h1>
 
