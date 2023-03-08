@@ -10,6 +10,7 @@ import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { getServiceList } from "../../../redux/actions/servicesActions";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
+import { MdEditNote } from "react-icons/md";
 
 export default function Create() {
   const navigate = useNavigate();
@@ -94,12 +95,12 @@ export default function Create() {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="navedit">
+      <div className="navEdit">
         <NavBarAdmin />
       </div>
       <div className="formEdit">
         <div className="containerEdit">
-          <h1 className="titleEdit">Update Service of User</h1>
+          <h1 className="titleEdit">Update Service of User<MdEditNote className="iconEdit2" style={{width:200}}/></h1>
 
           <span className="spantitleEdit">Select a service</span>
           <select className="selEdit" onChange={(e) => handleServicesList(e)}>
@@ -145,7 +146,6 @@ export default function Create() {
       <button type="submit" className="subEdit">
         SUBMIT
       </button>
-      <Footer />
     </form>
   );
 }

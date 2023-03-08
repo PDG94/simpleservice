@@ -1,5 +1,5 @@
-.bgOrders{
-   background: url("../../Imagenes/gris.jpg");
+.bgOrders {
+  background: url("../../Imagenes/gris.jpg");
   background-color: rgb(184, 184, 190);
   background-size: cover;
   background-position: center;
@@ -8,7 +8,7 @@
   height: 110vh;
   margin: none;
 }
-.MainBoxUserOrder{
+.MainBoxUserOrder {
   width: 70%;
   margin-left: 18%;
   margin-top: 2%;
@@ -18,7 +18,7 @@
   box-shadow: 0 0 10px 5px white;
   margin-bottom: 2%;
 }
-.h2OrderUser{
+.h2OrderUser {
   margin-top: 2%;
   margin-bottom: 30px;
   font-size: 320%;
@@ -27,29 +27,37 @@
   color: #6fffe9;
   letter-spacing: 1px;
 }
-.emptyP1{
+.emptyP1 {
   font-size: 180%;
-  font-weight: 500;
+  font-weight: 300;
   font-family: "Merienda", cursive;
   margin-top: 45px;
   color: #f0f3f2;
 }
-.emptyP2{
+.emptyP2 {
   font-size: 280%;
   font-weight: 700;
   font-family: "Merienda", cursive;
   margin-top: 45px;
   color: #91c2bb;
 }
-.tableContainerOrder{
+.tableContainerOrder {
   width: 90%;
   margin-left: 5%;
 }
-.thOrderUsers{
-  font-family: "Merienda", cursive;
-  letter-spacing: 1px;
+.tableContainer {
+  color: #91c2bb;
 }
-.tdOrderUsers{
+.tdOrderUsers {
   font-family: "Merienda", cursive;
   letter-spacing: 1px;
+  color: #f0f3f2;
+  padding: 1%;
+  border-bottom: 1px solid #91c2bb;
+  cursor: pointer;
+}
+
+.tbodyUser {
+  font-size: 120%;
+  overflow: scroll;
 }

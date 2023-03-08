@@ -28,17 +28,17 @@ export default function OrderHistory() {
     <div className="bgOrders">
       <NavBarUser />
       <div>
-      <Link to={"/profile"}>
+        <Link to={"/profile"}>
           <button className="backCr">Back</button>
         </Link>
-      <div className="MainBoxUserOrder">
-        <br/>
-        <p className="h2OrderUser">Your Order History</p>
-        <p className="emptyP1">
-          Open an order to leave a <b>Product Review</b>
-        </p>
-        <br />
-        
+        <div className="MainBoxUserOrder">
+          <br />
+          <p className="h2OrderUser">Your Order History</p>
+          <p className="emptyP1">
+            Open an order to leave a <b>Product Review</b>
+          </p>
+          <br />
+
           {isLoading && <Loading />}
           <div className="tabletable-responsive table-info">
             {filteredOrders.length === 0 ? (
@@ -54,18 +54,22 @@ export default function OrderHistory() {
                     <th className="thOrderUsers">Order Status</th>
                   </tr>
                 </thead>
-                
-                  {filteredOrders.map((order, index) => {
-                    const {
-                      id,
-                      orderDate,
-                      orderTime,
-                      orderAmount,
-                      orderStatus,
-                    } = order;
-                    return (
-                      <tbody>
-                        <tr className="table-secondary" key={id} onClick={() => handleClick(id)} >
+
+                {filteredOrders.map((order, index) => {
+                  const {
+                    id,
+                    orderDate,
+                    orderTime,
+                    orderAmount,
+                    orderStatus,
+                  } = order;
+                  return (
+                    <tbody className="tbodyUser">
+                      <tr
+                        className="table-secondary"
+                        key={id}
+                        onClick={() => handleClick(id)}
+                      >
                         <td className="tdOrderUsers">{index + 1}</td>
                         <td className="tdOrderUsers">
                           {orderDate} at {orderTime}
@@ -77,7 +81,9 @@ export default function OrderHistory() {
                         </td>
                         <td className="tdOrderUsers">
                           <p>{orderStatus}</p>
+                          
                         </td>
+                        
                       </tr>
                     </tbody>
                   );
@@ -86,7 +92,7 @@ export default function OrderHistory() {
             )}
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }

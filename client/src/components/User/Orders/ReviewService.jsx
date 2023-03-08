@@ -9,6 +9,7 @@ import { db } from "../../Firebase/config";
 import { toast } from "react-toastify";
 import { getServiceDetail } from "../../../redux/actions/servicesActions";
 import { NavBarUser } from "../../index.js";
+import "../Orders/reviewService.css";
 
 export default function ReviewService() {
   const { id } = useParams();
@@ -49,51 +50,58 @@ export default function ReviewService() {
   };
 
   return (
-    <div className="bgOrders">
+    <div className="fondoRev">
       <NavBarUser />
-      <div className={""}>
-         <Link to={`/profile/orders`}>
-              <button>Back</button>
+      <div className="reviewService">
+        <Link to={`/profile/orders`}>
+          <button className="backRev">Back</button>
         </Link>
-        <div className="MainBoxUserOrder">
-        <br/>
-          <h2 className="h2OrderUser">Review Products</h2>
+
+        <div className="boxRev">
           <br />
-        {service === null ? (
-          <Loading />
-        ) : (
-              <div className="boxReviewSerOr" style={{
-                width: "70%", backgroundColor: "black"}}>
-            <p>
-              <b>Product name:</b> {service.servicename}
-            </p>
-            <img
-              src={service["Users.profilepic"]}
-              alt={service.name}
-              style={{ width: "200px" }}
+          <h2 className="h2Rev">Review Products</h2>
+          <br />
+          {service === null ? (
+            <Loading />
+          ) : (
+            <div className="revName">
+              <p>
+                <b>Product name:</b> {service.servicename}
+              </p>
+              <img
+                src={service["Users.profilepic"]}
+                alt={service.name}
+                style={{ width: "200px" }}
+              />
+            </div>
+          )}
+          <form onSubmit={(e) => submitReview(e)}>
+            <div className="stars">
+              <label className="ratinRev">Rating:</label>
+            <StarsRating
+              value={rate}
+              onChange={(rate) => {
+                setRate(rate);
+              }}
             />
+            </div>
+          <div className="revArea">
+            <label className="revRev">Write your review:</label>
+            <textarea
+              className="textareaRev"
+              value={review}
+              required
+              onChange={(e) => setReview(e.target.value)}
+              cols="80"
+              rows="10"
+            >
+            </textarea>
           </div>
-        )}
-        <form onSubmit={(e) => submitReview(e)}>
-          <label>Rating:</label>
-          <StarsRating
-            value={rate}
-            onChange={(rate) => {
-              setRate(rate);
-            }}
-          />
-          <label>Review</label>
-          <textarea
-            value={review}
-            required
-            onChange={(e) => setReview(e.target.value)}
-            cols="30"
-            rows="10"
-          ></textarea>
-          <button type="submit" className="--btn --btn-primary">
-            Submit Review
-          </button>
-        </form>
+            
+            <button type="submit" className="subRev">
+              Submit Review
+            </button>
+          </form>
         </div>
       </div>
     </div>

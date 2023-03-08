@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resedPaged } from "../../../redux/actions/miscActions";
 import "../PaginationAdmin/paginationAdmin.css";
+import '../Dashboard/dashboardPaginado.css'
 
 export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
   const currentPage = useSelector((state) => state.misc.currentPage); // 1
@@ -18,7 +19,8 @@ export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
     pageNumber.push(i);
   }
 
-  function prev() {
+  
+  function handlePrev() {
     if (currentPage === 1) {
       dispatch(resedPaged(1));
     } else {
@@ -26,7 +28,7 @@ export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
     }
   }
 
-  function nextPage() {
+  function handleNext() {
     if (currentPage === pageNumber[pageNumber.length - 1]) {
       dispatch(resedPaged(currentPage));
     } else {
@@ -35,46 +37,45 @@ export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
   }
 
   return (
-    <nav className="page">
-      <div className="pagesAd">
-        <div
-          onClick={prev}
-          className={currentPage === pageNumber[0] ? `hidden` : null}
-        >
-          &laquo;
+    <nav className="paginateContainer3">
+      <div className="pages3">
+        <div>
+          <p
+            className="buttonPage3"
+            onClick={() => handlePrev()}
+            disabled={orders < 6}
+          >
+            ⪻
+          </p>
         </div>
-
-        {pageNumber.map((number) => {
-          if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-            return (
-              <div
-                key={number}
-                onClick={() => paged(number)}
-                className={currentPage === number ? "active" : ""}
+        {orders < 6 ? (
+          <div key="pagination">{paged(1)}</div>
+        ) : (
+          pageNumber &&
+          pageNumber.map((n) => (
+            <div key={n} className="page3">
+              <p
+                className={"page-number3" + (n === currentPage ? "active" : "")}
+                key={n}
+                onClick={() => paged(n)}
               >
-                {number}
-              </div>
-            );
-          } else {
-            return null; // agregar una instrucción `return` con un valor predeterminado
-          }
-        })}
-
-        <li
-          onClick={nextPage}
-          className={
-            currentPage === pageNumber[pageNumber.length - 1] ? "hidden" : ""
-          }
-        >
-          &raquo;
-        </li>
-        <p className="pAdPage">
-          <b className="Page">{`Page
-            ${currentPage}`}</b>
-          <span>{` of `}</span>
-          <b>{`${Math.ceil(pageNumbers)}`}</b>
-        </p>
+                {n}
+              </p>
+            </div>
+          ))
+        )}
+        <div>
+          <p
+            className="buttonPage3"
+            onClick={() => handleNext()}
+            disabled={orders < 6}
+          >
+            ⪼
+          </p>
+        </div>
       </div>
     </nav>
   );
 }
+
+
