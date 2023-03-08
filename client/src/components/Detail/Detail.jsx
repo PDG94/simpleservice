@@ -30,10 +30,8 @@ export default function Detail() {
   const { data } = useFetchCollection("reviews");
   const [readMore, setReadmore] = useState(false);
   
-  
-
   const filterReviews = data.filter((data) => data.productID === id);
-
+  
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
