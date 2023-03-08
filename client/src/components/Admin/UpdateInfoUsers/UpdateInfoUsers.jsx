@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "./updateInfoUsers.css";
 import { MdDescription } from "react-icons/md";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-import { getUsers } from "../../../redux/actions/usersActions";
+import { getAllUsers } from "../../../redux/actions/usersActions";
 
 export default function UpdateProfilesUsers() {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ export default function UpdateProfilesUsers() {
   const users = useSelector((state) => state.users.allUsers);
 
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getAllUsers());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
