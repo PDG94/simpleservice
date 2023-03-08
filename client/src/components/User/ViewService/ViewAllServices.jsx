@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import { AiOutlineEye, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { getServiceUser } from "../../../redux/actions/usersActions";
@@ -95,10 +95,10 @@ export default function ViewAllServices() {
                   </tr>
                 </thead>
 
-                {serviceUser.Cards?.map((service, index) => {
-                  const { id } = service;
-                  return (
-                    <tbody>
+                <tbody>
+                  {serviceUser.Cards?.map((service, index) => {
+                    const { id } = service;
+                    return (
                       <tr key={id} className="table-secondary">
                         <td className="tdView">{index + 1}</td>
 
@@ -130,15 +130,14 @@ export default function ViewAllServices() {
                           </Link>
                         </td>
                       </tr>
-                    </tbody>
-                  );
-                })}
+                    );
+                  })}
+                </tbody>
               </table>
             )}
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

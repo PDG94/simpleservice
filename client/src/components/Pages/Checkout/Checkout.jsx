@@ -58,6 +58,7 @@ const Checkout = () => {
   useEffect(() => {
     dispatch(subTotalCalc(calculateSubTotal()));
     dispatch(subTotalQuant(calculateTotalQuantity()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, cartItems]);
 
   const description = `Simple Service payment: email: ${customerEmail}, Amount: ${totalAmount}`;

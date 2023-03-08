@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { db } from "../Firebase/config";
 
-
 const useFetchDocument = (collectionName, documentID) => {
   const [document, setDocument] = useState(null);
 
@@ -24,6 +23,7 @@ const useFetchDocument = (collectionName, documentID) => {
 
   useEffect(() => {
     getDocument();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { document };

@@ -35,7 +35,7 @@ import {
   ReviewService,
   OrdersDetails,
   ViewAllUsers,
-  UpdateServices
+  UpdateServices,
 } from "./components/index";
 
 function App() {
