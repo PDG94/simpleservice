@@ -8,21 +8,9 @@ import dogwalker from "../Imagenes/dogwalker.jpg";
 import ss from "../Imagenes/ss.png";
 import { NavBar, Footer } from "../index";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import ChatBotR from "../ChatBot/ChatBotR";
 
 const Home = () => {
-  const nam1="Drope"
-  const email1="p.d.g.38411422@gmail.com"
-  const mail = async () => {
-    await axios.post(
-      "https://simpleservice-production.up.railway.app/pago",
-      {
-        name: nam1,
-        email: email1,
-      }
-    );
-  }
   return (
     <div className="mainhome">
       <NavBar />

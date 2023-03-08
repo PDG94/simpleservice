@@ -12,7 +12,8 @@ import { BsCloudArrowUp } from "react-icons/bs";
 
 export default function UpdateInfoUser() {
   const navigate = useNavigate();
-
+  const customerEmail = useSelector((state) => state.users.email);
+  const customerName = useSelector((state) => state.users.useName);
   const token = localStorage.getItem("token");
   const userID = useSelector((state) => state.users.userID);
 
@@ -47,7 +48,6 @@ export default function UpdateInfoUser() {
     }
     return finalForm;
   };
-
   const isObjectEmpty = (objectName) => {
     return (
       objectName &&
@@ -71,15 +71,30 @@ export default function UpdateInfoUser() {
 
     const info = await updateValidator();
 
-    await axios.put(
-      `https://simpleservice-production.up.railway.app/user/${userID}`,
-      info,
-      {
-        headers: { Authorization: "Bearer " + token },
-      }
-    );
-    toast.success("User update successfully!");
-    navigate("/Services");
+    try{
+
+      await axios.put(
+        `https://simpleservice-production.up.railway.app/user/${userID}`,
+        info,
+        {
+          headers: { Authorization: "Bearer " + token },
+        }
+      );
+
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/dato",
+        {
+          name: customerName,
+          email: customerEmail,
+        }
+      );
+
+      toast.success("User update successfully!");
+      navigate("/Services");
+
+    } catch (error) {
+      console.log(error);
+    }    
   };
 
   return (
