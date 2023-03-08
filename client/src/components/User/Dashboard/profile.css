@@ -60,6 +60,21 @@
   border: 2px solid #6fffe9;
   box-shadow: 0 0 10px 1px white;
 }
+.chartWaves{
+  backdrop-filter: blur(10px);
+  background-color: #1a1a25;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 15%;
+  height: 40vh;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  border: 2px solid #6fffe9;
+  box-shadow: 0 0 10px 1px white;
+  margin-top: 2%;
+}
 .chartProf{
   backdrop-filter: blur(10px);
   background-color: #1a1a25;
@@ -79,6 +94,13 @@
   font-size: 150%;
   color: #6fffe9;
   letter-spacing: 3px;
+}
+.sBoxChartWaves{
+  font-family: 'Merienda', cursive;
+  font-size: 150%;
+  color: #6fffe9;
+  letter-spacing: 3px;
+  margin-top: 1.5%;
 }
 .imgProfile{
   border-radius: 50%;

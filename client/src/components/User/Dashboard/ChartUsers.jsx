@@ -18,9 +18,9 @@ const ChartUsers = () => {
             height={300}
             margin={{
                 top:5,
-                right:30,
-                left:20,
-                bottom:5
+                right:5,
+                left:5,
+                bottom:10
         }}
         style={{ borderRadius: "20px 0 20px 0", marginTop: "1%", marginLeft: "15%", letterSpacing : "1px"}}
         >

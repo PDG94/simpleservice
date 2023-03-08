@@ -108,22 +108,22 @@ export default function Footer() {
           
         </div>
         <div className="footer-bottom">
-          <p>copyright &copy;{year} <a href="deployAcá">SimpleService</a>  </p>
+          <p className="pFooterBottom" >copyright &copy;{year} <a className="aCopyright" href="deployAcá">SimpleService</a>  </p>
           <div className="footer-menu">
-            <ul className="f-menu">
-              <li>
-                <a href="/home">Home</a>
-              </li>
-              <li>
-                <a href="/register">Register</a>
-              </li>
-              <li>
-                <a href="/login">Login</a>
-              </li>
-              <li>
-                <a href="/Services">Services</a>
-              </li>
-            </ul>
+            <div className="f-menu">
+              <div className="f-menuli">
+                <a className="aFooterBottom" href="/home">Home</a>
+              </div>
+              <div className="f-menuli">
+                <a className="aFooterBottom" href="/register">Register</a>
+              </div>
+              <div className="f-menuli">
+                <a className="aFooterBottom" href="/login">Login</a>
+              </div>
+              <div className="f-menuli">
+                <a className="aFooterBottom" href="/Services">Services</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

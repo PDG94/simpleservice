@@ -4,6 +4,7 @@ import { NavBarUser, Footer } from "../../index.js";
 import "../../User/Dashboard/profile.css";
 import { getServiceUser } from "../../../redux/actions/usersActions";
 import ChartUsers from "./ChartUsers";
+import ChartUserOther from "./ChartUserOther";
 
 export default function DashboardUser() {
   const dispatch = useDispatch();
@@ -57,7 +58,17 @@ export default function DashboardUser() {
             </p>
           </div>
 
-          <div className="chartProf">
+        <div className="chartWaves">
+          <br/>
+          <span className="sBoxChartWaves">
+              <b>Number of Services</b>
+            </span>
+            <br />
+          <ChartUserOther className="chartWavessize" width="70px"/>
+           </div>
+
+        <div className="chartProf">
+          <br/>
             <span className="sBoxChart">
               <b>Services</b>
             </span>
@@ -73,7 +84,7 @@ export default function DashboardUser() {
             <br />
             <p className="pProfileBio">{userbio}</p>
           </div>
-          <div></div>
+         
           <div></div>
         </div>
        
