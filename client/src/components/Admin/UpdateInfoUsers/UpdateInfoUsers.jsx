@@ -23,7 +23,7 @@ export default function UpdateProfilesUsers() {
   ];
 
   const token = localStorage.getItem("token");
-  const users = useSelector((state) => state.users.users);
+  const users = useSelector((state) => state.users.allUsers);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -115,7 +115,7 @@ export default function UpdateProfilesUsers() {
       <div className="navUpdat">
         <NavBarAdmin />
       </div>
-      <div >
+      <div>
         <div className="containerUpdate">
           <h1 className="titleUpdate">Update User</h1>
 

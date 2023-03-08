@@ -29,10 +29,13 @@ export default function Detail() {
   const { data } = useFetchCollection("reviews");
   const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
+
   const numeroDePalabras = serviceDetail[0].description.split(" ").length;
 
+
+
   const filterReviews = data.filter((data) => data.productID === id);
-  
+
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
@@ -104,77 +107,79 @@ export default function Detail() {
           serviceDetail.map((service) => {
             return (
               <div className="supremeBox">
-              <div className="mainDetail">
-                <div className="boxCardDetail">
-                  <div className="left">
-                    <div className="infoDetail" key={service.id}>
-                      <h1 className="nameDetail">
-                        {service?.Users.map((element) => element.name) ||
-                          "name not found"}
-                      </h1>
-                      <div className="imgBoxDet">
-                        <img
-                          className="imgDet"
-                          src={service?.Users.map(
-                            (element) => element.profilepic
-                          )}
-                          alt=""
-                        />
-                      </div>
-                      <div className="moreDetail">
-                        <p className="serviceDetail">
-                          <img className="imgDetail" src={ser} alt="" />
-                          {service?.servicename}
-                        </p>
-                        <div className="ratingDetail">
-                          <label className="iconDetail">
-                            <MdStar />
-                          </label>{" "}
-                          <p className="rat">{service?.rating}</p>
+                <div className="mainDetail">
+                  <div className="boxCardDetail">
+                    <div className="left">
+                      <div className="infoDetail" key={service.id}>
+                        <h1 className="nameDetail">
+                          {service?.Users.map((element) => element.name) ||
+                            "name not found"}
+                        </h1>
+                        <div className="imgBoxDet">
+                          <img
+                            className="imgDet"
+                            src={service?.Users.map(
+                              (element) => element.profilepic
+                            )}
+                            alt=""
+                          />
                         </div>
-                        <p className="priceDetail">
-                          {" "}
-                          Price
-                          <label className="iconDetail">
-                            {"   "}
-                            <FiDollarSign />
-                          </label>
-                          {service?.price}
-                        </p>
+                        <div className="moreDetail">
+                          <p className="serviceDetail">
+                            <img className="imgDetail" src={ser} alt="" />
+                            {service?.servicename}
+                          </p>
+                          <div className="ratingDetail">
+                            <label className="iconDetail">
+                              <MdStar />
+                            </label>{" "}
+                            <p className="rat">{service?.rating}</p>
+                          </div>
+                          <p className="priceDetail">
+                            {" "}
+                            Price
+                            <label className="iconDetail">
+                              {"   "}
+                              <FiDollarSign />
+                            </label>
+                            {service?.price}
+                          </p>
 
-                        <ShowOnLogin>
-                          <div className="addBox">
-                            {isCartAdded < 0 ? null : (
-                              <div className="cantBox">
+                          <ShowOnLogin>
+                            <div className="addBox">
+                              {isCartAdded < 0 ? null : (
+                                <div className="cantBox">
+                                  <button
+                                    className="--btn"
+                                    onClick={() => decreaseCart1(service)}
+                                  >
+                                    -
+                                  </button>
+                                  <p className="pqDet">
+                                    <b>{cart.cartQuantity}</b>
+                                  </p>
+                                  <button
+                                    className="--btnplus"
+                                    onClick={() => addToCart1(service)}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              )}
+                              <div className="pBox">
                                 <button
-                                  className="--btn"
-                                  onClick={() => decreaseCart1(service)}
-                                >
-                                  -
-                                </button>
-                                <p className="pqDet">
-                                  <b>{cart.cartQuantity}</b>
-                                </p>
-                                <button
-                                  className="--btnplus"
+                                  className="btnAdd"
                                   onClick={() => addToCart1(service)}
                                 >
-                                  +
+                                  ADD TO CART
                                 </button>
                               </div>
-                            )}
-                            <div className="pBox">
-                              <button
-                                className="btnAdd"
-                                onClick={() => addToCart1(service)}
-                              >
-                                ADD TO CART
-                              </button>
                             </div>
-                          </div>
-                        </ShowOnLogin>
+                          </ShowOnLogin>
+                        </div>
                       </div>
                     </div>
+
                   </div>
                   <div className="right">
                      <div
@@ -191,12 +196,29 @@ export default function Detail() {
           <button className="btnMoreDetail" onClick={() => setReadmore(!readMore)}>
             {readMore ? "show less" : "show more"}
           </button>
+
+                    <div className="right">
+                      <div className="description" style={{ marginTop: "10%" }}>
+                        {readMore
+                          ? service?.description || "description not available"
+                          : `${service.description.substring(0, 450)}...`}
+                        <div
+                          className="description"
+                          style={{ marginTop: "5%" }}
+                        >
+                          <button
+                            className="btnMoreDetail"
+                            onClick={() => setReadmore(!readMore)}
+                          >
+                            {readMore ? "show less" : "show more"}{" "}
+                          </button>
+                        </div>
+
                       </div>
           }
                     </div>
                   </div>
                 </div>
-              </div>
                 <div className="cardDetailReview">
                   <div className="reviewsBox">
                     {filterReviews.length === 0 ? (
@@ -211,23 +233,20 @@ export default function Detail() {
                     ) : (
                       <div className="allReviews">
                         {filterReviews.map((item, index) => {
-
                           const { rate, review, reviewDate, userEmail1 } = item;
                           return (
                             <div className="allRevBox">
                               <div>
-                              <br/>
-                              <StarsRating value={rate} />
-                                </div>
+                                <br />
+                                <StarsRating value={rate} />
+                              </div>
                               {/* <img
                                 className="imgReviews"
                                 src={Reviews}
                                 alt="logoReview"
                               /> */}
                               <div className="infoReviewDetail">
-                                <br/>
-                                {" "}
-                                <p className="sReviews">{review}</p>
+                                <br /> <p className="sReviews">{review}</p>
                                 <span className="sReviews">
                                   <b>{reviewDate}</b>
                                 </span>
@@ -246,17 +265,17 @@ export default function Detail() {
                             </div>
                           );
                         })}
-                        <br/>
+                        <br />
                       </div>
                     )}
                   </div>
                 </div>
-          </div>
+              </div>
             );
           })
         ) : (
           <Loading />
-          )}
+        )}
       </div>
       <Footer />
     </div>

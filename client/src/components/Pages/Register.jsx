@@ -37,15 +37,21 @@ export default function Register() {
         createdUser(input.username, input.name, token, profilepic); //dateOfBirth later
 
         setIsloading(false);
-        await axios.post(
-          "https://simpleservice-production.up.railway.app/alta",
-          {
-            name: input.name,
-            email: input.email,
-          }
-        );
-        toast.success("Registration Successful!");
-        navigate("/home");
+        try{
+          await axios.post(
+            "https://simpleservice-production.up.railway.app/alta",
+            {
+              name: input.name,
+              email: input.email,
+            }
+          );
+          toast.success("Registration Successful!");
+          navigate("/home");
+
+        } catch (error) {
+          console.log(error);
+        }  
+        
       })
       .catch((error) => {
         toast.error(error.message);
