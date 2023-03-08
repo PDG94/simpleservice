@@ -20,15 +20,17 @@ import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
 import StarsRating from "react-star-rate";
-import Reviews from "../Imagenes/Reviews.png";
+
 
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { data } = useFetchCollection("reviews");
+  const serviceDetail = useSelector((state) => state.services.serviceDetail);
   const [readMore, setReadmore] = useState(false);
-  
+  const numeroDePalabras = serviceDetail[0].description.split(" ").length;
+
   const filterReviews = data.filter((data) => data.productID === id);
   
   const cart = cartItems.find((cart) => cart.id === id);
@@ -36,7 +38,7 @@ export default function Detail() {
     return cart.id === id;
   });
 
-  const serviceDetail = useSelector((state) => state.services.serviceDetail);
+
 
   useEffect(() => {
     dispatch(getServiceDetail(id));
@@ -179,14 +181,18 @@ export default function Detail() {
                         className="description"
                         style={{ marginTop: "10%" }}
                       >
-                    {readMore
-                      ? service?.description || "description not available"
-                      : `${service.description.substring(0, 450)}...`}
-                    <div className="description" style={{ marginTop: "5%" }}>         
-                      <button className="btnMoreDetail"  onClick={() => setReadmore(!readMore)}>
-                        {readMore ? "show less" : "show more"}{" "}
-                      </button>
+                    {numeroDePalabras < 100
+                    ? service?.description || "description not available"
+                    : readMore
+                    ? service?.description || "description not available"
+                    : `${service.description.substring(0, 450)}...`}
+                   {numeroDePalabras >= 100 &&
+        <div className="description" style={{ marginTop: "5%" }}>
+          <button className="btnMoreDetail" onClick={() => setReadmore(!readMore)}>
+            {readMore ? "show less" : "show more"}
+          </button>
                       </div>
+          }
                     </div>
                   </div>
                 </div>
@@ -207,9 +213,6 @@ export default function Detail() {
                         {filterReviews.map((item, index) => {
 
                           const { rate, review, reviewDate, userEmail1 } = item;
-
-                          const { rate, review, reviewDate } = item;
-
                           return (
                             <div className="allRevBox">
                               <div>
