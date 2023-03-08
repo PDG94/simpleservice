@@ -16,6 +16,7 @@ import { cleanState } from "../../redux/actions/servicesActions";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import "../Pages/cart.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -111,8 +112,11 @@ const Cart = () => {
       <NavBar />
       <div className="cartBox">
         {cartItems.length === 0 ? (
-          <div className="emptyBox">
-            <h2 className="titleCart">Shopping Cart 🛒</h2>
+          <div className="emptyBoxC">
+            <h2 className="titleCart">Shopping Cart </h2>
+            <div>
+              <FaShoppingCart size={90} className="shoppingCart2" />
+            </div>
             <div className="emptyCart">
               <p className="pEmpty">Your cart is currently empty</p>
               <br />
@@ -127,7 +131,9 @@ const Cart = () => {
           <div className="tableCart">
             <div className="table table-responsive table-dark">
               <div className="boxShop">
-                <h1 className="titleCart1">Shopping Cart 🛒</h1>
+                <h1 className="titleCart1">
+                  Shopping Cart <FaShoppingCart className="shoppingCart3" />
+                </h1>
 
                 <Link className="btnEmpty" to="/services">
                   &larr; Continue shopping
@@ -203,7 +209,7 @@ const Cart = () => {
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
-                <button className="btn btn-danger" onClick={clearCart1}>
+                <button className="btnRED btn btn-danger" onClick={clearCart1}>
                   Clear Cart
                 </button>
               </div>

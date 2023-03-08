@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import { AiOutlineEye, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { getServiceUser } from "../../../redux/actions/usersActions";
@@ -138,7 +138,6 @@ export default function ViewAllServices() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

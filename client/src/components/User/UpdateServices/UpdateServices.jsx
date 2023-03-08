@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "./UpdateServices.css";
 import { MdDescription } from "react-icons/md";
-import { NavBarUser, Footer } from "../../index.js";
+import { NavBarUser } from "../../index.js";
 import { uploadCardFile } from "../../Firebase/config";
 import { BsCloudArrowUp } from "react-icons/bs";
 
@@ -141,7 +141,6 @@ export default function UpdateServices() {
           </button>
         </div>
       </div>
-      <Footer />
     </form>
   );
 }
