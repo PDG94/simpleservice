@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useFetchDocument from "../../CustomHooks/UseFetchDocuments";
 import Loading from "../../Loading/Loading";
+import { NavBarUser } from "../../index.js";
 
 export default function OrdersDetail() {
   const [order, setOrder] = useState(null);
@@ -13,17 +14,21 @@ export default function OrdersDetail() {
   }, [document]);
 
   return (
-    <section>
+    <div className="bgOrders">
+      <NavBarUser />
       <div className={""}>
-        <h2>Order Details</h2>
-        <div>
-          <Link to="/profile/orders">&larr; Back To Orders</Link>
-        </div>
+       
+          <Link to="/profile/orders">
+            <button className="backCr">Back</button>
+        </Link>
+        <div className="MainBoxUserOrder">
+        <h2 className="h2OrderUser">Order Details</h2>
+       
         <br />
         {order === null ? (
           <Loading />
         ) : (
-          <>
+          < div className="tabletable-responsive table-info">
             <p>
               <b>Order ID:</b> {order.id}
             </p>
@@ -34,26 +39,26 @@ export default function OrdersDetail() {
               <b>Order Status:</b> {order.orderStatus}
             </p>
             <br />
-            <table>
+            <table className="tableContainer">
               <thead>
                 <tr>
-                  <th>s/n</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Action</th>
+                  <th className="thOrderUsers">s/n</th>
+                  <th className="thOrderUsers">Product</th>
+                  <th className="thOrderUsers">Price</th>
+                  <th className="thOrderUsers">Quantity</th>
+                  <th className="thOrderUsers">Total</th>
+                  <th className="thOrderUsers">Action</th>
                 </tr>
               </thead>
-              <tbody>
                 {order.cartItems1.map((cart, index) => {
                   const { id, servicename, price, cartQuantity } = cart;
                   return (
-                    <tr key={id}>
-                      <td>
+                    <tbody>
+                    <tr className="table-secondary" key={id}>
+                      <td className="tdOrderUsers">
                         <b>{index + 1}</b>
                       </td>
-                      <td>
+                      <td className="tdOrderUsers">
                         <p>
                           <b>{servicename}</b>
                         </p>
@@ -63,28 +68,29 @@ export default function OrdersDetail() {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>
+                      <td className="tdOrderUsers">
                         {"$"}
                         {price}
                       </td>
-                      <td>{cartQuantity}</td>
-                      <td>
+                      <td className="tdOrderUsers">{cartQuantity}</td>
+                      <td className="tdOrderUsers">
                         {"$"}
                         {(price * cartQuantity).toFixed(2)}
                       </td>
-                      <td className="">
+                      <td className="tdOrderUsers">
                         <Link to={`/profile/order-review/${id}`}>
                           <button className="">Review Product</button>
                         </Link>
                       </td>
                     </tr>
+                 </tbody>
                   );
                 })}
-              </tbody>
             </table>
-          </>
-        )}
+          </div>
+          )}
+          </div>
       </div>
-    </section>
+    </div>
   );
 }
