@@ -11,11 +11,9 @@ const userHandler = Router();
 
 userHandler.get("/:id", getUserHandler);
 
-// userHandler.post("/", )
+userHandler.put("/", updateUserHandler);
 
-userHandler.put("/:id", updateUserHandler);
-
-userHandler.delete("/:id", deleteUserHandler);
+userHandler.delete("/", deleteUserHandler);
 
 userHandler.put("/service/:id", editServiceHandler);
 

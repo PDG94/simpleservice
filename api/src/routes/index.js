@@ -15,7 +15,6 @@ const data = require("./handlers/updateDataMail");
 const baja = require("./handlers/bajaMail");
 const favRouter = require("./routers/favRouter");
 
-
 const router = Router();
 
 router.use("/services", servicesRouter);
@@ -26,7 +25,7 @@ router.use("/categories", categoriesRouter);
 
 router.use("/login", loginRouter);
 
-router.use("/user", middleware.decodeToken, userRouter); //not ready or functional yet
+router.use("/user", middleware.decodeToken, userRouter);
 
 router.use("/admin", adminRouter);
 
@@ -36,13 +35,13 @@ router.use("/shopingCart", shopingCart);
 
 router.post("/checkout", checkOut);
 
-router.use('/alta',alta )
+router.use("/alta", alta);
 
-router.use('/pago',pago )
+router.use("/pago", pago);
 
-router.use('/baja',baja )
+router.use("/baja", baja);
 
-router.use('/dato',data )
+router.use("/dato", data);
 
 router.use("/fav", favRouter);
 
