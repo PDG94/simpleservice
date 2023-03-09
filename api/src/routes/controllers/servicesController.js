@@ -43,7 +43,13 @@ const createService = async ({
 
 //updateService updates just one instance
 
-const updateService = async ({ id, description, servicename, price, serviceimage}) => {
+const updateService = async ({
+  id,
+  description,
+  servicename,
+  price,
+  serviceimage,
+}) => {
   await Card.update(
     { description, servicename, price, serviceimage },
     {
@@ -75,14 +81,18 @@ const getServiceById = async ({ id }) => {
 };
 
 const orderService = async (attributes, direction) => {
+  console.log("existo");
+  console.log(attributes);
+  console.log(direction);
   const order = await Card.findAll({
     order: [[attributes, direction]],
     include: {
       model: User,
-      attributes: ["id", "name", "rating", "serviceimage", "profilepic"],
+      attributes: ["id", "name", "profilepic"],
     },
     raw: true,
   });
+  console.log(order);
   return order;
 };
 const getServiceByDescription = async (valdescription) => {
@@ -95,7 +105,7 @@ const getServiceByDescription = async (valdescription) => {
     attributes: ["id", "servicename", "serviceimage", "description", "price"],
     include: {
       model: User,
-      attributes: ["id", "name", "rating", "profilepic"],
+      attributes: ["id", "name", "profilepic"],
     },
     raw: true,
   });
@@ -110,7 +120,7 @@ const getServiceByCategory = async (idCategory) => {
     },
     include: {
       model: User,
-      attributes: ["id", "name", "rating", "profilepic"],
+      attributes: ["id", "name", "profilepic"],
     },
     raw: true,
   });
@@ -127,7 +137,7 @@ const filterServices = async (order, direction, categoryId) => {
     order: [[order, direction]],
     include: {
       model: User,
-      attributes: ["id", "name", "rating", "profilepic"],
+      attributes: ["id", "name", "profilepic"],
     },
     raw: true,
   });
