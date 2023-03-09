@@ -277,6 +277,22 @@
   color: #5EBFB5;
   box-shadow: 0 0 2px 4px #5EBFB5;
 }
+.btnAdd2 {
+  font-size: 120%;
+  color: #E9EFF2;
+  cursor: pointer;
+  width: 70%;
+  border: 2px solid #E9EFF2;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  font-family: 'Merienda';
+  letter-spacing: 1px;
+}
+.btnAdd2:hover {
+  cursor: pointer;
+  color: #5EBFB5;
+  box-shadow: 0 0 2px 4px #5EBFB5;
+}
 .cantBox {
   display: flex;
   flex-direction: row;

@@ -82,7 +82,7 @@ export default function Create() {
       { headers: { Authorization: "Bearer " + token } }
     );
     toast.success("Service created successfully!");
-    navigate("/home");
+    navigate("/services");
   };
 
   const handleCategory = (e) => {

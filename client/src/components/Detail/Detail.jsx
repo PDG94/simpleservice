@@ -17,6 +17,7 @@ import "../Detail/detail.css";
 import ser from "../Imagenes/ser.png";
 import { FiDollarSign } from "react-icons/fi";
 import ShowOnLogin from "../HiddenLinks/ShowOnLogin";
+import ShowOnLogout from "../HiddenLinks/ShowOnLogout";
 import useFetchCollection from "../CustomHooks/UseFetchCollection";
 import StarsRating from "react-star-rate";
 
@@ -198,6 +199,11 @@ const slice3 =  promedio.toString().slice(0,3)
                               </div>
                             </div>
                           </ShowOnLogin>
+                          <ShowOnLogout>
+                            <Link to="/login">
+                              <button className="btnAdd2">Sign in to buy the product</button>
+                            </Link>
+                          </ShowOnLogout>
                         </div>
                       </div>
                     </div>

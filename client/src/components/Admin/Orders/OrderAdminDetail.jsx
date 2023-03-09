@@ -50,7 +50,6 @@ export default function OrderAdminDetail() {
                     <th className="thOrderDetAdmin">Price</th>
                     <th className="thOrderDetAdmin">Quantity</th>
                     <th className="thOrderDetAdmin">Total</th>
-                    <th className="thOrderDetAdmin">Action</th>
                   </tr>
                 </thead>
                 {order.cartItems1.map((cart, index) => {
