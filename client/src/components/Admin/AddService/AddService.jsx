@@ -95,6 +95,7 @@ export default function AddService() {
             <div>
               <p className="pService">Service Name</p>
               <input
+              style={{color:'#101010'}}
                 className="inpAdSer"
                 type="text"
                 placeholder=" "

@@ -17,7 +17,7 @@
     color: aliceblue;
     font-size: 500%;
 }
-.tableOrd {
+.tableOrdAd {
     color: aliceblue;
     margin-bottom: 2%;
     background-color: #252636;
@@ -33,7 +33,7 @@
     padding: 2%;
     height: 3.9rem;
     border-bottom: 1px solid #9f90ea;
-
+cursor: pointer;
   }
   .tbody1 tr:last-child td {
     border: none;

@@ -54,18 +54,19 @@ export default function ReviewService() {
       <NavBarUser />
       <div className="reviewService">
         <Link to={`/profile/orders`}>
-          <button className="backRev">Back</button>
+          <button className="backCr">Back</button>
         </Link>
 
         <div className="boxRev">
           <br />
+          <br/>
           <h2 className="h2Rev">Review Products</h2>
           <br />
           {service === null ? (
             <Loading />
           ) : (
             <div className="revName">
-              <p>
+              <p className="pRev">
                 <b>Product name:</b> {service.servicename}
               </p>
               <img
@@ -77,12 +78,13 @@ export default function ReviewService() {
           )}
           <form onSubmit={(e) => submitReview(e)}>
             <div className="stars">
-              <label className="ratinRev">Rating:</label>
-            <StarsRating
+              <div className="ratinRev">Rating :   </div>
+              <StarsRating
               value={rate}
               onChange={(rate) => {
                 setRate(rate);
               }}
+              className="starsRev"
             />
             </div>
           <div className="revArea">

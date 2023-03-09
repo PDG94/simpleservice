@@ -35,16 +35,16 @@ export default function OrderHistory() {
           <br />
           <p className="h2OrderUser">Your Order History</p>
           <p className="emptyP1">
-            Open an order to leave a <b>Product Review</b>
+            Open an order to give a <b> Review</b> of the service
           </p>
           <br />
           <div className="mainOrd">
             {isLoading && <Loading />}
-            <div className="tabletable-responsive table-info">
+            <div className="table table-responsive table-info">
               {filteredOrders.length === 0 ? (
                 <p className="emptyP2">No order found</p>
               ) : (
-                <table className="tableContainer">
+                <table className="tableContainerOrder">
                   <thead>
                     <tr>
                       <th className="thOrderUsers">s/n</th>

@@ -31,7 +31,7 @@ export default function OrderHistory() {
   }, [dispatch, data]);
 
   const handleClick = (id) => {
-    navigate(`/profile/order-details/${id}`);
+    navigate(`/admin/order-details/${id}`);
   };
 
   return (
@@ -49,7 +49,7 @@ export default function OrderHistory() {
             {currentServices.length === 0 ? (
               <p>No order found</p>
             ) : (
-              <table className="tableOrd">
+              <table className="tableOrdAd">
                 <thead className="thead1">
                   <tr>
                     <th>s/n</th>
