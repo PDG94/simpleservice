@@ -83,7 +83,7 @@ export default function OrdersDetail() {
                       </td>
                       <td className="tdOrderUsers2">
                         <Link to={`/profile/order-review/${id}`}>
-                          <button className="btnOrderUser btn btn-dark">Review Product</button>
+                          <button className="btnOrderUser btn btn-dark">Review</button>
                         </Link>
                       </td>
                     </tr>

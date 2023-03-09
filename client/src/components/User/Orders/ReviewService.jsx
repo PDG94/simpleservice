@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import StarsRating from "react-star-rate";
 import Loading from "../../Loading/Loading";
@@ -18,6 +18,7 @@ export default function ReviewService() {
   const service = useSelector((state) => state.services.serviceDetail);
   const userID = useSelector((state) => state.users.userID);
   const userEmail = useSelector((state) => state.users.email);
+  const navigate = useNavigate()
   const userEmail1 = userEmail.slice(0, -10);
   const [rate, setRate] = useState(0);
   const [review, setReview] = useState("");
@@ -44,9 +45,19 @@ export default function ReviewService() {
       toast.success("Review submitted successfully");
       setRate(0);
       setReview("");
+      navigate(`/Detail/${id}`)
+      
     } catch (error) {
       toast.error(error.message);
     }
+  };
+
+  const isObjectEmpty = (objectName) => {
+    return (
+      objectName &&
+      Object.keys(objectName).length === 0 &&
+      objectName.constructor === Object
+    );
   };
 
   return (
@@ -60,25 +71,27 @@ export default function ReviewService() {
         <div className="boxRev">
           <br />
           <br/>
-          <h2 className="h2Rev">Review Products</h2>
+          <h2 className="h2Rev">Review Services</h2>
           <br />
           {service === null ? (
             <Loading />
           ) : (
             <div className="revName">
               <p className="pRev">
-                <b>Product name:</b> {service.servicename}
+                <b>Service name:</b> { service && !isObjectEmpty(service)? service[0].servicename : 0}
               </p>
+              <div className="profilePic">
               <img
-                src={service["Users.profilepic"]}
+                src={service && !isObjectEmpty(service)? service[0].Users[0].profilepic || service[0].serviceimage : 0}
                 alt={service.name}
                 style={{ width: "200px" }}
               />
             </div>
+            </div>
           )}
           <form onSubmit={(e) => submitReview(e)}>
             <div className="stars">
-              <div className="ratinRev">Rating :   </div>
+              <div className="ratinRev">Rating :</div>
               <StarsRating
               value={rate}
               onChange={(rate) => {
