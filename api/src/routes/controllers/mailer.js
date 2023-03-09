@@ -18,7 +18,7 @@ const mailActivateAccount = async (name, email) => {
             <h4>Thank you for registering.</h4>
             <hr />            
             <div>                        
-              <p>Cordialy</p>
+              <p>Regards,</p>
               <p>Your friends at Simple Service</p>
             </div>        
           `,
@@ -35,7 +35,7 @@ const pago = async (name, email, amount, items) => {
             <h1>Thank you for your purchase of ${items} worth $${amount}.</h1>
             <hr />            
             <div>                        
-              <p>Cordialy</p>
+              <p>Regards,</p>
               <p>Your friends at Simple Service</p>
             </div>        
          `,
@@ -52,7 +52,7 @@ const datos = async (name, email) => {
             <h1>Your user info has been updated.</h1>
             <hr />            
             <div>                        
-              <p>Cordialy</p>
+              <p>Regards,</p>
               <p>Your friends at Simple Service</p>
             </div>        
          `,
@@ -70,7 +70,7 @@ const baja = async (name, email) => {
             <h1>Your account has been successfully cancelled.</h1>
             <hr />            
             <div>                        
-              <p>Cordialy</p>
+              <p>Regards,</p>
               <p>Your friends at Simple Service</p>
             </div>        
          `,
@@ -87,7 +87,7 @@ const active = async (name, email) => {
             <h1>Your account has been successfully activated.</h1>
             <hr />            
             <div>                        
-              <p>Cordialy</p>
+              <p>Regards,</p>
               <p>Your friends at Simple Service</p>
             </div>        
          `,
