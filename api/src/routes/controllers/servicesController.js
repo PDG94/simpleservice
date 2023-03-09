@@ -81,9 +81,6 @@ const getServiceById = async ({ id }) => {
 };
 
 const orderService = async (attributes, direction) => {
-  console.log("existo");
-  console.log(attributes);
-  console.log(direction);
   const order = await Card.findAll({
     order: [[attributes, direction]],
     include: {
@@ -92,7 +89,6 @@ const orderService = async (attributes, direction) => {
     },
     raw: true,
   });
-  console.log(order);
   return order;
 };
 const getServiceByDescription = async (valdescription) => {
