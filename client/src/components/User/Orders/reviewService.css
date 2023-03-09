@@ -100,3 +100,7 @@ margin-top: 2%;
     color: #1a1a25;
    box-shadow: 0 0 10px 4px #6fffe9;
   }   
+.profilePic{
+    margin-bottom: 2%;
+    border-radius: 10px;
+}
