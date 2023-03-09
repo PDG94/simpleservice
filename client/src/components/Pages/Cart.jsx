@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Notiflix from "notiflix";
 import {
   addToExinstingCart,
   addNewCart,
@@ -134,6 +135,26 @@ const Cart = () => {
     dispatch(subTotalCalc(calculateSubTotal()));
   };
 
+  const confirmDelete = (id) => {
+    Notiflix.Confirm.show(
+      "Clear Cart",
+      "You are about to clear the cart",
+      "Delete",
+      "Cancel",
+      function okCb() {
+        clearCart1(id);
+      },
+      function cancelCb() {
+        alert("If you say so...");
+      },
+      {
+        width: "320px",
+        borderRadius: "8px",
+      }
+    );
+  };
+
+
   return (
     <div className="containerCart">
       <NavBar />
@@ -236,7 +257,7 @@ const Cart = () => {
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
-                <button className="btnRED btn btn-danger" onClick={clearCart1}>
+                <button className="btnRED btn btn-danger" onClick={()=>confirmDelete()}>
                   Clear Cart
                 </button>
               </div>
