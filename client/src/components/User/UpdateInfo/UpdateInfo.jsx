@@ -90,7 +90,7 @@ export default function UpdateInfoUser() {
       );
 
       toast.success("User update successfully!");
-      navigate("/Services");
+      navigate("/profile");
 
     } catch (error) {
       console.log(error);

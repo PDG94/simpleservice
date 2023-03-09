@@ -23,13 +23,14 @@ export default function OrdersDetail() {
             <button className="backCr">Back</button>
         </Link>
         <div className="MainBoxUserOrder">
+          <br/>
         <h2 className="h2OrderUser">Order Details</h2>
        
         
         {order === null ? (
           <Loading />
         ) : (
-          < div className="tabletable-responsive table-info">
+          < div className="">
             <div className="psOrder">
             <p >
               <b>Order ID:</b> {order.id}
@@ -42,7 +43,7 @@ export default function OrdersDetail() {
             </p>
             </div>
             
-            <table className="tableContainerDetail">
+            <table className="tableContainerDetail table table-responsive table-info">
               <thead>
                 <tr>
                   <th className="thOrderDetail">s/n</th>
@@ -80,11 +81,11 @@ export default function OrdersDetail() {
                         {"$"}
                         {(price * cartQuantity).toFixed(2)}
                       </td>
-                      
+                      <td className="tdOrderUsers2">
                         <Link to={`/profile/order-review/${id}`}>
-                          <button className="btnOrderUser">Review Product</button>
+                          <button className="btnOrderUser btn btn-dark">Review Product</button>
                         </Link>
-                      
+                      </td>
                     </tr>
                  </tbody>
                   );
