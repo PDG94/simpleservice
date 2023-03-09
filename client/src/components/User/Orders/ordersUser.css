@@ -21,7 +21,7 @@
 .mainOrd{
   width: 98%;
   height: 60%;
-   overflow-y: scroll;
+  overflow-y: scroll;
 }
 .h2OrderUser {
   margin-top: 2%;
@@ -51,20 +51,20 @@
   margin-left: 5%;
 
 }
-.tableContainer {
-  color: #91c2bb;
-
+.tableContainer{
+  font-family: 'Merienda', cursive;
 }
 .tdOrderUsers {
   font-family: "Merienda", cursive;
   letter-spacing: 1px;
-  color: #f0f3f2;
-  padding: 1%;
-  border-bottom: 1px solid #91c2bb;
+  color: rgb(45, 45, 47);
   cursor: pointer;
 }
 
 .tbodyUser {
   font-size: 120%;
   overflow: scroll;
+}
+.thOrderUsers{
+  font-size: 150%;
 }
