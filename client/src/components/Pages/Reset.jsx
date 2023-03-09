@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import forgot from "../Imagenes/forgot.png";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../components/Firebase/config";
@@ -11,14 +11,14 @@ import NavBar from "../NavBar/NavBar";
 export function Reset() {
   const [email, setEmail] = useState("");
   const [setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
+  
   function resetPassword(event) {
     event.preventDefault();
-    setIsLoading(true);
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        setIsLoading(false);
         toast.success("Check your email for a reset link");
+        navigate("/login");
       })
       .catch((error) => {
         setIsLoading(false);
