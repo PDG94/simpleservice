@@ -36,6 +36,7 @@ import {
   OrdersDetails,
   ViewAllUsers,
   UpdateServices,
+  OrderAdminDetail
 } from "./components/index";
 
 function App() {
@@ -121,6 +122,10 @@ function App() {
                 <Edit />
               </AdminOnlyRoute>
             }
+          />
+           <Route
+            path="/admin/order-details/:id"
+            element={<OrderAdminDetail />}
           />
           ------------User Profile-------------
           <Route

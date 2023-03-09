@@ -1,0 +1,80 @@
+.navAdminDet {
+  background-color: #252636;
+  margin-top: -10%;
+  position: fixed;
+}
+.detailAdmin {
+    background-color: #1a1a25;
+    width: 100%;
+    height: 100vh;
+  }
+.MainBoxAdminOrder {
+  background-color: #252636;
+  border-radius: 30px;
+  position: absolute;
+  margin-left: 25%;
+  width: 60%;
+  height: 80vh;
+  margin-top: 5%;
+  box-shadow: 0 0 25px #303246;
+  overflow-y: scroll;
+}
+
+.h1OrderAdmin {
+    margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 400%;
+  color: #e9eff2;
+}
+
+.backAdmin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 5%;
+  font-size: 160%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-left: 85%;
+  width: 7%;
+  color: #9f90ea;
+  letter-spacing: 3px;
+  border: 1px solid #9f90ea;
+  border-radius: 10px;
+  background-color: #1a1a25;
+}
+.backAdmin:hover {
+  border: 1px solid #e9eff2;
+  background-color: #9f90ea;
+  color: #1a1a25;
+  box-shadow: 0 0 10px 5px white;
+}
+.psOrderAdmin {
+  font-family: "Merienda", cursive;
+  margin-left: 5%;
+  text-align: left;
+  width: 50%;
+  color: #f0f3f2;
+  font-size: 120%;
+  margin-bottom: 5%;
+  letter-spacing: 1px;
+}
+.tableContainerDetAdmin {
+    
+  color: #1a1a25;
+  background-color: rgb(184, 184, 190);
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.tdOrderAdmin2 {
+  color: #1a1a25;
+  font-size: 135%;
+  font-weight: 700;
+}
