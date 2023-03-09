@@ -42,11 +42,6 @@ export default function Filter() {
     document.getElementById("ratingSelect").selectedIndex = 0;
   };
 
-  const handleRating = (e) => {
-    setFilter({ ...filter, order: "rating", direction: e.target.value });
-    document.getElementById("priceSelect").selectedIndex = 0;
-    document.getElementById("alphabetSelect").selectedIndex = 0;
-  };
 
   const handleSubmit = () => {
     dispatch(getServices());
@@ -85,7 +80,7 @@ export default function Filter() {
         >
           <option value="all">Price</option>
           <option value="DESC">More Price</option>
-          <option value="ASC">Low Price</option>
+          <option value="ASC">Less Price</option>
         </select>
 
         {/*ABC*/}
@@ -98,18 +93,6 @@ export default function Filter() {
           <option value="all">Alphabet</option>
           <option value="ASC">A-Z</option>
           <option value="DESC">Z-A</option>
-        </select>
-
-        {/*RATING*/}
-        <span className="spanFilter">Order services by </span>
-        <select
-          id="ratingSelect"
-          className="selectFilter"
-          onChange={(e) => handleRating(e)}
-        >
-          <option value="all">Rating</option>
-          <option value="DESC">More Rating</option>
-          <option value="ASC">Low Rating</option>
         </select>
 
         <button className="btnFilter" onClick={() => handleSubmit()}>
