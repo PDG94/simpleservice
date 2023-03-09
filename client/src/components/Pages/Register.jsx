@@ -46,7 +46,7 @@ export default function Register() {
             }
           );
           toast.success("Registration Successful!");
-          navigate("/home");
+          navigate("/Services");
 
         } catch (error) {
           console.log(error);

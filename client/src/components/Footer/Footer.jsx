@@ -140,31 +140,6 @@ export default function Footer() {
               SimpleService
             </a>
           </p>
-
-          <div className="footer-menu">
-            <div className="f-menu">
-              <div className="f-menuli">
-                <a className="aFooterBottom" href="/home">
-                  Home
-                </a>
-              </div>
-              <div className="f-menuli">
-                <a className="aFooterBottom" href="/register">
-                  Register
-                </a>
-              </div>
-              <div className="f-menuli">
-                <a className="aFooterBottom" href="/login">
-                  Login
-                </a>
-              </div>
-              <div className="f-menuli">
-                <a className="aFooterBottom" href="/Services">
-                  Services
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

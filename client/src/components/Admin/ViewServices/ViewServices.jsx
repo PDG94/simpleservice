@@ -20,6 +20,7 @@ export default function ViewServices() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    dispatch(resedPaged(currentPage));
     dispatch(getServices());
   }, [dispatch]);
 
@@ -98,15 +99,15 @@ export default function ViewServices() {
               <table className="tableContainer">
                 <thead>
                   <tr>
-                    <th className="thView">
+                    <th className="thAll">
                       {"  "}
                       s/n
                     </th>
-                    <th className="thView">Image</th>
-                    <th className="thView">Name</th>
-                    <th className="thView">Service</th>
-                    <th className="thView">Price</th>
-                    <th className="thView">Actions</th>
+                    <th className="thAll">Image</th>
+                    <th className="thAll">Name</th>
+                    <th className="thAll">Service</th>
+                    <th className="thAll">Price</th>
+                    <th className="thAll">Actions</th>
                   </tr>
                 </thead>
                 {currentServices.map((service, index) => {
