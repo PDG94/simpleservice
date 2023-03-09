@@ -53,6 +53,11 @@ export default function Filter() {
     dispatch(cardsFilter(filter));
     dispatch(resedPaged(1));
     resetFilter();
+    setFilter({
+      order: "",
+      direction: "",
+      categoryId: "",
+    });
   };
 
   return (
