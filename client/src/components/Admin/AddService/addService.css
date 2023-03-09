@@ -30,17 +30,16 @@ border-radius: 100%;
   margin-top: 5%;
 }
 .inpAdSer {
-    color: #1a1a25;
-    padding: 3% 30%;
+    padding: 3% ;
     margin-top: 1%;
   margin-bottom: 5%;
   border-radius: 10px;
   width: 60%;
-  background-color: #9f90ea80;
+  background-color: #9f90ea;
   font-weight: 600;
   letter-spacing: 1px;
-  font-size: 90%;
- 
+  font-size: 100%;
+  color: #1a1a25;
 }
 .choose{
 font-size: 205%;
