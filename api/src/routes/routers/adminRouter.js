@@ -51,17 +51,12 @@ adminRouter.delete("/categories/:id", deleteCategoryHandler);
 
 adminRouter.delete("/services/:id", deleteServiceHandler);
 
-adminRouter.get(
-  "/check",
-  middleware.decodeToken,
-  middleware.isThisAdmin,
-  (req, res) => {
-    try {
-      res.status(200).json(req.admin);
-    } catch (error) {
-      res.status(400).json({ message: "Not authorized" });
-    }
+adminRouter.get("/check", (req, res) => {
+  try {
+    res.status(200).json(req.admin);
+  } catch (error) {
+    res.status(400).json({ message: "Not authorized" });
   }
-);
+});
 
 module.exports = adminRouter;
