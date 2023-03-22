@@ -22,6 +22,7 @@ export default function ViewServices() {
   useEffect(() => {
     dispatch(resedPaged(currentPage));
     dispatch(getServices());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   //PAGINATION

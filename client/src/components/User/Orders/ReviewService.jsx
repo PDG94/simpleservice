@@ -18,7 +18,7 @@ export default function ReviewService() {
   const service = useSelector((state) => state.services.serviceDetail);
   const userID = useSelector((state) => state.users.userID);
   const userEmail = useSelector((state) => state.users.email);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const userEmail1 = userEmail.slice(0, -10);
   const [rate, setRate] = useState(0);
   const [review, setReview] = useState("");
@@ -45,8 +45,7 @@ export default function ReviewService() {
       toast.success("Review submitted successfully");
       setRate(0);
       setReview("");
-      navigate(`/Detail/${id}`)
-      
+      navigate(`/Detail/${id}`);
     } catch (error) {
       toast.error(error.message);
     }
@@ -70,7 +69,7 @@ export default function ReviewService() {
 
         <div className="boxRev">
           <br />
-          <br/>
+          <br />
           <h2 className="h2Rev">Review Services</h2>
           <br />
           {service === null ? (
@@ -78,41 +77,48 @@ export default function ReviewService() {
           ) : (
             <div className="revName">
               <p className="pRev">
-                <b>Service name:</b> { service && !isObjectEmpty(service)? service[0].servicename : 0}
+                <b>Service name:</b>{" "}
+                {service && !isObjectEmpty(service)
+                  ? service[0].servicename
+                  : 0}
               </p>
               <div className="profilePic">
-              <img
-                src={service && !isObjectEmpty(service)? service[0].Users[0].profilepic || service[0].serviceimage : 0}
-                alt={service.name}
-                style={{ width: "200px" }}
-              />
-            </div>
+                <img
+                  src={
+                    service && !isObjectEmpty(service)
+                      ? service[0].Users[0].profilepic ||
+                        service[0].serviceimage
+                      : 0
+                  }
+                  alt={service.name}
+                  style={{ width: "200px" }}
+                />
+              </div>
             </div>
           )}
           <form onSubmit={(e) => submitReview(e)}>
             <div className="stars">
               <div className="ratinRev">Rating :</div>
               <StarsRating
-              value={rate}
-              onChange={(rate) => {
-                setRate(rate);
-              }}
-              className="starsRev"
-            />
+                value={rate}
+                onChange={(rate) => {
+                  setRate(rate);
+                }}
+                className="starsRev"
+              />
             </div>
-          <div className="revArea">
-            <label className="revRev">Write your review:</label>
-            <textarea
-              className="textareaRev"
-              value={review}
-              required
-              onChange={(e) => setReview(e.target.value)}
-              cols="80"
-              rows="10"
-            >
-            </textarea>
-          </div>
-            
+            <div className="revArea">
+              <label className="revRev">Write your review:</label>
+              <textarea
+                className="textareaRev"
+                value={review}
+                required
+                onChange={(e) => setReview(e.target.value)}
+                cols="80"
+                rows="10"
+              ></textarea>
+            </div>
+
             <button type="submit" className="subRev">
               Submit Review
             </button>

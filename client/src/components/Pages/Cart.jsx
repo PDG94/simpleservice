@@ -154,7 +154,6 @@ const Cart = () => {
     );
   };
 
-
   return (
     <div className="containerCart">
       <NavBar />
@@ -257,7 +256,10 @@ const Cart = () => {
             </div>
             <div className="totalContainer">
               <div className="clearbtn">
-                <button className="btnRED btn btn-danger" onClick={()=>confirmDelete()}>
+                <button
+                  className="btnRED btn btn-danger"
+                  onClick={() => confirmDelete()}
+                >
                   Clear Cart
                 </button>
               </div>

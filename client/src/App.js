@@ -36,7 +36,7 @@ import {
   OrdersDetails,
   ViewAllUsers,
   UpdateServices,
-  OrderAdminDetail
+  OrderAdminDetail,
 } from "./components/index";
 
 function App() {
@@ -123,7 +123,7 @@ function App() {
               </AdminOnlyRoute>
             }
           />
-           <Route
+          <Route
             path="/admin/order-details/:id"
             element={<OrderAdminDetail />}
           />

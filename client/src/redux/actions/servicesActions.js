@@ -14,7 +14,7 @@ const errorlog = (e) => console.log(e.message || e);
 export const getServices = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://simpleservice-production.up.railway.app/services"
+      "https://simpleservice-lemon.vercel.app/services"
     );
     return dispatch(setServices(response.data));
   } catch (error) {
@@ -25,7 +25,7 @@ export const getServices = () => async (dispatch) => {
 export const getServiceDetail = (id) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://simpleservice-production.up.railway.app/services/${id}`
+      `https://simpleservice-lemon.vercel.app/services/${id}`
     );
     return dispatch(setServiceDetail(response.data));
   } catch (error) {
@@ -36,7 +36,7 @@ export const getServiceDetail = (id) => async (dispatch) => {
 export const getServiceList = (id) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://simpleservice-production.up.railway.app/categories/${id}`
+      `https://simpleservice-lemon.vercel.app/categories/${id}`
     );
     return dispatch(setServiceList(response.data[0].ServiceLists));
   } catch (error) {
@@ -63,7 +63,7 @@ export const clearName = () => (dispatch) => {
 export const getServicesByName = (name) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://simpleservice-production.up.railway.app/services?servicename=${name}`
+      `https://simpleservice-lemon.vercel.app/services?servicename=${name}`
     );
     return dispatch(serviceByName(response.data));
   } catch (error) {
@@ -77,19 +77,19 @@ export const cardsFilter = ({ order, direction, categoryId }) => async (
   try {
     if (order && direction && categoryId) {
       const response = await axios.get(
-        `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}&categoryId=${categoryId}`
+        `https://simpleservice-lemon.vercel.app/services?order=${order}&direction=${direction}&categoryId=${categoryId}`
       );
       return dispatch(filterServices(response.data));
     }
     if (order && direction) {
       const response = await axios.get(
-        `https://simpleservice-production.up.railway.app/services?order=${order}&direction=${direction}`
+        `https://simpleservice-lemon.vercel.app/services?order=${order}&direction=${direction}`
       );
       return dispatch(filterServices(response.data));
     }
     if (categoryId) {
       const response = await axios.get(
-        `https://simpleservice-production.up.railway.app/services?categoryId=${categoryId}`
+        `https://simpleservice-lemon.vercel.app/services?categoryId=${categoryId}`
       );
       return dispatch(filterServices(response.data));
     }

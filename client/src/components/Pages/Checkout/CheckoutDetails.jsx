@@ -78,30 +78,24 @@ const CheckOutForm = () => {
       //esta parte le envia el metodo de pago que tiene un id especial
       const { id } = paymentMethod;
 
-      const items = cartItems1.map(element =>element.servicename)
-      const itemsDesc = JSON.stringify(items)
+      const items = cartItems1.map((element) => element.servicename);
+      const itemsDesc = JSON.stringify(items);
       try {
-        await axios.post(
-          "https://simpleservice-production.up.railway.app/checkout",
-          {
-            amount: totalPayment,
-            id,
-            userID1,
-            userEmail: customerEmail,
-            items: cartItems1,
-            desc: itemsDesc,
-          }
-        );
-                
-        await axios.post(
-          "https://simpleservice-production.up.railway.app/pago",
-          {
-            name: customerName,
-            email: customerEmail,
-            amount: (totalPayment)/100,
-            items: items,
-          }
-        );
+        await axios.post("https://simpleservice-lemon.vercel.app/checkout", {
+          amount: totalPayment,
+          id,
+          userID1,
+          userEmail: customerEmail,
+          items: cartItems1,
+          desc: itemsDesc,
+        });
+
+        await axios.post("https://simpleservice-lemon.vercel.app/pago", {
+          name: customerName,
+          email: customerEmail,
+          amount: totalPayment / 100,
+          items: items,
+        });
         // elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
         saveOrder();
@@ -114,7 +108,6 @@ const CheckOutForm = () => {
     <div className="containerCheckDetail">
       <div className="contFor">
         <form className="formCheck" onSubmit={handleSubmit}>
-        
           <Link
             className="linkCheck"
             to="/cart"
@@ -124,7 +117,7 @@ const CheckOutForm = () => {
           >
             <button className="btnCheck">Go Back</button>
           </Link>
-          
+
           <h2 className="cardCheck">Enter your payment method</h2>
 
           <div className="chSum">
@@ -155,7 +148,7 @@ const CheckOutForm = () => {
                 style={{ width: "400px", height: "55px" }}
               >
                 Pay
-              </button>              
+              </button>
             </div>
           </div>
         </form>

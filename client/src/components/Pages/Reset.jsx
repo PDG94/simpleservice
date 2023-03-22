@@ -12,7 +12,7 @@ export function Reset() {
   const [email, setEmail] = useState("");
   const [setIsLoading] = useState(false);
   const navigate = useNavigate();
-  
+
   function resetPassword(event) {
     event.preventDefault();
     sendPasswordResetEmail(auth, email)

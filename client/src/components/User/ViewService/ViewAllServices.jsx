@@ -43,7 +43,7 @@ export default function ViewAllServices() {
       "Cancel",
       async function okCb() {
         await axios.put(
-          `https://simpleservice-production.up.railway.app/user/service/${id}`,
+          `https://simpleservice-lemon.vercel.app/user/service/${id}`,
 
           { active: false },
 

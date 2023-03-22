@@ -71,30 +71,25 @@ export default function UpdateInfoUser() {
 
     const info = await updateValidator();
 
-    try{
-
+    try {
       await axios.put(
-        `https://simpleservice-production.up.railway.app/user/${userID}`,
+        `https://simpleservice-lemon.vercel.app/user/${userID}`,
         info,
         {
           headers: { Authorization: "Bearer " + token },
         }
       );
 
-      await axios.post(
-        "https://simpleservice-production.up.railway.app/dato",
-        {
-          name: customerName,
-          email: customerEmail,
-        }
-      );
+      await axios.post("https://simpleservice-lemon.vercel.app/dato", {
+        name: customerName,
+        email: customerEmail,
+      });
 
       toast.success("User update successfully!");
       navigate("/profile");
-
     } catch (error) {
       console.log(error);
-    }    
+    }
   };
 
   return (

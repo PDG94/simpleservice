@@ -3,7 +3,11 @@ import "../PaginationAdmin/paginationAdmin.css";
 import { useDispatch, useSelector } from "react-redux";
 import { resedPaged } from "../../../redux/actions/miscActions";
 
-export default function PaginationAdmin({ servicesPerPage, allServices, paged }) {
+export default function PaginationAdmin({
+  servicesPerPage,
+  allServices,
+  paged,
+}) {
   const pageNumber = [];
   const dispatch = useDispatch();
 
@@ -70,4 +74,3 @@ export default function PaginationAdmin({ servicesPerPage, allServices, paged })
     </nav>
   );
 }
-

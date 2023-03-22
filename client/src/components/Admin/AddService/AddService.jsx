@@ -58,10 +58,7 @@ export default function AddService() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios.post(
-      "https://simpleservice-production.up.railway.app/admin/services",
-      form
-    );
+    axios.post("https://simpleservice-lemon.vercel.app/admin/services", form);
     navigate("/admin/home");
   };
 
@@ -95,7 +92,7 @@ export default function AddService() {
             <div>
               <p className="pService">Service Name</p>
               <input
-              style={{color:'#101010'}}
+                style={{ color: "#101010" }}
                 className="inpAdSer"
                 type="text"
                 placeholder=" "

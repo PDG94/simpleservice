@@ -1,25 +1,20 @@
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resedPaged } from "../../../redux/actions/miscActions";
 import "../PaginationAdmin/paginationAdmin.css";
-import '../Dashboard/dashboardPaginado.css'
+import "../Dashboard/dashboardPaginado.css";
 
 export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
   const currentPage = useSelector((state) => state.misc.currentPage); // 1
-  const pageNumbers = orders / servicesPerPage;
+
   const dispatch = useDispatch();
 
   //Limit the page numbers shown
-
-  const [maxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit] = useState(0);
 
   let pageNumber = [];
   for (let i = 1; i <= Math.ceil(orders / servicesPerPage); i++) {
     pageNumber.push(i);
   }
 
-  
   function handlePrev() {
     if (currentPage === 1) {
       dispatch(resedPaged(1));
@@ -77,5 +72,3 @@ export default function DashboardPaginado({ paged, orders, servicesPerPage }) {
     </nav>
   );
 }
-
-

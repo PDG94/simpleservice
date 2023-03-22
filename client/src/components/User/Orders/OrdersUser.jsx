@@ -53,7 +53,6 @@ export default function OrderHistory() {
                       <th className="thOrderUsers">Order Amount</th>
                       <th className="thOrderUsers">Order Status</th>
                     </tr>
-                    
                   </thead>
 
                   {filteredOrders.map((order, index) => {

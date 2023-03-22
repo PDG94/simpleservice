@@ -16,8 +16,8 @@ export default function OrderAdminDetail() {
 
   return (
     <div className="detailAdmin">
-    <div className="navAdminDet">
-      <NavBarAdmin />
+      <div className="navAdminDet">
+        <NavBarAdmin />
       </div>
       <div className="orderAdminDetail">
         <Link to="/admin/orders">
@@ -88,7 +88,6 @@ export default function OrderAdminDetail() {
           )}
         </div>
       </div>
-    
     </div>
   );
 }

@@ -41,7 +41,7 @@ import OrdersDetails from "./User/Orders/OrdersDetails";
 import ReviewService from "./User/Orders/ReviewService";
 import ViewAllUsers from "./Admin/ViewAllUsers/ViewAllUsers";
 import UpdateServices from "./User/UpdateServices/UpdateServices";
-import OrderAdminDetail from './Admin/Orders/OrderAdminDetail'
+import OrderAdminDetail from "./Admin/Orders/OrderAdminDetail";
 
 export {
   Card,
@@ -87,5 +87,5 @@ export {
   ReviewService,
   ViewAllUsers,
   UpdateServices,
-  OrderAdminDetail
+  OrderAdminDetail,
 };

@@ -51,21 +51,20 @@ export default function Detail() {
       ? serviceDetail[0].description.split(" ").length
       : 0;
 
-
   const filterReviews = data.filter((data) => data.productID === id);
-  const array =[]
- for(let i = 0; i < filterReviews.length; i ++){
- array.push(filterReviews[i].rate);
-}
-const promedio = array.length ? array.reduce((total, review) => total + review) / array.length : 0
-const slice3 =  promedio.toString().slice(0,3)
+  const array = [];
+  for (let i = 0; i < filterReviews.length; i++) {
+    array.push(filterReviews[i].rate);
+  }
+  const promedio = array.length
+    ? array.reduce((total, review) => total + review) / array.length
+    : 0;
+  const slice3 = promedio.toString().slice(0, 3);
 
   const cart = cartItems.find((cart) => cart.id === id);
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id;
   });
-
-
 
   const calculateTotalQuantity = () => {
     const array1 = [];
@@ -148,13 +147,13 @@ const slice3 =  promedio.toString().slice(0,3)
                           </p>
                           <div className="ratingDetail">
                             <label className="iconDetail">
-                              <hr/>
-                            <b className="bPromedio">{slice3}</b>
-                            <br/>
-                            <StarsRating value={promedio}/>
-                            <br/>
-                            <h5>{array.length} reviews </h5>
-                            <hr/>
+                              <hr />
+                              <b className="bPromedio">{slice3}</b>
+                              <br />
+                              <StarsRating value={promedio} />
+                              <br />
+                              <h5>{array.length} reviews </h5>
+                              <hr />
                             </label>{" "}
                             <p className="rat">{service?.rating}</p>
                           </div>
@@ -201,7 +200,9 @@ const slice3 =  promedio.toString().slice(0,3)
                           </ShowOnLogin>
                           <ShowOnLogout>
                             <Link to="/login">
-                              <button className="btnAdd2">Sign in to buy the product</button>
+                              <button className="btnAdd2">
+                                Sign in to buy the product
+                              </button>
                             </Link>
                           </ShowOnLogout>
                         </div>
@@ -282,9 +283,7 @@ const slice3 =  promedio.toString().slice(0,3)
                     )}
                   </div>
                 </div>
-                <div>
-                    
-                    </div>
+                <div></div>
               </div>
             );
           })

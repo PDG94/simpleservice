@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Footer } from "../../index";
 import "../Edit/edit.css";
 import { MdDescription } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
@@ -81,7 +80,7 @@ export default function Create() {
       return toast.error(Object.values(error).join(", "));
     }
     axios.put(
-      `https://simpleservice-production.up.railway.app/admin/services/${id}`,
+      `https://simpleservice-lemon.vercel.app/admin/services/${id}`,
       form,
       { headers: { Authorization: "Bearer " + token } }
     );
@@ -100,7 +99,10 @@ export default function Create() {
       </div>
       <div className="formEdit">
         <div className="containerEdit">
-          <h1 className="titleEdit">Update Service of User<MdEditNote className="iconEdit2" style={{width:200}}/></h1>
+          <h1 className="titleEdit">
+            Update Service of User
+            <MdEditNote className="iconEdit2" style={{ width: 200 }} />
+          </h1>
 
           <span className="spantitleEdit">Select a service</span>
           <select className="selEdit" onChange={(e) => handleServicesList(e)}>
