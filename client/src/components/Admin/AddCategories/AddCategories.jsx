@@ -39,7 +39,10 @@ export default function AddCategories() {
     if (Object.values(error).length) {
       return alert(Object.values(error).join("\n"));
     }
-    axios.post("https://simpleservice-lemon.vercel.app/admin/categories", form);
+    axios.post(
+      "https://simpleservice-production.up.railway.app/admin/categories",
+      form
+    );
     navigate("admin/home");
   };
 

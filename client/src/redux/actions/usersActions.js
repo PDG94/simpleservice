@@ -28,7 +28,7 @@ export const removeUsers = () => (dispatch) => {
 export const getUsers = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://simpleservice-lemon.vercel.app/users"
+      "https://simpleservice-production.up.railway.app/users"
     );
     return dispatch(setUsers(response.data));
   } catch (e) {
@@ -39,7 +39,7 @@ export const getUsers = () => async (dispatch) => {
 export const getServiceUser = (userId, token) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://simpleservice-lemon.vercel.app/user/${userId}`,
+      `https://simpleservice-production.up.railway.app/user/${userId}`,
       {
         headers: { Authorization: "Bearer " + token },
       }
@@ -53,7 +53,7 @@ export const getServiceUser = (userId, token) => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      `https://simpleservice-lemon.vercel.app/admin/users`,
+      `https://simpleservice-production.up.railway.app/admin/users`,
       {
         headers: { Authorization: "Bearer " + token },
       }
@@ -69,7 +69,7 @@ export const getAllUsers = () => async (dispatch) => {
 //POST REQUEST
 export const createdUser = (username, name, token, profilepic) => {
   axios.post(
-    "https://simpleservice-lemon.vercel.app/users",
+    "https://simpleservice-production.up.railway.app/users",
     { username, name, profilepic },
     {
       headers: { Authorization: "Bearer " + token },
@@ -80,13 +80,13 @@ export const createdUser = (username, name, token, profilepic) => {
 //LOGIN REQUEST
 export const userLogin = async (token) => {
   const userResponseLogin = await axios.get(
-    "https://simpleservice-lemon.vercel.app/login",
+    "https://simpleservice-production.up.railway.app/login",
     {
       headers: { Authorization: "Bearer " + token },
     }
   );
   if (userResponseLogin.data.message !== "User succesfully logged in") {
-    await axios.post("https://simpleservice-lemon.vercel.app/alta", {
+    await axios.post("https://simpleservice-production.up.railway.app/alta", {
       name: userResponseLogin.data.user.name,
       email: userResponseLogin.data.user.email,
     });

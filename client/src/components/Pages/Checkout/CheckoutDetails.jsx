@@ -81,21 +81,27 @@ const CheckOutForm = () => {
       const items = cartItems1.map((element) => element.servicename);
       const itemsDesc = JSON.stringify(items);
       try {
-        await axios.post("https://simpleservice-lemon.vercel.app/checkout", {
-          amount: totalPayment,
-          id,
-          userID1,
-          userEmail: customerEmail,
-          items: cartItems1,
-          desc: itemsDesc,
-        });
+        await axios.post(
+          "https://simpleservice-production.up.railway.app/checkout",
+          {
+            amount: totalPayment,
+            id,
+            userID1,
+            userEmail: customerEmail,
+            items: cartItems1,
+            desc: itemsDesc,
+          }
+        );
 
-        await axios.post("https://simpleservice-lemon.vercel.app/pago", {
-          name: customerName,
-          email: customerEmail,
-          amount: totalPayment / 100,
-          items: items,
-        });
+        await axios.post(
+          "https://simpleservice-production.up.railway.app/pago",
+          {
+            name: customerName,
+            email: customerEmail,
+            amount: totalPayment / 100,
+            items: items,
+          }
+        );
         // elements.getElement(CardNumberElement).clear();
         toast.success("Payment Succesful!");
         saveOrder();

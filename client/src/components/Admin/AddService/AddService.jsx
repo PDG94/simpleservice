@@ -58,7 +58,10 @@ export default function AddService() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios.post("https://simpleservice-lemon.vercel.app/admin/services", form);
+    axios.post(
+      "https://simpleservice-production.up.railway.app/admin/services",
+      form
+    );
     navigate("/admin/home");
   };
 

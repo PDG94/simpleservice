@@ -80,7 +80,7 @@ export default function Create() {
       return toast.error(Object.values(error).join(", "));
     }
     axios.put(
-      `https://simpleservice-lemon.vercel.app/admin/services/${id}`,
+      `https://simpleservice-production.up.railway.app/admin/services/${id}`,
       form,
       { headers: { Authorization: "Bearer " + token } }
     );

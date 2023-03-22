@@ -10,7 +10,7 @@ const errorlog = (e) => console.log(e.message || e);
 export const getCategories = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://simpleservice-lemon.vercel.app/categories"
+      "https://simpleservice-production.up.railway.app/categories"
     );
     return dispatch(setCategories(response.data));
   } catch (error) {
@@ -29,7 +29,7 @@ export const resedPaged = (payload) => (dispatch) => {
 export const adminMetrics = (token) => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://simpleservice-lemon.vercel.app/admin/metrics",
+      "https://simpleservice-production.up.railway.app/admin/metrics",
       {
         headers: { Authorization: "Bearer " + token },
       }

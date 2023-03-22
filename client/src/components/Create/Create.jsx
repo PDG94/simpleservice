@@ -76,9 +76,13 @@ export default function Create() {
     if (Object.values(error).length) {
       return toast.error(Object.values(error).join(", "));
     }
-    axios.post("https://simpleservice-lemon.vercel.app/services", form, {
-      headers: { Authorization: "Bearer " + token },
-    });
+    axios.post(
+      "https://simpleservice-production.up.railway.app/services",
+      form,
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
     toast.success("Service created successfully!");
     navigate("/services");
   };

@@ -87,14 +87,14 @@ export default function UpdateProfilesUsers() {
     const info = updateValidator();
 
     const userSelected = await axios.get(
-      `https://simpleservice-lemon.vercel.app/admin/users/${id}`,
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       {
         headers: { Authorization: "Bearer " + token },
       }
     );
 
     await axios.put(
-      `https://simpleservice-lemon.vercel.app/admin/users/${id}`,
+      `https://simpleservice-production.up.railway.app/admin/users/${id}`,
       info,
       {
         headers: { Authorization: "Bearer " + token },
@@ -102,17 +102,20 @@ export default function UpdateProfilesUsers() {
     );
 
     if (userSelected.data.active === true && info.active === false) {
-      await axios.post("https://simpleservice-lemon.vercel.app/baja", {
+      await axios.post("https://simpleservice-production.up.railway.app/baja", {
         name: userSelected.data.name,
         email: userSelected.data.email,
       });
     }
 
     if (userSelected.data.active === false && info.active === true) {
-      await axios.post("https://simpleservice-lemon.vercel.app/active", {
-        name: userSelected.data.name,
-        email: userSelected.data.email,
-      });
+      await axios.post(
+        "https://simpleservice-production.up.railway.app/active",
+        {
+          name: userSelected.data.name,
+          email: userSelected.data.email,
+        }
+      );
     }
     toast.success("User update successfully!");
     navigate("/admin/home");

@@ -73,14 +73,14 @@ export default function UpdateInfoUser() {
 
     try {
       await axios.put(
-        `https://simpleservice-lemon.vercel.app/user/${userID}`,
+        `https://simpleservice-production.up.railway.app/user/${userID}`,
         info,
         {
           headers: { Authorization: "Bearer " + token },
         }
       );
 
-      await axios.post("https://simpleservice-lemon.vercel.app/dato", {
+      await axios.post("https://simpleservice-production.up.railway.app/dato", {
         name: customerName,
         email: customerEmail,
       });

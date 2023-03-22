@@ -38,10 +38,13 @@ export default function Register() {
 
         setIsloading(false);
         try {
-          await axios.post("https://simpleservice-lemon.vercel.app/alta", {
-            name: input.name,
-            email: input.email,
-          });
+          await axios.post(
+            "https://simpleservice-production.up.railway.app/alta",
+            {
+              name: input.name,
+              email: input.email,
+            }
+          );
           toast.success("Registration Successful!");
           navigate("/Services");
         } catch (error) {
