@@ -7,7 +7,7 @@ const {
 
 const getUserHandler = async (req, res) => {
   try {
-    const { user_id } = req.user;
+    const { user_id } = req.params;
     const userInfo = await getUserInfo({ id: user_id });
     if (userInfo === null) {
       throw new Error("No user found");
@@ -20,7 +20,7 @@ const getUserHandler = async (req, res) => {
 
 const updateUserHandler = async (req, res) => {
   try {
-    const { user_id } = req.user;
+    const { user_id } = req.params;
     const params = { ...req.body, id: user_id };
     const userUpdated = await updateUserInfo(params);
     res.status(200).json({
@@ -34,7 +34,7 @@ const updateUserHandler = async (req, res) => {
 
 const deleteUserHandler = async (req, res) => {
   const active = false;
-  const { user_id } = req.user;
+  const { user_id } = req.params;
   const params = { id: user_id, active };
   const userDeleted = await deleteUser(params);
   res.status(200).json(userDeleted);
