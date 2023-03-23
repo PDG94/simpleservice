@@ -26,7 +26,7 @@ router.use("/categories", categoriesRouter);
 
 router.use("/login", loginRouter);
 
-router.use("/user", userRouter);
+router.use("/user", /* middleware.decodeToken, */ userRouter);
 
 router.use("/admin", adminRouter);
 
