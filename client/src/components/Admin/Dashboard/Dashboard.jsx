@@ -80,7 +80,9 @@ export default function Dashboard() {
                   </p>
                   <div className="circle1">
                     <div className="number1">
-                      <p>{servicePercentage.toFixed(2)}%</p>
+                      {(servicePercentage) => (
+                        <p>{servicePercentage.toFixed(2)}%</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -101,7 +103,9 @@ export default function Dashboard() {
                   <div className="progress">
                     <div className="circle2">
                       <div className="number2">
-                        <p>{usersPercentage.toFixed(2)}%</p>
+                        {(usersPercentage) => {
+                          <p>{usersPercentage.toFixed(2)}%</p>;
+                        }}
                       </div>
                     </div>
                   </div>
